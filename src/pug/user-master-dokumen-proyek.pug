@@ -63,61 +63,61 @@ block content
                   +bx('bx-info-circle')
                 .subtitle.text-primary
                   p.mb-0 Dokumen gambar dan dokumen pendukung yang diterbitkan oleh Konsultan Arsitek
+              .rounded.border
+                table.table.table-striped.striped-custom
+                  thead.subtitle.align-middle
+                    tr
+                      td.px-4
+                        .form-check.custom-check.body-super.mb-0
+                          input#all-proyek.form-check-input(type='checkbox' value='' data-group-checkbox='proyek')
+                      td Judul Dokumen Proyek
+                      td.text-center Ms. Office
+                      td.text-center PDF
+                      td.text-center CAD
+                      td Berlaku Sampai
+                      td Terakhir Diubah
+                      td.text-center
+                  tbody.body.align-middle
+                    each val in [1,2,3,4,5,6,7,8,9]
+                      tr
+                        td.px-4
+                          .form-check.custom-check.body-super.mb-0
+                            input.form-check-input(type='checkbox' value='' id='proyek'+val data-item-checkbox='proyek')
+                        td Dokumen Admin
+                        td.text-center
+                          button.btn.btn-light.rounded-pill
+                            +bx('bx-upload')
+                            span Unggah
+                        td.text-center
+                          button.btn.btn-light.rounded-pill
+                            +bx('bx-upload')
+                            span Unggah
+                        td.text-center
+                          button.btn.btn-light.rounded-pill
+                            +bx('bx-upload')
+                            span Unggah
+                        td kosong
+                        td kosong
+                        td.text-center
+                          .action-item
+                            button.btn.btn-light.btn-sm.p-2.rounded-circle.action-head(type="button")
+                              +bx('bx-dots-horizontal-rounded')
+                            .action-body.p-2
+                              button.btn.action-item
+                                +bx('bx-hide')
+                                span Sembunyikan
+                              button.btn.action-item.text-danger(type="button" data-bs-toggle="modal" data-bs-target="#data-proyek")
+                                +bx('bx-trash')
+                                span Hapus
+                +pagination('proyek')
           #struktur-pane.tab-pane.fade(role='tabpanel' aria-labelledby='home-tab' tabindex='1')
             .p-4.d-flex.flex-column.gap-4
-              h2 Dokumen Struktur
+              h2 Dokumen Struktur (No Figma)
           #mep-pane.tab-pane.fade(role='tabpanel' aria-labelledby='home-tab' tabindex='2')
             .p-4.d-flex.flex-column.gap-4
-              h2 Dokumen MEP
+              h2 Dokumen MEP (No Figma)
           #others-pane.tab-pane.fade(role='tabpanel' aria-labelledby='home-tab' tabindex='3')
             .p-4.d-flex.flex-column.gap-4
-              h2 Dokumen Lain-lain
-      .rounded.border
-        table.table.table-striped.striped-custom
-          thead.subtitle.align-middle
-            tr
-              td.px-4
-                .form-check.custom-check.body-super.mb-0
-                  input#all-proyek.form-check-input(type='checkbox' value='' data-group-checkbox='proyek')
-              td Judul Dokumen Proyek
-              td.text-center Ms. Office
-              td.text-center PDF
-              td.text-center CAD
-              td Berlaku Sampai
-              td Terakhir Diubah
-              td.text-center
-          tbody.body.align-middle
-            each val in [1,2,3,4,5,6,7,8,9]
-              tr
-                td.px-4
-                  .form-check.custom-check.body-super.mb-0
-                    input.form-check-input(type='checkbox' value='' id='proyek'+val data-item-checkbox='proyek')
-                td Dokumen Admin
-                td.text-center
-                  button.btn.btn-light.rounded-pill
-                    +bx('bx-upload')
-                    span Unggah
-                td.text-center
-                  button.btn.btn-light.rounded-pill
-                    +bx('bx-upload')
-                    span Unggah
-                td.text-center
-                  button.btn.btn-light.rounded-pill
-                    +bx('bx-upload')
-                    span Unggah
-                td kosong
-                td kosong
-                td.text-center
-                  .action-item
-                    button.btn.btn-light.btn-sm.p-2.rounded-circle.action-head(type="button")
-                      +bx('bx-dots-horizontal-rounded')
-                    .action-body.p-2
-                      button.btn.action-item
-                        +bx('bx-hide')
-                        span Sembunyikan
-                      button.btn.action-item.text-danger(type="button" data-bs-toggle="modal" data-bs-target="#data-proyek")
-                        +bx('bx-trash')
-                        span Hapus
-        +pagination('proyek')
+              h2 Dokumen Lain-lain (No Figma)
 block modal
   +modal_accept('data-proyek')(title="dokumen")

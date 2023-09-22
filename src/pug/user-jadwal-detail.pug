@@ -1,0 +1,158 @@
+---
+title: User - Dashboard
+header: Jadwal Perizinan
+---
+extends layouts/layout
+block header
+  include partials/header-other
+block content
+  .pb-5.mb-6
+    .p-5.mb-5.d-flex.flex-column.gap-4
+      .d-flex.gap-4.align-items-end
+        .flex-grow-1
+          label.form-label(for='pemohon') Pemohon
+          input#pemohon.form-control(type='text' disabled value="PT. HK Realtindo")
+        .flex-grow-1
+          label.form-label(for='proyek') Proyek
+          input#proyek.form-control(type='text' disabled value="Apartment Green Lake City")
+        div
+          select#filter.select.right(name="filter")
+            option(value="" data-display="Filter") Filter
+            option(value="filter 1") Filter 1
+        div
+          button.btn.border.text-success(type="button")
+            +bx('bx-export')
+            span Export
+      .py-1.px-2.bg-primary-subtle.text-primary.rounded
+        .d-flex.align-items-center.gap-2
+          span.d-flex.p-2
+            +bx('bx-info-circle')
+          p.mb-0.subtitle Silakan kunci jadwal izin, agar Mitra Lisensia segera dapat bekerja sesuai dengan jadwal yang telah Anda kunci. Namun apabila ada permintaan perubahan jadwal dari Mitra Lisensia, maka Anda dapat membuka kunci jadwal. Anda cukup memperhatikan Jadwal Pelaksanaan yang akan dibandingkan dengan jadwal rencana
+      .border.rounded
+        table.table.table-striped.striped-custom
+          thead.subtitle.align-middle
+            tr
+              td.py-3.ps-4 Jenis Izin
+              td.py-3 Langkah-langkah
+              td.py-3 Kontrol
+              td.py-3.cell-fit.text-center
+              td.pe-4(colspan="6") Agustus
+          tbody.body.align-middle
+            tr
+              td.py-1.px-4(colspan="4")
+              td.py-1.cell-fit.text-center.bg-white.border-start
+                div 1
+                small Sen
+              td.py-1.cell-fit.text-center.bg-white.border-start
+                div 2
+                small Sel
+              td.py-1.cell-fit.text-center.bg-white.border-start
+                div 3
+                small Rab
+              td.py-1.cell-fit.text-center.bg-white.border-start
+                div 4
+                small Kam
+              td.py-1.cell-fit.text-center.bg-white.border-start
+                div 5
+                small Jum
+              td.py-1.cell-fit.text-center.bg-white.border-start
+                div 6
+                small Sab
+            tr.table-info
+              td.py-3.ps-4.fw-bold(colspan="4") IMB Rumah Tinggal
+              td(colspan="6")
+            tr
+              td.py-3.ps-4(rowspan="2") IMB / PBG Rumah Tinggal
+              td.py-3 -
+              td.py-3 Rencana
+              td.py-3.cell-fit.text-center.bg-white(rowspan="2")
+                span.badge.border.d-inline-flex.gap-1.align-items-center.text-success
+                  +bx('bx-lock-open-alt')
+                  | Buka
+              td.py-3.cell-fit.text-center.bg-white.border-start
+              td.py-3.cell-fit.text-center.bg-white.border-start
+              td.py-3.cell-fit.text-center.border-start.table-danger
+              td.py-3.cell-fit.text-center.border-start.table-danger
+              td.py-3.cell-fit.text-center.bg-white.border-start
+              td.py-3.cell-fit.text-center.bg-white.border-start
+            tr
+              td.py-3 -
+              td.py-3 Pelaksanaan
+              td.py-3.cell-fit.text-center.bg-white.border-start
+              td.py-3.cell-fit.text-center.bg-white.border-start
+              td.py-3.cell-fit.text-center.border-start.table-danger
+              td.py-3.cell-fit.text-center.border-start.table-danger
+              td.py-3.cell-fit.text-center.bg-white.border-start
+              td.py-3.cell-fit.text-center.bg-white.border-start
+            tr.table-info
+              td.py-3.ps-4.fw-bold(colspan="4") IMB Non Rumah Tinggal
+              td(colspan="6")
+            tr
+              td.py-3.ps-4(rowspan="6") Izin Bongkar
+              td.py-3.elipsis-cell(rowspan="2") 1. Pemasukan Berkas ke DPM PTSP
+              td.py-3 Rencana
+              td.py-3.cell-fit.text-center.bg-white(rowspan="2")
+                span.badge.border.d-inline-flex.gap-1.align-items-center.text-warning
+                  +bx('bx-lock-alt')
+                  | Kunci
+              td.py-3.cell-fit.text-center.bg-white.border-start
+              td.py-3.cell-fit.text-center.bg-white.border-start
+              td.py-3.cell-fit.text-center.border-start.table-danger
+              td.py-3.cell-fit.text-center.border-start.table-danger
+              td.py-3.cell-fit.text-center.bg-white.border-start
+              td.py-3.cell-fit.text-center.bg-white.border-start
+            tr
+              td.py-3 Pelaksanaan
+              td.py-3.cell-fit.text-center.bg-white.border-start
+              td.py-3.cell-fit.text-center.bg-white.border-start
+              td.py-3.cell-fit.text-center.border-start.table-danger
+              td.py-3.cell-fit.text-center.border-start.table-danger
+              td.py-3.cell-fit.text-center.bg-white.border-start
+              td.py-3.cell-fit.text-center.bg-white.border-start
+            tr
+              td.py-3.elipsis-cell(rowspan="2") 2. Pengecekan administrasi & teknis oleh DPM PTSP
+              td.py-3 Rencana
+              td.py-3.cell-fit.text-center.bg-white(rowspan="2")
+                span.badge.border.d-inline-flex.gap-1.align-items-center.text-warning
+                  +bx('bx-lock-alt')
+                  | Kunci
+              td.py-3.cell-fit.text-center.bg-white.border-start
+              td.py-3.cell-fit.text-center.bg-white.border-start
+              td.py-3.cell-fit.text-center.border-start.table-danger
+              td.py-3.cell-fit.text-center.border-start.table-danger
+              td.py-3.cell-fit.text-center.bg-white.border-start
+              td.py-3.cell-fit.text-center.bg-white.border-start
+            tr
+              td.py-3 Pelaksanaan
+              td.py-3.cell-fit.text-center.bg-white.border-start
+              td.py-3.cell-fit.text-center.bg-white.border-start
+              td.py-3.cell-fit.text-center.border-start.table-danger
+              td.py-3.cell-fit.text-center.border-start.table-danger
+              td.py-3.cell-fit.text-center.bg-white.border-start
+              td.py-3.cell-fit.text-center.bg-white.border-start
+            tr
+              td.py-3.elipsis-cell(rowspan="2") 3. disposisi dari DPM PTSP ke Dinas Citata
+              td.py-3 Rencana
+              td.py-3.cell-fit.text-center.bg-white(rowspan="2")
+                span.badge.border.d-inline-flex.gap-1.align-items-center.text-warning
+                  +bx('bx-lock-alt')
+                  | Kunci
+              td.py-3.cell-fit.text-center.bg-white.border-start
+              td.py-3.cell-fit.text-center.bg-white.border-start
+              td.py-3.cell-fit.text-center.border-start.table-danger
+              td.py-3.cell-fit.text-center.border-start.table-danger
+              td.py-3.cell-fit.text-center.bg-white.border-start
+              td.py-3.cell-fit.text-center.bg-white.border-start
+            tr
+              td.py-3 Pelaksanaan
+              td.py-3.cell-fit.text-center.bg-white.border-start
+              td.py-3.cell-fit.text-center.bg-white.border-start
+              td.py-3.cell-fit.text-center.border-start.table-danger
+              td.py-3.cell-fit.text-center.border-start.table-danger
+              td.py-3.cell-fit.text-center.bg-white.border-start
+              td.py-3.cell-fit.text-center.bg-white.border-start
+        .p-4
+block modal
+  +footer_back
+    button.btn.btn-light.px-8(type="button") Cancel
+    button.btn.btn-primary.ms-4.px-8(type="button") Save

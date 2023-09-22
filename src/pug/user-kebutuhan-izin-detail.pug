@@ -1,0 +1,70 @@
+---
+title: User - Dashboard
+header: Surat Permohonan
+---
+extends layouts/layout
+block header
+  include partials/header-other
+block content
+  .pb-5.mb-6
+    .container.py-5.mb-5
+      .d-flex.flex-column.gap-4
+        .border.rounded.py-1
+          table.table.table-no-bottom-border.mb-0
+            thead.subtitle.align-middle
+              tr
+                td.ps-4.py-4(colspan="3") Contoh Format Isian
+            tbody.body.align-middle
+              tr
+                td.ps-4
+                  .d-flex.align-items-center.gap-4
+                    +bx('bxs-file-pdf')(class="text-danger")
+                    span.flex-grow-1.elipsis-cell(data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="JYSFCY-2022_03_24_11_07_58.pdf")
+                      | JYSFCY-2022_03_24_11_07_58.pdf
+                td.text-light-emphasis 298.8kb
+                td.pe-4.cell-fit
+                  button.btn.btn-light.text-primary(type="button")
+                    +bx('bx-download')
+                    span Unduh
+        .border.rounded.py-1
+          table.table.table-no-bottom-border.mb-0
+            thead.subtitle.align-middle
+              tr
+                td.ps-4.py-4(colspan="3") Contoh Dokumen
+            tbody.body.align-middle
+              tr
+                td.ps-4
+                  .d-flex.align-items-center.gap-4
+                    +bx('bxs-file-pdf')(class="text-danger")
+                    span.flex-grow-1.elipsis-cell(data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="JYSFCY-2022_03_24_11_07_58.pdf")
+                      | JYSFCY-2022_03_24_11_07_58.pdf
+                td.text-light-emphasis 298.8kb
+                td.pe-4.cell-fit
+                  button.btn.btn-light.text-primary(type="button")
+                    +bx('bx-download')
+                    span Unduh
+        div.px-3
+          hr.my-3
+        div
+          label.form-label(for="ms-office")  Upload Format Ms. Office
+          +file_upload('ms-office')
+        div
+          label.form-label(for="pdf")  Upload Format PDF
+          +file_upload('pdf')
+        div
+          label.form-label(for="cad")  Upload Format CAD
+          +file_upload('cad')
+        div
+          .row.row-cols-2
+            .col
+              div
+                label.form-label(for='exp') Berlaku Sampai
+                input#exp.form-control(type='date' disabled placeholder='25-12-2023')
+            .col
+              div
+                label.form-label(for='lastchange') Terakhir Diubah
+                input#lastchange.form-control(type='date' disabled placeholder='25-12-2023')
+block modal
+  +footer_back
+    button.btn.btn-light.px-8(type="button") Cancel
+    button.btn.btn-primary.ms-4.px-8(type="button") Save

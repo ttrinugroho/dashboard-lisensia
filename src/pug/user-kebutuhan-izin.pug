@@ -1,0 +1,211 @@
+---
+title: User - Dashboard
+currentUrl: user-kebutuhan-izin
+category: izin
+header: Kebutuhan Izin
+---
+extends layouts/layout
+block header
+  include partials/header-dashboard
+  include partials/sidebar-user
+block content
+  +main_dashboard()
+    .d-flex.flex-column.gap-5
+      .p-4.bg-light.rounded
+        .d-flex.align-items-center.gap-4
+          .flex-grow-1
+            div
+              label.form-label Pemohon
+              select.select.wide
+                option(value='') PT HK Realtindo
+                option(value='1') PT Realtindo HK
+                option(value='2') HK Realtindo PT
+                option(value='3') Realtindo HK PT
+                option(value='4') HK PT Realtindo
+            .form-check.body-super
+              input#pemohon-default.form-check-input(type='checkbox' value='')
+              label.form-check-label.body(for='pemohon-default')
+                | Jadikan pemohon sebagai default
+          .flex-grow-1
+            div
+              label.form-label Proyek
+              select.select.wide
+                option(value='') Apartment Green Lake City
+                option(value='1') PT Realtindo HK
+                option(value='2') HK Realtindo PT
+                option(value='3') Realtindo HK PT
+                option(value='4') HK PT Realtindo
+            .form-check.body-super
+              input#lokasi-default.form-check-input(type='checkbox' value='')
+              label.form-check-label.body(for='lokasi-default')
+                | Jadikan lokasi sebagai default
+          div
+            button.btn.btn-primary
+              span Tampilkan
+
+      .div
+        .row.g-2
+          .col-auto
+            .bg-light.p-4
+              h6 Kebutuhan Perizinan
+              p.subtitle IMB Rumah Tinggal
+              .d-flex.justify-content-between.align-items-center.bg-primary-subtle.px-4.py-2
+                p.mb-0.subtitle.text-primary IMB/PBG Rumah Tinggal
+                button.btn.text-danger(type="button")
+                  +bx('bx-trash')
+              hr
+              p.subtitle IMB non Rumah Tinggal
+              .d-grid.mb-4
+                a.btn.justify-content-start.text-primary(href="/")
+                  Izin Bongkar
+                a.btn.justify-content-start.text-primary(href="/")
+                  | IMB non Rumah Tinggal > 8 lantai
+              .d-grid
+                button.btn.btn-primary(type="button" data-bs-toggle="modal" data-bs-target="#modal-tambah-tanah")
+                  +bx('bx-plus')
+                  span Data Kebutuhan Izin
+          .col
+            .d-flex.flex-column.gap-4
+              .py-4.px-2.bg-warning-subtle.text-warning.rounded
+                .d-flex.align-items-center.gap-2.mb-4
+                  span.d-flex.p-2
+                    +bx('bx-info-circle')
+                  p.mb-0.subtitle Anda belum mempunyai izin yang dibutuhkan. Silakan klik Order untuk order ke Lisensia atau urus sendiri dengan panduan langkah-langkah yang ada di platform Lisensia
+                .text-end
+                  a.btn.btn-primary(href="/user-kebutuhan-izin-order-detail.html")
+                    +bx('bx-plus')
+                    span Order
+              .py-1.px-2.bg-success-subtle.text-success.rounded
+                .d-flex.align-items-center.gap-2
+                  span.d-flex.p-2
+                    +bx('bx-info-circle')
+                  p.mb-0.subtitle Order Pengurusan izin Anda berhasil terdaftar di nomor: ORD568976
+              .border.rounded
+                table.table.table-light.table-no-bottom-border.mb-0
+                  thead.subtitle.align-middle
+                    tr
+                      td.ps-4 Izin Syarat Dari Pemda
+                      td
+                      td Link
+                      td.pe-4.cell-fit
+                  tbody.body.align-middle
+                    tr
+                      td.ps-4
+                        .d-flex.align-items-center.gap-4
+                          +bx('bxs-file-pdf')(class="text-danger")
+                          span.elipsis-cell(data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="JYSFCY-2022_03_24_11_07_58.pdf")
+                            | JYSFCY-2022_03_24_11_07_58.pdf
+                      td.text-light-emphasis 298.8kb
+                      td
+                        span.d-block.elipsis-cell(data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="https://pelayanan.jakarta.go.id/download/dok_perizinan/JYSFCY-2022_03_24_11_07_58.pdf")
+                          | https://pelayanan.jakarta.go.id/download/dok_perizinan/JYSFCY-2022_03_24_11_07_58.pdf
+                      td.pe-4.cell-fit
+                        button.btn.btn-light.text-primary(type="button")
+                          +bx('bx-download')
+                          span Unduh
+              .border.rounded
+                table.table.table-light.table-no-bottom-border.mb-0
+                  thead.subtitle.align-middle
+                    tr
+                      td.px-4 Izin Syarat Dari Pemda
+                      td
+                      td Link
+                      td.px-4.cell-fit
+                  tbody.body.align-middle
+                    tr
+                      td.px-4
+                        .d-flex.align-items-center.gap-4
+                          +bx('bxs-file-pdf')(class="text-danger")
+                          span.elipsis-cell(data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="JYSFCY-2022_03_24_11_07_58.pdf")
+                            | JYSFCY-2022_03_24_11_07_58.pdf
+                      td.text-light-emphasis 298.8kb
+                      td
+                        span.d-block.elipsis-cell(data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="https://pelayanan.jakarta.go.id/download/dok_perizinan/JYSFCY-2022_03_24_11_07_58.pdf")
+                          | https://pelayanan.jakarta.go.id/download/dok_perizinan/JYSFCY-2022_03_24_11_07_58.pdf
+                      td.px-4.cell-fit
+                        button.btn.btn-light.text-primary(type="button")
+                          +bx('bx-download')
+                          span Unduh
+              div
+                h6.subtitle Checklist Syarat Izin
+                .rounded.bg-primary-subtle.d-flex.align-items-center.gap-3.text-primary.p-2.mb-2
+                  .d-flex.p-2
+                    +bx('bx-info-circle')
+                  p.subtitle.mb-0 Beberapa syarat izin yang sudah ada dapat dilihat di menu Berkas Saya, sehingga tidak perlu upload
+
+                .border.rounded
+                  table.table.table-striped.striped-custom.table-no-bottom-border.mb-0
+                    thead.subtitle.align-middle
+                      tr
+                        td.px-4 Kategori
+                        td Syarat
+                        td.text-center Details
+                        td.text-center Files
+                        td.px-4.cell-fit Status
+                    tbody.body.align-middle
+                      each i in [1,2,3]
+                        tr
+                          td.px-4 Dokumen Admin
+                          td Surat Permohonan
+                          td.text-center
+                            button.btn.btn-primary.rounded-pill
+                              span Lihat & Upload
+                          td.text-center
+                            span.align-middle 1/#{i}
+                            button.btn.btn-sm.p-1.caption-small(data-bs-toggle="popover" data-bs-target="hover focus" data-bs-placement="top" data-bs-html="true" data-bs-content="<div><i class='bx text-primary bxs-file-doc'></i> 1233234.doc</div><div><i class='bx text-danger bxs-file-pdf'></i> 1233234.pdf</div><div><i class='bx bxs-file-blank'></i> 1233234.pdf</div>")
+                              +bx('bx-info-circle')(class="text-primary")
+                          td.px-4.cell-fit
+                            select.select.small.right
+                              option(value="") Belum Ada
+                              option(value="ada") Sudah Ada
+                              option(value="1") Berkas Saya &rarr; Legalitas
+                              option(value="1") Berkas Saya &rarr; Tanah
+                              option(value="1") Berkas Saya &rarr; Dok. Proyek
+              .border.rounded.p-4.d-flex.justify-content-between.align-items-center.bg-light
+                p.subtitle.mb-0 Kebutuhan izin Anda dikerjakan oleh
+                div
+                  input.form-control(type="text" disabled)
+              div
+                h6.subtitle Checklist Kebutuhan Izin
+                .border.rounded
+                  table.table.table-striped.striped-custom.table-no-bottom-border.mb-0
+                    thead.subtitle.align-middle
+                      tr
+                        td.px-4 Jenis Izin
+                        td Contoh
+                        td.px-4.cell-fit Status
+                    tbody.body.align-middle
+                      tr
+                        td.px-4 KK dan KTP
+                        td
+                          button.btn.btn-light.btn-sm(type="button")
+                            +bx('bx-download')
+                            span Download
+                        td.px-4.cell-fit
+                          select.select.small.right
+                            option(value="") Belum Ada
+                            option(value="ada") Sudah Ada
+                            option(value="1") Berkas Saya &rarr; Legalitas
+                            option(value="1") Berkas Saya &rarr; Tanah
+                            option(value="1") Berkas Saya &rarr; Dok. Proyek
+              .text-center.mb-4
+                button.btn.btn-primary(type="button")
+                  span Simpan Data
+block modal
+  +modal_with_close('modal-tambah-kebutuhan-izin',"Tambah Kebutuhan Izin")
+    .d-flex.flex-column.gap-4.p-4
+      div
+        label.form-label(for="") Kategori Izin
+        select.select.small.right
+          option(value="") Pilih Kategori Izin
+          option(value="k1") Kategori 1
+          option(value="k2") Kategori 2
+          option(value="k3") Kategori 3
+          option(value="k4") Kategori 4
+      div
+        label.form-label(for="") Izin
+        select.select.small.right
+          option(value="") Pilih Izin
+          option(value="izin-1") Izin 1
+          option(value="izin-2") Izin 2
+          option(value="izin-3") Izin 3

@@ -1,0 +1,153 @@
+---
+title: User - Dashboard
+currentUrl: user-kronologi
+category: izin
+header: Kronologi
+---
+extends layouts/layout
+block header
+  include partials/header-dashboard
+  include partials/sidebar-user
+block content
+  +main_dashboard()
+    .d-flex.flex-column.gap-5
+      .py-1.px-2.bg-warning-subtle.text-warning.rounded
+        .d-flex.align-items-center.gap-2
+          span.d-flex.p-2
+            +bx('bx-info-circle')
+          p.mb-0.subtitle Mohon menunggu, Kronologi proses izin Anda sedang disusun oleh Mitra Lisensia. Anda dapat terlibat dalam update Kronologis ketika outstanding perizinan bolanya ada di Anda.
+      .p-4.bg-light.rounded
+        .d-flex.align-items-center.gap-4
+          .flex-grow-1
+            div
+              label.form-label Pemohon
+              select.select.wide
+                option(value='') PT HK Realtindo
+                option(value='1') PT Realtindo HK
+                option(value='2') HK Realtindo PT
+                option(value='3') Realtindo HK PT
+                option(value='4') HK PT Realtindo
+            .form-check.body-super
+              input#pemohon-default.form-check-input(type='checkbox' value='')
+              label.form-check-label.body(for='pemohon-default')
+                | Jadikan pemohon sebagai default
+          .flex-grow-1
+            div
+              label.form-label Proyek
+              select.select.wide
+                option(value='') Apartment Green Lake City
+                option(value='1') PT Realtindo HK
+                option(value='2') HK Realtindo PT
+                option(value='3') Realtindo HK PT
+                option(value='4') HK PT Realtindo
+            .form-check.body-super
+              input#lokasi-default.form-check-input(type='checkbox' value='')
+              label.form-check-label.body(for='lokasi-default')
+                | Jadikan lokasi sebagai default
+          div
+            button.btn.btn-primary
+              span Tampilkan
+      .py-1.px-2.bg-warning-subtle.text-warning.rounded
+        .d-flex.align-items-center.gap-2
+          span.d-flex.p-2
+            +bx('bx-info-circle')
+          p.mb-0.subtitle Kronologi tidak bisa diinput, karena Mitra Lisensia belum menyusun jadwal. Silakan approve jadwan perizinan terlebih dahulu agar dikunci jadwalnya dan tidak berubah
+      .div
+        .row.g-2
+          .col-auto
+            .bg-light.p-4
+              h6 Kebutuhan Perizinan
+              p.subtitle IMB Rumah Tinggal
+              .d-flex.justify-content-between.align-items-center.bg-primary-subtle.px-4.py-2
+                p.mb-0.subtitle.text-primary IMB/PBG Rumah Tinggal
+                button.btn.text-danger(type="button")
+                  +bx('bx-trash')
+              hr
+              p.subtitle IMB non Rumah Tinggal
+              .d-grid.mb-4
+                a.btn.justify-content-start.text-primary(href="/")
+                  Izin Bongkar
+                a.btn.justify-content-start.text-primary(href="/")
+                  | IMB non Rumah Tinggal > 8 lantai
+              .d-grid
+                button.btn.btn-primary(type="button" data-bs-toggle="modal" data-bs-target="#modal-tambah-tanah")
+                  +bx('bx-plus')
+                  span Data Kebutuhan Izin
+          .col
+            .d-flex.flex-column.gap-2
+              .border.rounded
+                table.table.table-striped.striped-custom.table-no-bottom-border
+                  thead.subtitle.align-middle
+                    tr
+                      td.ps-4 Jenis Izin
+                      td Terakhir Update
+                      td Outstanding
+                      td.cell-fit.text-center Status
+                      td.pe-4.cell-fit.text-center
+                  tbody.body.align-middle
+                    tr
+                      td.ps-4 Izin Bongkar
+                      td 2022-06-13 23:52:03
+                      td Time Owner <i class="bx bx-error text-danger"></i>
+                      td.cell-fit.text-center
+                        span.badge.border.border-success.text-success
+                          | On Schedule
+                      td.pe-4.cell-fit.text-center
+                        button.btn.p-2(type="button")
+                          +bx('bx-cog')
+              .py-1.px-2.bg-primary-subtle.text-primary.rounded
+                .d-flex.align-items-center.gap-2
+                  span.d-flex.p-2
+                    +bx('bx-info-circle')
+                  p.mb-0.subtitle Outstanding berada disisi Owner. Maka silakan Anda sebagai PIC owner melihat menu Tugas-tugas, kemudian melakukan update kronologis untuk menyelesaikan outstanding tersebut
+              .p-4.border.rounded
+                .d-flex.align-items-center.justify-content-between
+                  div
+                    p.subtitle.mb-2 Kronologis
+                    h6.subtitle.fw-semibold IMB/PBG Rumah Tinggal
+                  div
+                    button.btn.btn-primary(type="button")
+                      +bx('bx-plus')
+                      span Input Kronologis
+                .d-flex.align-items-center.gap-2
+                  div.text-primary.d-flex
+                    +bx('bxs-circle')
+                  .flex-grow-1
+                    p.subtitle.fw-semibold.mb-0 Tanggal 20-08-2023
+                    span.caption-small.fw-semibold.text-light-emphasis dibuat oleh user
+                  div
+                    button.btn.border.text-danger(type="button" data-bs-toggle="modal" data-bs-target="#modal-kronologi")
+                      +bx('bx-trash')
+                      span Hapus
+                .ps-2
+                  .p-4.border-start.d-flex.flex-column.gap-4
+                    div
+                      label.body.mb-2 Langkah
+                      p.fw-semibold Survey Lapangan
+                    div
+                      label.body.mb-2 Status
+                      div.subtitle-small
+                        span.badge.bg-success.py-2.px-6 Open
+                    div
+                      label.body.mb-2 Update Progress
+                      p.fw-semibold -
+                    div
+                      label.body.mb-2 Tugas Untuk
+                      p.fw-semibold Tim Permit - Arga Dinata
+                    div
+                      label.body.mb-2 Kekurangan
+                      p.fw-semibold -
+                    div
+                      label.body.mb-2 Lampiran
+                      .px-2.py-4.rounded.border
+                        .d-flex.align-items-center
+                          .d-flex.body-super.text-danger.me-2
+                            +bx('bxs-file-pdf')
+                          p.mb-0.body.flex-grow-1 JYSFCY-2022_03_24_11_07_58.pdf
+                          p.mb-0.body.text-light-emphasis.flex-grow-1 298.9kb
+                          div
+                            button.btn.border.rounded-pill.text-primary(type="button")
+                              +bx('bx-download')
+                              span Unduh
+block modal
+  +modal_accept('modal-kronologi')(title="kronologi")

@@ -80,7 +80,7 @@ mixin pagination(id)
         button.btn.px-2(type="button")
           +bx('bx-chevron-right')
     if id
-      .position-absolute.w-100.bottom-0.start-0.action-when-select.overflow-hidden.fade(id=id style="height:0;transform:translateY(110%)")
+      .position-absolute.w-100.bottom-0.start-0.overflow-hidden.fade(id=id style="height:1px;transform:translateY(110%)")
         .d-flex.align-items-center.border-top.rounded-bottom.bg-warning-subtle.pt-4.pb-4.px-4.justify-content-between
           .subtitle Selected <span class="text-warning fw-bold" id="count"></span> items
           button.btn.btn-warning.text-white.mb-1

@@ -7,22 +7,11 @@
 @import _sidebar
 @import _button-cstm
 @import _select
-.bx
-  font-size: 1.4375em
-svg.icon
-  transition: all 0.15s ease
-  height: 24px
-  width: 24px
 
 .collapsed-icon::before
   content: "\ea57"
 .collapsed .collapsed-icon::before
   content: "\ea4a"
-.btn
-  display: inline-flex
-  align-items: center
-  justify-content: center
-  gap: 12px
 
 .toggle-item
   .toggle-head
@@ -102,8 +91,6 @@ svg.icon
       display: inline-flex
       width: 100%
       justify-content: start
-.table.table-no-bottom-border > tbody:not(caption) > tr:last-child > *
-  border-bottom-width: 0
 
 .tab-fill.nav-tabs
   --bs-nav-tabs-link-active-bg: #{$primary}
@@ -120,13 +107,14 @@ svg.icon
     &:checked
       background-color: #fff
       --bs-form-check-bg-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3e%3cpath fill='none' stroke='%232882F5' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='m6 10 3 3 6-6'/%3e%3c/svg%3e")
-.table.table-striped.striped-custom
+.striped-custom
   --bs-table-striped-bg: #ffffff
   --bs-table-bg: rgba(0,0,0,.05)
-.action-when-select
-  transition: all .300s ease-in-out
-.maps-container
-  max-height: 250px
+.table.table-no-bottom-border > tbody:not(caption) > tr:last-child > *
+  border-bottom-width: 0
+.cell-fit
+  white-space: nowrap
+  width: 1%
 
 .photo-proyek
   width: 48px
@@ -160,7 +148,7 @@ svg.icon
     top: 0
     right: 0
     width: 100%
-.elipsis-table
+.elipsis-cell
   max-width: 215px
   white-space: nowrap
   width: 50px

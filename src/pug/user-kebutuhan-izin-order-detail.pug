@@ -1,0 +1,53 @@
+---
+title: User - Dashboard
+header: Order
+---
+extends layouts/layout
+block header
+  include partials/header-other
+block content
+  .pb-5.mb-6
+    .container.py-5.mb-5
+      .d-flex.flex-column.gap-4
+        .p-4.bg-light
+          .row.row-cols-3
+            .col
+              div
+                label.form-label(for='pemohon') Pemohon
+                input#pemohon.form-control(type='text' disabled value="PT HK Realtindo")
+            .col
+              div
+                label.form-label(for='pemohon') Pemohon
+                input#pemohon.form-control(type='text' disabled value="PT HK Realtindo")
+            .col
+              div
+                label.form-label(for='pemohon') Proyek
+                input#pemohon.form-control(type='text' disabled value="Apartment Green Lake City")
+        .border.rounded
+          table.table.table-no-bottom-border.table-striped.striped-custom.mb-0
+            thead.subtitle.align-middle
+              tr
+                td.py-3.ps-4 Kategori Perizinan
+                td.py-3 Jenis Perizinan
+                td.py-3.pe-4.cell-fit Order
+            tbody.body.align-middle
+              tr
+                td.py-3.ps-4 IMB Rumah Tinggal
+                td.py-3 IMB/PBG Rumah Tinggal
+                td.py-3.pe-4.cell-fit
+                  select.select.small.right(name="order")
+                    option(value="") Order Ke Lisensia
+                    option(value="other") Urus sendiri
+                    option(value="lain") Vendor Lain
+              tr
+                td.py-3.ps-4 IMB non Rumah Tinggal
+                td.py-3 Izin Bongkar
+                td.py-3.pe-4.cell-fit
+                  select.select.small.right(name="order")
+                    option(value="") Urus sendiri
+                    option(value="other") Order Ke Lisensia
+                    option(value="lain") Vendor Lain
+block modal
+  +footer_back
+    button.btn.btn-light.px-8(type="button") Cancel
+    button.btn.btn-primary.ms-4.px-8(type="button") Save
