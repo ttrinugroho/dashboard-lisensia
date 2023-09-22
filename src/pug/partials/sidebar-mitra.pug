@@ -1,0 +1,71 @@
++sidebar_header()
+  .nav-item
+    +alink('mitra')
+      +bx("bx-card")
+      span Dashboard
+  .nav-item
+    +alink('mitra-client-management')
+      +bx("bx-id-card")
+      span Dashboard
+  .nav-item
+    +alink('mitra-management')
+      +bx("bx-user-circle")
+      span Mitra Management
+
+  .nav-item
+    hr.border-top
+
+  .nav-item
+    +dropdown('Berkas Pemohon', category === 'berkas-pemohon')(id='sidebar-berkas-pemohon-collapse',icon='bx-detail')
+      +alink('mitra-master-pemohon')
+        span Master Pemohon
+      +alink('mitra-master-tanah')
+        span Master Tanah
+      +alink('mitra-master-proyek')
+        span Master Proyek
+      +alink('mitra-master-dokumen-proyek')
+        span Master Dokumen Proyek
+  .nav-item
+    +dropdown('Izin Pemohon', category === 'izin-pemohon')(id='sidebar-izin-pemohon-collapse',icon='bx-notification')
+      +alink('mitra-jadwal')
+        span Jadwal
+      +alink('mitra-kronologi')
+        span Kronologi
+      +alink('mitra-tugas-tugas')
+        span Tugas-tugas
+      +alink('mitra-produk-permit')
+        span Produk Permit
+  .nav-item
+    +alink('mitra-peraturan-perizinan')
+      +bx("bx-collection")
+      span Peraturan Perizinan
+  .nav-item
+    +dropdown('Laporan', category === 'laporan')(id='sidebar-laporan-collapse',icon='bx-bar-chart-square')
+      +alink('mitra-jadwal-laporan')
+        span Jadwal
+      +alink('mitra-kronologi-laporan')
+        span Kronologi
+      +alink('mitra-bast')
+        span BAST
+      +alink('mitra-update-outstanding')
+        span Update Outstanding
+      +alink('mitra-izin-terlambat')
+        span izin terlambat
+      +alink('mitra-dokumen-kadaluarsa')
+        span Dokumen Kadaluarsa
+
+  .nav-item
+    hr.border-top
+
+  .nav-item
+    +dropdown('Account Setting', category === 'setting')(id='sidebar-setting-collapse',icon='bx-cog')
+      +alink('mitra-profile')
+        span profile
+      +alink('mitra-change-password')
+        span Change Password
+      +alink('mitra-hapus-akun')
+        span Hapus Akun
+  .nav-item
+    +alink('logout')
+      +bx('bx-log-out-circle')
+      span Sign Out

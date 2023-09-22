@@ -1,0 +1,28 @@
+=fontSize($fs,$fw)
+  font-size: $fs
+  font-weight: $fw
+
+.subtitle
+  +fontSize(.9375rem,500)
+  &-big
+    +fontSize(1.125rem,500)
+  &-small
+    +fontSize(.8125rem,500)
+.body
+  +fontSize(.9375rem,400)
+  &-super
+    +fontSize(1.25rem,400)
+  &-big
+    +fontSize(1.125rem,400)
+.caption
+  +fontSize(.8125rem,400)
+  &-small
+    +fontSize(.75rem,null)
+
+// $font-weight-lighter:         lighter !default
+// $font-weight-light:           300 !default
+// $font-weight-normal:          400 !default
+// $font-weight-medium:          500 !default
+// $font-weight-semibold:        600 !default
+// $font-weight-bold:            700 !default
+// $font-weight-bolder:          bolder !default

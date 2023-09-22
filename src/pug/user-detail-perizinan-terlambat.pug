@@ -1,0 +1,80 @@
+---
+title: User - Dashboard
+currentUrl: user-detail-perizinan-terlambat
+header: Bumi Arema Raya
+---
+extends layouts/layout
+block header
+  include partials/header-other
+block content
+  .pb-5.mb-6
+    .container.py-5.mb-5
+      .row.row-cols-2.mb-4
+        .col
+          .p-4.h-100.border.rounded
+            each val in [{bg:'success',vn:'85'},{bg:'warning',vn:'48'},{bg:'warning',vn:'48'},{bg:'success',vn:'85'},{bg:'warning',vn:'48'},{bg:'danger',vn:'17'},{bg:'danger',vn:'17'}]
+              .mb-4
+                p.body.mb-2 Dokumen Master Pemohon
+                .d-flex.align-items-center.gap-3
+                  .flex-grow-1
+                    .progress(role='progressbar' aria-label='Example 1px high' aria-valuenow=val.vn aria-valuemin='0' aria-valuemax='100' style='height: 4px')
+                      .progress-bar(style={width: val.vn + '%'}, class='bg-'+val.bg)
+                  small=val.vn + '%'
+        .col
+          .p-4.h-100.border.rounded
+            each val in [{bg:'success',vn:'85'},{bg:'warning',vn:'48'},{bg:'warning',vn:'48'},{bg:'success',vn:'85'},{bg:'warning',vn:'48'},{bg:'danger',vn:'17'},{bg:'danger',vn:'17'}]
+              .mb-4
+                p.body.mb-2 Dokumen Master Pemohon
+                .d-flex.align-items-center.gap-3
+                  .flex-grow-1
+                    .progress(role='progressbar' aria-label='Example 1px high' aria-valuenow=val.vn aria-valuemin='0' aria-valuemax='100' style='height: 4px')
+                      .progress-bar(style={width: val.vn + '%'}, class='bg-'+val.bg)
+                  small=val.vn + '%'
+      .row.row-cols-2
+        .col
+          .mb-4
+            label.form-label(for='exampleFormControlInput1') Email address
+            input#exampleFormControlInput1.form-control(type='email' placeholder='name@example.com' disabled)
+        .col
+          .mb-4
+            label.form-label(for='exampleFormControlInput1') Email address
+            input#exampleFormControlInput1.form-control(type='email' placeholder='name@example.com' disabled)
+      .p-4.border.rounded
+        .d-grid
+          button.btn.justify-content-start.px-2(type="button" data-bs-toggle="collapse" href="#perizinan-terlambat" role="button" aria-expanded="false" aria-controls="perizinan-terlambat")
+            +bx('collapsed-icon')
+            | Perizinan Terlambat
+        #perizinan-terlambat.collapse.my-2
+          .border.rounded.mb-2
+            .rounded.py-3.bg-white
+              table.table.table-no-bottom-border.mb-0
+                thead
+                  tr
+                    th.px-4.py-4
+                    th.px-4.py-4 Proyek
+                    th.px-4.py-4 Kebutuhan Izin
+                    th.px-4.py-4 Batas Perizinan
+                tbody
+                  tr.align-middle
+                    td.px-4.py-4
+                      +bx('bxs-error')(class="text-danger")
+                    td.px-4.py-4 Bumi Arema Raya
+                    td.px-4.py-4 IPPR / Izin Peruntukan dan Penggunaan Ruang
+                    td.px-4.py-4 25 Juli 2023, 12:00:00
+          .border.rounded
+            .rounded.py-3.bg-white
+              table.table.table-no-bottom-border.mb-0
+                thead
+                  tr
+                    th.px-4.py-4
+                    th.px-4.py-4 Proyek
+                    th.px-4.py-4 Kebutuhan Izin
+                    th.px-4.py-4 Batas Perizinan
+                tbody
+                  tr.align-middle
+                    td.px-4.py-4
+                      +bx('bxs-error')(class="text-danger")
+                    td.px-4.py-4 Bumi Arema Raya
+                    td.px-4.py-4 IPPR / Izin Peruntukan dan Penggunaan Ruang
+                    td.px-4.py-4 25 Juli 2023, 12:00:00
+  +footer_back()

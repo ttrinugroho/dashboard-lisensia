@@ -1,0 +1,57 @@
++sidebar_header()
+  .nav-item
+    +alink('admin')
+      +bx("bx-card")
+      span Dashboard
+
+  .nav-item
+    hr.border-top
+
+  .nav-item
+    +alink('admin-order-perizinan')
+      +bx("bx-basket")
+      span Order Perizinan
+  .nav-item
+    +alink('admin-pengguna')
+      +bx("bx-user-circle")
+      span Pengguna
+  .nav-item
+    +dropdown('Data Master', category === 'data-master')(id='sidebar-data-master-collapse',icon='bx-notification')
+      +alink('admin-kategori-izin')
+        span Kategori Izin
+      +alink('admin-izin')
+        span Izin
+      +alink('admin-kategori-dokumen')
+        span kategori-dokumen
+      +alink('admin-dokumen')
+        span Dokumen
+      +alink('admin-kategori-peraturan')
+        span Kategori Peraturan
+      +alink('admin-peraturan')
+        span peraturan
+      +alink('admin-set-hari-libur')
+        span Set Hari Libur
+      +alink('admin-kategori-berita')
+        span Kategori Berita
+      +alink('admin-berita')
+        span Berita
+      +alink('admin-event')
+        span Event
+  .nav-item
+    +dropdown('Settings', category === 'settings')(id='sidebar-settings-collapse',icon='bx-cog')
+      +alink('admin-paket')
+        span Paket
+      +alink('admin-point-mitra')
+        span Point Mitra
+      +alink('admin-hubungkan-whatsapp')
+        span Hubungkan Whatsapp
+      +alink('admin-contact-us')
+        span Contact Us
+
+  .nav-item
+    hr.border-top
+
+  .nav-item
+    +alink('lisensia-plan')
+      +bx('bx-log-out-circle')
+      span Sign Out

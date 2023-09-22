@@ -1,0 +1,73 @@
+.modal.fade(id="modal-filter" tabindex="-1" aria-labelledby="modal-filter-label" aria-hidden="true")
+  .modal-dialog.modal-dialog-centered.modal-fullscreen-md-down.h-auto
+    .modal-content.rounded-0
+      .w-100.d-flex.justify-content-between.align-items-center.py-2.ps-4
+        h5.mb-0 Edit shortcut
+        button.btn(data-bs-dismiss="modal")
+          +bx('bxl-xing')
+      .p-4.d-flex.flex-column.gap-4.shortcut
+        .bg-primary-subtle.text-primary.p-2.d-flex.gap-2.align-items-center.rounded
+          .p-1.d-flex
+            +bx('bx-info-circle')
+          .body.fw-semibold Pilih Maksimal 5 Menu
+        div
+          .p-4.d-flex.gap-4.align-items-center.modal-expand-collapse.collapsed(data-bs-toggle="collapse" href="#sc-izin-saya" role="button" aria-expanded="false" aria-controls="perizinan-terlambat")
+            +bx('bx-notification')
+            p.mb-0.subtitle.me-auto Izin Saya
+            .d-inline-block.py-1.px-2.text-primary.rounded.border.border-primary.subtitle-small 1 Item
+            +bx('collapsed-icon')
+          #sc-izin-saya.collapse.rounded.bg-light(data-bs-parent=".shortcut")
+            .d-flex.flex-column.p-4.gap-4
+              .form-check.body-super
+                input#izin.form-check-input(type='checkbox' value='')
+                label.form-check-label.subtitle.align-middle.fw-medium(for='izin') Izin Saya
+              .form-check.body-super
+                input#jadwal.form-check-input(type='checkbox' value='')
+                label.form-check-label.subtitle.align-middle.fw-medium(for='jadwal') Jadwal
+              .form-check.body-super
+                input#kronologi.form-check-input(type='checkbox' value='')
+                label.form-check-label.subtitle.align-middle.fw-medium(for='kronologi') Kronologi
+              .form-check.body-super
+                input#kronologi.form-check-input(type='checkbox' value='')
+                label.form-check-label.subtitle.align-middle.fw-medium(for='kronologi') Tugas Tugas
+        div
+          .p-4.d-flex.gap-4.align-items-center.modal-expand-collapse.collapsed(data-bs-toggle="collapse" href="#sc-berkas-saya" role="button" aria-expanded="false" aria-controls="perizinan-terlambat")
+            +bx('bx-detail')
+            p.mb-0.subtitle.me-auto Berkas Saya
+            .d-inline-block.py-1.px-2.text-primary.rounded.border.border-primary.subtitle-small 1 Item
+            +bx('collapsed-icon')
+          #sc-berkas-saya.collapse.rounded.bg-light(data-bs-parent=".shortcut")
+            .d-flex.flex-column.p-4.gap-4
+              .form-check.body-super
+                input#izin.form-check-input(type='checkbox' value='')
+                label.form-check-label.subtitle.align-middle.fw-medium(for='izin') Izin Saya
+              .form-check.body-super
+                input#jadwal.form-check-input(type='checkbox' value='')
+                label.form-check-label.subtitle.align-middle.fw-medium(for='jadwal') Jadwal
+              .form-check.body-super
+                input#kronologi.form-check-input(type='checkbox' value='')
+                label.form-check-label.subtitle.align-middle.fw-medium(for='kronologi') Kronologi
+        div
+          .p-4.d-flex.gap-4.align-items-center.modal-expand-collapse.collapsed(data-bs-toggle="collapse" href="#sc-laporan" role="button" aria-expanded="false" aria-controls="perizinan-terlambat")
+            +bx('bx-bar-chart-square')
+            p.mb-0.subtitle.me-auto Laporan
+            .d-inline-block.py-1.px-2.text-primary.rounded.border.border-primary.subtitle-small 1 Item
+            +bx('collapsed-icon')
+          #sc-laporan.collapse.rounded.bg-light(data-bs-parent=".shortcut")
+            .d-flex.flex-column.p-4.gap-4
+              .form-check.body-super
+                input#izin.form-check-input(type='checkbox' value='')
+                label.form-check-label.subtitle.align-middle.fw-medium(for='izin') Izin Saya
+              .form-check.body-super
+                input#jadwal.form-check-input(type='checkbox' value='')
+                label.form-check-label.subtitle.align-middle.fw-medium(for='jadwal') Jadwal
+              .form-check.body-super
+                input#kronologi.form-check-input(type='checkbox' value='')
+                label.form-check-label.subtitle.align-middle.fw-medium(for='kronologi') Kronologi
+      .p-4.d-flex.gap-4.w-100
+        .d-grid.flex-grow-1
+          button.btn.btn-light(type="button")
+            span Cancel
+        .d-grid.flex-grow-1
+          button.btn.btn-outline-light.text-primary(type="button")
+            span Apply

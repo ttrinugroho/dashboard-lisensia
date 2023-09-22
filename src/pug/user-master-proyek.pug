@@ -1,0 +1,81 @@
+---
+title: User - Dashboard
+currentUrl: user-master-proyek
+category: berkas
+header: Master Proyek
+---
+extends layouts/layout
+block header
+  include partials/header-dashboard
+  include partials/sidebar-user
+block content
+  +main_dashboard()
+    .d-flex.flex-column.gap-5
+      .p-4.bg-light.rounded
+        .d-flex.align-items-end.mb-3.gap-4
+          .flex-grow-1
+            label.form-label Pemohon
+            select.select.wide
+              option(value='') PT HK Realtindo
+              option(value='1') PT Realtindo HK
+              option(value='2') HK Realtindo PT
+              option(value='3') Realtindo HK PT
+              option(value='4') HK PT Realtindo
+          .flex-grow-1
+            label.form-label Tanah/Lokasi
+            select.select.wide
+              option(value='') Apartment Green Lake City
+              option(value='1') PT Realtindo HK
+              option(value='2') HK Realtindo PT
+              option(value='3') Realtindo HK PT
+              option(value='4') HK PT Realtindo
+          div
+            button.btn.btn-primary
+              span Tampilkan
+      .d-flex.align-items-center.gap-2.rounded.bg-primary-subtle.p-2
+        .d-flex.p-2.text-primary
+          +bx('bx-info-circle')
+        .subtitle.text-primary
+          p.mb-0 Lokasi pengurusan izin menjadi kunci pembeda proses perizinan. Pastikan Anda input lokasi pengurusan izin dengan benar
+      div
+        .d-flex.justify-content-between.align-items-center.mb-4
+          .mb-0.position-relative
+            input.form-control.ps-7(type='text' placeholder='Search')
+            .position-absolute.top-0.start-0.d-flex.pt-2.px-2
+              +bx('bx-search')
+          div
+            button.btn.btn-primary(type="button")
+              +bx('bx-plus')
+              span Tambah Data Proyek
+        .border.rounded
+          table.table.table-striped.striped-custom
+            thead.subtitle.align-middle
+              tr
+                td.py-3.px-4 Nama Proyek
+                td.py-3 Lokasi Pengurusan Izin
+                td.py-3 Konsultan Arsitek
+                td.py-3 Konsultan Struktur
+                td.py-3 Konsultan MEP
+                td.py-3
+            tbody.body.align-middle
+              each lo in ['Apartment Green Lake City', 'Sudirman Fashion Week', 'Perumahan Belka Residence']
+                tr
+                  td.px-4.elipsis-table=lo
+                  td DKI Jakarta
+                  td Dimas
+                  td Hamid
+                  td Whelly
+                  td.text-center
+                    .action-item
+                      button.btn.btn-light.btn-sm.p-2.rounded-circle.action-head(type="button")
+                        +bx('bx-dots-horizontal-rounded')
+                      .action-body.p-2
+                        button.btn.action-item
+                          +bx('bx-hide')
+                          span Sembunyikan
+                        button.btn.action-item.text-danger(type="button" data-bs-toggle="modal" data-bs-target="#proyek")
+                          +bx('bx-trash')
+                          span Hapus
+          +pagination()
+block modal
+  +modal_accept('proyek')(title="proyek")

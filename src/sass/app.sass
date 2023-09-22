@@ -1,0 +1,171 @@
+@import _variable-custom
+@import _typography
+@import lib/_slick
+@import lib/_nice-select
+@import "../../node_modules/bootstrap/scss/bootstrap.scss"
+@import _mixins
+@import _sidebar
+@import _button-cstm
+@import _select
+.bx
+  font-size: 1.4375em
+svg.icon
+  transition: all 0.15s ease
+  height: 24px
+  width: 24px
+
+.collapsed-icon::before
+  content: "\ea57"
+.collapsed .collapsed-icon::before
+  content: "\ea4a"
+.btn
+  display: inline-flex
+  align-items: center
+  justify-content: center
+  gap: 12px
+
+.toggle-item
+  .toggle-head
+    cursor: pointer
+  &.active
+    .toggle-body
+      opacity: 1
+      visibility: visible
+      transform: translateY(0)
+      &::after
+        font-family: boxicons!important
+        color: #ffffff
+        content: "\eedb"
+        display: block
+        font-size: 30px
+        position: absolute
+        top: -30px
+  .toggle-body
+    opacity: 0
+    visibility: hidden
+    position: absolute
+    transform: translateY(10px)
+
+.header
+  box-shadow: inset 1px 0px 0px #F4F4F4, inset 0 -1px 0px #F4F4F4
+  min-width: 375px
+  left: 262px
+  z-index: 1000
+  .toggle-item
+    .toggle-head
+      .bell
+        &::before
+          content: "\e9d2"
+    &.active,
+    &:hover
+      .toggle-head
+        .bell
+          &:before
+            content: "\ecc9"
+  .toggle-body
+    right: -12px
+    width: 392px
+    top: calc(100%)
+    border: 1px solid #FFFFFF
+    background-color: #ffffff
+    box-shadow: 0px 40px 64px -12px rgba(0, 0, 0, 0.08), 0px 0px 14px -4px rgba(0, 0, 0, 0.05), 0px 32px 48px -8px rgba(0, 0, 0, 0.1)
+.action-item
+  display: inline-block
+  position: relative
+  &.active
+    .action-head
+      color: $primary
+    .action-body
+      opacity: 1
+      visibility: visible
+  &:hover
+    .action-head
+      .bx
+        transform: scale(1.1)
+  .action-body
+    opacity: 0
+    visibility: hidden
+    position: absolute
+    -webkit-transform: translateY(8px)
+    transform: translateY(8px)
+    right: 0
+    border-radius: 5px
+    width: 200px
+    z-index: 20
+    transition: all 0.15s ease
+    border: 1px solid #FFFFFF
+    background-color: #FCFCFC
+    box-shadow: 0px 40px 64px -12px rgba(0, 0, 0, 0.08), 0px 0px 14px -4px rgba(0, 0, 0, 0.05), 0px 32px 48px -8px rgba(0, 0, 0, 0.1)
+    .btn.action-item
+      --bs-btn-active-bg: transparent
+      --bs-btn-active-border-color: transparent
+      display: inline-flex
+      width: 100%
+      justify-content: start
+.table.table-no-bottom-border > tbody:not(caption) > tr:last-child > *
+  border-bottom-width: 0
+
+.tab-fill.nav-tabs
+  --bs-nav-tabs-link-active-bg: #{$primary}
+  --bs-nav-tabs-link-active-color: #{$white}
+  .nav-link
+    &:not(.active)
+      border-color: var(--bs-nav-tabs-border-color)
+    --bs-nav-link-color: #878994
+    --bs-nav-link-font-size: 15px
+    --bs-nav-link-font-weight: 500
+
+.form-check
+  .form-check-input
+    &:checked
+      background-color: #fff
+      --bs-form-check-bg-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3e%3cpath fill='none' stroke='%232882F5' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='m6 10 3 3 6-6'/%3e%3c/svg%3e")
+.table.table-striped.striped-custom
+  --bs-table-striped-bg: #ffffff
+  --bs-table-bg: rgba(0,0,0,.05)
+.action-when-select
+  transition: all .300s ease-in-out
+.maps-container
+  max-height: 250px
+
+.photo-proyek
+  width: 48px
+  height: 48px
+  border-radius: 8px
+  overflow: hidden
+  display: inline-flex
+  img
+    object-fit: cover
+    object-position: center
+    width: 100%
+    height: auto
+.input-file
+  --bs-border-width: 2px
+  --bs-border-style: dashed
+  color: var(--bs-border-color)
+  width: 100%
+  border-radius: 8px
+  display: flex
+  align-items: center
+  justify-content: center
+  position: relative
+  overflow: hidden
+  transition: all 0.15s ease
+  input[type="file"]
+    cursor: pointer
+    opacity: 0
+    position: absolute
+    left: 0
+    bottom: 0
+    top: 0
+    right: 0
+    width: 100%
+.elipsis-table
+  max-width: 215px
+  white-space: nowrap
+  width: 50px
+  overflow: hidden
+  text-overflow: ellipsis
+
+.footer-button
+  box-shadow: 0px -2px 24px 0px rgba(0, 0, 0, 0.08)

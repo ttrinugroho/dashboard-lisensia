@@ -1,0 +1,17 @@
+include mixins
+doctype html
+html(lang="en")
+    head
+        include head
+    body
+      block header
+      block content
+      block modal
+      block scripts
+        script(src="/js/lib/jquery.min.js")
+        script(src="/js/lib/bootstrap.bundle.min.js")
+        script(src="/js/lib/slick.min.js")
+        script(src="/js/lib/apexcharts.min.js")
+        script(src="/js/charts.js")
+        script(src="/js/lib/jquery.nice-select.min.js")
+        script(src="/js/app.js")

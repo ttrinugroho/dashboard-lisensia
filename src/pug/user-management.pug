@@ -1,0 +1,53 @@
+---
+title: User - Dashboard
+currentUrl: user-management
+header: User Management
+---
+extends layouts/layout
+block header
+  include partials/header-dashboard
+  include partials/sidebar-user
+block content
+  +main_dashboard()
+    .d-flex.gap-5.flex-column
+      .d-flex.justify-content-between.align-items-center.mb-4
+        .mb-0.position-relative
+          input.form-control.ps-7(type='text' placeholder='Search')
+          .position-absolute.top-0.start-0.d-flex.pt-2.px-2
+            +bx('bx-search')
+        div
+          a.btn.btn-primary(type="button" href="/user-management-form.html")
+            +bx('bx-plus')
+            span Tambah Data
+      .border.rounded
+        table.table.table-striped.striped-custom
+          thead.subtitle.align-middle
+            tr
+              td.py-3.px-4 Nama
+              td.py-3 Email
+              td.py-3 No HP
+              td.py-3 Role
+              td.py-3 Grup Pemohon
+              td.py-3.text-center
+          tbody.body.align-middle
+            each i in [1,2,3,4,5,6]
+              tr
+                td.px-4 Cell
+                td Cell
+                td Cell
+                td Cell
+                td Cell
+                td.text-center
+                  .action-item
+                    button.btn.btn-light.btn-sm.p-2.rounded-circle.action-head(type="button")
+                      +bx('bx-dots-horizontal-rounded')
+                    .action-body.p-2
+                      button.btn.action-item
+                        +bx('bx-file-blank')
+                        span Lihat Pengguna
+                      button.btn.action-item.text-danger(type="button" data-bs-toggle="modal" data-bs-target="#modal-data-pemohon")
+                        +bx('bx-trash')
+                        span Hapus
+        +pagination
+block modal
+  +modal_accept('modal-data-pemohon')

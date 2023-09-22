@@ -1,0 +1,84 @@
+---
+title: User - Dashboard
+currentUrl: user-buat-profile-pemohon
+category: pemohon
+header: Buat Profile Pemohon
+---
+extends layouts/layout
+block header
+  include partials/header-dashboard
+  include partials/sidebar-user
+block content
+  +main_dashboard()
+    .d-flex.flex-column.gap-4
+      .d-flex.justify-content-between.align-items-center
+        h6.mb-0 Buat Profile Pemohon
+        div
+          button.btn.btn-primary(type="button")
+            span Simpan Data
+      .row.row-cols-2.gy-4
+        .col
+          div
+            label.form-label(for="") Kategori<sup class="text-danger">*</sup>
+            select.select.wide(name="kategori")
+              option(value="") Pilih Kategori
+              option(value="pt") User
+              option(value="hk") Admin
+              option(value="real") Mitra
+        .col
+          div
+            label.form-label(for="") Status<sup class="text-danger">*</sup>
+            select.select.wide(name="status")
+              option(value="") Pilih Status
+              option(value="pt") User
+              option(value="hk") Admin
+              option(value="real") Mitra
+        .col
+          div
+            label.form-label(for="nama-pemohon") Nama Pemohon<sup class="text-danger">*</sup>
+            input#nama-pemohon.form-control(type='text' name='nama-pemohon' placeholder='Nama Pemohon')
+        .col
+          div
+            label.form-label(for="nomor-handphone") Nomor Handphone<sup class="text-danger">*</sup>
+            input#nomor-handphone.form-control(type='text' name='nomor-handphone' placeholder='Nomor Handphone')
+        .col
+          div
+            label.form-label(for="alamat-email") Alamat Email<sup class="text-danger">*</sup>
+            input#alamat-email.form-control(type='email' name='alamat-email' placeholder='Alamat Email')
+        .col
+          div
+            label.form-label(for="gedung") Gedung
+            input#gedung.form-control(type='text' name='gedung' placeholder='Gedung')
+        .col-12
+          hr.my-2
+        .col
+          .h-100
+            iframe(frameborder='0' height='auto' width='auto' style='width: 100%;height:100%' scrolling='no' marginheight='0' marginwidth='0' src='https://maps.google.com/maps?width=320&height=320&hl=en&q=-6.1754083,106.824584&t=&z=14&ie=UTF8&iwloc=B&output=embed')
+        .col
+          .row.row-cols-1.gy-4
+            .col
+              div
+                label.form-label(for="alamat-pemohon") Alamat<sup class="text-danger">*</sup>
+                input#alamat-pemohon.form-control(type='text' name='alamat-pemohon' placeholder='Alamat')
+            .col
+              div
+                label.form-label(for="kelurahan") Kelurahan<sup class="text-danger">*</sup>
+                input#kelurahan.form-control(type='text' name='kelurahan' placeholder='Kelurahan')
+            .col
+              div
+                label.form-label(for="kecamatan") Kecamatan<sup class="text-danger">*</sup>
+                input#kecamatan.form-control(type='text' name='kecamatan' placeholder='Kecamatan')
+            .col
+              div
+                label.form-label(for="kota") Kota<sup class="text-danger">*</sup>
+                input#kota.form-control(type='text' name='kota' placeholder='Kota')
+            .col
+              div
+                label.form-label(for="provinsi") Provinsi<sup class="text-danger">*</sup>
+                input#provinsi.form-control(type='text' name='provinsi' placeholder='Provinsi')
+        .col-12
+          div
+            .form-check.body-super
+              input#setuju.form-check-input(type='checkbox' value='')
+              label.form-check-label.body(for='setuju')
+                | Jadikan pemohon ini menjadi default di Dashboard

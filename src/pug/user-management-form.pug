@@ -1,0 +1,62 @@
+---
+title: User - Dashboard
+currentUrl: user-management
+header: User Management
+---
+extends layouts/layout
+block header
+  include partials/header-dashboard
+  include partials/sidebar-user
+block content
+  +main_dashboard()
+    .d-flex.gap-4.flex-column
+      .d-flex.align-items.bg-warning-subtle.text-warning.p-4.rounded
+        +bx('bx-info-circle')(class="me-4")
+        p.body.fw-medium.m-0 Output Profil Pemohon dapat dilihat di menu BERKAS SAYA > MASTER PEMOHON
+      .d-flex.justify-content-between.align-items-center
+        h6.mb-0 Buat Profile User
+        div
+          button.btn.btn-primary(type="button")
+            span Simpan Data
+      div
+        .row.row-cols-2.gy-4
+          .col-12
+            div
+              label.form-label(for="") Grup Pemohon<sup class="text-danger">*</sup>
+              select.select.wide(name="group")
+                option(value="" data-display="Select") Pilih Grup Pemohon
+                option(value="pt") User
+                option(value="hk") Admin
+                option(value="real") Mitra
+          .col
+            div
+              label.form-label(for="nama") Nama<sup class="text-danger">*</sup>
+              input#nama.form-control(type='text' name='nama' placeholder='Nama')
+          .col
+            div
+              label.form-label(for="") Role User<sup class="text-danger">*</sup>
+              select.select.wide(name="role")
+                option(value="") Pilih Role User
+                option(value="pt") User
+                option(value="hk") Admin
+                option(value="real") Mitra
+          .col
+            div
+              label.form-label(for="email") Alamat Email<sup class="text-danger">*</sup>
+              input#email.form-control(type='email' name='email' placeholder='mail@example.com')
+          .col
+            div
+              label.form-label(for="nomor-hp") Nomor Handphone<sup class="text-danger">*</sup>
+              input#nomor-hp.form-control(type='text' name='nomor-hp' placeholder='Nomor Handphone')
+          .col
+            h6.mb-4 Atur Kata Sandi
+            .row.row-cols-1.gy-4
+              .col
+                div
+                  label.form-label(for="password") Kata Sandi<sup class="text-danger">*</sup>
+                  input#password.form-control(type='password' name='password')
+              .col
+                div
+                  label.form-label(for="confirm-password") Konfirmasi Kata Sandi<sup class="text-danger">*</sup>
+                  input#confirm-password.form-control(type='password' name='confirm-password')
+      .p-5

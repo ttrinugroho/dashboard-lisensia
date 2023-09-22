@@ -1,0 +1,354 @@
+---
+title: User - Dashboard
+currentUrl: user
+---
+extends layouts/layout
+block header
+  include partials/header-dashboard
+  include partials/sidebar-user
+block content
+  +main_dashboard()
+    .px-4.py-2.d-flex.justify-content-between.align-items-center.mb-4
+      h6.mb-0 Hi, Arga Dinata
+      .d-flex.align-items-center.gap-2
+        +bx('bx-calendar')
+        span.subtitle Tuesday, 22 August 2023
+    .p-2.mb-4.d-flex.justify-content-between.flex-wrap.rounded(style="background-color:#F9FAFC;")
+      .d-flex.gap-2.align-items-center
+        .p-2.bg-primary.d-flex.align-items-center.justify-content-center.text-white.rounded
+          +bx('bx-diamond')
+        .subtitle.fw-semibold Upgrage membership Anda untuk mendapatkan benefit
+      .d-flex.gap-4.align-items-center
+        .caption Membership Anda berakhir pada Rabu, 05 September 2023
+        div
+          button.btn.btn-primary(type="button") Upgrade
+    .p-5.rounded.border.mb-4
+      .d-flex.align-items-center.justify-content-between.flex-wrap.mb-4
+        h4.mb-0 Shortcut
+        div
+          button.btn.btn-outline-primary.rounded-pill(type="button" data-bs-toggle="modal" data-bs-target="#modal-filter")
+            +bx('bx-pencil')
+            span Edit
+      .row.row-cols-5.g-3
+        .col
+          .p-4.bg-warning-subtle.rounded-3
+            .mb-4
+              .p-3.rounded-circle.text-white.d-inline-flex.align-items-center.justify-content-center.bg-warning
+                +bx('bx-copy-alt')
+            .d-flex.gap-1.justify-content-between.fw-semibold
+              span Kelola Pemohon
+              +bx('bx-right-arrow-alt')
+        .col
+          .p-4.bg-success-subtle.rounded-3
+            .mb-4
+              .p-3.rounded-circle.text-white.d-inline-flex.align-items-center.justify-content-center.bg-success
+                +bx('bx-copy-alt')
+            .d-flex.gap-1.justify-content-between.fw-semibold
+              span Kelola Pemohon
+              +bx('bx-right-arrow-alt')
+        .col
+          .p-4.bg-info-subtle.rounded-3
+            .mb-4
+              .p-3.rounded-circle.text-white.d-inline-flex.align-items-center.justify-content-center.bg-info
+                +bx('bx-copy-alt')
+            .d-flex.gap-1.justify-content-between.fw-semibold
+              span Kelola Pemohon
+              +bx('bx-right-arrow-alt')
+        .col
+          .p-4.bg-danger-subtle.rounded-3
+            .mb-4
+              .p-3.rounded-circle.text-white.d-inline-flex.align-items-center.justify-content-center.bg-danger
+                +bx('bx-copy-alt')
+            .d-flex.gap-1.justify-content-between.fw-semibold
+              span Kelola Pemohon
+              +bx('bx-right-arrow-alt')
+        .col
+          .p-4.bg-primary-subtle.rounded-3
+            .mb-4
+              .p-3.rounded-circle.text-white.d-inline-flex.align-items-center.justify-content-center.bg-primary
+                +bx('bx-copy-alt')
+            .d-flex.gap-1.justify-content-between.fw-semibold
+              span Kelola Pemohon
+              +bx('bx-right-arrow-alt')
+    .p-4.bg-light.rounded.mb-4
+      h6 Pemohon
+      select.form-select(aria-label='Default select example')
+        option(selected='') Open this select menu
+        option(value='1') One
+        option(value='2') Two
+        option(value='3') Three
+    .div.rounded.border.mb-5
+      table.table.table-striped(style="--bs-table-striped-bg:#ffffff;--bs-body-bg:rgba(0,0,0,.05);")
+        thead
+          tr
+            th(scope='col') Proyek
+            th(scope='col') Team Owner
+            th(scope='col') Mitra Perizinan
+            th.text-white(scope='col')
+              div
+        tbody
+          each val in [1, 2, 3, 4, 5]
+            tr
+              td
+                .d-flex.p-2.gap-4.align-items-center
+                  .p-5.bg-dark
+                  .flex-shrink-0
+                    Apartment Artha Martha
+              td.align-middle Dimas Permana Putra, Omar Ahnaf Hamizan, Arga Dinata
+              td.align-middle Arga Dinata
+              td.align-middle
+                a.btn.btn-sm.btn-outline-primary(type="button" href="/user-detail-perizinan.html")
+                  +bx('bx-building-house')
+                  span Lihat Perizinan
+      .pb-4.px-4
+        .d-flex.align-item-center
+          .d-flex.align-items-center.gap-2
+            select.select
+              option(selected='') 15 Row
+              option(value='1') 50 Row
+              option(value='2') 100 Row
+            span.flex-shrink-0 Total 5
+          .d-flex.gap-4.mx-auto.align-items-center
+            button.btn.px-2(type="button")
+              +bx('bx-chevron-left')
+            .border.rounded-circle.bg-light.py-2.px-4 11
+            button.btn.px-2(type="button")
+              +bx('bx-chevron-right')
+          .d-flex.gap-2.flex-shrink-0.align-items-center
+            .border.rounded.py-2.px-4 1
+            button.btn.px-2(type="button")
+              +bx('bx-chevron-right')
+    .mb-5
+      .row.g-0.border.rounded
+        .col-md-6.border-end
+          .p-4
+            .row.row-cols-2.g-0
+              .col
+                .p-5.border-end
+                  .mb-4
+                    .d-inline-flex.justify-content-center.align-items-center.p-4.bg-light.rounded-circle
+                      +bx('bx-copy-alt')
+                  .d-flex.align-items-center.mb-4.gap-4
+                    h3.m-0 310
+                    .d-flex.align-items-center.rounded-2.text-success.bg-success-subtle.py-1.px-2
+                      +bx('bx-trending-up')
+                      small.text-success.fw-semibold +25,5%
+                  div
+                    small.fw-semibold Total Employee
+              .col
+                .p-5
+                  .mb-4
+                    .d-inline-flex.justify-content-center.align-items-center.p-4.bg-light.rounded-circle
+                      +bx('bx-copy-alt')
+                  .d-flex.align-items-center.mb-4.gap-4
+                    h3.m-0 150
+                    .d-flex.align-items-center.rounded-2.text-success.bg-success-subtle.py-1.px-2
+                      +bx('bx-trending-up')
+                      small.text-success.fw-semibold +4,5%
+                  div
+                    small.fw-semibold Total Employee
+              .col
+                .p-5.border-top.border-end
+                  .mb-4
+                    .d-inline-flex.justify-content-center.align-items-center.p-4.bg-light.rounded-circle
+                      +bx('bx-copy-alt')
+                  .d-flex.align-items-center.mb-4.gap-4
+                    h3.m-0 500
+                    .d-flex.align-items-center.rounded-2.text-success.bg-success-subtle.py-1.px-2
+                      +bx('bx-trending-down')
+                      small.text-success.fw-semibold +5,5%
+                  div
+                    small.fw-semibold Total Employee
+              .col
+                .p-5.border-top
+                  .mb-4
+                    .d-inline-flex.justify-content-center.align-items-center.p-4.bg-light.rounded-circle
+                      +bx('bx-copy-alt')
+                  .d-flex.align-items-center.mb-4.gap-4
+                    h3.m-0 90
+                    .d-flex.align-items-center.rounded-2.text-danger.bg-danger-subtle.py-1.px-2
+                      +bx('bx-trending-up')
+                      small.text-danger.fw-semibold +25,5%
+                  div
+                    small.fw-semibold Total Employee
+        .col-md-6
+          .pt-5.px-5
+            .d-flex.align-items-center.gap-4
+              .flex-grow-1.flex-shrink-0
+                h5.mb-0 Team Performance
+              .flex-shrink-0
+                select.form-select(aria-label='Default select example')
+                  option(selected='') Last 7 Month
+                  option(value='1') One
+                  option(value='2') Two
+                  option(value='3') Three
+          .px-4.pt-2
+            #performance-by-day
+    .mb-5
+      .row.gx-5
+        .col-md-4
+          .p-3.border.rounded
+            .d-flex.justify-content-between.align-items-center.mb-6
+              button.btn.btn-sm
+                +bx('bx-chevron-left')
+              strong 2023
+              button.btn.btn-sm
+                +bx('bx-chevron-right')
+            div
+              #top-device
+        .col-md-8
+          .border.rounded.h-100
+            .row.g-0.h-100
+              .col-md-4
+                .p-5.d-flex.flex-column.h-100.justify-content-between
+                  div
+                    div.mb-4.fw-semibold
+                      | Daftar Proyek
+                    h4 25
+                    small Total Proyek
+                  .d-flex.flex-column.gap-2
+                    .d-flex.gap-4.align-items-center
+                      +bx('bxs-circle')(style="font-size:12px;" class="align-middle text-primary")
+                      small Provinsi
+                      small.fw-semibold.ms-auto 8
+                    .d-flex.gap-4.align-items-center
+                      +bx('bxs-circle')(style="font-size:12px;" class="align-middle text-warning")
+                      small Kecamatan
+                      small.fw-semibold.ms-auto 5
+                    .d-flex.gap-4.align-items-center
+                      +bx('bxs-circle')(style="font-size:12px;color: var(--bs-yellow);" class="align-middle")
+                      small Kecamatan
+                      small.fw-semibold.ms-auto 5
+                    .d-flex.gap-4.align-items-center
+                      +bx('bxs-circle')(style="font-size:12px;" class="align-middle text-success")
+                      small Kecamatan
+                      small.fw-semibold.ms-auto 15
+              .col-md-8
+                .h-100
+                  iframe(frameborder='0' height='auto' width='auto' style='width: 100%;height:100%' scrolling='no' marginheight='0' marginwidth='0' src='https://maps.google.com/maps?width=320&height=320&hl=en&q=-6.1754083,106.824584&t=&z=14&ie=UTF8&iwloc=B&output=embed')
+
+    .p-4.border.rounded.bg-light.mb-5
+      .d-grid.mb-2
+        button.btn.justify-content-start.px-2.collapsed(type="button" data-bs-toggle="collapse" href="#perizinan-terlambat" role="button" aria-expanded="false" aria-controls="perizinan-terlambat")
+          +bx('collapsed-icon')
+          | Perizinan Terlambat
+      #perizinan-terlambat.collapse.mb-2
+        .border.rounded.mb-2
+          .rounded.py-3.bg-white
+            table.table.table-no-bottom-border.mb-0
+              thead
+                tr
+                  th.px-4.py-4
+                  th.px-4.py-4 Proyek
+                  th.px-4.py-4 Kebutuhan Izin
+                  th.px-4.py-4 Batas Perizinan
+                  th.px-4.py-4
+              tbody
+                tr.align-middle
+                  td.px-4.py-4
+                    +bx('bxs-error')(class="text-danger")
+                  td.px-4.py-4 Bumi Arema Raya
+                  td.px-4.py-4 IPPR / Izin Peruntukan dan Penggunaan Ruang
+                  td.px-4.py-4 25 Juli 2023, 12:00:00
+                  td.px-4.py-4
+                    a.btn.btn-sm.border.py-2.px-4.rounded-pill.text-primary(type="button" href="/user-detail-perizinan-terlambat.html")
+                      +bx('bx-show')
+                      span Details
+        .border.rounded
+          .rounded.py-3.bg-white
+            table.table.table-no-bottom-border.mb-0
+              thead
+                tr
+                  th.px-4.py-4
+                  th.px-4.py-4 Proyek
+                  th.px-4.py-4 Kebutuhan Izin
+                  th.px-4.py-4 Batas Perizinan
+                  th.px-4.py-4
+              tbody
+                tr.align-middle
+                  td.px-4.py-4
+                    +bx('bxs-error')(class="text-danger")
+                  td.px-4.py-4 Bumi Arema Raya
+                  td.px-4.py-4 IPPR / Izin Peruntukan dan Penggunaan Ruang
+                  td.px-4.py-4 25 Juli 2023, 12:00:00
+                  td.px-4.py-4
+                    a.btn.btn-sm.border.py-2.px-4.rounded-pill.text-primary(type="button" href="/user-detail-perizinan-terlambat.html")
+                      +bx('bx-show')
+                      span Details
+      .d-grid.mb-2
+        button.btn.justify-content-start.px-2.collapsed(type="button" data-bs-toggle="collapse" href="#perizinan-kadaluarsa" role="button" aria-expanded="false" aria-controls="perizinan-kadaluarsa")
+          +bx('collapsed-icon')
+          | Perizinan Kadaluarsa
+      #perizinan-kadaluarsa.collapse.mb-2
+        .border.rounded.mb-2
+          .rounded.py-3.bg-white
+            table.table.table-no-bottom-border.mb-0
+              thead
+                tr
+                  th.px-4.py-4
+                  th.px-4.py-4 Proyek
+                  th.px-4.py-4 Kebutuhan Izin
+                  th.px-4.py-4 Batas Perizinan
+                  th.px-4.py-4
+              tbody
+                tr.align-middle
+                  td.px-4.py-4
+                    +bx('bxs-error')(class="text-danger")
+                  td.px-4.py-4 Bumi Arema Raya
+                  td.px-4.py-4 IPPR / Izin Peruntukan dan Penggunaan Ruang
+                  td.px-4.py-4 25 Juli 2023, 12:00:00
+                  td.px-4.py-4
+                    a.btn.btn-sm.border.py-2.px-4.rounded-pill.text-primary(type="button" href="/user-detail-perizinan-terlambat.html")
+                      +bx('bx-show')
+                      span Details
+        .border.rounded
+          .rounded.py-3.bg-white
+            table.table.table-no-bottom-border.mb-0
+              thead
+                tr
+                  th.px-4.py-4
+                  th.px-4.py-4 Proyek
+                  th.px-4.py-4 Kebutuhan Izin
+                  th.px-4.py-4 Batas Perizinan
+                  th.px-4.py-4
+              tbody
+                tr.align-middle
+                  td.px-4.py-4
+                    +bx('bxs-error')(class="text-danger")
+                  td.px-4.py-4 Bumi Arema Raya
+                  td.px-4.py-4 IPPR / Izin Peruntukan dan Penggunaan Ruang
+                  td.px-4.py-4 25 Juli 2023, 12:00:00
+                  td.px-4.py-4
+                    a.btn.btn-sm.border.py-2.px-4.rounded-pill.text-primary(type="button" href="/user-detail-perizinan-terlambat.html")
+                      +bx('bx-show')
+                      span Details
+
+    div
+      .row
+        .col-md-7
+          .p-5.rounded.border.bg-light.h-100
+            h4.mb-5 Event
+            .carousel-event.w-100
+              div
+                img.w-100.h-auto(src="/img/content/carousel.png", alt="Event")
+              div
+                img.w-100.h-auto(src="/img/content/carousel.png", alt="Event")
+              div
+                img.w-100.h-auto(src="/img/content/carousel.png", alt="Event")
+
+        .col-md-5
+          .p-5.rounded.border.bg-light
+            h4.mb-5 News
+            .news-carousel
+              div
+                .mb-5
+                  img.w-100.h-auto(src="/img/content/news-thumb.png", alt="Dprd")
+                h6.fw-semibold DPRD Harap Pemprov DKI Percepat Pengesahan Pergub Tata Ruang
+                p.body Bapemperda DPRD DKI berharap Rakergub tentang rencana perubahan tata ruang pada tahun 2024 segera disahkan oleh DPRD DKI Jakarta
+              div
+                .mb-5
+                  img.w-100.h-auto(src="/img/content/news-thumb.png", alt="Dprd")
+                h6.fw-semibold DPRD Harap Pemprov DKI Percepat Pengesahan Pergub Tata Ruang
+                p.body Bapemperda DPRD DKI berharap Rakergub tentang rencana perubahan tata ruang pada tahun 2024 segera disahkan oleh DPRD DKI Jakarta
+block modal
+  include partials/modal-shortcut

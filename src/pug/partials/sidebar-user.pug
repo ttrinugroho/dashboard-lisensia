@@ -1,0 +1,100 @@
++sidebar_header()
+  .nav-item
+    +alink('user')
+      +bx("bx-card")
+      span Dashboard
+
+  .nav-item
+    hr.border-top
+
+  .nav-item
+    +dropdown('Pemohon', category === 'pemohon')(id='sidebar-pemohon-collapse',icon='bx-copy-alt')
+      +alink('user-buat-profile-pemohon')
+        span Buat Profile Pemohon
+      +alink('user-management-pemohon')
+        span Management Pemohon
+
+  .nav-item
+    +alink('user-management')
+      +bx('bx-user-circle')
+      span User Management
+
+  .nav-item
+    hr.border-top
+
+  .nav-item
+    +dropdown('Berkas Saya', category === 'berkas')(id='sidebar-berkas-collapse',icon='bx-copy-alt')
+      +alink('user-master-pemohon')
+        span Master Pemohon
+      +alink('user-master-legalitas-pemohon')
+        span Master Legalitas Pemohon
+      +alink('user-master-tanah')
+        span Master Tanah
+      +alink('user-master-proyek')
+        span Master Proyek
+      +alink('user-master-dokumen-proyek')
+        span Master Dokumen Proyek
+
+  .nav-item
+    +dropdown('Izin Saya', category === 'izin')(id='sidebar-izin-collapse',icon='bx-notification')
+      +alink('user-kebutuhan-izin')
+        span Kebutuhan Izin
+      +alink('user-jadwal')
+        span Jadwal
+        +bx('bx-info-circle')
+      +alink('user-kronologi')
+        span Kronologi
+      +alink('user-tugas-tugas')
+        span Tugas-tugas
+      +alink('user-produk-permit')
+        span Produk Permit
+
+  .nav-item
+    +dropdown('Laporan', category === 'laporan')(id='sidebar-laporan-collapse',icon='bx-bar-chart-square')
+      +alink('user-riwayar-kronologi')
+        span Riwayat Kronologi
+      +alink('user-izin-terlambat')
+        span Izin Terlambat
+      +alink('user-schedule-permit')
+        span Schedule-Permit
+
+  .nav-item
+    +alink('user-peraturan-perizinan')
+      +bx('bx-collection')
+      span Peraturan Perizinan
+
+  .nav-item
+    hr.border-top
+
+  .nav-item
+    +dropdown('Lisensia Plan',category === 'lisensia-plan')(id='sidebar-lisensia-plan-collapse',icon='bx-diamond')
+      +alink('user-subscription')
+        span Subscription
+      +alink('user-transaction-history')
+        span Transaction History
+
+  .nav-item
+    +dropdown('Account Setting', category === 'account-setting')(id='sidebar-account-setting-collapse' icon="bx-cog")
+      +alink("user-profile")
+        span User Profile
+      .nav-link.d-flex.align-items-center.collapsed(data-bs-target='#user-profile', data-bs-toggle="collapse" class={'active-category': subCategory === 'user-profile', 'collapsed': subCategory !== 'user-profile' })
+        span Switch Account
+        +bx("collapsed-icon")
+      .collapse.submenu(id='user-profile', class={'show': subCategory === 'user-profile'})
+        .wrapper
+          +alink("user")
+            span User
+          +alink("admin")
+            span Admin
+          +alink("mitra")
+            span Mitra
+      +alink("user-change-password")
+        span Change Password
+
+  .nav-item
+    hr.border-top
+
+  .nav-item
+    +alink('logout')
+      +bx('bx-log-out-circle')
+      span Sign Out

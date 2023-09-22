@@ -1,0 +1,119 @@
+---
+title: User - Dashboard
+currentUrl: user-detail-perizinan
+header: Apartemen Artha Martha
+---
+extends layouts/layout
+block header
+  include partials/header-other
+block content
+  .pb-5.mb-6
+    .container.py-5.mb-5
+      .p-4.bg-light.mb-4.rounded
+        h6.mb-4 Pemohon
+        select.form-select(aria-label='Default select example')
+          option(selected='') PT HK Realtindo
+          option(value='1') One
+          option(value='2') Two
+          option(value='3') Three
+      .p-4.mb-4.bg-light.rounded
+        h6.mb-4 Tracking Izin Proyek
+        .mb-4
+          select.form-select(aria-label='Default select example')
+            option(selected='') PT HK Realtindo
+            option(value='1') One
+            option(value='2') Two
+            option(value='3') Three
+        .py-4.px-4.border.rounded.mb-4
+          .row.row-cols-9.g-0
+            .col
+              .text-center.position-relative.h-100.d-flex.flex-column.justify-content-between
+                div
+                  button.btn.btn-success.btn-sm.py-1.px-5
+                    span Done
+                .text-primary.my-4.position-relative
+                  +bx('bxs-circle')
+                p.fw-semibold.mb-0 AMDAL
+                .position-absolute.w-100.top-50.start-50.bg-primary(style="height:3px")
+
+            .col
+              .text-center.position-relative.h-100.d-flex.flex-column.justify-content-between
+                .position-absolute.w-100.top-50.start-50.bg-primary(style="height:3px")
+            .col
+              .text-center.position-relative.h-100.d-flex.flex-column.justify-content-between
+                div
+                  button.btn.btn-success.btn-sm.py-1.px-5
+                    span Done
+                .text-primary.my-4.position-relative
+                  +bx('bxs-circle')
+                p.fw-semibold.mb-0 KKOP
+                .position-absolute.w-100.top-50.start-50.bg-primary(style="height:3px")
+            .col
+              .text-center.position-relative.h-100.d-flex.flex-column.justify-content-between
+                .position-absolute.w-100.top-50.start-50.bg-primary(style="height:3px")
+            .col
+              .text-center.position-relative.h-100.d-flex.flex-column.justify-content-between
+                div
+                  button.btn.btn-success.btn-sm.py-1.px-5
+                    span Done
+                .text-primary.my-4.position-relative
+                  +bx('bxs-circle')
+                p.fw-semibold.mb-0 SIDANG TPA
+                .position-absolute.w-100.top-50.start-50.bg-primary(style="height:3px")
+            .col
+              .text-center.position-relative.h-100.d-flex.flex-column.justify-content-between
+                .position-absolute.w-100.top-50.start-50.bg-primary(style="height:3px")
+            .col
+              .text-center.position-relative.h-100.d-flex.flex-column.justify-content-between
+                div
+                  button.btn.btn-warning.text-white.btn-sm.py-1.px-5
+                    span PROSES
+                .text-primary.my-4.position-relative
+                  +bx('bxs-circle')
+                p.fw-semibold.mb-0 PBG
+                .position-absolute.w-100.top-50.start-50.bg-primary(style="height:3px")
+            .col
+              .text-center.position-relative.h-100.d-flex.flex-column.justify-content-between
+                .position-absolute.w-100.top-50.start-50.bg-primary(style="height:3px")
+            .col
+              .text-center.position-relative.h-100.d-flex.flex-column.justify-content-between
+                div
+                  button.btn.btn-warning.text-white.btn-sm.py-1.px-5
+                    span PROSES
+                .text-primary.my-4.position-relative
+                  +bx('bxs-circle')
+                p.fw-semibold.mb-0 PROSES
+        .py-4.px-4.border.rounded
+          p.subtitle Foto Proyek
+          .p-3
+            .row.justify-content-center
+              .col-md-5
+                .p-3
+                  .slider.slider-for
+                    div
+                      img.w-100.h-auto(src="/img/content/carousel.png", alt="carousel")
+                    div
+                      img.w-100.h-auto(src="/img/content/news-thumb.png", alt="carousel")
+                    div
+                      img.w-100.h-auto(src="/img/content/carousel.png", alt="carousel")
+                    div
+                      img.w-100.h-auto(src="/img/content/news-thumb.png", alt="carousel")
+                    div
+                      img.w-100.h-auto(src="/img/content/carousel.png", alt="carousel")
+                .slider.slider-nav
+                  div
+                    .rounded-4.border.bg-dark.text-white.m-2.overflow-hidden
+                      img.w-100.h-auto(src="/img/content/carousel.png", alt="carousel")
+                  div
+                    .rounded-4.border.bg-dark.text-white.m-2.overflow-hidden
+                      img.w-100.h-auto(src="/img/content/news-thumb.png", alt="carousel")
+                  div
+                    .rounded-4.border.bg-dark.text-white.m-2.overflow-hidden
+                      img.w-100.h-auto(src="/img/content/carousel.png", alt="carousel")
+                  div
+                    .rounded-4.border.bg-dark.text-white.m-2.overflow-hidden
+                      img.w-100.h-auto(src="/img/content/news-thumb.png", alt="carousel")
+                  div
+                    .rounded-4.border.bg-dark.text-white.m-2.overflow-hidden
+                      img.w-100.h-auto(src="/img/content/carousel.png", alt="carousel")
+  +footer_back

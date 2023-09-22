@@ -1,0 +1,21 @@
+header.header.bg-white.d-flex.align-items-center.position-fixed.top-0.end-0.border-bottom.pe-5.ps-4(style="left: 262px;")
+  .me-auto.d-flex.align-items-center.gap-2.fw-semibold
+    +bx('bx-menu')
+    span= header || 'Dashboard'
+  .navbar.gap-4
+    a.btn.btn-link.nav-item.py-2.px-3.text-decoration-none(href="products-add.html" role="button")
+      +bx('bx-diamond')
+      span.fw-semibold Upgrade Plan
+    .nav-item.notification-item.toggle-item
+      button.toggle-head.nav-link.active
+        +bx('bell')
+      .toggle-body.rounded-4.p-3
+        .top.d-flex.align-items-center.justify-content-between.mb-3
+          .toggle-title.ms-3 Messages
+            button.action-item
+              +i('check')
+              | Mark as read
+            button.action-item
+              +i('trash')
+              | Delete message
+        a.btn.d-flex.mx-3(href="/message-center.html") View in message center

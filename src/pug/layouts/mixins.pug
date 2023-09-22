@@ -1,0 +1,124 @@
+mixin i(name)
+  svg.icon(class='icon-' + name, class=attributes.class)
+    use(xlink:href='/img/svg/sprite.icon.svg#icon-' + name)
+mixin i_d(name)
+  svg.icon(class='icon-double-' + name, class=attributes.class)
+    use(href='/img/svg/sprite.icon.svg#icon-' + name + '-fill' class='fill')
+    use(href='/img/svg/sprite.icon.svg#icon-' + name + '-stroke' class='stroke')
+mixin bx(name)
+  i.bx(class=name class=attributes.class style=attributes.style)
+mixin dropdown(title ,isCategory)
+  .nav-link.d-flex.align-items-center.collapsed(data-bs-target='#'+attributes.id, data-bs-toggle="collapse" class={'active-category': isCategory, 'collapsed': !isCategory })
+    if attributes.icon
+      +bx(attributes.icon)
+    span=title
+    +bx("collapsed-icon")
+  .collapse.submenu(data-bs-parent=".sidebar", id=attributes.id, class={'show':  isCategory})
+    .wrapper
+      if block
+        block
+      else
+        p No content provided
+mixin alink(url,isUrl)
+  a.nav-link.d-flex.align-items-center(href=url + ".html", class={active: currentUrl === url })
+    if block
+      block
+    else
+      p No content provided
+mixin sidebar_header()
+  aside.sidebar.d-flex.flex-column.position-fixed.flex-nowrap.border.bg-white.top-0.left-0
+    .position-sticky.bg-white.top-0(style="z-index:1011;")
+      button.close-sidebar.js-close-sidebar.position-absolute
+        +i('close')
+
+      a.d-block.flex-shrink-0.p-2(href="/index.html")
+        .d-flex.align-items-center.gap-3.p-2
+          img.h-100.w-auto.d-block(src="/img/favicon-32x32.png")
+          img.h-100.w-auto.d-block(src="/img/lisensia.png")
+    .nav.flex-column.mb-auto.mt-1.menu
+      if block
+        block
+      else
+        p No content provided
+    .bottom.mt-8
+      .p-4.d-grid.gap-2
+        button.btn.btn-dark.rounded-pill(type="button")
+          +bx('bxl-whatsapp')
+          span Contact Us
+
+mixin footer_back()
+  .fixed-bottom.p-4.text-end.bg-white.footer-button
+    if block
+      block
+    else
+      a.btn.btn-primary(type="button" href="/")  Kembali Ke Dashboard
+
+mixin main_dashboard()
+  .p-5(style="margin-left:262px;margin-top:59px;")
+    if block
+      block
+    else
+      p No content provided
+mixin pagination(id)
+  .py-2.px-4.position-relative.border-top
+    .d-flex.align-item-center
+      .d-flex.align-items-center.gap-2
+        select.select
+          option All time
+          option In a year
+          option Per month
+
+        span.flex-shrink-0 Total 5
+      .d-flex.gap-4.mx-auto.align-items-center
+        button.btn.px-2(type="button")
+          +bx('bx-chevron-left')
+        .border.rounded-circle.bg-light.py-2.px-4 11
+        button.btn.px-2(type="button")
+          +bx('bx-chevron-right')
+      .d-flex.gap-2.flex-shrink-0.align-items-center
+        .border.rounded.py-2.px-4 1
+        button.btn.px-2(type="button")
+          +bx('bx-chevron-right')
+    if id
+      .position-absolute.w-100.bottom-0.start-0.action-when-select.overflow-hidden.fade(id=id style="height:0;transform:translateY(110%)")
+        .d-flex.align-items-center.border-top.rounded-bottom.bg-warning-subtle.pt-4.pb-4.px-4.justify-content-between
+          .subtitle Selected <span class="text-warning fw-bold" id="count"></span> items
+          button.btn.btn-warning.text-white.mb-1
+            | Sembunyikan Dokumen
+mixin modal_with_close(id,judul="modal belum di kasih judul")
+  .modal.fade(id=id tabindex="-1" aria-labelledby=id+"-label" aria-hidden="true")
+    .modal-dialog.modal-dialog-centered.modal-fullscreen-md-down.h-auto
+      .modal-content.rounded-0
+        .w-100.d-flex.justify-content-between.align-items-center.py-2.ps-4
+          h5.mb-0=judul
+          button.btn(data-bs-dismiss="modal")
+            +bx('bxl-xing')
+        .p-4.d-flex.flex-column.gap-4(class=attributes.class)
+          block
+        .p-4.d-flex.gap-4.w-100
+          .d-grid.flex-grow-1
+            button.btn.btn-light(type="button" data-bs-dismiss="modal")
+              span Cancel
+          .d-grid.flex-grow-1
+            button.btn.btn-outline-light.text-primary(type="button")
+              span Apply
+mixin modal_accept(id)
+  .modal.fade(id=id tabindex="-1" aria-labelledby=id+"-label" aria-hidden="true")
+    .modal-dialog.modal-dialog-centered.modal-fullscreen-md-down.h-auto
+      .modal-content(style="max-width:328px;")
+        .d-flex.flex-column.gap-5.p-4
+          div.text-center Apakah kamu yakin ingin menghapus item #{attributes.title} ini?
+          .d-grid
+            button.btn.btn-light.mb-4(type="button" data-bs-dismiss="modal")
+              span Cancel
+            button.btn.bg-danger-subtle.text-danger(type="button")
+              span Delete
+
+mixin file_upload(id,name="file0")
+  .input-file.border.bg-white.py-5
+    div.text-center.my-5
+      h6
+        +bx('bx-file')
+      p.caption.mb-0 Upload File
+      p.caption-small.mb-0 drag and drop file here
+    input(type="file", name="file0", id=id)

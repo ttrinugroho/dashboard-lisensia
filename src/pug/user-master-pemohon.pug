@@ -1,0 +1,62 @@
+---
+title: User - Dashboard
+currentUrl: user-master-pemohon
+category: berkas
+header: Master Pemohon
+---
+extends layouts/layout
+block header
+  include partials/header-dashboard
+  include partials/sidebar-user
+block content
+  +main_dashboard()
+    .d-flex.gap-5.flex-column
+      .d-flex.justify-content-end.gap-4
+        button.btn.btn-light(type="button")
+          span Filter
+          +bx('bx-chevron-down')
+        .mb-0.position-relative
+          input.form-control.ps-7(type='text' placeholder='Search')
+          .position-absolute.top-0.start-0.d-flex.pt-2.px-2
+            +bx('bx-search')
+      .d-flex.align-items.bg-warning-subtle.text-warning.p-4.rounded
+        +bx('bx-info-circle')(class="me-4")
+        p.body.fw-medium.m-0 Anda dapat menambahkan pemohon baru di menu Pemohon
+      .bg-light
+        iframe(frameborder='0' height='250' width='auto' style='width: 100%;' scrolling='no' marginheight='0' marginwidth='0' src='https://maps.google.com/maps?width=320&height=320&hl=en&q=-6.1754083,106.824584&t=&z=14&ie=UTF8&iwloc=B&output=embed')
+      .border.rounded
+        table.table.table-striped.striped-custom
+          thead
+            tr.align-middle.fw-medium
+              td
+                .p-2
+                  input.form-check-input(type='checkbox' value='')
+              td Kategori
+              td Nama Pemohon
+              td No HP
+              td Surel
+              td Provinsi
+              td Kota
+              td Kecamatan
+              td Kelurahan
+              td
+                button.btn.btn-sm.p-2(type="button")
+                    +bx('bx-pencil')
+          tbody
+            each val in [1,2,3]
+              tr.align-middle
+                td
+                  .p-2
+                    input.form-check-input(type='checkbox' value='')
+                td Cell
+                td Cell
+                td Cell
+                td Cell
+                td Cell
+                td Cell
+                td Cell
+                td Cell
+                td
+                  button.btn.btn-sm.rounded-circle.p-2(type="button")
+                    +bx('bx-pencil')
+        +pagination()

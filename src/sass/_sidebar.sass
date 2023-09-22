@@ -1,0 +1,64 @@
+/* sidebar */
+.sidebar
+  --bs-border-width: .5px
+  overflow-x: hidden
+  max-width: 262px
+  max-height: 100vh
+  height: 100%
+  width: 100%
+  background-color: transparent
+  -webkit-overflow-scrolling: touch
+  z-index: 1010
+  &:hover
+    &::-webkit-scrollbar-thumb
+      background-color: #878994
+  &::-webkit-scrollbar
+    max-width: .4em
+  &::-webkit-scrollbar-thumb
+    background-color: transparent
+    border-radius: 100px
+
+  .close-sidebar
+    display: none
+    width: 48px
+    height: 48px
+    left: 24px
+    top: 24px
+
+  .nav-item
+    position: relative
+    hr
+      margin: 12px 16px
+  .nav-link
+    --bs-nav-link-padding-x: 1rem
+    --bs-nav-link-padding-y: .75rem
+    color:#878994
+    cursor: pointer
+    position: relative
+    white-space: nowrap
+    transition: background-color .15s ease, box-shadow .15s ease
+    /* subtitle/pro - subtitle */
+    font-size: 15px
+    font-weight: 500
+    line-height: normal
+    gap: 12px
+    &.active
+      color: var(--bs-link-color)
+    .bx.collapsed-icon
+      margin-left: auto
+      color: #878994
+    .bx
+      font-size: 23px
+
+  .submenu
+    padding: 0 16px 12px
+    .wrapper
+      background-color: #F9FAFC
+      border-radius: 4px
+      .nav-link
+        &:first-child
+          border-radius: 4px 4px 0 0
+        &:last-child
+          border-radius: 0 0 4px 4px
+        &.active
+          background-color: #EDF1F8

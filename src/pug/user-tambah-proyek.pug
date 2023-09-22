@@ -1,0 +1,138 @@
+---
+title: User - Dashboard
+currentUrl: user-tambah-proyek
+header: Tambah Data Proyek
+---
+extends layouts/layout
+block header
+  include partials/header-other
+block content
+  .pb-5.mb-6
+    .container.py-5.mb-5
+      .d-flex.flex-column.gap-4
+        .p-4.bg-light.rounded.border
+          .d-flex.justify-content-between.align-items-center.collapsed(data-bs-toggle="collapse" href="#pls-data-proyek" role="button" aria-expanded="false" aria-controls="perizinan-terlambat")
+            p.mb-0.subtitle.me-auto Data Proyek
+            .rounded-circle.border.p-2.d-flex
+              +bx('collapsed-icon')
+          #pls-data-proyek.collapse.mt-4
+            .row.gy-4
+              .col-md-6
+                div
+                  label.form-label(for='') Nama Pemohon
+                  select.select(name="pemohon")
+                    option(value="pt") PT HK Realtindo
+                    option(value="hk") HK Realtindo PT
+                    option(value="real") Realtindo PT HK
+              .col-md-6
+                div
+                  label.form-label(for='') Tanah/Lokasi
+                  select.select(name="tanah")
+                    option(value="pt") PT HK Realtindo
+                    option(value="hk") HK Realtindo PT
+                    option(value="real") Realtindo PT HK
+              .col-md-12
+                div
+                  label.form-label(for='nama-proyek') Nama Proyek
+                  input#nama-proyek.form-control(type='text' name='nama-proyek' placeholder='Nama Proyek')
+              .col-md-6
+                div
+                  label.form-label(for='jumlah-basement') Jumlah Basement
+                  input#jumlah-basement.form-control(type='text' name='jumlah-basement' placeholder='Jumlah Basement')
+              .col-md-6
+                div
+                  label.form-label(for='jumlah-lantai') Jumlah Lantai
+                  input#jumlah-lantai.form-control(type='text' name='jumlah-lantai' placeholder='Jumlah Lantai')
+              .col-md-12
+                .d-flex.justify-content-center
+                  .col-md-6
+                    div
+                      label.form-label(for='foto-proyek') Foto Proyek
+                      +file_upload('foto-proyek')
+
+        .p-4.bg-light.rounded.border
+          .d-flex.justify-content-between.align-items-center.collapsed(data-bs-toggle="collapse" href="#pls-data-konsultan" role="button" aria-expanded="false" aria-controls="perizinan-terlambat")
+            p.mb-0.subtitle.me-auto Data Konsultan
+            .rounded-circle.border.p-2.d-flex
+              +bx('collapsed-icon')
+          #pls-data-konsultan.collapse.mt-4
+            .row.row-cols-4.gy-4
+              each val, key in {'arsitek':'Arsitek','struktur':'Struktur','mep':'MEP','pm':'Project Management','lingkungan':'Lingkungan','lalin':'Lalu-lintas','infra':'Insfrastruktur','lans':'Lanscape','fasade':'Fasade'}
+                .col
+                  div
+                    label.form-label(for=key) #{val}
+                    input.form-control(type='text' id=key name=key)
+                .col
+                  div
+                    label.form-label(for=key+'pic') PIC
+                    input.form-control(type='text' id=key+'pic' name=key+'pic')
+                .col
+                  div
+                    label.form-label(for=key+'email') Email
+                    input.form-control(type='email' id=key+'email' name=key+'email')
+                .col
+                  div
+                    label.form-label(for=key+'hp') HP
+                    input.form-control(type='text' id=key+'hp' name=key+'hp')
+        .p-4.bg-light.rounded.border
+          .d-flex.justify-content-between.align-items-center.collapsed(data-bs-toggle="collapse" href="#pls-data-intensitas" role="button" aria-expanded="false" aria-controls="perizinan-terlambat")
+            p.mb-0.subtitle.me-auto Data Intensitas Lahan
+            .rounded-circle.border.p-2.d-flex
+              +bx('collapsed-icon')
+          #pls-data-intensitas.collapse.mt-4
+            .row.row-cols-3.gy-4
+              each val, key in ['Luas Lahan Gross','Terpotong Rencana Kota','Luas Lahan Nett']
+                .col
+                  div
+                    label.form-label(for=key) #{val}
+                    div.position-relative
+                      input.form-control.pe-5(type='text' id=key name=key)
+                      .position-absolute.end-0.top-0.px-2.py-2
+                        span.subtitle m2
+        .p-4.bg-light.rounded.border
+          .d-flex.justify-content-between.align-items-center.collapsed(data-bs-toggle="collapse" href="#pls-data-batas" role="button" aria-expanded="false" aria-controls="perizinan-terlambat")
+            p.mb-0.subtitle.me-auto Batas Perencanaan
+            .rounded-circle.border.p-2.d-flex
+              +bx('collapsed-icon')
+          #pls-data-batas.collapse.mt-4
+            .border.rounded.pt-2
+              table.table.mb-0
+                thead.subtitle.table-light.align-middle
+                  tr
+                    td.pb-2.ps-4 Zonasi
+                    td.pb-2 KDB
+                    td.pb-2 KLB
+                    td.pb-2 KTB
+                    td.pb-2 KDH
+                    td.pb-2 Tinggi Bangunan
+                    td.pb-2
+                tbody.body.align-middle
+                  tr
+                    td.ps-4
+                        input.form-control(type="text", name="")
+                    each i in [1,2,3,4,5]
+                      td
+                        input.form-control(type="text", name="")
+                    td.pe-4
+                      button.btn.btn-sm.text-danger.p-2
+                        +bx('bx-trash')
+              .rounded-bottom.bg-white.text-end.px-4.py-4
+                button.btn.btn-sm.btn-primary(type="button")
+                  +bx('bx-plus')
+                  span Tambah Batas Perencanaan
+        .p-4.bg-light.rounded.border
+          .d-flex.justify-content-between.align-items-center.collapsed(data-bs-toggle="collapse" href="#pls-data-lokasi" role="button" aria-expanded="false" aria-controls="perizinan-terlambat")
+            p.mb-0.subtitle.me-auto Lokasi Tempat Pengurusan Perizinan
+            .rounded-circle.border.p-2.d-flex
+              +bx('collapsed-icon')
+          #pls-data-lokasi.collapse.mt-4
+            .row
+              .col-md-4
+                div
+                  label.form-label(for="lokasi") Lokasi Pengurusan Izin
+                  select.select.wide(name="")
+                    option(value="") Kota Bandung
+block modal
+  +footer_back
+    button.btn.btn-light.px-8(type="button") Cancel
+    button.btn.btn-primary.ms-4.px-8(type="button") Save
