@@ -1,0 +1,53 @@
+.datepicker
+  .form-control
+    pointer-events: none
+
+  .date-picker-wrapper.single-date
+    padding: 0
+    z-index: 20
+    background: none
+    border: none
+    width: 100%
+    .month-wrapper
+      border: none
+      background: none
+      padding: 24px 24px 0 24px
+      thead
+        .caption
+          padding-bottom: 24px
+          margin-bottom: 12px
+          .month-name
+            text-transform: capitalize !important
+            width: 100%
+          .prev, .next
+            padding: 0
+            &:hover
+              background: none
+          .prev
+            margin-right: -12px
+          .next
+            margin-left: -12px
+      table
+        width: 100%
+        thead, tbody
+          width: 100%
+        tr
+          height: 46px
+          display: flex
+          align-items: center
+          justify-content: space-around
+        td
+          height: 100%
+          display: flex
+          align-items: center
+          justify-content: center
+          flex: 1
+        .day.valid.toMonth
+          border-radius: 100%
+          height: 90%
+          width: 90%
+          padding: 0
+          margin: 0
+          display: flex
+          align-items: center
+          justify-content: center

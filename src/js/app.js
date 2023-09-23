@@ -51,9 +51,9 @@ $("[data-item-checkbox]").on("click", function () {
 })
 
 // Disabled Form Jika Di centang
-$("[data-input-disabled]").on("click",function(){
+$("[data-input-disabled]").on("click", function () {
     var idFormDisabled = $(this).attr("data-input-disabled")
-    $("#"+idFormDisabled).val("").prop({disabled:$(this).prop("checked")})
+    $("#" + idFormDisabled).val("").prop({ disabled: $(this).prop("checked") })
 })
 
 
@@ -84,27 +84,83 @@ $(document).on("DOMContentLoaded", () => {
         }
 
         // if (toggle_head.length && toggle_item.hasClass("active")) return toggle_item.removeClass("active");
-        // $(".toggle-item, .action-item").removeClass("active");
+        $(".toggle-item, .action-item").removeClass("active");
         // toggle_item.toggleClass("active");
     });
 })();
 
-$("[data-password]").on("click", function(e){
+$("[data-password]").on("click", function (e) {
     e.preventDefault()
-    var inPutPassword = $("#"+$(this).attr("data-password"))
+    var inPutPassword = $("#" + $(this).attr("data-password"))
     var bxIcons = $(this).children(".bx")
     console.log(bxIcons)
-    if(inPutPassword.attr("type") === "text"){
-      inPutPassword.attr("type", "password")
-      bxIcons.removeClass("bx-hide").addClass("bx-show")
-    }else{
+    if (inPutPassword.attr("type") === "text") {
+        inPutPassword.attr("type", "password")
+        bxIcons.removeClass("bx-hide").addClass("bx-show")
+    } else {
         inPutPassword.attr("type", "text")
         bxIcons.removeClass("bx-show").addClass("bx-hide")
     }
 });
-(function(){
+
+(function () {
     const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
     const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
     const popoverTriggerList = document.querySelectorAll('[data-bs-toggle="popover"]')
     const popoverList = [...popoverTriggerList].map(popoverTriggerEl => new bootstrap.Popover(popoverTriggerEl))
-})()
+})();
+
+
+// Datepicker
+
+(function () {
+    var dateRange = $(".js-date-range"),
+        datepicker = $(".datepicker .action-item"),
+        closeDatepicker = datepicker.find(".datepicker-close");
+
+    closeDatepicker.on("click", function (e) {
+        e.stopPropagation();
+        $(".datepicker .action-item").removeClass("active");
+    });
+    if (dateRange.length) {
+        dateRange.each(function () {
+            var _this = $(this),
+                single = _this.data("single-month"),
+                container = _this.data("container"),
+                clear = $(".js-date-clear");
+
+            _this.dateRangePicker({
+                inline: true,
+                autoClose: true,
+                format: "DD MMMM, YYYY",
+                separator: " - ",
+                showShortcuts: false,
+                container: container,
+                singleDate: true,
+                singleMonth: single,
+                showTopbar: false,
+                stickyMonths: true,
+                hoveringTooltip: false,
+                alwaysOpen: true,
+                customArrowPrevSymbol:
+                    '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M14.207 7.793a1 1 0 0 1 0 1.414L11.414 12l2.793 2.793a1 1 0 0 1-1.414 1.414l-3.5-3.5a1 1 0 0 1 0-1.414l3.5-3.5a1 1 0 0 1 1.414 0z" fill="#777e91"/></svg>',
+                customArrowNextSymbol:
+                    '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M9.793 7.793a1 1 0 0 0 0 1.414L12.586 12l-2.793 2.793a1 1 0 0 0 1.414 1.414l3.5-3.5a1 1 0 0 0 0-1.414l-3.5-3.5a1 1 0 0 0-1.414 0z" fill="#777e91"/></svg>',
+                setValue: function setValue(s) {
+                    if ($(this).attr("readonly")) {
+                        $(this).val(s);
+                    } else {
+                        $(this).val(s);
+                    }
+                },
+            });
+
+            _this.data("dateRangePicker").setStart("2022-01-20");
+
+            clear.on("click", function () {
+                _this.data("dateRangePicker").setStart(new Date());
+            });
+        });
+    }
+
+})();

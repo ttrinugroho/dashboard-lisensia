@@ -1,0 +1,85 @@
+---
+title: User - Dashboard
+currentUrl: user-schedule-permit
+category: laporan
+header: Schedule Permit
+---
+extends layouts/layout
+block header
+  include partials/header-dashboard
+  include partials/sidebar-user
+block content
+  +main_dashboard()
+    .d-flex.flex-column.gap-5
+      .p-4.bg-light.rounded
+        .d-flex.align-items-center.gap-4
+          .flex-grow-1
+            div
+              label.form-label Pemohon
+              select.select.wide
+                option(value='') PT HK Realtindo
+                option(value='1') PT Realtindo HK
+                option(value='2') HK Realtindo PT
+                option(value='3') Realtindo HK PT
+                option(value='4') HK PT Realtindo
+            .form-check.body-super
+              input#pemohon-default.form-check-input(type='checkbox' value='')
+              label.form-check-label.body(for='pemohon-default')
+                | Jadikan pemohon sebagai default
+          .flex-grow-1
+            div
+              label.form-label Proyek
+              select.select.wide
+                option(value='') Apartment Green Lake City
+                option(value='1') PT Realtindo HK
+                option(value='2') HK Realtindo PT
+                option(value='3') Realtindo HK PT
+                option(value='4') HK PT Realtindo
+            .form-check.body-super
+              input#lokasi-default.form-check-input(type='checkbox' value='')
+              label.form-check-label.body(for='lokasi-default')
+                | Jadikan lokasi sebagai default
+          div
+            button.btn.btn-primary
+              span Tampilkan
+          div
+            button.btn.border.text-success
+              +bx('bx-export')
+              span Export Excel
+      .border.rounded
+        table.table.table-striped.striped-custom.table-no-bottom-border.mb-0
+          thead.subtitle.align-middle
+            tr
+              td.px-4(rowspan=2) Jenis Izin
+              td(rowspan=2) Kontrol
+              td.text-center.border-start(colspan="12") Agustus
+            tr
+              td.text-center.border-start 1
+              td.text-center.border-start 2
+              td.text-center.border-start 3
+              td.text-center.border-start 4
+              td.text-center.border-start 5
+              td.text-center.border-start 6
+              td.text-center.border-start 7
+              td.text-center.border-start 8
+              td.text-center.border-start 9
+              td.text-center.border-start 10
+              td.text-center.border-start 11
+              td.text-center.border-start 12
+          tbody.body.align-middle
+            each val, index in [{j:'Izin Bongkar',k:'Rencana'},{j:'Izin Bongkar',k:'Pelaksanaan'},{j:'IMB non Rumah Tinggal',k:'Rencana'},{j:'IMB non Rumah Tinggal',k:'Pelaksanaan'},{j:'IMB / PBG Rumah Tinggal',k:'Rencana'},{j:'IMB / PBG Rumah Tinggal',k:'Pelaksanaan'}]
+              tr
+                td.px-4 #{val.j}
+                td #{val.k}
+                td.text-center.border-start
+                td.text-center.border-start
+                td.text-center.border-start.table-danger
+                td.text-center.border-start.table-danger
+                td.text-center.border-start
+                td.text-center.border-start(class=[0,1].includes(index) && 'table-primary')
+                td.text-center.border-start(class=[0,1].includes(index) && 'table-primary')
+                td.text-center.border-start
+                td.text-center.border-start
+                td.text-center.border-start.table-danger
+                td.text-center.border-start.table-danger
+                td.text-center.border-start

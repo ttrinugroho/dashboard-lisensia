@@ -1,0 +1,193 @@
+---
+title: User - Dashboard
+currentUrl: user-produk-permit
+category: izin
+header: Produk Permit
+---
+extends layouts/layout
+block header
+  include partials/header-dashboard
+  include partials/sidebar-user
+block content
+  +main_dashboard()
+    .d-flex.flex-column.gap-4
+      .p-4.bg-light.rounded
+        .d-flex.align-items-center.gap-4
+          .flex-grow-1
+            div
+              label.form-label Pemohon
+              select.select.wide
+                option(value='') PT HK Realtindo
+                option(value='1') PT Realtindo HK
+                option(value='2') HK Realtindo PT
+                option(value='3') Realtindo HK PT
+                option(value='4') HK PT Realtindo
+            .form-check.body-super
+              input#pemohon-default.form-check-input(type='checkbox' value='')
+              label.form-check-label.body(for='pemohon-default')
+                | Jadikan pemohon sebagai default
+          .flex-grow-1
+            div
+              label.form-label Proyek
+              select.select.wide
+                option(value='') Apartment Green Lake City
+                option(value='1') PT Realtindo HK
+                option(value='2') HK Realtindo PT
+                option(value='3') Realtindo HK PT
+                option(value='4') HK PT Realtindo
+            .form-check.body-super
+              input#lokasi-default.form-check-input(type='checkbox' value='')
+              label.form-check-label.body(for='lokasi-default')
+                | Jadikan lokasi sebagai default
+          div
+            button.btn.btn-primary
+              span Tampilkan
+      div
+        ul.nav.tab-fill.nav-tabs(role='tablist')
+          li.nav-item(role='presentation')
+            button#first-tab.nav-link.subtitle.active(data-bs-toggle='tab' data-bs-target='#first-tab-pane' type='button' role='tab' aria-controls='first-tab-pane' aria-selected='true') Izin Ketataruangan
+          li.nav-item(role='presentation')
+            button#second-tab.nav-link.subtitle(data-bs-toggle='tab' data-bs-target='#second-tab-pane' type='button' role='tab' aria-controls='second-tab-pane' aria-selected='false') IMB non Rumah Tinggal
+          li.nav-item(role='presentation')
+            button#third-tab.nav-link.subtitle(data-bs-toggle='tab' data-bs-target='#third-tab-pane' type='button' role='tab' aria-controls='third-tab-pane' aria-selected='false') Izin Lingkungan
+          li.nav-item(role='presentation')
+            button#fourth-tab.nav-link.subtitle(data-bs-toggle='tab' data-bs-target='#fourth-tab-pane' type='button' role='tab' aria-controls='fourth-tab-pane' aria-selected='false') Izin Kelayakan Bangunan
+          li.nav-item(role='presentation')
+            button#fifth-tab.nav-link.subtitle(data-bs-toggle='tab' data-bs-target='#fifth-tab-pane' type='button' role='tab' aria-controls='fifth-tab-pane' aria-selected='false') IMB Rumah Tinggal
+
+        .tab-content.border-top-0.border.rounded-bottom
+          #first-tab-pane.tab-pane.fade.show.active(role='tabpanel' aria-labelledby='first-tab' tabindex='0')
+            .p-4.d-flex.flex-column.gap-4
+              .d-flex.justify-content-between.align-items-center
+                .d-flex.align-items-center.gap-4.p-4.bg-light.rounded-2
+                  .subtitle Tampilkan semua dokumen yang terkait dengan pemohon
+                  .form-switch.body-super
+                    input#flexSwitchCheckChecked.form-check-input(type='checkbox' role='switch' checked='')
+                .mb-0.position-relative
+                  input.form-control.ps-7(type='text' placeholder='Search')
+                  .position-absolute.top-0.start-0.d-flex.pt-2.px-2
+                    +bx('bx-search')
+              h6 Produk Permit yang telah dimiliki Owner
+              .rounded.border
+                table.table.table-striped.striped-custom
+                  thead.subtitle.align-middle
+                    tr
+                      td.px-4
+                        .form-check.custom-check.body-super.mb-0
+                          input#all-document.form-check-input(type='checkbox' value='' data-group-checkbox='document')
+                          label.form-check-label.subtitle(for='all-document')
+                            |  Judul Pemohon Dokumen
+                      td.text-center Ms. Office
+                      td.text-center PDF
+                      td.text-center CAD
+                      td.text-center
+                  tbody.align-middle.body
+                    tr
+                      td.px-4
+                        .form-check.custom-check.body-super.mb-0
+                          input.form-check-input(type='checkbox' value='' id='document'+val data-item-checkbox='document')
+                          label.form-check-label.subtitle(for='document'+val)
+                            |  Dokumen Admin
+                      td.text-center
+                        .d-inline-flex.gap-3
+                          +bx('bxs-file-doc')(class="text-primary")
+                          a.elipsis-cell(href="JYSFCY-2022_03_24_11_07_58.pdf") JYSFCY-2022_03_24_11_07_58.pdf
+                      td.text-center
+                        .d-inline-flex.gap-3
+                          +bx('bxs-file-pdf')(class="text-danger")
+                          a.elipsis-cell(href="JYSFCY-2022_03_24_11_07_58.pdf") JYSFCY-2022_03_24_11_07_58.pdf
+                      td.text-center
+                        .d-inline-flex.gap-3
+                          +bx('bxs-file-blank')
+                          a.elipsis-cell(href="JYSFCY-2022_03_24_11_07_58.pdf") JYSFCY-2022_03_24_11_07_58.pdf
+                      td.text-center
+                        .action-item
+                          button.btn.btn-light.btn-sm.p-2.rounded-circle.action-head(type="button")
+                            +bx('bx-dots-horizontal-rounded')
+                          .action-body.p-2
+                            button.btn.action-item
+                              +bx('bx-hide')
+                              span Sembunyikan
+                            button.btn.action-item.text-danger(type="button" data-bs-toggle="modal" data-bs-target="#setuju")
+                              +bx('bx-trash')
+                              span Hapus
+                    each val in [1,2]
+                      tr
+                        td.px-4
+                          .form-check.custom-check.body-super.mb-0
+                            input.form-check-input(type='checkbox' value='' id='document'+val data-item-checkbox='document')
+                            label.form-check-label.subtitle(for='document'+val)
+                              |  Dokumen Admin
+                        td.text-center
+                          button.btn.btn-light.rounded-pill
+                            +bx('bx-upload')
+                            span Unggah
+                        td.text-center
+                          button.btn.btn-light.rounded-pill
+                            +bx('bx-upload')
+                            span Unggah
+                        td.text-center
+                          button.btn.btn-light.rounded-pill
+                            +bx('bx-upload')
+                            span Unggah
+                        td.text-center
+                          .action-item
+                            button.btn.btn-light.btn-sm.p-2.rounded-circle.action-head(type="button")
+                              +bx('bx-dots-horizontal-rounded')
+                            .action-body.p-2
+                              button.btn.action-item
+                                +bx('bx-hide')
+                                span Sembunyikan
+                              button.btn.action-item(type="button" disabled data-bs-toggle="modal" data-bs-target="#dokumen")
+                                +bx('bx-trash')
+                                span Hapus
+                +pagination('document')
+              h6 Produk Permit yang sedang diproses oleh Mitra Lisensia
+              .rounded.border
+                table.table.table-striped.striped-custom
+                  thead.subtitle.align-middle
+                    tr
+                      td.px-4 Doc. Permit Mitra
+                      td Mitra
+                      td.text-center Ms. Office
+                      td.text-center PDF
+                      td.text-center CAD
+                      td.text-center(colspan="2") BAST
+                  tbody.body.align-middle
+                    tr
+                      td.px-4 Dokumen Admin
+                      td PT HK Realtindo
+                      td.text-center
+                          button.btn.btn-light.rounded-pill
+                            +bx('bx-download')
+                            span Unduh
+                      td.text-center
+                        button.btn.btn-light.rounded-pill
+                          +bx('bx-download')
+                          span Unduh
+                      td.text-center
+                        button.btn.btn-light.rounded-pill
+                          +bx('bx-download')
+                          span Unduh
+                      td
+                        button.btn.border.btn-sm.text-success
+                          +bx('bx-check')
+                          span Terima
+                      td
+                        button.btn.border.btn-sm.text-danger
+                          +bx('bx-x')
+                          span Tolak
+          #second-tab-pane.tab-pane.fade(role='tabpanel' aria-labelledby='second-tab' tabindex='2')
+            .p-4.text-center.text-primary
+              h6 No Figma Design
+          #third-tab-pane.tab-pane.fade(role='tabpanel' aria-labelledby='third-tab' tabindex='3')
+            .p-4.text-center.text-primary
+              h6 No Figma Design
+          #fourth-tab-pane.tab-pane.fade(role='tabpanel' aria-labelledby='fourth-tab' tabindex='4')
+            .p-4.text-center.text-primary
+              h6 No Figma Design
+          #fifth-tab-pane.tab-pane.fade(role='tabpanel' aria-labelledby='fifth-tab' tabindex='5')
+            .p-4.text-center.text-primary
+              h6 No Figma Design
+block modal
+  +modal_accept('setuju')(title="documen")

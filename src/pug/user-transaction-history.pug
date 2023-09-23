@@ -1,0 +1,47 @@
+---
+title: User - Dashboard
+currentUrl: user-transaction-history
+category: lisensia-plan
+header: Transaction History
+---
+extends layouts/layout
+block header
+  include partials/header-dashboard
+  include partials/sidebar-user
+block content
+  +main_dashboard()
+    .d-flex.flex-column.gap-5
+      .d-flex.justify-content-end.align-items-center
+        .mb-0.position-relative
+          input.form-control.ps-7(type='text' placeholder='Search')
+          .position-absolute.top-0.start-0.d-flex.pt-2.px-2
+            +bx('bx-search')
+      .border.rounded
+        table.table.table-striped.striped-custom.table-no-bottom-border.mb-0
+          thead.subtitle.align-middle
+            tr
+              td.py-3.px-4 Tanggal
+              td.py-3 Jumlah
+              td.py-3 Plan
+              td.py-3 Paket
+              td.py-3.px-4.cell-fit.text-center Invoice
+          tbody.body.align-middle
+            tr
+              td.px-4 05-04-2023
+              td Rp3.250.000
+              td Business
+              td Tahunan
+              td.px-4.cell-fit.text-center
+                button.btn.btn-sm.btn-light(type="button")
+                  +bx('bx-download')
+                  span Unduh
+            each i in [3,2,1]
+              tr
+                td.px-4 05-0#{i}-2023
+                td Rp250.000
+                td Basic
+                td Bulanan
+                td.px-4.cell-fit.text-center
+                  button.btn.btn-sm.btn-light(type="button")
+                    +bx('bx-download')
+                    span Unduh

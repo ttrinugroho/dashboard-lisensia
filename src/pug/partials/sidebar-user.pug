@@ -51,7 +51,7 @@
 
   .nav-item
     +dropdown('Laporan', category === 'laporan')(id='sidebar-laporan-collapse',icon='bx-bar-chart-square')
-      +alink('user-riwayar-kronologi')
+      +alink('user-riwayat-kronologi')
         span Riwayat Kronologi
       +alink('user-izin-terlambat')
         span Izin Terlambat
@@ -82,7 +82,8 @@
         +bx("collapsed-icon")
       .collapse.submenu(id='user-profile', class={'show': subCategory === 'user-profile'})
         .wrapper
-          +alink("user")
+          a.nav-link.d-flex.align-items-center.active(href="/user.html")
+            +bx('bx-check')
             span User
           +alink("admin")
             span Admin

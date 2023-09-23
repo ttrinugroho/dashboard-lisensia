@@ -1,0 +1,43 @@
+---
+title: User - Dashboard
+currentUrl: user-peraturan-perizinan
+header: Peraturan Perizinan
+---
+extends layouts/layout
+block header
+  include partials/header-dashboard
+  include partials/sidebar-user
+block content
+  +main_dashboard()
+    .d-flex.flex-column.gap-5
+      .p-4.bg-light.rounded
+        div
+          label.form-label(for='') Kategori Peraturan
+          select.select.wide#kategori(name="kategori")
+            option(value="") Select Peraturan
+            option(value="undang") Undang-undang
+            option(value="lingkungan") Lingkungan
+      .d-flex.justify-content-end
+        .mb-0.position-relative
+          input.form-control.bg-light.ps-7(type='text' placeholder='Search')
+          .position-absolute.top-0.start-0.d-flex.pt-2.px-2
+            +bx('bx-search')
+      .rounded.border
+        table.table.table-striped.striped-custom
+          thead.subtitle.align-middle
+            tr
+              td.px-4 Peraturan
+              td Tentang
+              td Tanggal
+              td.px-4.cell-fit
+          tbody.align-middle.body
+            each i in [1,2,3]
+              tr
+                td.px-4
+                td
+                td
+                td.px-4.cell-fit
+                  button.btn.btn-light(type="button" disabled)
+                    +bx('bx-download')
+                    span Unduh
+        +pagination

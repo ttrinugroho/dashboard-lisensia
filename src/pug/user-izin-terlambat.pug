@@ -1,0 +1,83 @@
+---
+title: User - Dashboard
+currentUrl: user-izin-terlambat
+category: laporan
+header: Izin Terlambat
+---
+extends layouts/layout
+block header
+  include partials/header-dashboard
+  include partials/sidebar-user
+block content
+  +main_dashboard()
+    .d-flex.flex-column.gap-5
+      .p-4.bg-light.rounded
+        .d-flex.align-items-center.gap-4
+          .flex-grow-1
+            div
+              label.form-label Pemohon
+              select.select.wide
+                option(value='') PT HK Realtindo
+                option(value='1') PT Realtindo HK
+                option(value='2') HK Realtindo PT
+                option(value='3') Realtindo HK PT
+                option(value='4') HK PT Realtindo
+            .form-check.body-super
+              input#pemohon-default.form-check-input(type='checkbox' value='')
+              label.form-check-label.body(for='pemohon-default')
+                | Jadikan pemohon sebagai default
+          .flex-grow-1
+            div
+              label.form-label Proyek
+              select.select.wide
+                option(value='') Apartment Green Lake City
+                option(value='1') PT Realtindo HK
+                option(value='2') HK Realtindo PT
+                option(value='3') Realtindo HK PT
+                option(value='4') HK PT Realtindo
+            .form-check.body-super
+              input#lokasi-default.form-check-input(type='checkbox' value='')
+              label.form-check-label.body(for='lokasi-default')
+                | Jadikan lokasi sebagai default
+          div
+            button.btn.btn-primary
+              span Tampilkan
+          div
+            button.btn.border.text-success
+              +bx('bx-export')
+              span Export Excel
+      .d-flex.align-items-center.gap-4
+        div
+          select#filter.select.bg-light(name="filter")
+            option(value="") Filter
+            option(value="filter 1") Filter 1
+        .datepicker
+          .action-item
+            .d-flex.align-items-center.gap-2.px-2.border.rounded.action-head.bg-light
+              +bx('bx-chevron-left')
+              input.form-control.border-0.bg-light.text-center.px-2.js-date-range(type="text" data-single-month="true" data-container=".js-date-container" value="12 Agustus 2023")
+              +bx('bx-chevron-right')
+            .action-body.w-100
+              .js-date-container
+        .mb-0.position-relative.flex-grow-1
+          input.form-control.bg-light.ps-7(type='text' placeholder='Search')
+          .position-absolute.top-0.start-0.d-flex.pt-2.px-2
+            +bx('bx-search')
+      .border.rounded
+        table.table.table-striped.striped-custom
+          thead.subtitle.align-middle
+            tr
+              td.px-4 Jenis Izin
+              td Rencana Mulai
+              td Rencana Selesai
+              td Realisasi Mulai
+              td.px-4 Realisasi Selesai
+          tbody.body.align-middle
+            each i in [1,2,3]
+              tr
+                td.px-4 Cell
+                td Cell
+                td Cell
+                td Cell
+                td.px-4 Cell
+        +pagination
