@@ -83,9 +83,9 @@ $(document).on("DOMContentLoaded", () => {
             return action_item.toggleClass("active");
         }
 
-        // if (toggle_head.length && toggle_item.hasClass("active")) return toggle_item.removeClass("active");
+        if (toggle_head.length && toggle_item.hasClass("active")) return toggle_item.removeClass("active");
         $(".toggle-item, .action-item").removeClass("active");
-        // toggle_item.toggleClass("active");
+        toggle_item.toggleClass("active");
     });
 })();
 

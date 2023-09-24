@@ -8,6 +8,11 @@ block header
 block content
   .pb-5.mb-6
     .p-5.mb-5.d-flex.flex-column.gap-4
+      .py-1.px-2.bg-warning-subtle.text-warning.rounded
+        .d-flex.align-items-center.gap-2
+          span.d-flex.p-2
+            +bx('bx-info-circle')
+          p.mb-0.subtitle Jadwal izin hanya bisa di edit oleh Mitra Pengurus Izin, bukan oleh Anda. Mohon menunggu, jadwal izin Anda sedang disusun oleh Mitra Lisensia
       .d-flex.gap-4.align-items-end
         .flex-grow-1
           label.form-label(for='pemohon') Pemohon
@@ -66,9 +71,11 @@ block content
               td.py-3 -
               td.py-3 Rencana
               td.py-3.cell-fit.text-center.bg-white(rowspan="2")
-                span.badge.border.d-inline-flex.gap-1.align-items-center.text-success
-                  +bx('bx-lock-open-alt')
-                  | Buka
+                div
+                  input#btn-check-1.btn-check(type='checkbox' autocomplete='off')
+                  label.btn.btn-lock.btn-sm(for='btn-check-1')
+                    +bx("bx-lock-open-alt")
+                    span
               td.py-3.cell-fit.text-center.bg-white.border-start
               td.py-3.cell-fit.text-center.bg-white.border-start
               td.py-3.cell-fit.text-center.border-start.table-danger
@@ -92,9 +99,11 @@ block content
               td.py-3.elipsis-cell(rowspan="2") 1. Pemasukan Berkas ke DPM PTSP
               td.py-3 Rencana
               td.py-3.cell-fit.text-center.bg-white(rowspan="2")
-                span.badge.border.d-inline-flex.gap-1.align-items-center.text-warning
-                  +bx('bx-lock-alt')
-                  | Kunci
+                div
+                  input#btn-check-2.btn-check(type='checkbox' checked autocomplete='off')
+                  label.btn.btn-lock.btn-sm(for='btn-check-2')
+                    +bx("bx-lock-open-alt")
+                    span
               td.py-3.cell-fit.text-center.bg-white.border-start
               td.py-3.cell-fit.text-center.bg-white.border-start
               td.py-3.cell-fit.text-center.border-start.table-danger
@@ -113,9 +122,11 @@ block content
               td.py-3.elipsis-cell(rowspan="2") 2. Pengecekan administrasi & teknis oleh DPM PTSP
               td.py-3 Rencana
               td.py-3.cell-fit.text-center.bg-white(rowspan="2")
-                span.badge.border.d-inline-flex.gap-1.align-items-center.text-warning
-                  +bx('bx-lock-alt')
-                  | Kunci
+                div
+                  input#btn-check-3.btn-check(type='checkbox' checked autocomplete='off')
+                  label.btn.btn-lock.btn-sm(for='btn-check-3')
+                    +bx("bx-lock-open-alt")
+                    span
               td.py-3.cell-fit.text-center.bg-white.border-start
               td.py-3.cell-fit.text-center.bg-white.border-start
               td.py-3.cell-fit.text-center.border-start.table-danger
@@ -134,9 +145,11 @@ block content
               td.py-3.elipsis-cell(rowspan="2") 3. disposisi dari DPM PTSP ke Dinas Citata
               td.py-3 Rencana
               td.py-3.cell-fit.text-center.bg-white(rowspan="2")
-                span.badge.border.d-inline-flex.gap-1.align-items-center.text-warning
-                  +bx('bx-lock-alt')
-                  | Kunci
+                div
+                  input#btn-check-4.btn-check(type='checkbox' checked autocomplete='off')
+                  label.btn.btn-lock.btn-sm(for='btn-check-4')
+                    +bx("bx-lock-open-alt")
+                    span
               td.py-3.cell-fit.text-center.bg-white.border-start
               td.py-3.cell-fit.text-center.bg-white.border-start
               td.py-3.cell-fit.text-center.border-start.table-danger

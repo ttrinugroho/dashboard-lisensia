@@ -13,24 +13,16 @@
 .toggle-item
   .toggle-head
     cursor: pointer
-  &.active
-    .toggle-body
-      opacity: 1
-      visibility: visible
-      transform: translateY(0)
-      &::after
-        font-family: boxicons!important
-        color: #ffffff
-        content: "\eedb"
-        display: block
-        font-size: 30px
-        position: absolute
-        top: -30px
   .toggle-body
     opacity: 0
     visibility: hidden
     position: absolute
     transform: translateY(10px)
+  &.active
+    .toggle-body
+      opacity: 1
+      visibility: visible
+      transform: translateY(0)
 
 .header
   box-shadow: inset 1px 0px 0px #F4F4F4, inset 0 -1px 0px #F4F4F4
@@ -38,10 +30,25 @@
   left: 262px
   z-index: 1000
   .toggle-item
+    position: relative
     .toggle-head
+      position: relative
       .bell
         &::before
           content: "\e9d2"
+      &.active
+        &::before
+          transition: all 0.15s ease
+          content: ''
+          position: absolute
+          top: 8px
+          right: 4px
+          width: 14px
+          height: 14px
+          border-radius: 14px
+          border: 2px solid #FCFCFC
+          background: $danger
+          z-index: 5
     &.active,
     &:hover
       .toggle-head
@@ -50,12 +57,23 @@
             content: "\ecc9"
   .toggle-body
     right: -12px
-    width: 392px
-    top: calc(100%)
-    border: 1px solid #FFFFFF
+    top: calc(100% + 8px)
     background-color: #ffffff
-    box-shadow: 0px 40px 64px -12px rgba(0, 0, 0, 0.08), 0px 0px 14px -4px rgba(0, 0, 0, 0.05), 0px 32px 48px -8px rgba(0, 0, 0, 0.1)
-
+.menu-notification
+  width: 362px
+.menu-profile
+  width: 262px
+  .wrapper
+      background-color: #F9FAFC
+  .nav
+    --bs-nav-link-font-weight: 500
+    --bs-nav-link-color: var(--bs-body-color)
+    --bs-nav-link-hover-color: var(--bs-black)
+    .nav-link
+      cursor: pointer
+      &.active
+        --bs-nav-link-color: var(--bs-link-color)
+        background-color: #EDF1F8
 .form-check
   .form-check-input
     &:checked
@@ -151,3 +169,8 @@ input[type="checkbox"]:checked
   border-top-width: 5px
   border-top-style: solid
   box-shadow: 0px 30px 70px 0px rgba(0, 0, 0, 0.03)
+
+.user-avatar
+  border-radius: 100px
+  width: 41px
+  height: 41px
