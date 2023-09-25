@@ -1,0 +1,63 @@
+---
+title: User - Dashboard
+header: Form Paket
+---
+extends layouts/layout
+block header
+  include partials/header-other
+block content
+  .container.pb-5.mb-6
+    .p-5.mb-5
+      .row.row-cols-2
+        .col
+          .d-flex.flex-column.gap-4
+            div
+              label.form-label(for='nama') Nama Paket
+              input#nama.form-control(type='text' placeholder="Nama Paket")
+            div
+              label.form-label(for='harga') Harga
+              input#harga.form-control(type='text' placeholder="Harga")
+            div
+              label.form-label(for='proyek') Proyek
+              input#proyek.form-control.mb-2(type='text' placeholder="Proyek")
+              .form-check.body-super
+                input#unlimited.form-check-input(type='checkbox' value='')
+                label.form-check-label.caption.align-middle(for='unlimited') Set Unlimited
+        .col
+          .d-flex.flex-column.gap-4
+            div
+              label.form-label(for='durasi') Durasi
+              input#durasi.form-control(type='text' placeholder="Durasi")
+            div
+              label.form-label(for='user') User
+              input#user.form-control(type='text' placeholder="User")
+            div
+              label.form-label(for='tutorial') Tutorial
+              select#tutorial.select.wide(name="tutorial")
+                option(value="" data-display="Unlimited") Unlimited
+                option(value="limited") Limited
+        .col-12
+          .mt-4
+            .row.row-cols-3
+              .col
+                div
+                  label.form-label(for='historical') Historical Pengurusan
+                  select#historical.select.wide(name="historical")
+                    option(value="" data-display="Ya") Ya
+                    option(value="tidak") Tidak
+              .col
+                div
+                  label.form-label(for='jadwal') Jadwal Perizinan
+                  select#jadwal.select.wide(name="jadwal")
+                    option(value="" data-display="Ya") Ya
+                    option(value="tidak") Tidak
+              .col
+                div
+                  label.form-label(for='laporan') Laporan Perizinan Lengkap
+                  select#laporan.select.wide(name="laporan")
+                    option(value="" data-display="Ya") Ya
+                    option(value="tidak") Tidak
+block modal
+  +footer_back
+    button.btn.btn-light.px-8(type="button") Cancel
+    button.btn.btn-primary.ms-4.px-8(type="button") Save

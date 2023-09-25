@@ -1,0 +1,72 @@
+---
+title: Admin - Dashboard
+currentUrl: admin-point-mitra
+category: settings
+header: Admin Point Mitra
+---
+extends layouts/layout
+block header
+  include partials/header-dashboard
+  include partials/sidebar-admin
+block content
+  +main_dashboard()
+    .d-flex.flex-column.gap-5
+      .d-flex.justify-content-end.gap-4
+        div
+          select#filter.select.right(name="filter")
+            option(value="" data-display="Filter") Filter
+            option(value="filter 1") Filter 1
+        .mb-0.position-relative
+          input.form-control.bg-light.ps-7(type='text' placeholder='Search')
+          .position-absolute.top-0.start-0.d-flex.pt-2.px-2
+            +bx('bx-search')
+      .border.rounded
+        table.table.table-striped.striped-custom.mb-0
+          thead.subtitle.align-middle
+            tr
+              td.py-4.px-4 Urutan
+              td.py-4.cell-fit Tempat Perizinan
+              td.py-4 Nama Kategori
+              td.py-4 Nama Izin
+              td.py-4.text-end Total Poin
+              td.py-4.text-end Batas Update
+              td.py-4.text-end Potongan
+              td.py-4.px-4.text-center
+          tbody.body.align-middle
+            each i in [1,2,3,4,5,6,7,8]
+              tr
+                td.py-3.px-4 15
+                td DKI Jakarta
+                td.elpsis-cell Izin Membangun Prasarana
+                td.elipsis-cell ZIN PRINSIP / IP Penataan Kegiatan
+                td.text-end 500.000
+                td.text-end 3
+                td.text-end 100.000
+                td.px-4
+                  button.btn.text-primary.p-2(type="button" data-bs-toggle="modal" data-bs-target="#modal-edit-point")
+                    +bx('bx-pencil')
+        +pagination
+block modal
+  +modal_with_close("modal-edit-point","Edit Point Mitra")
+    .d-flex.flex-column.gap-4
+      div
+        label.form-label(for='place') Tempat Perizinan
+        select#place.form-control(name="place", disabled)
+          option(value="DKI Jakarta" selected) DKI Jakarta
+      div
+        label.form-label(for='kategori') Kategori
+        select#kategori.form-control(name="kategori", disabled)
+          option(value="ketata" selected) Izin Ketataruangan
+      div
+        label.form-label(for='izin') Izin
+        select#izin.form-control(name="izin", disabled)
+          option(value="ip" selected) IP Pengurangan Kewajiban IPPR
+      div
+        label.form-label(for='point') Total Point
+        input#point.text-end.form-control(type='text' value="0")
+      div
+        label.form-label(for='update') Batas Upadate
+        input#update.text-end.form-control(type='text' value="0")
+      div
+        label.form-label(for='potongan') Potongan
+        input#potongan.text-end.form-control(type='text' value="0")

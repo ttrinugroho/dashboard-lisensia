@@ -1,0 +1,93 @@
+---
+title: Admin - Dashboard
+currentUrl: admin-peraturan
+category: data-master
+header: Peraturan
+---
+extends layouts/layout
+block header
+  include partials/header-dashboard
+  include partials/sidebar-admin
+block content
+  +main_dashboard()
+    .d-flex.flex-column.gap-5
+      .d-flex.justify-content-end.align-items-center.gap-4
+        div
+          select#filter.select.right(name="filter")
+            option(value="" data-display="Filter") Filter
+            option(value="filter 1") Filter 1
+        .mb-0.position-relative.me-auto
+          input.form-control.bg-light.ps-7(type='text' placeholder='Search')
+          .position-absolute.top-0.start-0.d-flex.pt-2.px-2
+            +bx('bx-search')
+        div
+          button.btn.btn-primary(type="button" data-bs-toggle="modal" data-bs-target="#modal-form-peraturan")
+            +bx('bx-plus')
+            span Tambah Data
+      .border.rounded
+        table.table.table-striped.striped-custom.mb-0
+          thead.subtitle.align-middle
+            tr
+              td.py-4.px-4 Provinsi
+              td.py-4 Kota
+              td.py-4 Kategori
+              td.py-4 Peraturan
+              td.py-4 Tanggal Terbit
+              td.py-4.px-4.text-center
+          tbody.body.align-middle
+            tr
+              td.py-4.px-4.text-uppercase dki jakarta
+              td.py-4.text-uppercase jakarta pusat
+              td.py-4 Peraturan Daerah
+              td.py-4 Perda Tataruang
+              td.py-4 2020-06-20
+              td.px-4.tex-center.cell-fit
+                .action-item
+                  button.btn.btn-light.btn-sm.p-2.rounded-circle.action-head(type="button")
+                    +bx('bx-dots-horizontal-rounded')
+                  .action-body
+                    .p-2.d-flex.flex-column
+                      a.btn.action-item(href='/admin-order-list.html')
+                        +bx('bx-file-blank')
+                        span Lihat detail
+                      button.btn.action-item.text-danger(type="button" data-bs-toggle="modal" data-bs-target="#hapus-event")
+                        +bx('bx-trash')
+                        span Hapus
+        +pagination
+block modal
+  +modal_accept('hapus-event')
+  +modal_with_close('modal-form-peraturan','Form Peraturan')
+    .p-4.d-flex.flex-column.gap-4
+      div
+        label.form-label(for='provinsi') Provinsi
+        select#provinsi.select.wide(name="provinsi")
+          option(value="") DKI Jakarta
+          option(value="2") Jawa Barat
+          option(value="3") Jawa Tengah
+          option(value="4") Jawa Timur
+          option(value="5") Banten
+      div
+        label.form-label(for='kota') Kota/Kabupaten
+        select#kota.select.wide(name="kota")
+          option(value="") Jakarta Selatan
+          option(value="2") Jakarta Pusat
+          option(value="3") Jakarta Utara
+          option(value="4") Jakarta Barat
+          option(value="5") Jakarta Timur
+      div
+        label.form-label(for='kategori') Kategori
+        select#kategori.select.wide(name="kategori")
+          option(value="") Jakarta Selatan
+          option(value="2") Jakarta Pusat
+          option(value="3") Jakarta Utara
+          option(value="4") Jakarta Barat
+          option(value="5") Jakarta Timur
+      div
+        label.form-label(for='nama-peraturan') Nama Peraturan
+        input#nama-peraturan.form-control(type='text' placeholder="Nama Peraturan")
+      div
+        label.form-label(for='description') Deskripsi
+        textarea#description.form-control(rows='3')
+      div
+        label.form-label(for='contoh-format') Contoh Format
+        +file_upload('contoh-format')

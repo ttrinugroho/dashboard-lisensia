@@ -128,3 +128,71 @@
         new ApexCharts(chart, options).render();
     }
 })();
+(function(){
+    var options = {
+        series: [{
+          name: "Data User",
+          data: [10, 41, 35, 51, 49, 62, 69, 91, 148]
+      }],
+        chart: {
+        height: 350,
+        type: 'line',
+        zoom: {
+          enabled: false
+        }
+      },
+      dataLabels: {
+        enabled: false
+      },
+      stroke: {
+        width:2,
+        curve: 'smooth'
+      },
+      grid: {
+        row: {
+          colors: ['#f3f3f3', 'transparent'], // takes an array which will be repeated on columns
+          opacity: 0.5
+        },
+      },
+      xaxis: {
+        categories: ['2022-01','2022-02','2022-03', '2022-04','2022-05', '2022-06','2022-07', '2022-08','2022-09'],
+      }
+      };
+      if(document.querySelector("#daftar-user-chart")){
+          new ApexCharts(document.querySelector("#daftar-user-chart"), options);
+      }
+})();
+(function(){
+    var options = {
+        series: [{
+          name: "Data Mitra",
+          data: [10, 41, 35, 51, 49, 62, 69, 91, 148]
+      }],
+        chart: {
+        height: 350,
+        type: 'line',
+        zoom: {
+          enabled: false
+        }
+      },
+      dataLabels: {
+        enabled: false
+      },
+      stroke: {
+        width:2,
+        curve: 'smooth'
+      },
+      grid: {
+        row: {
+          colors: ['#f3f3f3', 'transparent'], // takes an array which will be repeated on columns
+          opacity: 0.5
+        },
+      },
+      xaxis: {
+        categories: ['2022-01','2022-02','2022-03', '2022-04','2022-05', '2022-06','2022-07', '2022-08','2022-09'],
+      }
+      };
+      if(document.querySelector("#daftar-mitra-chart")){
+        new ApexCharts(document.querySelector("#daftar-mitra-chart"), options);
+      }
+})();

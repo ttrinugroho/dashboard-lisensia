@@ -8,3 +8,207 @@ block header
   include partials/sidebar-admin
 block content
   +main_dashboard()
+    .d-flex.flex-column.gap-4
+      .p-5.rounded.border
+        .mb-4
+          h4.mb-0 Open Perizinan
+        .row.row-cols-4.g-3
+          .col
+            .text-decoration-none.p-4.bg-warning-subtle.rounded-3
+              .mb-4
+                .count-circle-box.text-white.bg-warning
+                  span 8
+              .d-flex.gap-1.justify-content-between.fw-semibold.text-body
+                span Open
+          .col
+            .text-decoration-none.p-4.bg-success-subtle.rounded-3
+              .mb-4
+                .count-circle-box.text-white.bg-success
+                  span 3
+              .d-flex.gap-1.justify-content-between.fw-semibold.text-body
+                span Closed
+          .col
+            .text-decoration-none.p-4.bg-info-subtle.rounded-3
+              .mb-4
+                .count-circle-box.text-white.bg-info
+                  span 12
+              .d-flex.gap-1.justify-content-between.fw-semibold.text-body
+                span Dalam Proses
+          .col
+            .text-decoration-none.p-4.bg-danger-subtle.rounded-3
+              .mb-4
+                .count-circle-box.text-white.bg-danger
+                  span 15
+              .d-flex.gap-1.justify-content-between.fw-semibold.text-body
+                span BAST / Selesai
+
+      .p-4.border.rounded.bg-light
+        .d-grid
+          button.btn.justify-content-start.px-2.collapsed(type="button" data-bs-toggle="collapse" href="#order-baru" role="button" aria-expanded="false" aria-controls="order-baru")
+            +bx('collapsed-icon')
+            | Order Baru
+        #order-baru.collapse.mt-2
+          .d-flex.p-2.mt-2.align-items-center.text-warning.bg-warning-subtle.rounded
+            .d-inline-flex.p-2
+              +bx('bx-info-circle')
+            span.subtitle Ada <strong>2</strong> Order Baru Belum Di-Approve
+          .border.rounded.mt-2
+            .rounded.py-1.bg-white
+              table.table.table-no-bottom-border.mb-0
+                thead.subtitle.align-middle
+                  tr
+                    td.px-4 No Order
+                    td Perusahaan
+                    td Tanggal Order
+                    td.px-4
+                tbody.body
+                  tr
+                    td.px-4 ORD23040003
+                    td PT Pembangunan Sarana Jaya
+                    td 2023-04-13, 12:00:00
+                    td.px-4
+                      a.btn.btn-sm.rounded-pill.btn-outline-primary
+                        +bx("bx-show")
+                        span Details
+          .border.rounded.mt-2
+            .rounded.py-1.bg-white
+              table.table.table-no-bottom-border.mb-0
+                thead.subtitle.align-middle
+                  tr
+                    td.px-4 No Order
+                    td Perusahaan
+                    td Tanggal Order
+                    td.px-4
+                tbody.body
+                  tr
+                    td.px-4 ORD23040003
+                    td PT Pembangunan Sarana Jaya
+                    td 2023-04-13, 12:00:00
+                    td.px-4
+                      a.btn.btn-sm.rounded-pill.btn-outline-primary
+                        +bx("bx-show")
+                        span Details
+        .d-grid.mt-2
+          button.btn.justify-content-start.px-2.collapsed(type="button" data-bs-toggle="collapse" href="#perizinan-terlambat" role="button" aria-expanded="false" aria-controls="perizinan-terlambat")
+            +bx('collapsed-icon')
+            span Order Baru
+            span.badge.rounded-pill.bg-danger 8
+        #perizinan-terlambat.collapse.mt-2
+          .border.rounded.mt-2
+            .rounded.py-1.bg-white
+              table.table.table-no-bottom-border.mb-0
+                thead.subtitle.align-middle
+                  tr
+                    td.px-4 No Order
+                    td Perusahaan
+                    td Tanggal Order
+                    td.px-4
+                tbody.body.align-middle
+                  tr
+                    td.px-4 ORD23040003
+                    td PT Pembangunan Sarana Jaya
+                    td 2023-04-13, 12:00:00
+                    td.px-4
+                      a.btn.btn-sm.rounded-pill.btn-outline-primary
+                        +bx("bx-show")
+                        span Details
+          .border.rounded.mt-2
+            .rounded.py-1.bg-white
+              table.table.table-no-bottom-border.mb-0
+                thead.subtitle.align-middle
+                  tr
+                    td.px-4 No Order
+                    td Perusahaan
+                    td Tanggal Order
+                    td.px-4
+                tbody.body.align-middle
+                  tr
+                    td.px-4 ORD23040003
+                    td PT Pembangunan Sarana Jaya
+                    td 2023-04-13, 12:00:00
+                    td.px-4
+                      a.btn.btn-sm.rounded-pill.btn-outline-primary
+                        +bx("bx-show")
+                        span Details
+      div
+        .row.row-cols-2
+          .col
+            .d-flex.flex-column.gap-4
+              .p-4.d-flex.gap-4.align-items-center.rounded.bg-light
+                strong.flex-shrink-0 User Baru Bergabung
+                div
+                  input.form-control(type='text' name='username' value="Argadinata" placeholder='Nama Pengguna')
+                button.btn.btn-primary(type="button")
+                  span Tampilkan
+              .p-5.border.rounded
+                .d-flex.align-items-center.justify-content-between.mb-3
+                  h5.fw-bold.mb-0 Data User
+                  button.btn.btn-outline-primary
+                    +bx('bx-show')
+                    span Lihat
+                div
+                  #daftar-user-chart
+              .border.rounded
+                .row.g-0
+                  .col-5
+                    .d-flex.flex-column.h-100.justify-content-between.p-4
+                      div
+                        div.mb-5
+                          strong User
+                        h3 25
+                        small.text-body-emphasis Total User
+                      .d-flex.flex-column.gap-2
+                        .d-flex.gap-4.align-items-center
+                          +bx('bxs-circle')(style="font-size:12px;" class="align-middle text-primary")
+                          small Provinsi
+                          small.fw-semibold.ms-auto 8
+                        .d-flex.gap-4.align-items-center
+                          +bx('bxs-circle')(style="font-size:12px;" class="align-middle text-warning")
+                          small Kota
+                          small.fw-semibold.ms-auto 5
+                        .d-flex.gap-4.align-items-center
+                          +bx('bxs-circle')(style="font-size:12px;color: var(--bs-yellow);" class="align-middle")
+                          small Kecamatan
+                          small.fw-semibold.ms-auto 5
+                  .col-7
+                    iframe(frameborder='0' height='400' width='auto' style='width: 100%;' scrolling='no' marginheight='0' marginwidth='0' src='https://maps.google.com/maps?width=320&height=320&hl=en&q=-6.1754083,106.824584&t=&z=14&ie=UTF8&iwloc=B&output=embed')
+          .col
+            .d-flex.flex-column.gap-4
+              .p-4.d-flex.gap-4.align-items-center.rounded.bg-light
+                strong.flex-shrink-0 Mitra Baru Bergabung
+                div
+                  input.form-control(type='text' name='username' value="Argadinata" placeholder='Nama Pengguna')
+                button.btn.btn-primary(type="button")
+                  span Tampilkan
+              .p-5.border.rounded
+                .d-flex.align-items-center.justify-content-between.mb-3
+                  h5.fw-bold.mb-0 Data Mitra
+                  button.btn.btn-outline-primary
+                    +bx('bx-show')
+                    span Lihat
+                div
+                  #daftar-mitra-chart
+              .border.rounded
+                .row.g-0
+                  .col-5
+                    .d-flex.flex-column.h-100.justify-content-between.p-4
+                      div
+                        div.mb-5
+                          strong Mitra
+                        h3 25
+                        small.text-body-emphasis Total Mitra
+                      .d-flex.flex-column.gap-2
+                        .d-flex.gap-4.align-items-center
+                          +bx('bxs-circle')(style="font-size:12px;" class="align-middle text-primary")
+                          small Provinsi
+                          small.fw-semibold.ms-auto 8
+                        .d-flex.gap-4.align-items-center
+                          +bx('bxs-circle')(style="font-size:12px;" class="align-middle text-warning")
+                          small Kota
+                          small.fw-semibold.ms-auto 5
+                        .d-flex.gap-4.align-items-center
+                          +bx('bxs-circle')(style="font-size:12px;color: var(--bs-yellow);" class="align-middle")
+                          small Kecamatan
+                          small.fw-semibold.ms-auto 5
+                  .col-7
+                    iframe(frameborder='0' height='400' width='auto' style='width: 100%;' scrolling='no' marginheight='0' marginwidth='0' src='https://maps.google.com/maps?width=320&height=320&hl=en&q=-6.1754083,106.824584&t=&z=14&ie=UTF8&iwloc=B&output=embed')

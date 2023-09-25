@@ -1,0 +1,55 @@
+---
+title: Admin - Dashboard
+currentUrl: admin-event
+category: data-master
+header: Event
+---
+extends layouts/layout
+block header
+  include partials/header-dashboard
+  include partials/sidebar-admin
+block content
+  +main_dashboard()
+    .d-flex.flex-column.gap-5
+      .d-flex.justify-content-end.align-items-center.gap-4
+        div
+          select#filter.select.right(name="filter")
+            option(value="" data-display="Filter") Filter
+            option(value="filter 1") Filter 1
+        .mb-0.position-relative.me-auto
+          input.form-control.bg-light.ps-7(type='text' placeholder='Search')
+          .position-absolute.top-0.start-0.d-flex.pt-2.px-2
+            +bx('bx-search')
+        div
+          button.btn.btn-primary(type="button")
+            +bx('bx-plus')
+            span Tambah Data
+      .border.rounded
+        table.table.table-striped.striped-custom.mb-0
+          thead.subtitle.align-middle
+            tr
+              td.py-4.px-4 Judul
+              td.py-4 Terakhir Diubah
+              td.py-4.px-4.text-center
+          tbody.body.align-middle
+            tr
+              td.py-4.px-4
+                .d-flex.align-items-center.gap-4
+                  .rounded-2
+                    img.rounded-2(src="/img/content/kelas-online.png", alt="Kelas Online")
+                  span Kelas Online: Perizinan Bangunan
+              td.py-4 2022-08-09 03:30:12
+              td.px-4.tex-center.cell-fit
+                .action-item
+                  button.btn.btn-light.btn-sm.p-2.rounded-circle.action-head(type="button")
+                    +bx('bx-dots-horizontal-rounded')
+                  .action-body
+                    .p-2.d-flex.flex-column
+                      a.btn.action-item(href='/admin-order-list.html')
+                        +bx('bx-file-blank')
+                        span Lihat detail
+                      button.btn.action-item.text-danger(type="button" data-bs-toggle="modal" data-bs-target="#hapus-event")
+                        +bx('bx-trash')
+                        span Hapus
+block modal
+  +modal_accept('hapus-event')

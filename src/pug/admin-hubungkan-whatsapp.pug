@@ -1,0 +1,41 @@
+---
+title: Admin - Dashboard
+currentUrl: admin-hubungkan-whatsapp
+category: settings
+header: Hubungkan WhatsApp
+---
+extends layouts/layout
+block header
+  include partials/header-dashboard
+  include partials/sidebar-admin
+block content
+  +main_dashboard()
+    .d-flex.flex-column.gap-5
+      .row
+        .col-7
+          .d-flex.flex-column.gap-4.p-4
+            div
+              label.form-label(for='kuota') Kuota WhatsApp
+              input#kuota.form-control(type='text' disabled)
+            div
+              label.form-label(for='status') Status WhatsApp
+              input#status.form-control(type='text' disabled)
+            div
+              label.form-label(for='exp') Aktif Sampai
+              input#exp.form-control(type='date' disabled)
+            div
+              label.form-label(for='contact-us') Nomor WA Tujuan
+              .mb-0.position-relative
+                input.form-control.ps-7(type='tel' placeholder='+62 857-7067-1234')
+                .position-absolute.top-0.start-0.bottom-0.d-flex.px-2.flex-column.justify-content-center
+                  .flag-id.border
+            div.text-end
+              button.btn.btn-primary.px-5(type="button")
+                +bx('bxl-whatsapp')
+                span Kirim Pesan WhatsApp
+        .col-4
+          .p-5.d-flex.flex-column.bg-light.rounded
+            .text-center
+              p.body Scan QR untuk Menghubungkan Whatsapp
+            div
+              img(src="/img/content/barcode.png", alt="Scan WhatsApp")

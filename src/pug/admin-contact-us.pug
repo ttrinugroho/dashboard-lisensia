@@ -1,0 +1,28 @@
+---
+title: Admin - Dashboard
+currentUrl: admin-contact-us
+category: settings
+header: Contact Us
+---
+extends layouts/layout
+block header
+  include partials/header-dashboard
+  include partials/sidebar-admin
+block content
+  +main_dashboard()
+    .d-flex.flex-column.gap-5
+      .row
+        .col-6
+          .d-flex.flex-column.gap-4
+            div
+              label.form-label(for='last-update') Terakhir Diubah
+              input#last-update.form-control(type='date' disabled value="2023-12-12 23:05:50")
+            div
+              label.form-label(for='contact-us') Nomor Contact Us
+              .mb-0.position-relative
+                input.form-control.ps-7(type='tel' placeholder='+62 857-7067-1234')
+                .position-absolute.top-0.start-0.bottom-0.d-flex.px-2.flex-column.justify-content-center
+                  .flag-id.border
+            div.text-end
+              button.btn.btn-primary.px-5(type="button")
+                span Apply

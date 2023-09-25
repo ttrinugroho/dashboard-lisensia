@@ -100,19 +100,19 @@ mixin modal_with_close(id,judul="modal belum di kasih judul")
             button.btn.btn-light(type="button" data-bs-dismiss="modal")
               span Cancel
           .d-grid.flex-grow-1
-            button.btn.btn-outline-light.text-primary(type="button")
+            button.btn.btn-outline-primary(type="button")
               span Apply
 mixin modal_accept(id)
   .modal.fade(id=id tabindex="-1" aria-labelledby=id+"-label" aria-hidden="true")
     .modal-dialog.modal-dialog-centered.modal-fullscreen-md-down.h-auto
-      .modal-content(style="max-width:328px;")
+      .modal-content.mx-auto(style="max-width:328px;")
         .d-flex.flex-column.gap-5.p-4
-          div.text-center Apakah kamu yakin ingin menghapus item #{attributes.title} ini?
+          div.text-center Apakah kamu yakin ingin #{attributes.type || 'menghapus'} item #{attributes.title} ini?
           .d-grid
             button.btn.btn-light.mb-4(type="button" data-bs-dismiss="modal")
               span Cancel
             button.btn.bg-danger-subtle.text-danger(type="button")
-              span Delete
+              span.text-capitalize #{attributes.type || 'Delete'}
 
 mixin file_upload(id,name="file0")
   .input-file.border.bg-white.py-5

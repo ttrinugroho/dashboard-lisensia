@@ -1,0 +1,69 @@
+---
+title: User - Dashboard
+header: Form Pengguna
+---
+extends layouts/layout
+block header
+  include partials/header-other
+block content
+  .container.pb-5.mb-6
+    .p-5.mb-5
+      .row.row-cols-2
+        .col
+          .d-flex.flex-column.gap-4
+            div
+              label.form-label(for='kategori') Kategori Pengguna
+              select#kategori.select.wide(name="kategori")
+                option(value="" data-display="Pilih Group Pengguna") Pilih Group Pengguna
+                option(value="limited") Limited
+            div
+              label.form-label(for='nama') Nama
+              input#nama.form-control(type='text' placeholder="Nama")
+            div
+              label.form-label(for='mobile') Nomor HP
+              .mb-0.position-relative
+                input.form-control.ps-7(type='tel' placeholder='+62 857-7067-1234')
+                .position-absolute.top-0.start-0.bottom-0.d-flex.px-2.flex-column.justify-content-center
+                  .flag-id.border
+
+            div
+              label.form-label(for='kategori') Akses
+              select#kategori.select.wide(name="kategori")
+                option(value="" data-display="Pilih Akses") Pilih Akses
+                option(value="limited") Limited
+        .col
+          .d-flex.flex-column.gap-4
+            div
+              label.form-label(for='jenis') Jenis Pengguna
+              select#jenis.select.wide(name="jenis")
+                option(value="" data-display="Pilih Jenis Pengguna") Pilih Jenis Pengguna
+                option(value="limited") Limited
+            div
+              label.form-label(for='perusahaan') Perusahaan
+              input#perusahaan.form-control(type='text' placeholder="Perusahaan")
+            div
+              label.form-label(for='email') Email
+              input#email.form-control(type='email' placeholder="Email")
+            div
+              label.form-label(for='tutorial') Status
+              select#tutorial.select.wide(name="tutorial")
+                option(value="" data-display="Aktif") Active
+                option(value="tidak") Nonactive
+        .col-7
+          .d-flex.flex-column.gap-4.mt-4
+            div
+              label.form-label(for="password") Kata sandi<sup class="text-danger">*</sup>
+              .position-relative
+                button.text-light-emphasis.btn.p-2.position-absolute.top-0.end-0(type="button" data-password="password")
+                  +bx('bx-show')
+                input#password.form-control(type='password' name='password' placeholder='Kata sandi')
+            div
+              label.form-label(for="confirm-password") Konfirmasi Kata sandi<sup class="text-danger">*</sup>
+              .position-relative
+                button.text-light-emphasis.btn.p-2.position-absolute.top-0.end-0(type="button" data-password="confirm-password")
+                  +bx('bx-show')
+                input#confirm-password.form-control(type='password' name='confirm-password' placeholder='Kata sandi baru')
+block modal
+  +footer_back
+    button.btn.btn-light.px-8(type="button") Cancel
+    button.btn.btn-primary.ms-4.px-8(type="button") Save

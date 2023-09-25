@@ -1,0 +1,111 @@
+---
+title: Admin - Dashboard
+currentUrl: admin-order-perizinan
+---
+extends layouts/layout
+block header
+  include partials/header-dashboard
+  include partials/sidebar-admin
+block content
+  +main_dashboard()
+    .d-flex.flex-column.gap-5
+      div
+        .row.row-cols-2
+          .col
+            .d-flex.flex-column.gap-4
+              .border.rounded
+                .row.g-0
+                  .col-5
+                    .d-flex.flex-column.h-100.justify-content-between.p-4
+                      div
+                        div.mb-5
+                          strong User
+                        h3 25
+                        small.text-body-emphasis Total User
+                      .d-flex.flex-column.gap-2
+                        .d-flex.gap-4.align-items-center
+                          +bx('bxs-circle')(style="font-size:12px;" class="align-middle text-primary")
+                          small Provinsi
+                          small.fw-semibold.ms-auto 8
+                        .d-flex.gap-4.align-items-center
+                          +bx('bxs-circle')(style="font-size:12px;" class="align-middle text-warning")
+                          small Kota
+                          small.fw-semibold.ms-auto 5
+                        .d-flex.gap-4.align-items-center
+                          +bx('bxs-circle')(style="font-size:12px;color: var(--bs-yellow);" class="align-middle")
+                          small Kecamatan
+                          small.fw-semibold.ms-auto 5
+                  .col-7
+                    iframe(frameborder='0' height='400' width='auto' style='width: 100%;' scrolling='no' marginheight='0' marginwidth='0' src='https://maps.google.com/maps?width=320&height=320&hl=en&q=-6.1754083,106.824584&t=&z=14&ie=UTF8&iwloc=B&output=embed')
+          .col
+            .d-flex.flex-column.gap-4
+              .border.rounded
+                .row.g-0
+                  .col-5
+                    .d-flex.flex-column.h-100.justify-content-between.p-4
+                      div
+                        div.mb-5
+                          strong Mitra
+                        h3 25
+                        small.text-body-emphasis Total Mitra
+                      .d-flex.flex-column.gap-2
+                        .d-flex.gap-4.align-items-center
+                          +bx('bxs-circle')(style="font-size:12px;" class="align-middle text-primary")
+                          small Provinsi
+                          small.fw-semibold.ms-auto 8
+                        .d-flex.gap-4.align-items-center
+                          +bx('bxs-circle')(style="font-size:12px;" class="align-middle text-warning")
+                          small Kota
+                          small.fw-semibold.ms-auto 5
+                        .d-flex.gap-4.align-items-center
+                          +bx('bxs-circle')(style="font-size:12px;color: var(--bs-yellow);" class="align-middle")
+                          small Kecamatan
+                          small.fw-semibold.ms-auto 5
+                  .col-7
+                    iframe(frameborder='0' height='400' width='auto' style='width: 100%;' scrolling='no' marginheight='0' marginwidth='0' src='https://maps.google.com/maps?width=320&height=320&hl=en&q=-6.1754083,106.824584&t=&z=14&ie=UTF8&iwloc=B&output=embed')
+      .d-flex.align-items-center.gap-4
+        div
+          select#filter.select(name="filter")
+            option(value="") Filter
+            option(value="filter-1") Filter1
+            option(value="filter-2") Filter2
+        .mb-0.position-relative
+          input.form-control.ps-7(type='text' placeholder='Search')
+          .position-absolute.top-0.start-0.d-flex.pt-2.px-2
+            +bx('bx-search')
+      .border.rounded
+        table.table.table-striped.striped-custom.table-no-bottom-border
+          thead.subtitle.align-middle
+            tr
+              td.px-4 No. Order
+              td Tanggal Order
+              td Perusahaan
+              td Proyek
+              td.text-center Status
+              td Pengguna Order
+              td.text-center.cell-fit
+          tbody.body.align-middle
+            each i,index in ['primary','success','success','primary','danger','primary']
+              tr
+                td.px-4 ORD2304000#{index}
+                td 2022-06-1#{index+3}
+                td.elipsis-cell PT Pembangunan Sarana Jaya
+                td.elipsis-cell EL Shaddai Intercontinental School
+                td.text-center
+                  span.badge.border(class='text-' + i + ' border-' + i) #{ i == "primary" ? "On Progress" : i == "success" ? "Open" : "Cancel" }
+                td Hery Wakil Owner
+                td.tex-center.cell-fit
+                  .action-item
+                    button.btn.btn-light.btn-sm.p-2.rounded-circle.action-head(type="button")
+                      +bx('bx-dots-horizontal-rounded')
+                    .action-body
+                      .p-2.d-flex.flex-column
+                        a.btn.action-item(href='/admin-order-list.html')
+                          +bx('bx-file-blank')
+                          span List Order
+                        button.btn.action-item.text-danger(type="button" data-bs-toggle="modal" data-bs-target="#cancel-order")
+                          +bx('bx-x')
+                          span Cancel Order
+        +pagination()
+block modal
+  +modal_accept('cancel-order')(type="membatalkan" title="order")

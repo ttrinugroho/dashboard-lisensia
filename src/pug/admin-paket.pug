@@ -1,0 +1,67 @@
+---
+title: Admin - Dashboard
+currentUrl: admin-paket
+category: settings
+header: Admin Paket
+---
+extends layouts/layout
+block header
+  include partials/header-dashboard
+  include partials/sidebar-admin
+block content
+  +main_dashboard()
+    .d-flex.flex-column.gap-5
+      .d-flex.justify-content-end.align-items-center.gap-4
+        div
+          select#filter.select.right(name="filter")
+            option(value="" data-display="Filter") Filter
+            option(value="filter 1") Filter 1
+        .mb-0.position-relative.me-auto
+          input.form-control.bg-light.ps-7(type='text' placeholder='Search')
+          .position-absolute.top-0.start-0.d-flex.pt-2.px-2
+            +bx('bx-search')
+        div
+          button.btn.btn-primary(type="button")
+            +bx('bx-plus')
+            span Tambah Data
+      .border.rounded
+        table.table.table-striped.striped-custom.mb-0
+          thead.subtitle.align-middle
+            tr
+              td.py-4.px-4 Nama
+              td.py-4 Durasi
+              td.py-4 Harga
+              td.py-4 User
+              td.py-4 Proyek
+              td.py-4 Tutorial
+              td.py-4 Historical Pengurusan
+              td.py-4 Jadwal Perizinan
+              td.py-4 Laporan
+              td.py-4.px-4.text-center
+          tbody.body.align-middle
+            each val in pakets
+              tr
+                td.py-3.px-4=val.n
+                td=val.d
+                td=val.h
+                td=val.u
+                td=val.p
+                td=val.t
+                td=val.hp
+                td=val.jp
+                td=val.l
+                td.px-4.tex-center.cell-fit
+                  .action-item
+                    button.btn.btn-light.btn-sm.p-2.rounded-circle.action-head(type="button")
+                      +bx('bx-dots-horizontal-rounded')
+                    .action-body
+                      .p-2.d-flex.flex-column
+                        a.btn.action-item(href='/admin-order-list.html')
+                          +bx('bx-file-blank')
+                          span Lihat detail
+                        button.btn.action-item.text-danger(type="button" data-bs-toggle="modal" data-bs-target="#hapus-paket")
+                          +bx('bx-trash')
+                          span Hapus
+        +pagination
+block modal
+  +modal_accept('hapus-paket')

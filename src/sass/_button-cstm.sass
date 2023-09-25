@@ -7,6 +7,30 @@
     gap: 4px
   &.btn-lg
     gap: 12px
+  &-outline-primary
+    --bs-btn-active-bg: var(--bs-primary-bg-subtle)
+  &-outline-success
+    --bs-btn-active-bg: var(--bs-success-bg-subtle)
+  &-outline-warning
+    --bs-btn-active-bg: var(--bs-warning-bg-subtle)
+  &-outline-danger
+    --bs-btn-active-bg: var(--bs-danger-bg-subtle)
+  &-outline-info
+    --bs-btn-active-bg: var(--bs-info-bg-subtle)
+  &-outline-dark
+    --bs-btn-active-bg: var(--bs-dark-bg-subtle)
+
+[class*="btn-outline"]
+  --bs-btn-border-color: #AEAEB4
+  --bs-btn-hover-color: var(--bs-btn-color)
+  --bs-btn-hover-bg: #fff
+  --bs-btn-hover-border-color: var(--bs-btn-color)
+  --bs-btn-active-color: var(--bs-btn-color)
+  --bs-btn-active-border-color: var(--bs-btn-color)
+  --bs-btn-disabled-color: var(--bs-body-color)
+  --bs-btn-disabled-bg: #EDEDEF
+  --bs-btn-disabled-border-color: #AEAEB4
+
 .btn[data-bs-toggle]
   --bs-btn-active-border-color: transparent
 .bx

@@ -1,0 +1,77 @@
+---
+title: Admin - Dashboard
+currentUrl: admin-set-hari-libur
+category: data-master
+header: Set Hari Libur
+---
+extends layouts/layout
+block header
+  include partials/header-dashboard
+  include partials/sidebar-admin
+block content
+  +main_dashboard()
+    .d-flex.flex-column.gap-5
+      .d-flex.justify-content-end.align-items-center.gap-4
+        div
+          select#filter.select.right(name="filter")
+            option(value="" data-display="Filter") Filter
+            option(value="filter 1") Filter 1
+        .mb-0.position-relative.me-auto
+          input.form-control.bg-light.ps-7(type='text' placeholder='Search')
+          .position-absolute.top-0.start-0.d-flex.pt-2.px-2
+            +bx('bx-search')
+        div
+          button.btn.btn-primary(type="button" data-bs-toggle="modal" data-bs-target="#modal-form-hari-libur")
+            +bx('bx-plus')
+            span Tambah Data
+      .border.rounded
+        table.table.table-striped.striped-custom.mb-0
+          thead.subtitle.align-middle
+            tr
+              td.py-4.px-4 Tanggal
+              td.py-4 Keterangan Libur
+              td.py-4.px-4.text-center
+          tbody.body.align-middle
+            each i in [1,2,3]
+              tr
+                td.py-4.px-4 2023-05-02
+                td.py-4 Idul FItri 1443 Hijriah
+                td.px-4.tex-center.cell-fit
+                  .action-item
+                    button.btn.btn-light.btn-sm.p-2.rounded-circle.action-head(type="button")
+                      +bx('bx-dots-horizontal-rounded')
+                    .action-body
+                      .p-2.d-flex.flex-column
+                        a.btn.action-item(href='/admin-order-list.html')
+                          +bx('bx-file-blank')
+                          span Lihat detail
+                        button.btn.action-item.text-danger(type="button" data-bs-toggle="modal" data-bs-target="#hapus-event")
+                          +bx('bx-trash')
+                          span Hapus
+            each i in [1,2,3]
+              tr
+                td.py-4.px-4 2023-05-02
+                td.py-4 Hari Raya Waisak 2566 BE
+                td.px-4.tex-center.cell-fit
+                  .action-item
+                    button.btn.btn-light.btn-sm.p-2.rounded-circle.action-head(type="button")
+                      +bx('bx-dots-horizontal-rounded')
+                    .action-body
+                      .p-2.d-flex.flex-column
+                        a.btn.action-item(href='/admin-order-list.html')
+                          +bx('bx-file-blank')
+                          span Lihat detail
+                        button.btn.action-item.text-danger(type="button" data-bs-toggle="modal" data-bs-target="#hapus-event")
+                          +bx('bx-trash')
+                          span Hapus
+        +pagination
+block modal
+  +modal_accept('hapus-event')
+  +modal_with_close('modal-form-hari-libur','Form Hari Libur')
+    .p-4.d-flex.flex-column.gap-4
+      div
+        label.form-label(for='tanggal') Tanggal
+        input#tanggal.form-control(type='date' placeholder="Tanggal")
+      div
+        label.form-label(for='keterangan') Keterangan
+        textarea#keterangan.form-control(rows='3')

@@ -1,0 +1,177 @@
+---
+title: Admin - Dashboard
+currentUrl: admin-order-perizinan
+---
+extends layouts/layout
+block header
+  include partials/header-dashboard
+  include partials/sidebar-admin
+block content
+  +main_dashboard()
+    .d-flex.flex-column.gap-5
+      .d-flex.justify-content-end.align-items-center.gap-4
+        div
+          select#filter.select.right(name="filter")
+            option(value="" data-display="Filter") Filter
+            option(value="filter 1") Filter 1
+        .mb-0.position-relative.me-auto
+          input.form-control.bg-light.ps-7(type='text' placeholder='Search')
+          .position-absolute.top-0.start-0.d-flex.pt-2.px-2
+            +bx('bx-search')
+        div
+          a.btn.btn-primary(type="button" href="/admin-pengguna-form.html")
+            +bx('bx-plus')
+            span Tambah Data
+      div
+        ul.nav.tab-fill.nav-tabs(role='tablist')
+          li.nav-item(role='presentation')
+            button#first.nav-link.subtitle.active(data-bs-toggle='tab' data-bs-target='#first-pane' type='button' role='tab' aria-controls='first-pane' aria-selected='true')
+              | Super Admin
+          li.nav-item(role='presentation')
+            button#second.nav-link.subtitle(data-bs-toggle='tab' data-bs-target='#second-pane' type='button' role='tab' aria-controls='second-pane' aria-selected='false')
+              | Owner/Pemohon
+          li.nav-item(role='presentation')
+            button#third.nav-link.subtitle(data-bs-toggle='tab' data-bs-target='#third-pane' type='button' role='tab' aria-controls='third-pane' aria-selected='false')
+              | Mitra
+        .tab-content.border-top-0.border.rounded-bottom
+          #first-pane.tab-pane.fade.show.active(role='tabpanel' aria-labelledby='home-tab' tabindex='0')
+            .p-4.d-flex.flex-column.gap-4
+              .border.rounded
+                table.table.table-striped.striped-custom.mb-0
+                  thead.subtitle.align-middle
+                    tr
+                      td.py-4.px-4 Nama
+                      td.py-4 No HP
+                      td.py-4 Email
+                      td.py-4 Perusahaan
+                      td.py-4.text-center Jenis Pengguna
+                      td.py-4 Kategori
+                      td.py-4 Akses
+                      td.py-4 status
+                      td.py-4.px-4.text-center
+                  tbody.body.align-middle
+                    each name in ['Jakob Westervelt','Kaiya Korsgaard','Angel Bergson']
+                      tr
+                        td.py-4.px-4=name
+                        td.py-4 085779664622
+                        td.py-4 email@mail com
+                        td.py-4 Lisensia
+                        td.py-4.text-center
+                          span.badge.bg-primary Internal
+                        td.py-4 Super Admin
+                        td.py-4 Editor
+                        td.py-4
+                          span.badge.border.border-success.text-success Active
+                        td.px-4.tex-center.cell-fit
+                          .action-item
+                            button.btn.btn-light.btn-sm.p-2.rounded-circle.action-head(type="button")
+                              +bx('bx-dots-horizontal-rounded')
+                            .action-body
+                              .p-2.d-flex.flex-column
+                                a.btn.action-item(href='/admin-order-list.html')
+                                  +bx('bx-file-blank')
+                                  span Lihat Pengguna
+                                button.btn.action-item.text-danger(type="button" data-bs-toggle="modal" data-bs-target="#hapus-pengguna")
+                                  +bx('bx-trash')
+                                  span Hapus
+                +pagination
+          #second-pane.tab-pane.fade(role='tabpanel' aria-labelledby='home-tab' tabindex='1')
+            .p-4.d-flex.flex-column.gap-4
+              .d-flex.align-items-center.px-2.rounded.border.bg-primary-subtle.text-primary
+                .d-inline-flex.p-2
+                  +bx('bx-info-circle')
+                span.subtitle Jumlah Pemohon saat ini <strong>48</strong> user
+              div
+                iframe(frameborder='0' height='250' width='auto' style='width: 100%;' scrolling='no' marginheight='0' marginwidth='0' src='https://maps.google.com/maps?width=320&height=320&hl=en&q=-6.1754083,106.824584&t=&z=14&ie=UTF8&iwloc=B&output=embed')
+              .border.rounded
+                table.table.table-striped.striped-custom.mb-0
+                  thead.subtitle.align-middle
+                    tr
+                      td.py-4.px-4 Nama
+                      td.py-4 No HP
+                      td.py-4 Email
+                      td.py-4 Perusahaan
+                      td.py-4.text-center Jenis Pengguna
+                      td.py-4 Kategori
+                      td.py-4 Akses
+                      td.py-4 status
+                      td.py-4.px-4.text-center
+                  tbody.body.align-middle
+                    each name in ['Jakob Westervelt','Kaiya Korsgaard','Angel Bergson','Makenna Calzoni']
+                      tr
+                        td.py-4.px-4=name
+                        td.py-4 085779664622
+                        td.py-4 email@mail com
+                        td.py-4 Lisensia
+                        td.py-4.text-center
+                          span.badge.bg-warning Ekternal
+                        td.py-4 Owner
+                        td.py-4 Editor
+                        td.py-4
+                          span.badge.border.border-success.text-success Active
+                        td.px-4.tex-center.cell-fit
+                          .action-item
+                            button.btn.btn-light.btn-sm.p-2.rounded-circle.action-head(type="button")
+                              +bx('bx-dots-horizontal-rounded')
+                            .action-body
+                              .p-2.d-flex.flex-column
+                                a.btn.action-item.text-success(href='/admin-order-list.html')
+                                  +bx('bx-check')
+                                  span Approve Invoice
+                                a.btn.action-item(href='/admin-order-list.html')
+                                  +bx('bx-file-blank')
+                                  span Lihat Pengguna
+                                button.btn.action-item.text-danger(type="button" data-bs-toggle="modal" data-bs-target="#hapus-pengguna")
+                                  +bx('bx-trash')
+                                  span Hapus
+                +pagination
+          #third-pane.tab-pane.fade(role='tabpanel' aria-labelledby='home-tab' tabindex='1')
+            .p-4.d-flex.flex-column.gap-4
+              .d-flex.align-items-center.px-2.rounded.border.bg-primary-subtle.text-primary
+                .d-inline-flex.p-2
+                  +bx('bx-info-circle')
+                span.subtitle Jumlah Pemohon saat ini <strong>48</strong> user
+              div
+                iframe(frameborder='0' height='250' width='auto' style='width: 100%;' scrolling='no' marginheight='0' marginwidth='0' src='https://maps.google.com/maps?width=320&height=320&hl=en&q=-6.1754083,106.824584&t=&z=14&ie=UTF8&iwloc=B&output=embed')
+              .border.rounded
+                table.table.table-striped.striped-custom.mb-0
+                  thead.subtitle.align-middle
+                    tr
+                      td.py-4.px-4 Nama
+                      td.py-4 No HP
+                      td.py-4 Email
+                      td.py-4 Perusahaan
+                      td.py-4.text-center Jenis Pengguna
+                      td.py-4 Kategori
+                      td.py-4 Akses
+                      td.py-4 status
+                      td.py-4.px-4.text-center
+                  tbody.body.align-middle
+                    each name,index in ['Jakob Westervelt','Kaiya Korsgaard','Angel Bergson','Makenna Calzoni','Craig Dokidis','Tiana Donin']
+                      tr
+                        td.py-4.px-4=name
+                        td.py-4 085779664622
+                        td.py-4 email@mail com
+                        td.py-4 Lisensia
+                        td.py-4.text-center
+                          span.badge(class={'bg-warning': (index !== 2 && index !== 3), 'bg-primary': index == 2 || index == 3}) #{ (index !== 2 && index !== 3) ? 'Ekternal': 'Internal'}
+                        td.py-4 Owner
+                        td.py-4 Editor
+                        td.py-4
+                          span.badge.border.border-success.text-success Active
+                        td.px-4.tex-center.cell-fit
+                          .action-item
+                            button.btn.btn-light.btn-sm.p-2.rounded-circle.action-head(type="button")
+                              +bx('bx-dots-horizontal-rounded')
+                            .action-body
+                              .p-2.d-flex.flex-column
+                                a.btn.action-item(href='/admin-order-list.html')
+                                  +bx('bx-file-blank')
+                                  span Lihat Pengguna
+                                button.btn.action-item.text-danger(type="button" data-bs-toggle="modal" data-bs-target="#hapus-pengguna")
+                                  +bx('bx-trash')
+                                  span Hapus
+                +pagination
+
+block modal
+  +modal_accept('hapus-pengguna')(title="pengguna")
