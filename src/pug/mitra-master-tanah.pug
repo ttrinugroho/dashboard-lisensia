@@ -1,16 +1,16 @@
 ---
-title: User - Dashboard
-currentUrl: user-master-tanah
-category: berkas
+title: Mitra - Dashboard
+currentUrl: mitra-master-tanah
+category: berkas-pemohon
 header: Master Tanah
 ---
 extends layouts/layout
 block header
   include partials/header-dashboard
-  include partials/sidebar-user
+  include partials/sidebar-mitra
 block content
   +main_dashboard()
-    .d-flex.flex-column.gap-5
+    .d-flex.gap-5.flex-column
       .p-4.bg-light.rounded
         .d-flex.align-items-end.mb-3.gap-4
           .flex-grow-1
@@ -39,13 +39,6 @@ block content
               option(value='2') HK Realtindo PT
               option(value='3') Realtindo HK PT
               option(value='4') HK PT Realtindo
-          div
-            button.btn.btn-light.p-2.elv-1
-              +bx('bx-dots-horizontal-rounded')
-          div
-            button.btn.btn-primary(type="button" data-bs-toggle="modal" data-bs-target="#modal-tambah-tanah")
-              +bx('bx-plus')
-              span Tambah Nama Tanah/Lokasi
         div
           .form-check.body-super
             input#setuju.form-check-input(type='checkbox' value='')
@@ -71,66 +64,46 @@ block content
         .tab-content.border-top-0.border.rounded-bottom
           #lokasi-pane.tab-pane.fade.show.active(role='tabpanel' aria-labelledby='lokasi' tabindex='0')
             .d-flex.flex-column.gap-4.p-4
-              .text-end
-                button.btn.btn-primary(type="button")
-                  span Save Data
+              .rounded.px-2.py-3.gap-2.bg-primary-subtle.text-primary.subtitle.me-auto.d-flex.align-items-center
+                .d-flex.align-items-center
+                  +bx('bx-info-circle')
+                span Mitra hanya dapat melihat data pemohon
               div
                 label.form-label(for="") Lokasi
                 .maps-container
                   iframe(frameborder='0' height='250' width='auto' style='width: 100%;' scrolling='no' marginheight='0' marginwidth='0' src='https://maps.google.com/maps?width=320&height=320&hl=en&q=-6.1754083,106.824584&t=&z=14&ie=UTF8&iwloc=B&output=embed')
               div
                 label.form-label(for="alamat") Alamat<sup class="text-danger">*</sup>
-                textarea#alamat.form-control(rows='3')
+                textarea#alamat.form-control(rows='3' disabled value="Jl. Dr Sutomo")
               div
                 .row.row-cols-2.gy-4
                   .col
                     div
                       label.form-label(for="provinsi") Provinsi<sup class="text-danger">*</sup>
-                      select.select.wide
-                        option(value='') DKI Jakarta
-                        option(value='1') Jawa Barat
-                        option(value='2') Jawa Timur
-                        option(value='3') Jawa Tengah
-                        option(value='4') Jawa Jawa Jawa
+                      select#provinsi.form-control(name="provinsi" disabled)
+                        option(value='' selected) DKI Jakarta
                   .col
                     div
-                      label.form-label(for="kota") Kota<sup class="text-danger">*</sup>
-                      select.select.wide
-                        option(value='') Jakarta Selatan
-                        option(value='1') Jakarta Timur
-                        option(value='2') Jakarta Barat
-                        option(value='3') Jakarta Utara
-                        option(value='4') Jakarta Jakarta Jakarta
+                      label.form-label(for="kota") Kota/kabupaten<sup class="text-danger">*</sup>
+                      select#kota.form-control(name="kota" disabled)
+                        option(value='' selected) Jakarta Selatan
                   .col
                     div
                       label.form-label(for="kecamatan") Kecamatan<sup class="text-danger">*</sup>
-                      select.select.wide
-                        option(value='') Jakarta Selatan
-                        option(value='1') Jakarta Timur
-                        option(value='2') Jakarta Barat
-                        option(value='3') Jakarta Utara
-                        option(value='4') Jakarta Jakarta Jakarta
+                      select#kecamatan.form-control(name="kecamatan" disabled)
+                        option(value='' selected) Menteng
                   .col
                     div
                       label.form-label(for="kelurahan") Kelurahan<sup class="text-danger">*</sup>
-                      select.select.wide
-                        option(value='') Jakarta Selatan
-                        option(value='1') Jakarta Timur
-                        option(value='2') Jakarta Barat
-                        option(value='3') Jakarta Utara
-                        option(value='4') Jakarta Jakarta Jakarta
+                      select#kelurahan.form-control(name="kelurahan" disabled value="Thamrin")
+                        option(value='' selected) Thamrin
 
           #ikhtisar-pane.tab-pane.fade(role='tabpanel' aria-labelledby='ikhtisar' tabindex='1')
             .d-flex.flex-column.gap-4.p-4
-              .text-end
-                button.btn.btn-primary(type="button" data-bs-toggle="modal" data-bs-target="#modal-tambah-data")
-                  +bx('bx-plus')
-                  span Tambah Data
-              .d-flex.align-items-center.gap-2.rounded.bg-primary-subtle.p-2
-                .d-flex.p-2.text-primary
+              .rounded.px-2.py-3.gap-2.bg-primary-subtle.text-primary.subtitle.me-auto.d-flex.align-items-center
+                .d-flex.align-items-center
                   +bx('bx-info-circle')
-                .subtitle.text-primary
-                  p.mb-0 Peta ikhtisar tanah berguna untuk menjelaskan posisi-posisi tanah apabila sertifikat tanah Anda lebih dari 2 buah. Sehingga memudahkan pihak luar untuk memahami gabungan sertifikatnya. Untuk melihat contoh <a href="/">Klik Disini</a>
+                span Mitra hanya dapat melihat dan unduh data pemohon
               .border.rounded
                 table.table.table-striped.striped-custom
                   thead
@@ -138,7 +111,6 @@ block content
                       td.py-4.ps-4 Proyek
                       td.py-4 Berlaku Sampai
                       td.py-4 Terakhir Diubah
-                      td.py-4
                       td.py-4.pe-4
                   tbody
                     tr.body.align-middle
@@ -149,20 +121,17 @@ block content
                           .body Peta Ikhtisar
                       td Selamanya
                       td 03-03-2023 19:58:23
-                      td
+                      td.pe-4
                         button.btn.btn-sm.btn-light
                           +bx('bx-download')
                           span Unduh
-                      td.pe-4
-                        button.btn.text-danger(type="button" data-bs-toggle="modal" data-bs-target="#proyek")
-                          +bx('bx-trash')
                 +pagination()
           #legalitas-pane.tab-pane.fade(role='tabpanel' aria-labelledby='legalitas' tabindex='2')
             .d-flex.flex-column.gap-4.p-4
-              .text-end
-                button.btn.btn-primary(type="button" data-bs-toggle="modal" data-bs-target="#modal-tambah-data")
-                  +bx('bx-plus')
-                  span Tambah Data
+              .rounded.px-2.py-3.gap-2.bg-primary-subtle.text-primary.subtitle.me-auto.d-flex.align-items-center
+                .d-flex.align-items-center
+                  +bx('bx-info-circle')
+                span Mitra hanya dapat melihat dan unduh data pemohon
               .border.rounded
                 table.table.table-striped.striped-custom
                   thead
@@ -170,7 +139,6 @@ block content
                       td.py-4.ps-4 Proyek
                       td.py-4 Berlaku Sampai
                       td.py-4 Terakhir Diubah
-                      td.py-4
                       td.py-4.pe-4
                   tbody
                     tr.body.align-middle
@@ -179,20 +147,17 @@ block content
                           +bx('bxs-file-pdf')
                       td Selamanya
                       td 03-03-2023 19:58:23
-                      td
+                      td.pe-4
                         button.btn.btn-sm.btn-light
                           +bx('bx-download')
                           span Unduh
-                      td.pe-4
-                        button.btn.text-danger(type="button" data-bs-toggle="modal" data-bs-target="#proyek")
-                          +bx('bx-trash')
                 +pagination()
           #pbb-pane.tab-pane.fade(role='tabpanel' aria-labelledby='pbb' tabindex='3')
             .d-flex.flex-column.gap-4.p-4
-              .text-end
-                button.btn.btn-primary(type="button" data-bs-toggle="modal" data-bs-target="#modal-tambah-data")
-                  +bx('bx-plus')
-                  span Tambah Data
+              .rounded.px-2.py-3.gap-2.bg-primary-subtle.text-primary.subtitle.me-auto.d-flex.align-items-center
+                .d-flex.align-items-center
+                  +bx('bx-info-circle')
+                span Mitra hanya dapat melihat dan unduh data pemohon
               .border.rounded
                 table.table.table-striped.striped-custom
                   thead
@@ -200,7 +165,6 @@ block content
                       td.py-4.ps-4 Proyek
                       td.py-4 Berlaku Sampai
                       td.py-4 Terakhir Diubah
-                      td.py-4
                       td.py-4.pe-4
                   tbody
                     tr.body.align-middle
@@ -209,20 +173,17 @@ block content
                           +bx('bxs-file-pdf')
                       td Selamanya
                       td 03-03-2023 19:58:23
-                      td
+                      td.pe-4
                         button.btn.btn-sm.btn-light
                           +bx('bx-download')
                           span Unduh
-                      td.pe-4
-                        button.btn.text-danger(type="button" data-bs-toggle="modal" data-bs-target="#proyek")
-                          +bx('bx-trash')
                 +pagination()
           #pbb-lunas-pane.tab-pane.fade(role='tabpanel' aria-labelledby='pbb-lunas' tabindex='4')
             .d-flex.flex-column.gap-4.p-4
-              .text-end
-                button.btn.btn-primary(type="button" data-bs-toggle="modal" data-bs-target="#modal-tambah-data")
-                  +bx('bx-plus')
-                  span Tambah Data
+              .rounded.px-2.py-3.gap-2.bg-primary-subtle.text-primary.subtitle.me-auto.d-flex.align-items-center
+                .d-flex.align-items-center
+                  +bx('bx-info-circle')
+                span Mitra hanya dapat melihat dan unduh data pemohon
               .border.rounded
                 table.table.table-striped.striped-custom
                   thead
@@ -230,7 +191,6 @@ block content
                       td.py-4.ps-4 Proyek
                       td.py-4 Berlaku Sampai
                       td.py-4 Terakhir Diubah
-                      td.py-4
                       td.py-4.pe-4
                   tbody
                     tr.body.align-middle
@@ -239,31 +199,8 @@ block content
                           +bx('bxs-file-pdf')
                       td Selamanya
                       td 03-03-2023 19:58:23
-                      td
+                      td.pe-4
                         button.btn.btn-sm.btn-light
                           +bx('bx-download')
                           span Unduh
-                      td.pe-4
-                        button.btn.text-danger(type="button" data-bs-toggle="modal" data-bs-target="#proyek")
-                          +bx('bx-trash')
                 +pagination()
-block modal
-  +modal_accept('proyek')(title="proyek")
-  +modal_with_close('modal-tambah-tanah','Tambah Data Tanah/Lokasi')
-    div
-      label.form-label(for='nama-tanah') Nama Tanah/Lokasi
-      input#nama-tanah.form-control(type='text' placeholder='Nama Tanah/Lokasi')
-  +modal_with_close('modal-tambah-data','Tambah Data')
-    div
-      label.form-label(for='judul') Judul
-      input#judul.form-control(type='text' placeholder='Judul')
-    div
-      label.form-label(for='upload-file') Nama Tanah/Lokasi
-      +file_upload('upload-file')
-    div
-      label.form-label(for='durasi') Berlaku Sampai
-      input.form-control#durasi(type="date")
-      .form-check.body-super.mt-2
-        input#selamanya.form-check-input(type='checkbox' value='' data-input-disabled="durasi")
-        label.form-check-label.body(for='selamanya')
-          | Berlaku Selamanya

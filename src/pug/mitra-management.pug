@@ -1,0 +1,43 @@
+---
+title: Mitra - Dashboard
+currentUrl: mitra-management
+header: Mitra Management
+---
+extends layouts/layout
+block header
+  include partials/header-dashboard
+  include partials/sidebar-mitra
+block content
+  +main_dashboard()
+    .d-flex.gap-5.flex-column
+      .d-flex.justify-content-between.align-items-center
+        .mb-0.position-relative
+          input.form-control.ps-7(type='text' placeholder='Search')
+          .position-absolute.top-0.start-0.d-flex.pt-2.px-2
+            +bx('bx-search')
+        div
+          a.btn.btn-primary(type="button" href="/mitra-management-form.html")
+            +bx('bx-plus')
+            span Tambah Data
+      .border.rounded
+        table.table.table-striped.striped-custom
+          thead.subtitle.align-middle
+            tr
+              td.px-4.py-3 Nama
+              td Email
+              td No HP
+              td Perusahaan
+              td Grup Proyek
+              td.px-4.py-3
+          tbody.body.align-middle
+            each first in [1,2,3]
+              tr
+                td.px-4.py-3 Staff#{first}
+                td Cell
+                td Cell
+                td Cell
+                td Cell
+                td.px-4.py-3.cell-fit
+                  button.btn.text-danger(type="button")
+                    +bx('bx-trash')
+        +pagination

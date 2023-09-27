@@ -1,0 +1,54 @@
+---
+title: Mitra - Dashboard
+currentUrl: mitra-master-pemohon
+category: berkas-pemohon
+header: Master Pemohon
+---
+extends layouts/layout
+block header
+  include partials/header-dashboard
+  include partials/sidebar-mitra
+block content
+  +main_dashboard()
+    .d-flex.gap-5.flex-column
+      .d-flex.align-items-center.gap-4
+        .rounded.px-2.py-3.gap-2.bg-primary-subtle.text-primary.subtitle.me-auto.d-flex.align-items-center
+          .d-flex.align-items-center
+            +bx('bx-info-circle')
+          span Mitra hanya dapat melihat data pemohon
+        div
+          select#filter.select.right(name="filter")
+            option(value="" data-display="Filter") Filter
+            option(value="filter 1") Filter 1
+        .mb-0.position-relative
+          input.form-control.bg-light.ps-7(type='text' placeholder='Search')
+          .position-absolute.top-0.start-0.d-flex.pt-2.px-2
+            +bx('bx-search')
+      .bg-light
+        iframe(frameborder='0' height='250' width='auto' style='width: 100%;' scrolling='no' marginheight='0' marginwidth='0' src='https://maps.google.com/maps?width=320&height=320&hl=en&q=-6.1754083,106.824584&t=&z=14&ie=UTF8&iwloc=B&output=embed')
+      .border.rounded
+        table.table.table-striped.striped-custom
+          thead.subtitle.align-middle
+            tr
+              td Kategori
+              td Jenis
+              td Nama Pemohon
+              td Nama PIC
+              td Email
+              td No. HP
+              td Kecamatan
+              td Kota/Kabupaten
+              td Provinsi
+          tbody.body.align-middle
+            each i in [1,2,3,4]
+              tr
+                td Cell
+                td Cell
+                td Cell
+                td Cell
+                td Cell
+                td Cell
+                td Cell
+                td Cell
+                td Cell
+        +pagination

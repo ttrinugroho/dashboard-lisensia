@@ -1,0 +1,105 @@
+---
+title: Mitra - Dashboard
+currentUrl: mitra-master-dokumen-proyek
+category: berkas-pemohon
+header: Master Dokumen Proyek
+---
+extends layouts/layout
+block header
+  include partials/header-dashboard
+  include partials/sidebar-mitra
+block content
+  +main_dashboard()
+    .d-flex.flex-column.gap-5
+      .p-4.bg-light.rounded
+        .d-flex.align-items-end.mb-3.gap-4
+          .flex-grow-1
+            label.form-label Pemohon
+            select.select.wide
+              option(value='') PT HK Realtindo
+              option(value='1') PT Realtindo HK
+              option(value='2') HK Realtindo PT
+              option(value='3') Realtindo HK PT
+              option(value='4') HK PT Realtindo
+          .flex-grow-1
+            label.form-label Proyek
+            select.select.wide
+              option(value='') Apartment Green Lake City
+              option(value='1') PT Realtindo HK
+              option(value='2') HK Realtindo PT
+              option(value='3') Realtindo HK PT
+              option(value='4') HK PT Realtindo
+          div
+            button.btn.btn-primary
+              span Tampilkan
+      div
+        ul.nav.tab-fill.nav-tabs(role='tablist')
+          li.nav-item(role='presentation')
+            button#arsitek.nav-link.subtitle.active(data-bs-toggle='tab' data-bs-target='#arsitek-pane' type='button' role='tab' aria-controls='arsitek-pane' aria-selected='true')
+              | Dokumen Arsitek
+          li.nav-item(role='presentation')
+            button#struktur.nav-link.subtitle(data-bs-toggle='tab' data-bs-target='#struktur-pane' type='button' role='tab' aria-controls='struktur-pane' aria-selected='false')
+              | Dokumen Struktur
+          li.nav-item(role='presentation')
+            button#mep.nav-link.subtitle(data-bs-toggle='tab' data-bs-target='#mep-pane' type='button' role='tab' aria-controls='mep-pane' aria-selected='false')
+              | Dokumen MEP
+          li.nav-item(role='presentation')
+            button#others.nav-link.subtitle(data-bs-toggle='tab' data-bs-target='#others-pane' type='button' role='tab' aria-controls='others-pane' aria-selected='false')
+              | Dokumen Lain-lain
+        .tab-content.border-top-0.border.rounded-bottom
+          #arsitek-pane.tab-pane.fade.show.active(role='tabpanel' aria-labelledby='home-tab' tabindex='0')
+            .p-4.d-flex.flex-column.gap-4
+              .d-flex.justify-content-between.align-items-center
+                .rounded.px-2.py-3.gap-2.bg-primary-subtle.text-primary.subtitle.me-auto.d-flex.align-items-center
+                  .d-flex.align-items-center#home-tab
+                    +bx('bx-info-circle')
+                  span Mitra hanya dapat melihat data pemohon
+                .mb-0.position-relative
+                  input.form-control.ps-7(type='text' placeholder='Search')
+                  .position-absolute.top-0.start-0.d-flex.pt-2.px-2
+                    +bx('bx-search')
+              .d-flex.align-items-center.gap-2.rounded.bg-primary-subtle.p-2
+                .d-flex.p-2.text-primary
+                  +bx('bx-info-circle')
+                .subtitle.text-primary
+                  p.mb-0 Dokumen gambar dan dokumen pendukung yang diterbitkan oleh Konsultan Arsitek
+              .rounded.border
+                table.table.table-striped.striped-custom
+                  thead.subtitle.align-middle
+                    tr
+                      td Judul Dokumen Proyek
+                      td.text-center Ms. Office
+                      td.text-center PDF
+                      td.text-center CAD
+                      td Berlaku Sampai
+                      td Terakhir Diubah
+                      td.text-center
+                  tbody.body.align-middle
+                    each val in [1,2,3,4,5,6,7,8,9]
+                      tr
+                        td Dokumen Admin
+                        td.text-center
+                          button.btn.btn-light.rounded-pill
+                            +bx('bx-download')
+                            span Unduh
+                        td.text-center
+                          button.btn.btn-light.rounded-pill
+                            +bx('bx-download')
+                            span Unduh
+                        td.text-center
+                          button.btn.btn-light.rounded-pill
+                            +bx('bx-download')
+                            span Unduh
+                        td kosong
+                        td kosong
+
+                +pagination
+          #struktur-pane.tab-pane.fade(role='tabpanel' aria-labelledby='home-tab' tabindex='1')
+            .p-4.d-flex.flex-column.gap-4
+              h2 Dokumen Struktur (No Figma)
+          #mep-pane.tab-pane.fade(role='tabpanel' aria-labelledby='home-tab' tabindex='2')
+            .p-4.d-flex.flex-column.gap-4
+              h2 Dokumen MEP (No Figma)
+          #others-pane.tab-pane.fade(role='tabpanel' aria-labelledby='home-tab' tabindex='3')
+            .p-4.d-flex.flex-column.gap-4
+              h2 Dokumen Lain-lain (No Figma)

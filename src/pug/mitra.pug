@@ -8,3 +8,226 @@ block header
   include partials/sidebar-mitra
 block content
   +main_dashboard()
+    .d-flex.flex-column.gap-4
+      .p-5.rounded.border
+        .mb-4
+          h4.mb-0 Proyek Perizinan Saya
+        .row.row-cols-4.g-3
+          .col
+            .text-decoration-none.p-4.bg-warning-subtle.rounded-3
+              .mb-4
+                .count-circle-box.text-white.bg-warning
+                  span 8
+              .d-flex.gap-1.justify-content-between.fw-semibold.text-body
+                span Open
+          .col
+            .text-decoration-none.p-4.bg-success-subtle.rounded-3
+              .mb-4
+                .count-circle-box.text-white.bg-success
+                  span 3
+              .d-flex.gap-1.justify-content-between.fw-semibold.text-body
+                span Closed
+          .col
+            .text-decoration-none.p-4.bg-info-subtle.rounded-3
+              .mb-4
+                .count-circle-box.text-white.bg-info
+                  span 12
+              .d-flex.gap-1.justify-content-between.fw-semibold.text-body
+                span Dalam Proses
+          .col
+            .text-decoration-none.p-4.bg-danger-subtle.rounded-3
+              .mb-4
+                .count-circle-box.text-white.bg-danger
+                  span 15
+              .d-flex.gap-1.justify-content-between.fw-semibold.text-body
+                span BAST / Selesai
+      .p-4.border.rounded.bg-light.mb-5
+        .d-grid
+          button.btn.justify-content-start.px-2.collapsed(type="button" data-bs-toggle="collapse" href="#perizinan-terlambat" role="button" aria-expanded="false" aria-controls="perizinan-terlambat")
+            +bx('collapsed-icon')
+            | Perizinan Terlambat
+        #perizinan-terlambat.collapse.mt-2
+          .border.rounded.bg-white.py-1
+            table.table.table-no-bottom-border.mb-0
+              thead.subtitle.align-middle
+                tr
+                  th.px-4.py-3.cell-fit
+                  th.py-3 Proyek
+                  th.py-3 Kebutuhan Izin
+                  th.py-3 Batas Perizinan
+                  th.px-4
+              tbody.body.align-middle
+                tr.align-middle
+                  td.px-4.py-3
+                    +bx('bxs-error')(class="text-danger")
+                  td.py-3 Bumi Arema Raya
+                  td.py-3 IPPR / Izin Peruntukan dan Penggunaan Ruang
+                  td.py-3 25 Juli 2023, 12:00:00
+                  td.px-4.cell-fit
+                    button.btn.btn-sm.btn-outline-primary.rounded-pill(type="button")
+                      +bx('bx-show')
+                      span Details
+          .border.rounded.mt-2.py-1.bg-white
+            table.table.table-no-bottom-border.mb-0
+              thead.subtitle.align-middle
+                tr
+                  th.px-4.cell-fit
+                  th.py-3 Proyek
+                  th.py-3 Kebutuhan Izin
+                  th.py-3 Batas Perizinan
+                  th.px-4.cell-fit
+              tbody.body.align-middle
+                tr.align-middle
+                  td.px-4
+                    +bx('bxs-error')(class="text-danger")
+                  td.py-3 Bumi Arema Raya
+                  td.py-3 IPPR / Izin Peruntukan dan Penggunaan Ruang
+                  td.py-3 25 Juli 2023, 12:00:00
+                  td.px-4
+                    button.btn.btn-sm.btn-outline-primary.rounded-pill(type="button")
+                      +bx('bx-show')
+                      span Details
+        .d-grid.mt-2
+          button.btn.justify-content-start.px-2.collapsed(type="button" data-bs-toggle="collapse" href="#perizinan-kadaluarsa" role="button" aria-expanded="false" aria-controls="perizinan-kadaluarsa")
+            +bx('collapsed-icon')
+            | Perizinan Kadaluarsa
+        #perizinan-kadaluarsa.collapse.mt-2
+          .border.rounded.py-1.bg-white
+            table.table.table-no-bottom-border.mb-0
+              thead.subtitle.align-middle
+                tr
+                  th.px-4.cell-fit
+                  th.py-3 Proyek
+                  th.py-3 Kebutuhan Izin
+                  th.py-3 Batas Perizinan
+                  th.px-4.cell-fit
+              tbody.body.align-middle
+                tr.align-middle
+                  td.px-4
+                    +bx('bxs-error')(class="text-danger")
+                  td.py-3 Bumi Arema Raya
+                  td.py-3 IPPR / Izin Peruntukan dan Penggunaan Ruang
+                  td.py-3 25 Juli 2023, 12:00:00
+                  td.px-4
+                    button.btn.btn-sm.btn-outline-primary.rounded-pill(type="button")
+                      +bx('bx-show')
+                      span Details
+          .border.rounded.mt-2.py-1.bg-white
+            table.table.table-no-bottom-border.mb-0
+              thead.subtitle.align-middle
+                tr
+                  th.px-4.cell-fit
+                  th.py-3 Proyek
+                  th.py-3 Kebutuhan Izin
+                  th.py-3 Batas Perizinan
+                  th.px-4.cell-fit
+              tbody.body.align-middle
+                tr.align-middle
+                  td.px-4
+                    +bx('bxs-error')(class="text-danger")
+                  td.py-3 Bumi Arema Raya
+                  td.py-3 IPPR / Izin Peruntukan dan Penggunaan Ruang
+                  td.py-3 25 Juli 2023, 12:00:00
+                  td.px-4
+                    button.btn.btn-sm.btn-outline-primary.rounded-pill(type="button")
+                      +bx('bx-show')
+                      span Details
+      .p-4.bg-light.rounded
+        h6.mb-4 Tracking Izin Proyek
+        .mb-4
+          select.select(aria-label='Default select example')
+            option(selected='') PT HK Realtindo
+            option(value='1') One
+            option(value='2') Two
+            option(value='3') Three
+        .py-4.px-4.border.rounded.mb-4
+          .row.row-cols-9.g-0
+            .col
+              .text-center.position-relative.h-100.d-flex.flex-column.justify-content-between
+                div.mb-2
+                  span.badge.bg-success.text-white.px-5.py-2
+                    | Done
+                .text-primary.my-4.position-relative
+                  +bx('bxs-circle')
+                p.fw-semibold.mb-0 AMDAL
+                .position-absolute.w-100.top-50.start-50.bg-primary(style="height:3px")
+
+            .col
+              .text-center.position-relative.h-100.d-flex.flex-column.justify-content-between
+                .position-absolute.w-100.top-50.start-50.bg-primary(style="height:3px")
+            .col
+              .text-center.position-relative.h-100.d-flex.flex-column.justify-content-between
+                div.mb-2
+                  span.badge.bg-success.text-white.px-5.py-2
+                    | Done
+                .text-primary.my-4.position-relative
+                  +bx('bxs-circle')
+                p.fw-semibold.mb-0 KKOP
+                .position-absolute.w-100.top-50.start-50.bg-primary(style="height:3px")
+            .col
+              .text-center.position-relative.h-100.d-flex.flex-column.justify-content-between
+                .position-absolute.w-100.top-50.start-50.bg-primary(style="height:3px")
+            .col
+              .text-center.position-relative.h-100.d-flex.flex-column.justify-content-between
+                div.mb-2
+                  span.badge.bg-success.text-white.px-5.py-2
+                    | Done
+                .text-primary.my-4.position-relative
+                  +bx('bxs-circle')
+                p.fw-semibold.mb-0 SIDANG TPA
+                .position-absolute.w-100.top-50.start-50.bg-primary(style="height:3px")
+            .col
+              .text-center.position-relative.h-100.d-flex.flex-column.justify-content-between
+                .position-absolute.w-100.top-50.start-50.bg-primary(style="height:3px")
+            .col
+              .text-center.position-relative.h-100.d-flex.flex-column.justify-content-between
+                div.mb-2
+                  span.badge.bg-warning.text-white.px-5.py-2
+                    | On Progress
+                .text-primary.my-4.position-relative
+                  +bx('bxs-circle')
+                p.fw-semibold.mb-0 PBG
+                .position-absolute.w-100.top-50.start-50.bg-primary(style="height:3px")
+            .col
+              .text-center.position-relative.h-100.d-flex.flex-column.justify-content-between
+                .position-absolute.w-100.top-50.start-50.bg-primary(style="height:3px")
+            .col
+              .text-center.position-relative.h-100.d-flex.flex-column.justify-content-between
+                div.mb-2
+                  span.badge.bg-warning.text-white.px-5.py-2
+                    | On Progress
+                .text-primary.my-4.position-relative
+                  +bx('bxs-circle')
+                p.fw-semibold.mb-0 PROSES
+      .p-5.border.rounded
+        .d-flex.align-items-center.justify-content-between.mb-3
+          h5.fw-bold.mb-0 Data Order
+          button.btn.btn-outline-primary
+            +bx('bx-show')
+            span Lihat
+        div
+          #daftar-user-chart
+      .border.rounded
+        .row.g-0
+          .col-5
+            .d-flex.flex-column.h-100.justify-content-between.p-4
+              div
+                div.mb-5
+                  strong Proyek
+                h3 25
+                small.text-body-emphasis Total Proyek
+              .d-flex.flex-column.gap-2
+                .d-flex.gap-4.align-items-center
+                  span.rounded-pill.p-1.bg-primary.d-inline-block.algin-middle.ps-2.pe-1.pt-1.pb-2
+                  small Provinsi
+                  small.fw-semibold.ms-auto 8
+                .d-flex.gap-4.align-items-center
+                  span.rounded-pill.p-1.bg-warning.d-inline-block.algin-middle.ps-2.pe-1.pt-1.pb-2
+                  small Kota
+                  small.fw-semibold.ms-auto 5
+                .d-flex.gap-4.align-items-center
+                  span.rounded-pill.p-1.d-inline-block.algin-middle.ps-2.pe-1.pt-1.pb-2(style="background-color: var(--bs-yellow);")
+                  small Kecamatan
+                  small.fw-semibold.ms-auto 5
+          .col-7
+            iframe(frameborder='0' height='400' width='auto' style='width: 100%;' scrolling='no' marginheight='0' marginwidth='0' src='https://maps.google.com/maps?width=320&height=320&hl=en&q=-6.1754083,106.824584&t=&z=14&ie=UTF8&iwloc=B&output=embed')

@@ -1,13 +1,13 @@
 ---
-title: User - Dashboard
-currentUrl: user-master-proyek
-category: berkas
+title: Mitra - Dashboard
+currentUrl: mitra-master-proyek
+category: berkas-pemohon
 header: Master Proyek
 ---
 extends layouts/layout
 block header
   include partials/header-dashboard
-  include partials/sidebar-user
+  include partials/sidebar-mitra
 block content
   +main_dashboard()
     .d-flex.flex-column.gap-5
@@ -32,21 +32,16 @@ block content
           div
             button.btn.btn-primary
               span Tampilkan
-      .d-flex.align-items-center.gap-2.rounded.bg-primary-subtle.p-2
-        .d-flex.p-2.text-primary
-          +bx('bx-info-circle')
-        .subtitle.text-primary
-          p.mb-0 Lokasi pengurusan izin menjadi kunci pembeda proses perizinan. Pastikan Anda input lokasi pengurusan izin dengan benar
       div
         .d-flex.justify-content-between.align-items-center.mb-4
+          .rounded.px-2.py-3.gap-2.bg-primary-subtle.text-primary.subtitle.me-auto.d-flex.align-items-center
+            .d-flex.align-items-center
+              +bx('bx-info-circle')
+            span Mitra hanya dapat melihat data pemohon
           .mb-0.position-relative
             input.form-control.ps-7(type='text' placeholder='Search')
             .position-absolute.top-0.start-0.d-flex.pt-2.px-2
               +bx('bx-search')
-          div
-            a.btn.btn-primary(type="button" href="/user-tambah-proyek.html")
-              +bx('bx-plus')
-              span Tambah Data Proyek
         .border.rounded
           table.table.table-striped.striped-custom
             thead.subtitle.align-middle
@@ -66,16 +61,7 @@ block content
                   td Hamid
                   td Whelly
                   td.text-center
-                    .action-item
-                      button.btn.btn-light.btn-sm.p-2.rounded-circle.action-head(type="button")
-                        +bx('bx-dots-horizontal-rounded')
-                      .action-body.p-2
-                        button.btn.action-item
-                          +bx('bx-hide')
-                          span Sembunyikan
-                        button.btn.action-item.text-danger(type="button" data-bs-toggle="modal" data-bs-target="#proyek")
-                          +bx('bx-trash')
-                          span Hapus
+                    a.btn.btn-outline-primary.btn-sm.rounded-pill(href="/mitra-master-proyek-pemohon.html")
+                      +bx('bx-show')
+                      span Details
           +pagination()
-block modal
-  +modal_accept('proyek')(title="proyek")

@@ -1,0 +1,82 @@
+---
+title: Mitra - Dashboard
+currentUrl: mitra-master-legalitas-pemohon
+category: berkas-pemohon
+header: Master Legalitas Pemohon
+---
+extends layouts/layout
+block header
+  include partials/header-dashboard
+  include partials/sidebar-mitra
+block content
+  +main_dashboard()
+    .d-flex.gap-5.flex-column
+      .p-4.bg-light.rounded
+        .d-flex.align-items-end.mb-3.gap-4
+          .flex-grow-1
+            label.form-label Pemohon
+            select.select.wide
+              option(value='') PT HK Realtindo
+              option(value='1') PT Realtindo HK
+              option(value='2') HK Realtindo PT
+              option(value='3') Realtindo HK PT
+              option(value='4') HK PT Realtindo
+          div
+            button.btn.btn-primary
+              span Tampilkan
+        div
+          .form-check.body-super
+            input#setuju.form-check-input(type='checkbox' value='')
+            label.form-check-label.body(for='setuju')
+              | Default checkbox
+      div
+        ul.nav.tab-fill.nav-tabs(role='tablist')
+          li.nav-item(role='presentation')
+            button#home-tab.nav-link.subtitle.active(data-bs-toggle='tab' data-bs-target='#home-tab-pane' type='button' role='tab' aria-controls='home-tab-pane' aria-selected='true') Dokumen Badan Hukum
+          li.nav-item(role='presentation')
+            button#profile-tab.nav-link.subtitle(data-bs-toggle='tab' data-bs-target='#profile-tab-pane' type='button' role='tab' aria-controls='profile-tab-pane' aria-selected='false') Dokumen Perorangan
+
+        .tab-content.border-top-0.border.rounded-bottom
+          #home-tab-pane.tab-pane.fade.show.active(role='tabpanel' aria-labelledby='home-tab' tabindex='0')
+            .p-4.d-flex.flex-column.gap-4
+              .d-flex.justify-content-between.align-items-center
+                .rounded.px-2.py-3.gap-2.bg-primary-subtle.text-primary.subtitle.me-auto.d-flex.align-items-center
+                  .d-flex.align-items-center
+                    +bx('bx-info-circle')
+                  span Mitra hanya dapat melihat dan unduh data pemohon
+                .mb-0.position-relative
+                  input.form-control.ps-7(type='text' placeholder='Search')
+                  .position-absolute.top-0.start-0.d-flex.pt-2.px-2
+                    +bx('bx-search')
+              .rounded.border
+                table.table.table-striped.striped-custom
+                  thead.subtitle.align-middle
+                    tr
+                      td.px-4 Judul Dokumen Pemohon
+                      td.text-center Ms. Office
+                      td.text-center PDF
+                      td.text-center CAD
+                      td Berlaku Sampai
+                      td Terakhir Diubah
+                      td.text-center
+                  tbody.body.align-middle
+                    each val in [1,2,3,4,5,6]
+                      tr
+                        td.px-4 Dokumen Admin
+                        td.text-center
+                          button.btn.btn-light.rounded-pill
+                            +bx('bx-download')
+                            span Unduh
+                        td.text-center
+                          button.btn.btn-light.rounded-pill
+                            +bx('bx-download')
+                            span Unduh
+                        td.text-center
+                          button.btn.btn-light.rounded-pill
+                            +bx('bx-download')
+                            span Unduh
+                        td kosong
+                        td kosong
+
+                +pagination('document')
+          #profile-tab-pane.tab-pane.fade(role='tabpanel' aria-labelledby='profile-tab' tabindex='0') Tab2

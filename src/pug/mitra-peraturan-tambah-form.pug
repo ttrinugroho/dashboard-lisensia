@@ -1,0 +1,42 @@
+---
+title: Mitra - Dashboard
+header: Info Proyek Pemohon
+---
+extends layouts/layout
+block header
+  include partials/header-other
+block content
+  .pb-5.mb-6
+    .container.py-5.mb-5
+      .d-flex.flex-column.gap-4
+        div
+          label.form-label(for="nama") Nama Peraturan
+          input#nama.form-control(type='text' name='nama' placeholder="Judul Peraturan")
+        div
+          label.form-label(for='lokasi') Lokasi Peraturan
+          select.select.wide#lokasi(name="lokasi")
+            option(value="") Select Lokasi
+            option(value="dki") DKI Jakarta
+            option(value="di") Yogyakarta
+        div
+          label.form-label(for='') Kategori Peraturan
+          select.select.wide#kategori(name="kategori")
+            option(value="") Select Peraturan
+            option(value="undang") Undang-undang
+            option(value="lingkungan") Lingkungan
+        .datepicker
+          .action-item
+            .action-head.w-100
+              label.form-label(for='') Tanggal
+              input.form-control.text-center.js-date-range(type="text" data-single-month="true" data-container=".js-date-container" value="12 Agustus 2023")
+            .action-body.w-100
+              .js-date-container
+        div
+          label.form-label(for="nama") Nama Peraturan
+          input#nama.form-control(type='text' name='nama' placeholder="Judul Peraturan")
+        div
+          label.form-label(for="about") Tentang Peraturan
+          textarea#about.form-control(type='text' name='about' placeholder="Deskripsi Peraturan")
+        div
+          label.form-label(for='gambar') Uploud Peraturan
+          +file_upload('gambar')

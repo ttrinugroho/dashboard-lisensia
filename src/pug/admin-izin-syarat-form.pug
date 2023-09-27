@@ -1,5 +1,5 @@
 ---
-title: User - Dashboard
+title: Admin - Dashboard
 header: Form Syarat Izin
 ---
 extends layouts/layout
@@ -8,3 +8,58 @@ block header
 block content
   .container.pb-5.mb-6
     .p-5.mb-5
+      .d-flex.flex-column.gap-4
+        .row.row-cols-2
+          .col
+            div
+              label.form-label(for='place') Tempat Perizinan
+              input#place.form-control(type='text' disabled value="DKI Jakarta" placeholder="Tempat Perizinan")
+          .col
+            div
+              label.form-label(for='jenis') Jenis Izin
+              input#jenis.form-control(type='text' disabled value="KRK Non Rumah Tinggal" placeholder="Jenis Izin")
+        .border.rounded
+          table.table.table-striped.striped-custom.mb-0
+            thead.subtitle.align-middle
+              tr
+                td.py-4.px-4 Kategori
+                td.py-4 Persyaratan
+                td.py-4 Format Isian
+                td.py-4 Contoh Dokumen
+                td.py-4 Tampil Permit
+                td.py-4.px-4.text-center
+            tbody.body.align-middle
+              tr
+                td.px-4
+                  div
+                    select#kategori.select(name="kategori")
+                      option(value="") Dok. Admin
+                      option(value="1") Kategori 1
+                      option(value="2") Kategori 2
+                      option(value="3") Kategori 3
+                      option(value="4") Kategori 4
+                td
+                  div
+                    input#syarat.form-control(type='text' placeholder="Surat Permohonan")
+                td
+                  div
+                    input#format.form-control(type='file' placeholder="Surat Permohonan")
+                td
+                  div
+                    input#contoh.form-control(type='file' placeholder="Surat Permohonan")
+                td
+                  div
+                    select#termit.select(name="termit")
+                      option(value="") Tampilkan
+                      option(value="1") Sembunyikan
+                td.px-4
+                  button.btn.text-danger
+                    +bx('bx-trash')
+          .text-end.p-4
+            button.btn.btn-primary
+              +bx('bx-plus')
+              span Tambah Data
+block modal
+  +footer_back
+    button.btn.btn-light.px-8(type="button") Cancel
+    button.btn.btn-primary.ms-4.px-8(type="button") Save

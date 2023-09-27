@@ -1,0 +1,60 @@
+---
+title: Mitra - Dashboard
+currentUrl: mitra-client-management
+header: Client Management
+---
+extends layouts/layout
+block header
+  include partials/header-dashboard
+  include partials/sidebar-mitra
+block content
+  +main_dashboard()
+    .d-flex.gap-5.flex-column
+      .d-flex.justify-content-end.align-items-center.gap-4
+        div
+          select#filter.select.right(name="filter")
+            option(value="" data-display="Filter") Filter
+            option(value="filter 1") Filter 1
+        .mb-0.position-relative
+          input.form-control.bg-light.ps-7(type='text' placeholder='Search')
+          .position-absolute.top-0.start-0.d-flex.pt-2.px-2
+            +bx('bx-search')
+      .border.rounded
+        table.table.table-striped.striped-custom
+          thead.subtitle.align-middle
+            tr
+              td.px-4.py-3 No Order
+              td Tanggal Order
+              td Perusahaan
+              td Proyek
+              td Pengguna Order
+              td.px-4.py-3 Status
+          tbody.body.align-middle
+            each first in [1,2,3]
+              tr
+                td.px-4.py-3 ORD2304000#{first}
+                td 2022-06-1#{first}
+                td PT Pembangunan Sarana Jaya
+                td EL Shaddai Intercontinental School
+                td hery WAKIL OWNER
+                td.px-4.py-3
+                  span.badge.border.border-success.text-success Open
+            each second in [4,5]
+              tr
+                td.px-4.py-3 ORD2304000#{second}
+                td 2022-06-1#{second}
+                td PT Pembangunan Sarana Jaya
+                td EL Shaddai Intercontinental School
+                td hery WAKIL OWNER
+                td.px-4.py-3
+                  span.badge.border.border-danger.text-danger Closed
+            each third in [7,8,9]
+              tr
+                td.px-4.py-3 ORD2304000#{third}
+                td 2022-06-1#{third}
+                td PT Pembangunan Sarana Jaya
+                td EL Shaddai Intercontinental School
+                td hery WAKIL OWNER
+                td.px-4.py-3
+                  span.badge.border.border-success.text-success Open
+        +pagination

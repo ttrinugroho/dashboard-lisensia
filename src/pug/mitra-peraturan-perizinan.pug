@@ -1,0 +1,74 @@
+---
+title: Mitra - Dashboard
+currentUrl: mitra-peraturan-perizinan
+category: izin-pemohon
+header: Peraturan Perizinan
+---
+extends layouts/layout
+block header
+  include partials/header-dashboard
+  include partials/sidebar-mitra
+block content
+  +main_dashboard()
+    .d-flex.flex-column.gap-5
+      .p-4.bg-light.rounded
+        .d-flex.justify-content-between.align-items-center
+          div
+            label.form-label(for='lokasi') Lokasi Peraturan
+            select.select.wide#lokasi(name="lokasi")
+              option(value="") Select Lokasi
+              option(value="dki") DKI Jakarta
+              option(value="di") Yogyakarta
+          div
+            label.form-label(for='') Kategori Peraturan
+            select.select.wide#kategori(name="kategori")
+              option(value="") Select Peraturan
+              option(value="undang") Undang-undang
+              option(value="lingkungan") Lingkungan
+      .rounded.px-2.py-3.gap-2.bg-primary-subtle.text-primary.subtitle.me-auto.d-flex.align-items-center
+        .d-flex.align-items-center
+          +bx('bx-info-circle')
+        span Mitra dapat menambambahkan peraturan. Kami berterimakasih atas informasi peraturan yang Anda tambahkan
+      .d-flex.justify-content-between.align-items-center
+        .mb-0.position-relative
+          input.form-control.bg-light.ps-7(type='text' placeholder='Search')
+          .position-absolute.top-0.start-0.d-flex.pt-2.px-2
+            +bx('bx-search')
+        div
+          button.btn.btn-primary(type="button")
+            +bx('bx-plus')
+            span Tambah Peraturan
+      .border.rounded
+        table.table.table-striped.striped-custom
+          thead.subtitle.align-middle
+            tr
+              td.py-3.px-4 Peraturan
+              td.py-3 Tentang
+              td.py-3 Tanggal
+              td.py-3
+          tbody.body.align-middle
+            tr
+              td.py-3.px-4
+              td.py-3
+              td.py-3
+              td.py-3.cell-fit
+                button.btn.btn-light
+                  +bx('bx-download')
+                  span Unduh
+            tr
+              td.py-3.px-4
+              td.py-3
+              td.py-3
+              td.py-3.cell-fit
+                button.btn.btn-light
+                  +bx('bx-download')
+                  span Unduh
+            tr
+              td.py-3.px-4
+              td.py-3
+              td.py-3
+              td.py-3.cell-fit
+                button.btn.btn-light
+                  +bx('bx-download')
+                  span Unduh
+        +pagination

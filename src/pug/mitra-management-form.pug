@@ -1,0 +1,46 @@
+---
+title: Mitra - Dashboard
+currentUrl: mitra-management
+header: Mitra Management
+---
+extends layouts/layout
+block header
+  include partials/header-dashboard
+  include partials/sidebar-mitra
+block content
+  +main_dashboard()
+    .d-flex.gap-4.flex-column
+      .d-flex.justify-content-end.align-items-center
+        div
+          button.btn.btn-primary(type="button")
+            span Save Data
+      .row.row-cols-2
+        .col
+          .d-flex.flex-column.gap-4
+            div
+              label.form-label(for="nama") Nama<sup class="text-danger">*</sup>
+              input#nama.form-control(type='text' name='nama')
+            div
+              label.form-label(for="email") Alamat Email<sup class="text-danger">*</sup>
+              input#email.form-control(type='email' name='email')
+            h6.mb-0 Atur Kata Sandi
+            div
+              label.form-label(for="password") Kata Sandi<sup class="text-danger">*</sup>
+              .position-relative
+                button.text-light-emphasis.btn.p-2.position-absolute.top-0.end-0(type="button" data-password="password")
+                  +bx('bx-show')
+                input#password.form-control(type='password' name='password' placeholder='Kata Sandi')
+            div
+              label.form-label(for="confirm-password") Korfirmasi Kata Sandi<sup class="text-danger">*</sup>
+              .position-relative
+                button.text-light-emphasis.btn.p-2.position-absolute.top-0.end-0(type="button" data-password="confirm-password")
+                  +bx('bx-show')
+                input#confirm-password.form-control(type='password' name='confirm-password' placeholder='Kata Sandi')
+        .col
+          .d-flex.flex-column.gap-4
+            div
+              label.form-label(for="proyek") Group Proyek<sup class="text-danger">*</sup>
+              input#proyek.form-control(type='text' name='proyek')
+            div
+              label.form-label(for="mobile") Nomor Handphone<sup class="text-danger">*</sup>
+              input#mobile.form-control(type='tel' name='mobile')

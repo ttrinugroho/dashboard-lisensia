@@ -159,7 +159,7 @@
       }
       };
       if(document.querySelector("#daftar-user-chart")){
-          new ApexCharts(document.querySelector("#daftar-user-chart"), options);
+          new ApexCharts(document.querySelector("#daftar-user-chart"), options).render();
       }
 })();
 (function(){
@@ -193,6 +193,6 @@
       }
       };
       if(document.querySelector("#daftar-mitra-chart")){
-        new ApexCharts(document.querySelector("#daftar-mitra-chart"), options);
+        new ApexCharts(document.querySelector("#daftar-mitra-chart"), options).render();
       }
 })();

@@ -21,6 +21,10 @@ block content
           .position-absolute.top-0.start-0.d-flex.pt-2.px-2
             +bx('bx-search')
         div
+          button.btn.btn-outline-success(type="button")
+            +bx('bx-import')
+            span Import
+        div
           button.btn.btn-primary(type="button" data-bs-toggle="modal" data-bs-target="#modal-form-izin")
             +bx('bx-plus')
             span Tambah Data
@@ -48,19 +52,19 @@ block content
                       +bx('bx-dots-horizontal-rounded')
                     .action-body
                       .p-2.d-flex.flex-column
-                        a.btn.action-item(href='/admin-order-list.html')
+                        a.btn.action-item(data-bs-toggle="modal" href="#modal-form-izin")
                           +bx('bx-file-blank')
                           span Lihat detail
-                        a.btn.action-item(href='/admin-order-list.html')
+                        a.btn.action-item(href='/admin-izin-syarat-form.html')
                           +bx('bx-check-square')
                           span Syarat Izin
-                        a.btn.action-item(href='/admin-order-list.html')
+                        a.btn.action-item(href='/admin-izin-langkah-form.html')
                           +bx('bx-list-check')
                           span Langkah Izin
-                        a.btn.action-item(href='/admin-order-list.html')
+                        a.btn.action-item(href='/admin-check-list-izin-pemda.html')
                           +bx('bx-user-check')
                           span Izin Pemda
-                        a.btn.action-item(href='/admin-order-list.html')
+                        a.btn.action-item(href='/admin-check-list-flow.html')
                           +bx('bx-analyse')
                           span Flow Izin
                         button.btn.action-item.text-danger(type="button" data-bs-toggle="modal" data-bs-target="#hapus-kategori")

@@ -1,0 +1,30 @@
+---
+title: Admin - Dashboard
+header: Check List Flow Izin
+---
+extends layouts/layout
+block header
+  include partials/header-other
+block content
+  .container.pb-5.mb-6
+    .p-5.mb-5
+      .d-flex.flex-column.gap-4
+        .row.row-cols-2
+          .col
+            div
+              label.form-label(for='kategori') Kategori
+              input#kategori.form-control(type='text' disabled value="Izin Tataruangan" placeholder="Tempat Perizinan")
+          .col
+            div
+              label.form-label(for='izin') Izin
+              input#izin.form-control(type='text' disabled value="KRK Non Rumah Tinggal" placeholder="Jenis Izin")
+        div
+          label.form-label(for="link") Link Flow Izin<sup class="text-danger">*</sup>
+          input#link.form-control(type='text' name='link' placeholder='Link Flow Izin')
+        div
+          label.form-label(for='gambar') Checklist Syarat Flow Izin
+          +file_upload('gambar')
+block modal
+  +footer_back
+    button.btn.btn-light.px-8(type="button") Cancel
+    button.btn.btn-primary.ms-4.px-8(type="button") Save

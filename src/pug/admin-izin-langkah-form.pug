@@ -1,0 +1,49 @@
+---
+title: Admin - Dashboard
+header: Form Langkah Izin
+---
+extends layouts/layout
+block header
+  include partials/header-other
+block content
+  .container.pb-5.mb-6
+    .p-5.mb-5
+      .d-flex.flex-column.gap-4
+        .border.rounded
+          table.table.table-striped.striped-custom.mb-0
+            thead.subtitle.align-middle
+              tr
+                td.py-4.px-4
+                  | Langkah-langkah
+                  span.fw-normal (Maks 100 Karakter)
+                td.py-4.cell-fit Lama Pengurusan (Hari)
+                td.py-4.px-4.text-center
+            tbody.body.align-middle
+              tr
+                td
+                  div
+                    textarea.form-control(name="langkah-1", cols="30", placeholder="Tulis langkah-langkah disini")
+                td
+                  div
+                    input#format.form-control(type='text' placeholder="3")
+                td.px-4.cell-fit
+                  button.btn.text-danger
+                    +bx('bx-trash')
+              tr
+                td
+                  div
+                    textarea.form-control(name="langkah-1", cols="30", placeholder="Tulis langkah-langkah disini")
+                td
+                  div
+                    input#format.form-control(type='text' placeholder="3")
+                td.px-4.cell-fit
+                  button.btn.text-danger
+                    +bx('bx-trash')
+          .text-end.p-4
+            button.btn.btn-primary
+              +bx('bx-plus')
+              span Tambah Data
+block modal
+  +footer_back
+    button.btn.btn-light.px-8(type="button") Cancel
+    button.btn.btn-primary.ms-4.px-8(type="button") Save
