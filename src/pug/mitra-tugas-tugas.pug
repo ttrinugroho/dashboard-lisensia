@@ -1,16 +1,16 @@
 ---
-title: User - Dashboard
-currentUrl: user-izin-terlambat
-category: laporan
-header: Izin Terlambat
+title: Mitra - Dashboard
+currentUrl: mitra-tugas-tugas
+category: izin-pemohon
+header: Tugas-Tugas
 ---
 extends layouts/layout
 block header
   include partials/header-dashboard
-  include partials/sidebar-user
+  include partials/sidebar-mitra
 block content
   +main_dashboard()
-    .d-flex.flex-column.gap-5
+    .d-flex.flex-column.gap-4
       .p-4.bg-light.rounded
         .d-flex.align-items-center.gap-4
           .flex-grow-1
@@ -42,42 +42,30 @@ block content
           div
             button.btn.btn-primary
               span Tampilkan
-          div
-            button.btn.btn-outline-success
-              +bx('bx-export')
-              span Export Excel
-      .d-flex.align-items-center.gap-4
-        div
-          select#filter.select.bg-light(name="filter")
-            option(value="") Filter
-            option(value="filter 1") Filter 1
-        .datepicker
-          .action-item
-            .d-flex.align-items-center.gap-2.px-2.border.rounded.action-head.bg-light
-              +bx('bx-chevron-left')
-              input.form-control.border-0.bg-light.text-center.px-2.js-date-range(type="text" data-single-month="true" data-container=".js-date-container" value="12 Agustus 2023")
-              +bx('bx-chevron-right')
-            .action-body.w-100
-              .js-date-container
-        .mb-0.position-relative.flex-grow-1
-          input.form-control.bg-light.ps-7(type='text' placeholder='Search')
-          .position-absolute.top-0.start-0.d-flex.pt-2.px-2
-            +bx('bx-search')
       .border.rounded
-        table.table.table-striped.striped-custom
+        table.table.table-striped.striped-custom.table-no-bottom-border.mb-0
           thead.subtitle.align-middle
             tr
-              td.px-4 Jenis Izin
-              td Rencana Mulai
-              td Rencana Selesai
-              td Realisasi Mulai
-              td.px-4 Realisasi Selesai
+              td.px-4 Kategori
+              td Jenis Izin
+              td Update Terakhir
+              td Outstanding
+              td Ditugaskan Kepada
+              td.px-4.cell-fit Status
           tbody.body.align-middle
-            each i in [1,2,3]
-              tr
-                td.px-4 Cell
-                td Cell
-                td Cell
-                td Cell
-                td.px-4 Cell
-        +pagination
+            tr
+              td.px-4 IMB Rumah Tinggal
+              td IMB/PBG Rumah Tinggal
+              td Update Terakhir
+              td
+              td
+              td.px-4.cell-fit
+                span.badge.border.border-success.text-success Open
+            tr
+              td.px-4 IMB non Rumah Tinggal
+              td Izin Bongkar
+              td Update Terakhir
+              td
+              td
+              td.px-4.cell-fit
+                span.badge.border.border-success.text-success Open

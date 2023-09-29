@@ -28,7 +28,7 @@ block content
           .action-item
             .action-head.w-100
               label.form-label(for='') Tanggal
-              input.form-control.text-center.js-date-range(type="text" data-single-month="true" data-container=".js-date-container" value="12 Agustus 2023")
+              input.form-control.js-date-range(type="text" data-single-month="true" data-container=".js-date-container" value="12 Agustus 2023")
             .action-body.w-100
               .js-date-container
         div
@@ -40,3 +40,7 @@ block content
         div
           label.form-label(for='gambar') Uploud Peraturan
           +file_upload('gambar')
+block modal
+  +footer_back
+    button.btn.btn-light.px-8(type="button") Cancel
+    button.btn.btn-primary.ms-4.px-8(type="button") Save

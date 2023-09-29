@@ -1,0 +1,226 @@
+---
+title: Mitra - Dashboard
+currentUrl: mitra-kebutuhan-izin
+category: izin-pemohon
+header: Kebutuhan Izin
+---
+extends layouts/layout
+block header
+  include partials/header-dashboard
+  include partials/sidebar-mitra
+block content
+  +main_dashboard()
+    .d-flex.flex-column.gap-5
+      .p-4.bg-light.rounded
+        .d-flex.align-items-center.gap-4
+          .flex-grow-1
+            div
+              label.form-label Pemohon
+              select.select.wide
+                option(value='') PT HK Realtindo
+                option(value='1') PT Realtindo HK
+                option(value='2') HK Realtindo PT
+                option(value='3') Realtindo HK PT
+                option(value='4') HK PT Realtindo
+            .form-check.body-super
+              input#pemohon-default.form-check-input(type='checkbox' value='')
+              label.form-check-label.body(for='pemohon-default')
+                | Jadikan pemohon sebagai default
+          .flex-grow-1
+            div
+              label.form-label Proyek
+              select.select.wide
+                option(value='') Apartment Green Lake City
+                option(value='1') PT Realtindo HK
+                option(value='2') HK Realtindo PT
+                option(value='3') Realtindo HK PT
+                option(value='4') HK PT Realtindo
+            .form-check.body-super
+              input#lokasi-default.form-check-input(type='checkbox' value='')
+              label.form-check-label.body(for='lokasi-default')
+                | Jadikan lokasi sebagai default
+          div
+            button.btn.btn-primary
+              span Tampilkan
+      .rounded.px-2.py-3.gap-2.bg-primary-subtle.text-primary.subtitle.me-auto.d-flex.align-items-center
+        .d-flex.align-items-center
+          +bx('bx-info-circle')
+        span Mitra hanya dapat melihat dan unduh data pemohon
+      div
+        .row.g-2
+          .col-auto
+            .bg-light.p-4
+              h6 Kebutuhan Perizinan
+              p.subtitle IMB Rumah Tinggal
+              .d-flex.justify-content-between.align-items-center.bg-primary-subtle.px-4.py-2
+                p.mb-0.subtitle.text-primary IMB/PBG Rumah Tinggal
+                button.btn.text-danger(type="button")
+                  +bx('bx-trash')
+              hr
+              p.subtitle IMB non Rumah Tinggal
+              .d-grid.mb-4
+                a.btn.justify-content-start.text-primary(href="/")
+                  Izin Bongkar
+                a.btn.justify-content-start.text-primary(href="/")
+                  | IMB non Rumah Tinggal > 8 lantai
+              .d-grid
+                button.btn.btn-primary(type="button" data-bs-toggle="modal" data-bs-target="#modal-tambah-tanah")
+                  +bx('bx-plus')
+                  span Data Kebutuhan Izin
+          .col
+            .d-flex.flex-column.gap-4
+              .border.rounded
+                table.table.table-light.table-no-bottom-border.mb-0
+                  thead.subtitle.align-middle
+                    tr
+                      td.ps-4 Izin Syarat Dari Pemda
+                      td
+                      td Link
+                      td.pe-4.cell-fit
+                  tbody.body.align-middle
+                    tr
+                      td.ps-4
+                        .d-flex.align-items-center.gap-4
+                          +bx('bxs-file-pdf')(class="text-danger")
+                          span.elipsis-cell(data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="JYSFCY-2022_03_24_11_07_58.pdf")
+                            | JYSFCY-2022_03_24_11_07_58.pdf
+                      td.text-light-emphasis 298.8kb
+                      td
+                        span.d-block.elipsis-cell(data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="https://pelayanan.jakarta.go.id/download/dok_perizinan/JYSFCY-2022_03_24_11_07_58.pdf")
+                          | https://pelayanan.jakarta.go.id/download/dok_perizinan/JYSFCY-2022_03_24_11_07_58.pdf
+                      td.pe-4.cell-fit
+                        button.btn.btn-light.text-primary(type="button")
+                          +bx('bx-download')
+                          span Unduh
+              .border.rounded
+                table.table.table-light.table-no-bottom-border.mb-0
+                  thead.subtitle.align-middle
+                    tr
+                      td.px-4 Flow Izin
+                      td
+                      td Link
+                      td.px-4.cell-fit
+                  tbody.body.align-middle
+                    tr
+                      td.px-4
+                        .d-flex.align-items-center.gap-4
+                          +bx('bxs-file-pdf')(class="text-danger")
+                          span.elipsis-cell(data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="JYSFCY-2022_03_24_11_07_58.pdf")
+                            | JYSFCY-2022_03_24_11_07_58.pdf
+                      td.text-light-emphasis 298.8kb
+                      td
+                        span.d-block.elipsis-cell(data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="https://pelayanan.jakarta.go.id/download/dok_perizinan/JYSFCY-2022_03_24_11_07_58.pdf")
+                          | https://pelayanan.jakarta.go.id/download/dok_perizinan/JYSFCY-2022_03_24_11_07_58.pdf
+                      td.px-4.cell-fit
+                        button.btn.btn-light.text-primary(type="button")
+                          +bx('bx-download')
+                          span Unduh
+              .border.rounded
+                table.table.table-striped.striped-custom.mb-0
+                  thead.subtitle.align-middle
+                    tr
+                      td.px-4 Kategori
+                      td Syarat
+                      td.text-center Details
+                      td.px-4.text-center Status
+                  tbody.body.align-middle
+                    tr
+                      td.px-4 Dokumen Admin
+                      td Surat Permohonan
+                      td.text-center
+                        button.btn.btn-sm.btn-primary.rounded-pill.px-5(type="button" data-bs-toggle="modal" data-bs-target="#modal-surat-permohonan")
+                          span Lihat
+                      td.px-4.text-center.cell-fit
+                        span.badge.border.border-success.text-success
+                          | Sudah Ada
+                    tr
+                      td.px-4 Dokumen Admin
+                      td Surat Kuasa jika dikuasakan
+                      td.text-center
+                      td.px-4.text-center.cell-fit
+                        span.badge.border.border-warning.text-warning
+                          | Belum Ada
+                    tr
+                      td.px-4 Dokumen Admin
+                      td Surat Kuasa kepada perencana
+                      td.text-center
+                        button.btn.btn-sm.btn-primary.rounded-pill.px-5(type="button")
+                          span Lihat
+                      td.px-4.text-center.cell-fit
+                        span.badge.border.border-success.text-success
+                          | Sudah Ada
+              .border.rounded
+                table.table.table-striped.striped-custom.mb-0
+                  thead.subtitle.align-middle
+                    tr
+                      td.px-4 Jenis Izin
+                      td.px-4.cell-fit.text-center Status
+                  tbody.body.align-middle
+                    tr
+                      td.px-4 KPT KK
+                      td.px-4.cell-fit.text-center
+                        span.badge.border.border-success.text-success
+                          | Sudah Ada
+block modal
+  +modal_with_close('modal-surat-permohonan','Surat Permohonan',false)
+    .p-4.d-flex.flex-column.gap-4
+      .row.row-cols-2
+        .col
+          div
+            label.form-label(for='nama') Berlaku Sampai
+            input#nama.form-control(type='text' disabled value="25-12-2023")
+        .col
+          div
+            label.form-label(for='nama') Terakhir Diubah
+            input#nama.form-control(type='text' disabled value="21-12-2023")
+      .border.rounded
+        table.table.table-striped.striped-custom.table-no-bottom-border
+          thead.subtitle.align-middle
+            tr
+              td.px-4(colspan="3") Ms. Office
+          tbody.body.align-middle
+            tr
+              td.px-4
+                .d-flex.align-items-center.gap-4
+                  +bx('bxs-file-doc')(class="text-primary")
+                  span.elipsis-cell(data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="JYSFCY-2022_03_24_11_07_58.pdf")
+                    | JYSFCY-2022_03_24_11_07_58.pdf
+              td.px-4.text-light-emphasis 298.8kb
+              td.px-4.cell-fit.text-center
+                button.btn.btn-outline-primary.btn-sm.rounded-pill(type="button")
+                  +bx('bx-download')
+                  span Unduh
+      .border.rounded
+        table.table.table-striped.striped-custom.table-no-bottom-border
+          thead.subtitle.align-middle
+            tr
+              td.px-4(colspan="3") PDF
+          tbody.body.align-middle
+            tr
+              td.px-4
+                .d-flex.align-items-center.gap-4
+                  +bx('bxs-file-pdf')(class="text-danger")
+                  span.elipsis-cell(data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="JYSFCY-2022_03_24_11_07_58.pdf")
+                    | JYSFCY-2022_03_24_11_07_58.pdf
+              td.px-4.text-light-emphasis 298.8kb
+              td.px-4.cell-fit.text-center
+                button.btn.btn-outline-primary.btn-sm.rounded-pill(type="button")
+                  +bx('bx-download')
+                  span Unduh
+      .border.rounded
+        table.table.table-striped.striped-custom.table-no-bottom-border
+          thead.subtitle.align-middle
+            tr
+              td.px-4(colspan="3") CAD
+          tbody.body.align-middle
+            tr
+              td.px-4
+                .d-flex.align-items-center.gap-4
+                  +bx('bxs-file-blank')
+                  span.elipsis-cell(data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="JYSFCY-2022_03_24_11_07_58.pdf")
+                    | JYSFCY-2022_03_24_11_07_58.pdf
+              td.px-4.text-light-emphasis 298.8kb
+              td.px-4.cell-fit.text-center
+                button.btn.btn-outline-primary.btn-sm.rounded-pill(type="button")
+                  +bx('bx-download')
+                  span Unduh

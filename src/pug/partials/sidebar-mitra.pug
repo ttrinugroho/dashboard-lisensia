@@ -29,6 +29,8 @@
         span Master Dokumen Proyek
   .nav-item
     +dropdown('Izin Pemohon', category === 'izin-pemohon')(id='sidebar-izin-pemohon-collapse',icon='bx-notification')
+      +alink('mitra-kebutuhan-izin')
+        span Kebutuhan Izin
       +alink('mitra-jadwal')
         span Jadwal
       +alink('mitra-kronologi')
@@ -43,9 +45,9 @@
       span Peraturan Perizinan
   .nav-item
     +dropdown('Laporan', category === 'laporan')(id='sidebar-laporan-collapse',icon='bx-bar-chart-square')
-      +alink('mitra-jadwal-laporan')
+      +alink('mitra-laporan-jadwal')
         span Jadwal
-      +alink('mitra-kronologi-laporan')
+      +alink('mitra-laporan-kronologi')
         span Kronologi
       +alink('mitra-bast')
         span BAST
@@ -62,7 +64,7 @@
   .nav-item
     +dropdown('Account Setting', category === 'setting')(id='sidebar-setting-collapse',icon='bx-cog')
       +alink('mitra-profile')
-        span profile
+        span Profile
       +alink('mitra-change-password')
         span Change Password
       +alink('mitra-hapus-akun')

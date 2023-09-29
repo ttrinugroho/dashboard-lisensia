@@ -78,5 +78,46 @@ block content
                         td kosong
                         td kosong
 
-                +pagination('document')
-          #profile-tab-pane.tab-pane.fade(role='tabpanel' aria-labelledby='profile-tab' tabindex='0') Tab2
+
+          #profile-tab-pane.tab-pane.fade(role='tabpanel' aria-labelledby='profile-tab' tabindex='0')
+            .p-4.d-flex.flex-column.gap-4
+              .d-flex.justify-content-between.align-items-center
+                .rounded.px-2.py-3.gap-2.bg-primary-subtle.text-primary.subtitle.me-auto.d-flex.align-items-center
+                  .d-flex.align-items-center
+                    +bx('bx-info-circle')
+                  span Mitra hanya dapat melihat dan unduh data pemohon
+                .mb-0.position-relative
+                  input.form-control.ps-7(type='text' placeholder='Search')
+                  .position-absolute.top-0.start-0.d-flex.pt-2.px-2
+                    +bx('bx-search')
+              .rounded.border
+                table.table.table-striped.striped-custom
+                  thead.subtitle.align-middle
+                    tr
+                      td.px-4 Judul Dokumen Pemohon
+                      td.text-center Ms. Office
+                      td.text-center PDF
+                      td.text-center CAD
+                      td Berlaku Sampai
+                      td Terakhir Diubah
+                      td.text-center
+                  tbody.body.align-middle
+                    each val in [1,2,3,4,5,6]
+                      tr
+                        td.px-4 Dokumen Admin
+                        td.text-center
+                          button.btn.btn-light.rounded-pill
+                            +bx('bx-download')
+                            span Unduh
+                        td.text-center
+                          button.btn.btn-light.rounded-pill
+                            +bx('bx-download')
+                            span Unduh
+                        td.text-center
+                          button.btn.btn-light.rounded-pill
+                            +bx('bx-download')
+                            span Unduh
+                        td kosong
+                        td kosong
+
+

@@ -1,13 +1,13 @@
 ---
-title: User - Dashboard
-currentUrl: user-produk-permit
-category: izin
+title: Mitra - Dashboard
+currentUrl: mitra-produk-permit
+category: izin-pemohon
 header: Produk Permit
 ---
 extends layouts/layout
 block header
   include partials/header-dashboard
-  include partials/sidebar-user
+  include partials/sidebar-mitra
 block content
   +main_dashboard()
     .d-flex.flex-column.gap-4
@@ -58,36 +58,27 @@ block content
         .tab-content.border-top-0.border.rounded-bottom
           #first-tab-pane.tab-pane.fade.show.active(role='tabpanel' aria-labelledby='first-tab' tabindex='0')
             .p-4.d-flex.flex-column.gap-4
-              .d-flex.justify-content-between.align-items-center
-                .d-flex.align-items-center.gap-4.p-4.bg-light.rounded-2
-                  .subtitle Tampilkan semua dokumen yang terkait dengan pemohon
-                  .form-switch.body-super
-                    input#flexSwitchCheckChecked.form-check-input(type='checkbox' role='switch' checked='')
+              .d-flex.justify-content-end.align-items-center
                 .mb-0.position-relative
                   input.form-control.ps-7(type='text' placeholder='Search')
                   .position-absolute.top-0.start-0.d-flex.pt-2.px-2
                     +bx('bx-search')
-              h6 Produk Permit yang telah dimiliki Owner
+              h6 Produk Permit yang sedang diproses
               .rounded.border
                 table.table.table-striped.striped-custom
                   thead.subtitle.align-middle
                     tr
-                      td.px-4
-                        .form-check.custom-check.body-super.mb-0
-                          input#all-document.form-check-input(type='checkbox' value='' data-group-checkbox='document')
-                          label.form-check-label.subtitle(for='all-document')
-                            |  Judul Pemohon Dokumen
+                      td.px-4 Doc Permit
+                      td Mitra
                       td.text-center Ms. Office
                       td.text-center PDF
                       td.text-center CAD
+                      td BAST Produk Permit
                       td.text-center
                   tbody.align-middle.body
                     tr
-                      td.px-4
-                        .form-check.custom-check.body-super.mb-0
-                          input.form-check-input(type='checkbox' value='' id='document'+val data-item-checkbox='document')
-                          label.form-check-label.subtitle(for='document'+val)
-                            |  Dokumen Admin
+                      td.px-4 Dokumen Admin
+                      td PT HK Realtindo
                       td.text-center
                         .d-inline-flex.gap-3
                           +bx('bxs-file-doc')(class="text-primary")
@@ -101,23 +92,15 @@ block content
                           +bx('bxs-file-blank')
                           a.elipsis-cell(href="JYSFCY-2022_03_24_11_07_58.pdf") JYSFCY-2022_03_24_11_07_58.pdf
                       td.text-center
-                        .action-item
-                          button.btn.btn-light.btn-sm.p-2.rounded-circle.action-head(type="button")
-                            +bx('bx-dots-horizontal-rounded')
-                          .action-body.p-2
-                            button.btn.action-item
-                              +bx('bx-hide')
-                              span Sembunyikan
-                            button.btn.action-item.text-danger(type="button" data-bs-toggle="modal" data-bs-target="#setuju")
-                              +bx('bx-trash')
-                              span Hapus
+                        button.btn.btn-sm.btn-primary
+                          | Ajukan BAST
+                      td.text-center
+                        button.btn.text-danger(type="button" data-bs-toggle="modal" data-bs-target="#hapus-data")
+                          +bx('bx-trash')
                     each val in [1,2]
                       tr
-                        td.px-4
-                          .form-check.custom-check.body-super.mb-0
-                            input.form-check-input(type='checkbox' value='' id='document'+val data-item-checkbox='document')
-                            label.form-check-label.subtitle(for='document'+val)
-                              |  Dokumen Admin
+                        td.px-4 Dokumen Admin
+                        td PT HK Realtindo
                         td.text-center
                           button.btn.btn-light.rounded-pill
                             +bx('bx-upload')
@@ -131,32 +114,24 @@ block content
                             +bx('bx-upload')
                             span Unggah
                         td.text-center
-                          .action-item
-                            button.btn.btn-light.btn-sm.p-2.rounded-circle.action-head(type="button")
-                              +bx('bx-dots-horizontal-rounded')
-                            .action-body.p-2
-                              button.btn.action-item
-                                +bx('bx-hide')
-                                span Sembunyikan
-                              button.btn.action-item(type="button" disabled data-bs-toggle="modal" data-bs-target="#dokumen")
-                                +bx('bx-trash')
-                                span Hapus
-                +pagination('document')
-              h6 Produk Permit yang sedang diproses oleh Mitra Lisensia
+                          button.btn.btn-sm.btn-primary
+                            | Ajukan BAST
+                        td.text-center
+                          button.btn(disabled type="button")
+                            +bx('bx-trash')
+                +pagination
+              h6 Produk Permit yang telah dimiliki Owner
               .rounded.border
-                table.table.table-striped.striped-custom
+                table.table.table-striped.striped-custom.mb-0
                   thead.subtitle.align-middle
                     tr
                       td.px-4 Doc. Permit Mitra
-                      td Mitra
                       td.text-center Ms. Office
                       td.text-center PDF
                       td.text-center CAD
-                      td.text-center(colspan="2") BAST
                   tbody.body.align-middle
                     tr
                       td.px-4 Dokumen Admin
-                      td PT HK Realtindo
                       td.text-center
                           button.btn.btn-light.rounded-pill
                             +bx('bx-download')
@@ -169,46 +144,29 @@ block content
                         button.btn.btn-light.rounded-pill
                           +bx('bx-download')
                           span Unduh
-                      td
-                        button.btn.btn-sm.btn-outline-success
-                          +bx('bx-check')
-                          span Terima
-                      td
-                        button.btn.btn-sm.btn-outline-danger
-                          +bx('bx-x')
-                          span Tolak
           #second-tab-pane.tab-pane.fade(role='tabpanel' aria-labelledby='second-tab' tabindex='2')
             .p-4.d-flex.flex-column.gap-4
-              .d-flex.justify-content-between.align-items-center
-                .d-flex.align-items-center.gap-4.p-4.bg-light.rounded-2
-                  .subtitle Tampilkan semua dokumen yang terkait dengan pemohon
-                  .form-switch.body-super
-                    input#flexSwitchCheckChecked.form-check-input(type='checkbox' role='switch' checked='')
+              .d-flex.justify-content-end.align-items-center
                 .mb-0.position-relative
                   input.form-control.ps-7(type='text' placeholder='Search')
                   .position-absolute.top-0.start-0.d-flex.pt-2.px-2
                     +bx('bx-search')
-              h6 Produk Permit yang telah dimiliki Owner
+              h6 Produk Permit yang sedang diproses
               .rounded.border
                 table.table.table-striped.striped-custom
                   thead.subtitle.align-middle
                     tr
-                      td.px-4
-                        .form-check.custom-check.body-super.mb-0
-                          input#all-document.form-check-input(type='checkbox' value='' data-group-checkbox='document')
-                          label.form-check-label.subtitle(for='all-document')
-                            |  Judul Pemohon Dokumen
+                      td.px-4 Doc Permit
+                      td Mitra
                       td.text-center Ms. Office
                       td.text-center PDF
                       td.text-center CAD
+                      td BAST Produk Permit
                       td.text-center
                   tbody.align-middle.body
                     tr
-                      td.px-4
-                        .form-check.custom-check.body-super.mb-0
-                          input.form-check-input(type='checkbox' value='' id='document'+val data-item-checkbox='document')
-                          label.form-check-label.subtitle(for='document'+val)
-                            |  Dokumen Admin
+                      td.px-4 Dokumen Admin
+                      td PT HK Realtindo
                       td.text-center
                         .d-inline-flex.gap-3
                           +bx('bxs-file-doc')(class="text-primary")
@@ -222,23 +180,15 @@ block content
                           +bx('bxs-file-blank')
                           a.elipsis-cell(href="JYSFCY-2022_03_24_11_07_58.pdf") JYSFCY-2022_03_24_11_07_58.pdf
                       td.text-center
-                        .action-item
-                          button.btn.btn-light.btn-sm.p-2.rounded-circle.action-head(type="button")
-                            +bx('bx-dots-horizontal-rounded')
-                          .action-body.p-2
-                            button.btn.action-item
-                              +bx('bx-hide')
-                              span Sembunyikan
-                            button.btn.action-item.text-danger(type="button" data-bs-toggle="modal" data-bs-target="#setuju")
-                              +bx('bx-trash')
-                              span Hapus
+                        button.btn.btn-sm.btn-primary
+                          | Ajukan BAST
+                      td.text-center
+                        button.btn.text-danger(type="button" data-bs-toggle="modal" data-bs-target="#hapus-data")
+                          +bx('bx-trash')
                     each val in [1,2]
                       tr
-                        td.px-4
-                          .form-check.custom-check.body-super.mb-0
-                            input.form-check-input(type='checkbox' value='' id='document'+val data-item-checkbox='document')
-                            label.form-check-label.subtitle(for='document'+val)
-                              |  Dokumen Admin
+                        td.px-4 Dokumen Admin
+                        td PT HK Realtindo
                         td.text-center
                           button.btn.btn-light.rounded-pill
                             +bx('bx-upload')
@@ -252,32 +202,24 @@ block content
                             +bx('bx-upload')
                             span Unggah
                         td.text-center
-                          .action-item
-                            button.btn.btn-light.btn-sm.p-2.rounded-circle.action-head(type="button")
-                              +bx('bx-dots-horizontal-rounded')
-                            .action-body.p-2
-                              button.btn.action-item
-                                +bx('bx-hide')
-                                span Sembunyikan
-                              button.btn.action-item(type="button" disabled data-bs-toggle="modal" data-bs-target="#dokumen")
-                                +bx('bx-trash')
-                                span Hapus
-                +pagination('document')
-              h6 Produk Permit yang sedang diproses oleh Mitra Lisensia
+                          button.btn.btn-sm.btn-primary
+                            | Ajukan BAST
+                        td.text-center
+                          button.btn(disabled type="button")
+                            +bx('bx-trash')
+                +pagination
+              h6 Produk Permit yang telah dimiliki Owner
               .rounded.border
-                table.table.table-striped.striped-custom
+                table.table.table-striped.striped-custom.mb-0
                   thead.subtitle.align-middle
                     tr
                       td.px-4 Doc. Permit Mitra
-                      td Mitra
                       td.text-center Ms. Office
                       td.text-center PDF
                       td.text-center CAD
-                      td.text-center(colspan="2") BAST
                   tbody.body.align-middle
                     tr
                       td.px-4 Dokumen Admin
-                      td PT HK Realtindo
                       td.text-center
                           button.btn.btn-light.rounded-pill
                             +bx('bx-download')
@@ -290,46 +232,29 @@ block content
                         button.btn.btn-light.rounded-pill
                           +bx('bx-download')
                           span Unduh
-                      td
-                        button.btn.btn-sm.btn-outline-success
-                          +bx('bx-check')
-                          span Terima
-                      td
-                        button.btn.btn-sm.btn-outline-danger
-                          +bx('bx-x')
-                          span Tolak
           #third-tab-pane.tab-pane.fade(role='tabpanel' aria-labelledby='third-tab' tabindex='3')
             .p-4.d-flex.flex-column.gap-4
-              .d-flex.justify-content-between.align-items-center
-                .d-flex.align-items-center.gap-4.p-4.bg-light.rounded-2
-                  .subtitle Tampilkan semua dokumen yang terkait dengan pemohon
-                  .form-switch.body-super
-                    input#flexSwitchCheckChecked.form-check-input(type='checkbox' role='switch' checked='')
+              .d-flex.justify-content-end.align-items-center
                 .mb-0.position-relative
                   input.form-control.ps-7(type='text' placeholder='Search')
                   .position-absolute.top-0.start-0.d-flex.pt-2.px-2
                     +bx('bx-search')
-              h6 Produk Permit yang telah dimiliki Owner
+              h6 Produk Permit yang sedang diproses
               .rounded.border
                 table.table.table-striped.striped-custom
                   thead.subtitle.align-middle
                     tr
-                      td.px-4
-                        .form-check.custom-check.body-super.mb-0
-                          input#all-document.form-check-input(type='checkbox' value='' data-group-checkbox='document')
-                          label.form-check-label.subtitle(for='all-document')
-                            |  Judul Pemohon Dokumen
+                      td.px-4 Doc Permit
+                      td Mitra
                       td.text-center Ms. Office
                       td.text-center PDF
                       td.text-center CAD
+                      td BAST Produk Permit
                       td.text-center
                   tbody.align-middle.body
                     tr
-                      td.px-4
-                        .form-check.custom-check.body-super.mb-0
-                          input.form-check-input(type='checkbox' value='' id='document'+val data-item-checkbox='document')
-                          label.form-check-label.subtitle(for='document'+val)
-                            |  Dokumen Admin
+                      td.px-4 Dokumen Admin
+                      td PT HK Realtindo
                       td.text-center
                         .d-inline-flex.gap-3
                           +bx('bxs-file-doc')(class="text-primary")
@@ -343,23 +268,15 @@ block content
                           +bx('bxs-file-blank')
                           a.elipsis-cell(href="JYSFCY-2022_03_24_11_07_58.pdf") JYSFCY-2022_03_24_11_07_58.pdf
                       td.text-center
-                        .action-item
-                          button.btn.btn-light.btn-sm.p-2.rounded-circle.action-head(type="button")
-                            +bx('bx-dots-horizontal-rounded')
-                          .action-body.p-2
-                            button.btn.action-item
-                              +bx('bx-hide')
-                              span Sembunyikan
-                            button.btn.action-item.text-danger(type="button" data-bs-toggle="modal" data-bs-target="#setuju")
-                              +bx('bx-trash')
-                              span Hapus
+                        button.btn.btn-sm.btn-primary
+                          | Ajukan BAST
+                      td.text-center
+                        button.btn.text-danger(type="button" data-bs-toggle="modal" data-bs-target="#hapus-data")
+                          +bx('bx-trash')
                     each val in [1,2]
                       tr
-                        td.px-4
-                          .form-check.custom-check.body-super.mb-0
-                            input.form-check-input(type='checkbox' value='' id='document'+val data-item-checkbox='document')
-                            label.form-check-label.subtitle(for='document'+val)
-                              |  Dokumen Admin
+                        td.px-4 Dokumen Admin
+                        td PT HK Realtindo
                         td.text-center
                           button.btn.btn-light.rounded-pill
                             +bx('bx-upload')
@@ -373,32 +290,24 @@ block content
                             +bx('bx-upload')
                             span Unggah
                         td.text-center
-                          .action-item
-                            button.btn.btn-light.btn-sm.p-2.rounded-circle.action-head(type="button")
-                              +bx('bx-dots-horizontal-rounded')
-                            .action-body.p-2
-                              button.btn.action-item
-                                +bx('bx-hide')
-                                span Sembunyikan
-                              button.btn.action-item(type="button" disabled data-bs-toggle="modal" data-bs-target="#dokumen")
-                                +bx('bx-trash')
-                                span Hapus
-                +pagination('document')
-              h6 Produk Permit yang sedang diproses oleh Mitra Lisensia
+                          button.btn.btn-sm.btn-primary
+                            | Ajukan BAST
+                        td.text-center
+                          button.btn(disabled type="button")
+                            +bx('bx-trash')
+                +pagination
+              h6 Produk Permit yang telah dimiliki Owner
               .rounded.border
-                table.table.table-striped.striped-custom
+                table.table.table-striped.striped-custom.mb-0
                   thead.subtitle.align-middle
                     tr
                       td.px-4 Doc. Permit Mitra
-                      td Mitra
                       td.text-center Ms. Office
                       td.text-center PDF
                       td.text-center CAD
-                      td.text-center(colspan="2") BAST
                   tbody.body.align-middle
                     tr
                       td.px-4 Dokumen Admin
-                      td PT HK Realtindo
                       td.text-center
                           button.btn.btn-light.rounded-pill
                             +bx('bx-download')
@@ -411,46 +320,29 @@ block content
                         button.btn.btn-light.rounded-pill
                           +bx('bx-download')
                           span Unduh
-                      td
-                        button.btn.btn-sm.btn-outline-success
-                          +bx('bx-check')
-                          span Terima
-                      td
-                        button.btn.btn-sm.btn-outline-danger
-                          +bx('bx-x')
-                          span Tolak
           #fourth-tab-pane.tab-pane.fade(role='tabpanel' aria-labelledby='fourth-tab' tabindex='4')
             .p-4.d-flex.flex-column.gap-4
-              .d-flex.justify-content-between.align-items-center
-                .d-flex.align-items-center.gap-4.p-4.bg-light.rounded-2
-                  .subtitle Tampilkan semua dokumen yang terkait dengan pemohon
-                  .form-switch.body-super
-                    input#flexSwitchCheckChecked.form-check-input(type='checkbox' role='switch' checked='')
+              .d-flex.justify-content-end.align-items-center
                 .mb-0.position-relative
                   input.form-control.ps-7(type='text' placeholder='Search')
                   .position-absolute.top-0.start-0.d-flex.pt-2.px-2
                     +bx('bx-search')
-              h6 Produk Permit yang telah dimiliki Owner
+              h6 Produk Permit yang sedang diproses
               .rounded.border
                 table.table.table-striped.striped-custom
                   thead.subtitle.align-middle
                     tr
-                      td.px-4
-                        .form-check.custom-check.body-super.mb-0
-                          input#all-document.form-check-input(type='checkbox' value='' data-group-checkbox='document')
-                          label.form-check-label.subtitle(for='all-document')
-                            |  Judul Pemohon Dokumen
+                      td.px-4 Doc Permit
+                      td Mitra
                       td.text-center Ms. Office
                       td.text-center PDF
                       td.text-center CAD
+                      td BAST Produk Permit
                       td.text-center
                   tbody.align-middle.body
                     tr
-                      td.px-4
-                        .form-check.custom-check.body-super.mb-0
-                          input.form-check-input(type='checkbox' value='' id='document'+val data-item-checkbox='document')
-                          label.form-check-label.subtitle(for='document'+val)
-                            |  Dokumen Admin
+                      td.px-4 Dokumen Admin
+                      td PT HK Realtindo
                       td.text-center
                         .d-inline-flex.gap-3
                           +bx('bxs-file-doc')(class="text-primary")
@@ -464,23 +356,15 @@ block content
                           +bx('bxs-file-blank')
                           a.elipsis-cell(href="JYSFCY-2022_03_24_11_07_58.pdf") JYSFCY-2022_03_24_11_07_58.pdf
                       td.text-center
-                        .action-item
-                          button.btn.btn-light.btn-sm.p-2.rounded-circle.action-head(type="button")
-                            +bx('bx-dots-horizontal-rounded')
-                          .action-body.p-2
-                            button.btn.action-item
-                              +bx('bx-hide')
-                              span Sembunyikan
-                            button.btn.action-item.text-danger(type="button" data-bs-toggle="modal" data-bs-target="#setuju")
-                              +bx('bx-trash')
-                              span Hapus
+                        button.btn.btn-sm.btn-primary
+                          | Ajukan BAST
+                      td.text-center
+                        button.btn.text-danger(type="button" data-bs-toggle="modal" data-bs-target="#hapus-data")
+                          +bx('bx-trash')
                     each val in [1,2]
                       tr
-                        td.px-4
-                          .form-check.custom-check.body-super.mb-0
-                            input.form-check-input(type='checkbox' value='' id='document'+val data-item-checkbox='document')
-                            label.form-check-label.subtitle(for='document'+val)
-                              |  Dokumen Admin
+                        td.px-4 Dokumen Admin
+                        td PT HK Realtindo
                         td.text-center
                           button.btn.btn-light.rounded-pill
                             +bx('bx-upload')
@@ -494,32 +378,24 @@ block content
                             +bx('bx-upload')
                             span Unggah
                         td.text-center
-                          .action-item
-                            button.btn.btn-light.btn-sm.p-2.rounded-circle.action-head(type="button")
-                              +bx('bx-dots-horizontal-rounded')
-                            .action-body.p-2
-                              button.btn.action-item
-                                +bx('bx-hide')
-                                span Sembunyikan
-                              button.btn.action-item(type="button" disabled data-bs-toggle="modal" data-bs-target="#dokumen")
-                                +bx('bx-trash')
-                                span Hapus
-                +pagination('document')
-              h6 Produk Permit yang sedang diproses oleh Mitra Lisensia
+                          button.btn.btn-sm.btn-primary
+                            | Ajukan BAST
+                        td.text-center
+                          button.btn(disabled type="button")
+                            +bx('bx-trash')
+                +pagination
+              h6 Produk Permit yang telah dimiliki Owner
               .rounded.border
-                table.table.table-striped.striped-custom
+                table.table.table-striped.striped-custom.mb-0
                   thead.subtitle.align-middle
                     tr
                       td.px-4 Doc. Permit Mitra
-                      td Mitra
                       td.text-center Ms. Office
                       td.text-center PDF
                       td.text-center CAD
-                      td.text-center(colspan="2") BAST
                   tbody.body.align-middle
                     tr
                       td.px-4 Dokumen Admin
-                      td PT HK Realtindo
                       td.text-center
                           button.btn.btn-light.rounded-pill
                             +bx('bx-download')
@@ -532,46 +408,29 @@ block content
                         button.btn.btn-light.rounded-pill
                           +bx('bx-download')
                           span Unduh
-                      td
-                        button.btn.btn-sm.btn-outline-success
-                          +bx('bx-check')
-                          span Terima
-                      td
-                        button.btn.btn-sm.btn-outline-danger
-                          +bx('bx-x')
-                          span Tolak
           #fifth-tab-pane.tab-pane.fade(role='tabpanel' aria-labelledby='fifth-tab' tabindex='5')
             .p-4.d-flex.flex-column.gap-4
-              .d-flex.justify-content-between.align-items-center
-                .d-flex.align-items-center.gap-4.p-4.bg-light.rounded-2
-                  .subtitle Tampilkan semua dokumen yang terkait dengan pemohon
-                  .form-switch.body-super
-                    input#flexSwitchCheckChecked.form-check-input(type='checkbox' role='switch' checked='')
+              .d-flex.justify-content-end.align-items-center
                 .mb-0.position-relative
                   input.form-control.ps-7(type='text' placeholder='Search')
                   .position-absolute.top-0.start-0.d-flex.pt-2.px-2
                     +bx('bx-search')
-              h6 Produk Permit yang telah dimiliki Owner
+              h6 Produk Permit yang sedang diproses
               .rounded.border
                 table.table.table-striped.striped-custom
                   thead.subtitle.align-middle
                     tr
-                      td.px-4
-                        .form-check.custom-check.body-super.mb-0
-                          input#all-document.form-check-input(type='checkbox' value='' data-group-checkbox='document')
-                          label.form-check-label.subtitle(for='all-document')
-                            |  Judul Pemohon Dokumen
+                      td.px-4 Doc Permit
+                      td Mitra
                       td.text-center Ms. Office
                       td.text-center PDF
                       td.text-center CAD
+                      td BAST Produk Permit
                       td.text-center
                   tbody.align-middle.body
                     tr
-                      td.px-4
-                        .form-check.custom-check.body-super.mb-0
-                          input.form-check-input(type='checkbox' value='' id='document'+val data-item-checkbox='document')
-                          label.form-check-label.subtitle(for='document'+val)
-                            |  Dokumen Admin
+                      td.px-4 Dokumen Admin
+                      td PT HK Realtindo
                       td.text-center
                         .d-inline-flex.gap-3
                           +bx('bxs-file-doc')(class="text-primary")
@@ -585,23 +444,15 @@ block content
                           +bx('bxs-file-blank')
                           a.elipsis-cell(href="JYSFCY-2022_03_24_11_07_58.pdf") JYSFCY-2022_03_24_11_07_58.pdf
                       td.text-center
-                        .action-item
-                          button.btn.btn-light.btn-sm.p-2.rounded-circle.action-head(type="button")
-                            +bx('bx-dots-horizontal-rounded')
-                          .action-body.p-2
-                            button.btn.action-item
-                              +bx('bx-hide')
-                              span Sembunyikan
-                            button.btn.action-item.text-danger(type="button" data-bs-toggle="modal" data-bs-target="#setuju")
-                              +bx('bx-trash')
-                              span Hapus
+                        button.btn.btn-sm.btn-primary
+                          | Ajukan BAST
+                      td.text-center
+                        button.btn.text-danger(type="button" data-bs-toggle="modal" data-bs-target="#hapus-data")
+                          +bx('bx-trash')
                     each val in [1,2]
                       tr
-                        td.px-4
-                          .form-check.custom-check.body-super.mb-0
-                            input.form-check-input(type='checkbox' value='' id='document'+val data-item-checkbox='document')
-                            label.form-check-label.subtitle(for='document'+val)
-                              |  Dokumen Admin
+                        td.px-4 Dokumen Admin
+                        td PT HK Realtindo
                         td.text-center
                           button.btn.btn-light.rounded-pill
                             +bx('bx-upload')
@@ -615,32 +466,24 @@ block content
                             +bx('bx-upload')
                             span Unggah
                         td.text-center
-                          .action-item
-                            button.btn.btn-light.btn-sm.p-2.rounded-circle.action-head(type="button")
-                              +bx('bx-dots-horizontal-rounded')
-                            .action-body.p-2
-                              button.btn.action-item
-                                +bx('bx-hide')
-                                span Sembunyikan
-                              button.btn.action-item(type="button" disabled data-bs-toggle="modal" data-bs-target="#dokumen")
-                                +bx('bx-trash')
-                                span Hapus
-                +pagination('document')
-              h6 Produk Permit yang sedang diproses oleh Mitra Lisensia
+                          button.btn.btn-sm.btn-primary
+                            | Ajukan BAST
+                        td.text-center
+                          button.btn(disabled type="button")
+                            +bx('bx-trash')
+                +pagination
+              h6 Produk Permit yang telah dimiliki Owner
               .rounded.border
-                table.table.table-striped.striped-custom
+                table.table.table-striped.striped-custom.mb-0
                   thead.subtitle.align-middle
                     tr
                       td.px-4 Doc. Permit Mitra
-                      td Mitra
                       td.text-center Ms. Office
                       td.text-center PDF
                       td.text-center CAD
-                      td.text-center(colspan="2") BAST
                   tbody.body.align-middle
                     tr
                       td.px-4 Dokumen Admin
-                      td PT HK Realtindo
                       td.text-center
                           button.btn.btn-light.rounded-pill
                             +bx('bx-download')
@@ -653,13 +496,5 @@ block content
                         button.btn.btn-light.rounded-pill
                           +bx('bx-download')
                           span Unduh
-                      td
-                        button.btn.btn-sm.btn-outline-success
-                          +bx('bx-check')
-                          span Terima
-                      td
-                        button.btn.btn-sm.btn-outline-danger
-                          +bx('bx-x')
-                          span Tolak
 block modal
-  +modal_accept('setuju')(title="documen")
+  +modal_accept('hapus-data')(title="documen")

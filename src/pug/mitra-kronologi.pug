@@ -1,21 +1,16 @@
 ---
-title: User - Dashboard
-currentUrl: user-kronologi
-category: izin
+title: Mitra - Dashboard
+currentUrl: mitra-kronologi
+category: izin-pemohon
 header: Kronologi
 ---
 extends layouts/layout
 block header
   include partials/header-dashboard
-  include partials/sidebar-user
+  include partials/sidebar-mitra
 block content
   +main_dashboard()
     .d-flex.flex-column.gap-5
-      .py-1.px-2.bg-warning-subtle.text-warning.rounded
-        .d-flex.align-items-center.gap-2
-          span.d-flex.p-2
-            +bx('bx-info-circle')
-          p.mb-0.subtitle Mohon menunggu, Kronologi proses izin Anda sedang disusun oleh Mitra Lisensia. Anda dapat terlibat dalam update Kronologis ketika outstanding perizinan bolanya ada di Anda.
       .p-4.bg-light.rounded
         .d-flex.align-items-center.gap-4
           .flex-grow-1
@@ -47,11 +42,7 @@ block content
           div
             button.btn.btn-primary
               span Tampilkan
-      .py-1.px-2.bg-warning-subtle.text-warning.rounded
-        .d-flex.align-items-center.gap-2
-          span.d-flex.p-2
-            +bx('bx-info-circle')
-          p.mb-0.subtitle Kronologi tidak bisa diinput, karena Mitra Lisensia belum menyusun jadwal. Silakan approve jadwan perizinan terlebih dahulu agar dikunci jadwalnya dan tidak berubah
+
       .div
         .row.g-2
           .col-auto
@@ -60,46 +51,36 @@ block content
               p.subtitle IMB Rumah Tinggal
               .d-flex.justify-content-between.align-items-center.bg-primary-subtle.px-4.py-2
                 p.mb-0.subtitle.text-primary IMB/PBG Rumah Tinggal
-                button.btn.text-danger(type="button")
-                  +bx('bx-trash')
               hr
               p.subtitle IMB non Rumah Tinggal
-              .d-grid.mb-4
+              .d-grid
                 a.btn.justify-content-start.text-primary(href="/")
                   Izin Bongkar
                 a.btn.justify-content-start.text-primary(href="/")
                   | IMB non Rumah Tinggal > 8 lantai
-              .d-grid
-                button.btn.btn-primary(type="button" data-bs-toggle="modal" data-bs-target="#modal-tambah-tanah")
-                  +bx('bx-plus')
-                  span Data Kebutuhan Izin
           .col
             .d-flex.flex-column.gap-2
+              .py-1.px-2.bg-warning-subtle.text-warning.rounded
+                .d-flex.align-items-center.gap-2
+                  span.d-flex.p-2
+                    +bx('bx-info-circle')
+                  p.mb-0.subtitle Anda belum update kronologis lebih dari 2 hari
               .border.rounded
                 table.table.table-striped.striped-custom.table-no-bottom-border
                   thead.subtitle.align-middle
                     tr
-                      td.ps-4 Jenis Izin
+                      td.px-4 Jenis Izin
                       td Terakhir Update
                       td Outstanding
-                      td.cell-fit.text-center Status
-                      td.pe-4.cell-fit.text-center
+                      td.px-4.cell-fit.text-center Status
                   tbody.body.align-middle
                     tr
-                      td.ps-4 Izin Bongkar
+                      td.px-4 Izin Bongkar
                       td 2022-06-13 23:52:03
                       td Time Owner <i class="bx bx-error text-danger"></i>
-                      td.cell-fit.text-center
+                      td.px-4.cell-fit.text-center
                         span.badge.border.border-success.text-success
                           | On Schedule
-                      td.pe-4.cell-fit.text-center
-                        button.btn.p-2(type="button")
-                          +bx('bx-cog')
-              .py-1.px-2.bg-primary-subtle.text-primary.rounded
-                .d-flex.align-items-center.gap-2
-                  span.d-flex.p-2
-                    +bx('bx-info-circle')
-                  p.mb-0.subtitle Outstanding berada disisi Owner. Maka silakan Anda sebagai PIC owner melihat menu Tugas-tugas, kemudian melakukan update kronologis untuk menyelesaikan outstanding tersebut
               .p-4.border.rounded
                 .d-flex.align-items-center.justify-content-between
                   div
@@ -115,10 +96,6 @@ block content
                   .flex-grow-1
                     p.subtitle.fw-semibold.mb-0 Tanggal 20-08-2023
                     span.caption-small.fw-semibold.text-light-emphasis dibuat oleh user
-                  div
-                    button.btn.btn-outline-danger(type="button" data-bs-toggle="modal" data-bs-target="#modal-kronologi")
-                      +bx('bx-trash')
-                      span Hapus
                 .ps-2
                   .p-4.border-start.d-flex.flex-column.gap-4
                     div

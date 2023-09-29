@@ -18,7 +18,7 @@ block content
           +bx('bx-diamond')
           span Basic
         span.subtitle Membership Anda berakhir pada Rabu, 05 September 2023
-        button.btn.border.ms-auto.text-danger(type="button")
+        button.btn.ms-auto.btn-outline-danger(type="button")
           span Cancel subscription
       .text-center
         .position-relative
@@ -32,8 +32,8 @@ block content
             .d-flex.flex-column.h-100.px-5.py-7.pricing-box.border-dark.gap-3
               div.mt-4
                 h3.fw-bold.mb-4
-                  | IDR 250K
-                  span.subtitle-big.ms-1
+                  span(data-price="250") IDR 250K
+                  span.subtitle-big.ms-1(data-unit-price)
                     | / Month
                 .fw-semibold.text-uppercase basic
                 p Cocok untuk perusahaan kecil menengah dengan perizinan sederhana.I.e: Hunian/Kantor < 8 Lantai
@@ -63,8 +63,8 @@ block content
             .d-flex.flex-column.h-100.px-5.py-7.pricing-box.border-primary.gap-3
               div.mt-4
                 h3.fw-bold.mb-4
-                  | IDR 500K
-                  span.subtitle-big.ms-1
+                  span(data-price="500") IDR 500K
+                  span.subtitle-big.ms-1(data-unit-price)
                     | / Month
                 .fw-semibold.text-uppercase premium
                 p Pilihan tepat bagi perusahaan dengan perizinan cukup kompleks.I.e: Hunian/Kantor > 8 Lantai
@@ -98,8 +98,8 @@ block content
             .d-flex.flex-column.h-100.px-5.py-7.pricing-box.border-primary.gap-3
               div.mt-4
                 h3.fw-bold.mb-4
-                  | IDR 750K
-                  span.subtitle-big.ms-1
+                  span(data-price="750") IDR 750K
+                  span.subtitle-big.ms-1(data-unit-price)
                     | / Month
                 .fw-semibold.text-uppercase business
                 p Recommended bagi developer dengan perizinan yang sangat kompleks.I.e: Hunian/Kantor luas lahan > 1 hektar
@@ -133,4 +133,3 @@ block content
               .d-grid.mt-auto
                 button.btn.py-4.body-big.btn-primary(type="button")
                   |  Upgrade to Business
-

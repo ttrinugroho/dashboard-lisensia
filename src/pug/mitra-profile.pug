@@ -1,0 +1,71 @@
+---
+title: Mitra - Dashboard
+currentUrl: mitra-profile
+category: setting
+header: Profile
+---
+extends layouts/layout
+block header
+  include partials/header-dashboard
+  include partials/sidebar-mitra
+block content
+  +main_dashboard()
+    .d-flex.flex-column.gap-4
+      .d-flex.justify-content-between.align-items-center
+        h6.mb-0 Mitra Profile
+        div
+          button.btn.btn-primary(type="button")
+            span Save Profile
+      div
+        .row.row-cols-2.gy-4
+          .col
+            .d-flex.flex-column.gap-4
+              div
+                label.form-label(for="username") Nama Pengguna<sup class="text-danger">*</sup>
+                input#username.form-control(type='text' name='username' placeholder='Nama Pengguna')
+              div
+                label.form-label(for="mobile") Nomor Handphone<sup class="text-danger">*</sup>
+                input#mobile.form-control(type='text' name='mobile' placeholder='Nomor Handphone')
+              div
+                label.form-label(for="perusahaan") Perusahaan<sup class="text-danger">*</sup>
+                input#perusahaan.form-control(type='text' name='perusahaan' placeholder='Perusahaan')
+          .col
+            .d-flex.flex-column.gap-4
+              div
+                label.form-label(for="job") Spesialisasi/Bidang
+                select#job.select.wide(name="job")
+                  option(value="")
+                  option(value="marketing") Marketing
+                  option(value="kontraktor") Kontraktor
+              div
+                label.form-label(for="email") Alamat Email<sup class="text-danger">*</sup>
+                input#email.form-control(type='email' name='email' placeholder='mail@example.com')
+          .col-12
+            hr
+          .col
+             div.py-4
+              iframe(frameborder='0' height='400' width='auto' style='width: 100%;' scrolling='no' marginheight='0' marginwidth='0' src='https://maps.google.com/maps?width=320&height=320&hl=en&q=-6.1754083,106.824584&t=&z=14&ie=UTF8&iwloc=B&output=embed')
+          .col
+            .d-flex.flex-column.gap-4
+              div
+                label.form-label(for="alamat") Alamat<sup class="text-danger">*</sup>
+                textarea#alamat.form-control(name="alamat" rows='3')
+              div
+                label.form-label(for="kelurahan") Kelurahan<sup class="text-danger">*</sup>
+                input#kelurahan.form-control(type='text' name='kelurahan' placeholder='Kelurahan')
+              div
+                label.form-label(for="kecamatan") Kecamatan<sup class="text-danger">*</sup>
+                input#kecamatan.form-control(type='text' name='kecamatan' placeholder='Kecamatan')
+              div
+                label.form-label(for="kota") Kota/Kabupaten<sup class="text-danger">*</sup>
+                input#kota.form-control(type='text' name='kota' placeholder='Kota/Kabupaten')
+              div
+                label.form-label(for="provinsi") Provinsi<sup class="text-danger">*</sup>
+                input#provinsi.form-control(type='text' name='provinsi' placeholder='Provinsi')
+          .col-12
+            hr
+          .col
+            div
+              label.form-label(for="cv") Upload CV
+              +file_upload('cv')
+

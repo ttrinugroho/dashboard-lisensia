@@ -85,7 +85,7 @@ mixin pagination(id)
           .subtitle Selected <span class="text-warning fw-bold" id="count"></span> items
           button.btn.btn-warning.text-white.mb-1
             | Sembunyikan Dokumen
-mixin modal_with_close(id,judul="modal belum di kasih judul")
+mixin modal_with_close(id,judul="modal belum di kasih judul",bottom=true)
   .modal.fade(id=id tabindex="-1" aria-labelledby=id+"-label" aria-hidden="true")
     .modal-dialog.modal-dialog-centered.modal-fullscreen-md-down.h-auto
       .modal-content.rounded-0
@@ -95,13 +95,14 @@ mixin modal_with_close(id,judul="modal belum di kasih judul")
             +bx('bxl-xing')
         .p-4.d-flex.flex-column.gap-4(class=attributes.class)
           block
-        .p-4.d-flex.gap-4.w-100
-          .d-grid.flex-grow-1
-            button.btn.btn-light(type="button" data-bs-dismiss="modal")
-              span Cancel
-          .d-grid.flex-grow-1
-            button.btn.btn-outline-primary(type="button")
-              span Apply
+        if bottom
+          .p-4.d-flex.gap-4.w-100
+            .d-grid.flex-grow-1
+              button.btn.btn-light(type="button" data-bs-dismiss="modal")
+                span Cancel
+            .d-grid.flex-grow-1
+              button.btn.btn-outline-primary(type="button")
+                span Apply
 mixin modal_accept(id)
   .modal.fade(id=id tabindex="-1" aria-labelledby=id+"-label" aria-hidden="true")
     .modal-dialog.modal-dialog-centered.modal-fullscreen-md-down.h-auto

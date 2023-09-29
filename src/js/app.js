@@ -187,11 +187,33 @@ $(document).on("DOMContentLoaded", () => {
 
         ['clean']                                         // remove formatting button
       ];
-    var quill = new Quill('#editor',{
-        modules: {
-            toolbar: toolbarOptions
-        },
-        theme: 'snow'
+      if(document.querySelector("#editor")){
+          new Quill('#editor',{
+              modules: {
+                  toolbar: toolbarOptions
+              },
+              theme: 'snow'
+          }
+          )
+      }
+});
+$("#switch-price").on("change", function (e) {
+    e.preventDefault()
+    if($(this).is(":checked")){
+        $("[data-price]").each(function(){
+            let _this = $(this);
+            _this.text("Rp"+(_this.data("price")* 12)+"K")
+        })
+        $("[data-unit-price]").each(function(){
+            $(this).text("/ Year")
+        })
+    }else{
+        $("[data-price]").each(function(){
+            let _this = $(this);
+            _this.text("Rp"+(_this.data("price")* 1)+"K")
+        })
+        $("[data-unit-price]").each(function(){
+            $(this).text("/ Month")
+        })
     }
-    )
 });

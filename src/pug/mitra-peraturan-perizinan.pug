@@ -1,7 +1,6 @@
 ---
 title: Mitra - Dashboard
 currentUrl: mitra-peraturan-perizinan
-category: izin-pemohon
 header: Peraturan Perizinan
 ---
 extends layouts/layout
@@ -35,7 +34,7 @@ block content
           .position-absolute.top-0.start-0.d-flex.pt-2.px-2
             +bx('bx-search')
         div
-          button.btn.btn-primary(type="button")
+          a.btn.btn-primary(type="button" href="/mitra-peraturan-tambah-form.html")
             +bx('bx-plus')
             span Tambah Peraturan
       .border.rounded

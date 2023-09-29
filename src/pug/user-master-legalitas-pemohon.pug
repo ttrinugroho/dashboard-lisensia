@@ -101,6 +101,66 @@ block content
                                 span Hapus
 
                 +pagination('document')
-          #profile-tab-pane.tab-pane.fade(role='tabpanel' aria-labelledby='profile-tab' tabindex='0') Tab2
+          #profile-tab-pane.tab-pane.fade(role='tabpanel' aria-labelledby='profile-tab' tabindex='0')
+            .p-4.d-flex.flex-column.gap-4
+              .d-flex.justify-content-between.align-items-center
+                .d-flex.align-items-center.gap-4.p-4.bg-light.rounded-2
+                  .subtitle Tampilkan semua dokumen yang terkait dengan pemohon
+                  .form-switch.body-super
+                    input#flexSwitchCheckChecked.form-check-input(type='checkbox' role='switch' checked='')
+                .mb-0.position-relative
+                  input.form-control.ps-7(type='text' placeholder='Search')
+                  .position-absolute.top-0.start-0.d-flex.pt-2.px-2
+                    +bx('bx-search')
+              .rounded.border
+                table.table.table-striped.striped-custom
+                  thead.subtitle
+                    tr.align-middle
+                      td.px-4
+                        .form-check.custom-check.body-super.mb-0
+                          input#all-document.form-check-input(type='checkbox' value='' data-group-checkbox='perorangan')
+                          label.form-check-label.subtitle(for='all-document')
+                            |  Judul Pemohon Dokumen
+                      td.text-center Ms. Office
+                      td.text-center PDF
+                      td.text-center CAD
+                      td Berlaku Sampai
+                      td Terakhir Diubah
+                      td.text-center
+                  tbody
+                    each val in [1,2,3,4,5,6]
+                      tr.align-middle
+                        td.px-4
+                          .form-check.custom-check.body-super.mb-0
+                            input.form-check-input(type='checkbox' value='' id='perorangan'+val data-item-checkbox='perorangan')
+                            label.form-check-label.subtitle(for='perorangan'+val)
+                              |  Dokumen Admin
+                        td.text-center
+                          button.btn.btn-light.rounded-pill
+                            +bx('bx-upload')
+                            span Unggah
+                        td.text-center
+                          button.btn.btn-light.rounded-pill
+                            +bx('bx-upload')
+                            span Unggah
+                        td.text-center
+                          button.btn.btn-light.rounded-pill
+                            +bx('bx-upload')
+                            span Unggah
+                        td kosong
+                        td kosong
+                        td.text-center
+                          .action-item
+                            button.btn.btn-light.btn-sm.p-2.rounded-circle.action-head(type="button")
+                              +bx('bx-dots-horizontal-rounded')
+                            .action-body.p-2
+                              button.btn.action-item
+                                +bx('bx-hide')
+                                span Sembunyikan
+                              button.btn.action-item.text-danger(type="button" data-bs-toggle="modal" data-bs-target="#dokumen")
+                                +bx('bx-trash')
+                                span Hapus
+
+                +pagination('perorangan')
 block modal
   +modal_accept('dokumen')(title="dokumen")

@@ -1,21 +1,16 @@
 ---
 title: User - Dashboard
-currentUrl: user-jadwal
-category: izin
+currentUrl: mitra-jadwal
+category: izin-pemohon
 header: Jadwal
 ---
 extends layouts/layout
 block header
   include partials/header-dashboard
-  include partials/sidebar-user
+  include partials/sidebar-mitra
 block content
   +main_dashboard()
     .d-flex.flex-column.gap-5
-      .py-1.px-2.bg-warning-subtle.text-warning.rounded
-        .d-flex.align-items-center.gap-2
-          span.d-flex.p-2
-            +bx('bx-info-circle')
-          p.mb-0.subtitle Jadwal izin hanya bisa di edit oleh Mitra Pengurus Izin, bukan oleh Anda. Mohon menunggu, jadwal izin Anda sedang disusun oleh Mitra Lisensia
       .p-4.bg-light.rounded
         .d-flex.align-items-center.gap-4
           .flex-grow-1
@@ -48,13 +43,13 @@ block content
             button.btn.btn-primary
               span Tampilkan
       .d-flex.align-items-center.gap-4
-        .py-1.px-2.bg-primary-subtle.text-primary.rounded.flex-grow-1
-          .d-flex.align-items-center.gap-2
-            span.d-flex.p-2
-              +bx('bx-info-circle')
-            p.mb-0.subtitle Silakan masukkan jadwal dengan klik tombol Atur Jadwal
+        .rounded.px-2.py-3.gap-2.bg-primary-subtle.text-primary.subtitle.d-flex.align-items-center
+          .d-flex.align-items-center
+            +bx('bx-info-circle')
+          span Anda baru pertama masuk ke menu jadwal. Silakan masukan jadwal dengan klik tombol Atur Jadwal disamping
+
         div
-          a.btn.btn-primary(type="button" href="/user-jadwal-detail.html")
+          a.btn.btn-primary(type="button" href="/mitra-jadwal-detail.html")
             +bx('bx-pencil')
             span Atur Jadwal
       .border.rounded
