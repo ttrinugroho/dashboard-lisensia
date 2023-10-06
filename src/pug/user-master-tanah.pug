@@ -39,9 +39,17 @@ block content
               option(value='2') HK Realtindo PT
               option(value='3') Realtindo HK PT
               option(value='4') HK PT Realtindo
-          div
-            button.btn.btn-light.p-2.elv-1
+          //- Fix DropDown
+          .action-item
+            button.btn.btn-light.p-2.elv-1.action-head(type="button")
               +bx('bx-dots-horizontal-rounded')
+            .action-body.p-2
+              a.btn.action-item(href="#")
+                +bx('bx-pencil')
+                span Edit
+              button.btn.action-item.text-danger(type="button" data-bs-toggle="modal" data-bs-target="#proyek")
+                +bx('bx-trash')
+                span Hapus
           div
             button.btn.btn-primary(type="button" data-bs-toggle="modal" data-bs-target="#modal-tambah-tanah")
               +bx('bx-plus')
