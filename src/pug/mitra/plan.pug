@@ -1,0 +1,135 @@
+---
+title: Mitra - Plan
+currentUrl: "mitra/plan"
+category: "single"
+header: Subscription
+---
+extends ../layouts/layout
+block header
+  include ../partials/header-menu
+  include ../partials/sidebar-mitra-new
+block content
+  +main_dashboard()
+    .d-flex.flex-column.gap-5
+      .pt-2.text-center
+        h5 Choose a plan that’s right for you
+      .bg-light.p-2.d-flex.gap-4.align-items-center.rounded
+        button.btn.btn-primary(type="button")
+          +bx('bx-diamond')
+          span Basic
+        span.subtitle Membership Anda berakhir pada Rabu, 05 September 2023
+        a.btn.ms-auto.btn-outline-primary(href="/mitra/transaction-history.html")
+          span My Transaction
+      .text-center
+        .position-relative
+          input#switch-price.position-absolute.start-0.top-0(type="checkbox", name="price", style="opacity:0;")
+          label(for="switch-price").switch-price.d-inline-flex.align-items-center
+            span.py-3.px-4.py-md-4.px-md-7.fw-semibold.h5.m-0.switch-price-month Bulanan
+            span.py-3.px-4.py-md-4.px-md-7.fw-semibold.h5.m-0.switch-price-year Tahunan
+      div
+        .row.row-cols-3
+          .col
+            .d-flex.flex-column.h-100.px-5.py-7.pricing-box.border-dark.gap-3
+              div.mt-4
+                h3.fw-bold.mb-4
+                  span(data-price="250") IDR 250K
+                  span.subtitle-big.ms-1(data-unit-price)
+                    | / Month
+                .fw-semibold.text-uppercase basic
+                p Cocok untuk perusahaan kecil menengah dengan perizinan sederhana.I.e: Hunian/Kantor < 8 Lantai
+              hr
+              .d-flex.flex-column.gap-4.mb-7.pb-7
+                .d-flex.gap-4
+                  .d-inline-flex.bg-success-subtle.rounded-circle.text-success.p-1.caption-small
+                    +bx('bx-check')
+                  span 1 User
+                .d-flex.gap-4
+                  .d-inline-flex.bg-success-subtle.rounded-circle.text-success.p-1.caption-small
+                    +bx('bx-check')
+                  span 1 Proyek
+                .d-flex.gap-4
+                  .d-inline-flex.bg-success-subtle.rounded-circle.text-success.p-1.caption-small
+                    +bx('bx-check')
+                  span Tutorial LIMITED
+                .d-flex.gap-4
+                  .d-inline-flex.bg-success-subtle.rounded-circle.text-success.p-1.caption-small
+                    +bx('bx-check')
+                  span Historical Pengurusan
+
+              .d-grid.mt-auto
+                button.btn.py-4.body-big.btn-light(type="button" disabled)
+                  |  Current Plan
+          .col
+            .d-flex.flex-column.h-100.px-5.py-7.pricing-box.border-primary.gap-3
+              div.mt-4
+                h3.fw-bold.mb-4
+                  span(data-price="500") IDR 500K
+                  span.subtitle-big.ms-1(data-unit-price)
+                    | / Month
+                .fw-semibold.text-uppercase premium
+                p Pilihan tepat bagi perusahaan dengan perizinan cukup kompleks.I.e: Hunian/Kantor > 8 Lantai
+              hr
+              .d-flex.flex-column.gap-4.mb-7.pb-7
+                .d-flex.gap-4
+                  .d-inline-flex.bg-success-subtle.rounded-circle.text-success.p-1.caption-small
+                    +bx('bx-check')
+                  span 1 User
+                .d-flex.gap-4
+                  .d-inline-flex.bg-success-subtle.rounded-circle.text-success.p-1.caption-small
+                    +bx('bx-check')
+                  span 1 Proyek
+                .d-flex.gap-4
+                  .d-inline-flex.bg-success-subtle.rounded-circle.text-success.p-1.caption-small
+                    +bx('bx-check')
+                  span Tutorial LIMITED
+                .d-flex.gap-4
+                  .d-inline-flex.bg-success-subtle.rounded-circle.text-success.p-1.caption-small
+                    +bx('bx-check')
+                  span Historical Pengurusan
+                .d-flex.gap-4
+                  .d-inline-flex.bg-success-subtle.rounded-circle.text-success.p-1.caption-small
+                    +bx('bx-check')
+                  span Schedule Perizinan
+
+              .d-grid.mt-auto
+                button.btn.py-4.body-big.btn-primary(type="button")
+                  |  Upgrade to Business
+          .col
+            .d-flex.flex-column.h-100.px-5.py-7.pricing-box.border-primary.gap-3
+              div.mt-4
+                h3.fw-bold.mb-4
+                  span(data-price="750") IDR 750K
+                  span.subtitle-big.ms-1(data-unit-price)
+                    | / Month
+                .fw-semibold.text-uppercase business
+                p Recommended bagi developer dengan perizinan yang sangat kompleks.I.e: Hunian/Kantor luas lahan > 1 hektar
+              hr
+              .d-flex.flex-column.gap-4.mb-7.pb-7
+                .d-flex.gap-4
+                  .d-inline-flex.bg-success-subtle.rounded-circle.text-success.p-1.caption-small
+                    +bx('bx-check')
+                  span 1 User
+                .d-flex.gap-4
+                  .d-inline-flex.bg-success-subtle.rounded-circle.text-success.p-1.caption-small
+                    +bx('bx-check')
+                  span 1 Proyek
+                .d-flex.gap-4
+                  .d-inline-flex.bg-success-subtle.rounded-circle.text-success.p-1.caption-small
+                    +bx('bx-check')
+                  span Tutorial LIMITED
+                .d-flex.gap-4
+                  .d-inline-flex.bg-success-subtle.rounded-circle.text-success.p-1.caption-small
+                    +bx('bx-check')
+                  span Historical Pengurusan
+                .d-flex.gap-4
+                  .d-inline-flex.bg-success-subtle.rounded-circle.text-success.p-1.caption-small
+                    +bx('bx-check')
+                  span Schedule Perizinan
+                .d-flex.gap-4
+                  .d-inline-flex.bg-success-subtle.rounded-circle.text-success.p-1.caption-small
+                    +bx('bx-check')
+                  span Laporan Perizinan Lengkap
+
+              .d-grid.mt-auto
+                button.btn.py-4.body-big.btn-primary(type="button")
+                  |  Upgrade to Business

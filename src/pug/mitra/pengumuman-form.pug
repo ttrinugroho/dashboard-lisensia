@@ -1,0 +1,63 @@
+---
+title: Mitra - Pengumuman
+currentUrl: 'mitra/pengumuman'
+category: single
+header: Pengumuman
+---
+extends ../layouts/layout
+block header
+  include ../partials/header-menu
+  include ../partials/sidebar-mitra-new
+block content
+  +main_dashboard()
+    .d-flex.flex-column.gap-4
+      .d-flex.justify-content-between.align-items-center
+        h6.mb-0 Tambah Data Pengumuman
+        div
+          button.btn.btn-primary(type="button")
+            span Save Profile
+      .border.p-4.rounded-2
+        .d-flex.flex-column.gap-4
+          .col-md-9
+            label.form-label(for="username") Grup Penerima
+            select.select.wide
+              option(value='') Pilih Group Penerima
+              option(value='1') PT Realtindo HK
+              option(value='2') HK Realtindo PT
+              option(value='3') Realtindo HK PT
+              option(value='4') HK PT Realtindo
+          .d-flex.gap-4.align-items-end
+            .flex-grow-1
+              label.form-label(for="penerima") Penerima
+              select.select.wide
+                option(value='') Pilih Penerima
+                option(value='1') PT Realtindo HK
+                option(value='2') HK Realtindo PT
+                option(value='3') Realtindo HK PT
+                option(value='4') HK PT Realtindo
+            div
+              button(type="button").btn.btn-outline-danger
+                | Hapus Semua
+      .border.p-4.rounded-2
+        .d-flex.flex-column.gap-4
+          div
+            label.form-label(for='judule') Judul Pengumuman
+            input#judule.form-control(type='text' placeholder="Judul Pengumuman")
+          div
+            label.form-label(for='editor') Isi Pengumuman
+            #editor
+          div
+            label.form-label(for='gambar') Dokumen Pengumuman
+            .col-4
+              +file_upload('gambar')  
+      .border.p-4.rounded-2
+        .d-flex.flex-column.gap-4.col-4
+          .subtitle Pengaturan Tambahan
+          .form-check.body-super
+            label.form-check-label.body(for='setuju')
+              | Kirim Pengumuman via Email
+            input#setuju.form-check-input(type='checkbox' value='')
+          .form-check.body-super
+            label.form-check-label.body(for='tidak')
+              | Sematkan Pengumuman
+            input#tidak.form-check-input(type='checkbox' value='')

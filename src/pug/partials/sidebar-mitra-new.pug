@@ -1,0 +1,118 @@
++sidebar_header(false)
+  .nav-item
+    .d-flex.align-items-center.flex-column
+      div.w-50.mb-4
+        img.w-100(src="https://angular.io/assets/images/logos/angular/angular.svg", alt="Angular")
+      div.text-center.mb-4
+        h4 
+          | PT. Humanetics
+      .px-4
+        #change.accordion
+          .accordion-item.bg-info-subtle.change-applicant.text-center
+            button.btn(type='button' data-bs-toggle='collapse' data-bs-target='#collapseOne' aria-expanded='true' aria-controls='collapseOne')
+              | Ganti Pemohon
+              +bx('bxs-x-circle')
+            #collapseOne.accordion-collapse.collapse.show(data-bs-parent='#change')
+              .accordion-body.p-2
+                .mb-2.position-relative.me-auto
+                  input.form-control.bg-light.ps-7(type='text' placeholder='Search')
+                  .position-absolute.top-0.start-0.d-flex.pt-2.px-2
+                    +bx('bx-search')
+                .p-1.d-flex.gap-2.align-items-center.mb-2
+                  .rounded-circle(style="width: 32px;height: 32px;")
+                    img.d-block.w-100.object-fit-cover(src="https://angular.io/assets/images/logos/angular/angular.svg", alt="Logo")
+                  a.nav-link.p-0(href="/") PT. Makmur Sejahtera
+                .p-1.d-flex.gap-2.align-items-center.mb-2
+                  .rounded-circle(style="width: 32px;height: 32px;")
+                    img.d-block.w-100.object-fit-cover(src="https://angular.io/assets/images/logos/angular/angular.svg", alt="Logo")
+                  a.nav-link.p-0(href="/") PT. Makmur Sejahtera
+  .nav-item
+    hr
+  .nav-item
+    +alink('mitra/dashboard')
+      +bx("bx-card")
+      span Dashboard
+  .nav-item
+    +dropdown('Laporan', category === 'laporan')(id='sidebar-laporan-collapse',icon='bx-bar-chart-square')
+      +alink('mitra/kronologis')
+        span Kronologis
+      +alink('mitra/izin-terlambat')
+        span Izin Terlambat
+      +alink('mitra/outstanding')
+        span Outstanding
+      +alink('mitra/schedule-permit')
+        span Schedule Permit
+  .nav-item
+    hr
+  .nav-item 
+    +alink('mitra/pemohon')
+      +bx("bx-copy-alt")
+      span Pemohon
+  .nav-item 
+    +alink('mitra/admin-n-role')
+      +bx("bx-id-card")
+      span Admin dan Role
+  .nav-item 
+    hr
+  .nav-item
+    +dropdown('Berkas Saya', category === 'berkas-saya')(id='sidebar-berkas-saya-collapse',icon='bx-detail')
+      +alink('mitra/legalitas')
+        span Legalitas
+      +alink('mitra/tanah')
+        span Tanah
+      +alink('mitra/proyek')
+        span Proyek
+      +alink('mitra/dokumen-proyek')
+        span Dokumen Proyek
+  .nav-item
+    +dropdown('Izin Saya', category === 'izin-saya')(id='sidebar-izin-saya-collapse',icon='bx-notification')
+      +alink('mitra/kebutuhan-izin')
+        span Kebutuhan Izin
+      +alink('mitra/jadwal')
+        span Jadwal 
+      +alink('mitra/izin-kronologis')
+        span Kronologis
+      +alink('mitra/tugas-tugas')
+        span Tugas-tugas
+      +alink('mitra/doc-proses')
+        span Dokumen Proses
+      +alink('mitra/doc-permit')
+        span Dokumen Permit
+  .nav-item
+    hr
+  .nav-item
+    +alink('mitra/design-consultant')
+      +bx("bx-map-alt")
+      span Mitra Design Consultant
+  .nav-item
+    +alink('mitra/permit-consultant')
+      +bx("bx-envelope")
+      span Mitra Permit Consultant
+  .nav-item
+    +alink('mitra/bast-product-permit')
+      +bx("bx-globe")
+      span BAST Product Permit
+  .nav-item
+    +alink('mitra/kontraktor')
+      +bx("bx-wrench")
+      span Mitra Kontraktor
+  .nav-item
+    hr
+  .nav-item
+    +alink('mitra/keuangan')
+      +bx("bx-money")
+      span Keuangan
+  .nav-item
+    hr
+  .nav-item
+    +alink('mitra/peraturan-perizinan')
+      +bx("bx-cog")
+      span Peraturan Perizinan
+  .nav-item
+    +alink('mitra/libur')
+      +bx("bx-calendar")
+      span Hari Libur
+  .nav-item
+    +alink('mitra/pengumuman')
+      +bx("bx-news")
+      span Pengumuman

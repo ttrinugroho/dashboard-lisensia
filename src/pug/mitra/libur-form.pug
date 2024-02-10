@@ -1,0 +1,47 @@
+---
+title: "Mitra - Hari Libur"
+currentUrl: 'mitra/libur'
+category: single
+header: "Hari Libur"
+---
+extends ../layouts/layout
+block header
+  include ../partials/header-menu
+  include ../partials/sidebar-mitra-new
+block content
+  +main_dashboard()
+    .d-flex.flex-column.gap-4
+      .d-flex.justify-content-between.align-items-center
+        h6.mb-0 Tambah Data Pengumuman
+        div
+          button.btn.btn-primary(type="button")
+            span Save Profile
+      .p-4
+        .row.row-cols-2.gy-3
+          .col 
+            div
+              label.form-label(for="nama") Nama Hari Libur<sup class="text-danger">*</sup>
+              input#nama.form-control(type='text' name='nama' placeholder="Nama Peraturan")
+          .col
+            div
+              label.form-label(for='') Kategori Hari Libur<sup class="text-danger">*</sup>
+              select.select.wide#kategori(name="kategori")
+                option(value="") Select Peraturan
+                option(value="nasional") Nasional
+                option(value="keagamaan") Keagamaan
+          .col
+            .datepicker
+              .action-item
+                .action-head.w-100
+                  label.form-label(for='') Tanggal Mulai<sup class="text-danger">*</sup>
+                  input.form-control.js-date-range(type="text" data-single-month="true" data-container=".js-date-container#mulai" value="12 Agustus 2023")
+                .action-body.w-100
+                  .js-date-container#mulai
+          .col
+            .datepicker
+              .action-item
+                .action-head.w-100
+                  label.form-label(for='') Tanggal Berakhir<sup class="text-danger">*</sup>
+                  input.form-control.js-date-range(type="text" data-single-month="true" data-container="#berakhir.js-date-container" value="12 Agustus 2023")
+                .action-body.w-100
+                  .js-date-container#berakhir

@@ -20,20 +20,21 @@ mixin dropdown(title ,isCategory)
       else
         p No content provided
 mixin alink(url,isUrl)
-  a.nav-link.d-flex.align-items-center(href=url + ".html", class={active: currentUrl === url })
+  a.nav-link.d-flex.align-items-center(href="/"+url + ".html", class={active: currentUrl === url })
     if block
       block
     else
       p No content provided
-mixin sidebar_header()
+mixin sidebar_header(image = true)
   aside.sidebar.d-flex.flex-column.position-fixed.flex-nowrap.border.bg-white.top-0.left-0
     .position-sticky.bg-white.top-0(style="z-index:1011;")
       button.close-sidebar.js-close-sidebar.position-absolute
         +i('close')
 
       a.d-block.flex-shrink-0.p-2(href="/index.html")
-        .d-flex.align-items-center.gap-3.p-2
-          img.h-100.w-auto.d-block(src="/img/favicon-32x32.png")
+        .d-flex.align-items-center.gap-3.p-2.justify-content-center
+          if image
+            img.h-100.w-auto.d-block(src="/img/favicon-32x32.png")
           img.h-100.w-auto.d-block(src="/img/lisensia.png")
     .nav.flex-column.mb-auto.mt-1.menu
       if block
@@ -123,3 +124,57 @@ mixin file_upload(id,name="file0")
       p.caption.mb-0 Upload File
       p.caption-small.mb-0 drag and drop file here
     input(type="file", name="file0", id=id)
+
+mixin progress_transaction(range=0)
+  .px-5.py-4
+    .d-flex.position-relative.justify-content-between
+      .position-absolute.mt-4.top-0(style="left: 35px;right: 35px")
+        .progress(role='progressbar' aria-label='Progress' aria-valuenow=range aria-valuemin='0' aria-valuemax='100' style='height: 4px;')
+          .progress-bar(style='width:'+range+'%')
+      .position-relative.text-center
+        span.bg-white.rounded-circle.d-inline-block.text-primary
+          i.bx.bx-md(class=range > 29 ? 'bxs-check-circle' : 'bx-stop-circle')
+        span.d-block My Plan
+      .position-relative.text-center
+        span.bg-white.rounded-circle.d-inline-block(class=range > 29 ? 'text-primary': 'text-light')
+          i.bx-md.bx(class=range > 69 ? 'bxs-check-circle' : 'bx-stop-circle')
+        span.d-block Personal Details
+      .position-relative.text-center
+        span.bg-white.rounded-circle.d-inline-block(class=range > 69 ? 'text-primary': 'text-light')
+          i.bx-md.bx(class=range > 99 ? 'bxs-check-circle' : 'bx-stop-circle')
+        span.d-block Payment Method
+      .position-relative.text-center
+        span.bg-white.rounded-circle.d-inline-block(class=range > 99 ? 'text-primary': 'text-light')
+          i.bx-md.bx(class=range > 99 ? 'bxs-check-circle' : 'bx-stop-circle')
+        span.d-block Review
+mixin progress_step(range=0)
+  .px-5.py-4
+    .d-flex.position-relative.justify-content-between
+      .position-absolute.mt-4.top-0(style="left: 50px;right: 35px")
+        .progress(role='progressbar' aria-label='Progress' aria-valuenow=range aria-valuemin='0' aria-valuemax='100' style='height: 4px;')
+          .progress-bar(style='width:'+range+'%')
+      .position-relative.text-center
+        span.bg-white.rounded-circle.d-inline-block.text-primary
+          i.bx.bx-md(class=range > 19 ? 'bxs-check-circle' : 'bx-stop-circle')
+        span.d-block Data Pemohon
+      .position-relative.text-center
+        span.bg-white.rounded-circle.d-inline-block(class=range > 19 ? 'text-primary': 'text-light')
+          i.bx-md.bx(class=range > 38 ? 'bxs-check-circle' : 'bx-stop-circle')
+        span.d-block Data Tanah
+      .position-relative.text-center
+        span.bg-white.rounded-circle.d-inline-block(class=range > 38 ? 'text-primary': 'text-light')
+          i.bx-md.bx(class=range > 60 ? 'bxs-check-circle' : 'bx-stop-circle')
+        span.d-block Data Proyek
+      .position-relative.text-center
+        span.bg-white.rounded-circle.d-inline-block(class=range > 60 ? 'text-primary': 'text-light')
+          i.bx-md.bx(class=range > 84 ? 'bxs-check-circle' : 'bx-stop-circle')
+        span.d-block Kebutuhan dan Harga Izin
+      .position-relative.text-center
+        span.bg-white.rounded-circle.d-inline-block(class=range > 84 ? 'text-primary': 'text-light')
+          i.bx-md.bx(class=range > 99 ? 'bxs-check-circle' : 'bx-stop-circle')
+        span.d-block Summary
+      .position-relative.text-center
+        span.bg-white.rounded-circle.d-inline-block(class=range > 99 ? 'text-primary': 'text-light')
+          i.bx-md.bx(class=range > 99 ? 'bxs-check-circle' : 'bx-stop-circle')
+        span.d-block Negosiasi
+  

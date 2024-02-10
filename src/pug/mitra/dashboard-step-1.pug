@@ -1,0 +1,38 @@
+---
+title: Mitra - Dashboard
+currentUrl: 'mitra/dashboard'
+category: single
+header: Dashboard
+---
+extends ../layouts/layout
+block header
+  include ../partials/header-menu
+  include ../partials/sidebar-mitra-new
+block content
+  +main_dashboard()
+    +progress_step(0)
+    .mt-5 
+      .col-10.mx-auto
+        .d-flex.flex-column.gap-4
+          div
+            label.form-label(for='kategori') Kategori Pemohon
+            select.select.wide#kategori(name="kategori")
+              option(value="") Pemohon
+              option(value="a") Pemohon A
+              option(value="b") Pemohon B
+          div
+            label.form-label(for="nomor") Nomor KBLI
+            input#nomor.form-control(type='text' name='nomor' placeholder="Nomor KBLI")
+          div
+            label.form-label(for="nama") Nama Pemohon
+            input#nama.form-control(type='text' name='nama' placeholder="Nama Pemohon")
+          div
+            label.form-label(for='') Kategori Pemohon
+            .mb-0.position-relative
+              input.form-control.ps-7(type='tel' placeholder='+62 857-7067-1234')
+              .position-absolute.top-0.start-0.bottom-0.d-flex.px-2.flex-column.justify-content-center
+                .flag-id.border
+block modal
+  +footer_back
+    button.btn.btn-light.px-8(type="button") Back
+    a.btn.btn-primary.ms-4.px-8(href="dashboard-step-2.html") Next

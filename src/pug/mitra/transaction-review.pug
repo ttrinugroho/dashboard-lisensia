@@ -1,0 +1,87 @@
+---
+title: "User - Transaction"
+currentUrl: "mitra/transaction-payment"
+header: "Payment"
+---
+extends ../layouts/layout
+block header
+  include ../partials/clean-header
+block content
+  .py-6.my-6
+    .container.py-5
+      .row.g-4
+        .col-9.mx-auto
+          .shadow-sm.rounded-2.py-6.px-5.d-flex.flex-column.gap-6
+            +progress_transaction(100)
+            .border-top.border-5.border-success.p-5.shadow-sm 
+              .d-flex.align-items.gap-4.mb-6
+                .me-auto 
+                  button(type="button").btn.btn-warning.text-uppercase.text-white
+                    +bx('bx-diamond')
+                    span MONTHLY PREMIUM
+                .fw-semibold  
+                  span.fs-5 Total
+                .fw-semibold 
+                  span.fs-5 IDR 505.000
+              .d-flex.flex-column.gap-4
+                .d-flex.justify-content-between 
+                  div Individual Subscription:
+                  .text-success IDR 500.000
+                .d-flex.justify-content-between 
+                  div Additonal Fee (PPN 11%):
+                  .text-success IDR 55.000
+                .d-flex.justify-content-between 
+                  div Discount (10%):
+                  .text-danger IDR 50.000
+            .d-flex.flex-column.gap-4
+              div
+                label.form-label(for="first-name") Individual Subscription
+                .form-control.border-0.fw-medium Monthly Premium (Untill January 30th, 2024)
+              .d-flex.align-items-center.gap-6
+                div
+                  label.form-label(for="first-name") First Name
+                  .form-control.border-0.fw-medium Mochammad Rizky Fauzy
+                div
+                  label.form-label(for="first-name") Last Name
+                  .form-control.border-0.fw-medium Rizky Fauzy
+              div
+                label.form-label(for="first-name") Alamat
+                .form-control.border-0.fw-medium
+                  | Jl. Limbangan Kuda XII, La Palma Residence Blok B3/19 RT02/RW15, Limbangan Sari, Kec. Harapan Indah, Kota Bandung, Jawa Barat, Indonesia. Post 19349
+              .d-flex.align-items-center.gap-6
+                div
+                  label.form-label(for="first-name") Provinsi
+                  .form-control.border-0.fw-medium.text-uppercase jawa barat
+                div
+                  label.form-label(for="first-name") Kota
+                  .form-control.border-0.fw-medium.text-uppercase kota bandung
+                div
+                  label.form-label(for="first-name") Kecamatan
+                  .form-control.border-0.fw-medium.text-uppercase harapan indah
+                div
+                  label.form-label(for="first-name") Kelurahahn
+                  .form-control.border-0.fw-medium.text-uppercase limbangan sari
+              div
+                label.form-label(for="first-name") Payment
+                .form-control.border-0.fw-medium.text-uppercase
+                  img(src="/img/payment/visa.png", alt="Visa")
+                  span.ms-4 Bank Mega Credit Card
+              div
+                label.form-label(for="first-name") Card Holder Name
+                .form-control.border-0.fw-medium Mochammad Rizky Fauzy
+              .d-flex.align-items-center.gap-6
+                div
+                  label.form-label(for="first-name") Card Number
+                  .form-control.border-0.fw-medium 1234-5678-9101-1123
+                div
+                  label.form-label(for="first-name") Expired
+                  .form-control.border-0.fw-medium 12/26
+                div
+                  label.form-label(for="first-name") CVV
+                  .form-control.border-0.fw-medium 127
+                div
+                  label.form-label(for="first-name") Postal Code
+                  .form-control.border-0.fw-medium 19349
+            .d-flex.justify-content-end.gap-4 
+              button(type="button").btn.btn-outline-primary Back 
+              a(href="/mitra/transaction-success.html").btn.btn-primary Next

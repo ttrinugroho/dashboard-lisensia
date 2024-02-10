@@ -1,0 +1,56 @@
+---
+title: Mitra - Profile
+currentUrl: 'mitra/profile'
+category: single
+header: Profile
+---
+extends ../layouts/layout
+block header
+  include ../partials/header-menu
+  include ../partials/sidebar-mitra-new
+block content
+  +main_dashboard()
+    .d-flex.flex-column.gap-4
+      .d-flex.justify-content-between.align-items-center
+        h6.mb-0 User Profile
+        div
+          button.btn.btn-primary(type="button")
+            span Save Profile
+      div
+        .row.row-cols-2.gy-4
+          .col
+            div
+              label.form-label(for="username") Nama Pengguna<sup class="text-danger">*</sup>
+              input#username.form-control(type='text' name='username' placeholder='Nama Pengguna')
+          .col
+            div
+              label.form-label(for="email") Alamat Email<sup class="text-danger">*</sup>
+              input#email.form-control(type='email' name='email' placeholder='mail@example.com')
+          .col
+            div
+              label.form-label(for="username") Nama Pengguna<sup class="text-danger">*</sup>
+              input#username.form-control(type='text' name='username' placeholder='Nama Pengguna')
+          .col
+            div
+              label.form-label(for="mobile") Nomor Handphone<sup class="text-danger">*</sup>
+              input#mobile.form-control(type='text' name='mobile' placeholder='Nomor Handphone')
+          .col-12
+            div
+              label.form-label(for="alamat") Alamat<sup class="text-danger">*</sup>
+              textarea#alamat.form-control(name="alamat" rows='3')
+          .col
+            div
+              label.form-label(for="provinsi") Provinsi<sup class="text-danger">*</sup>
+              input#provinsi.form-control(type='text' name='provinsi' placeholder='Provinsi')
+          .col
+            div
+              label.form-label(for="kota") Kota/Kabupaten<sup class="text-danger">*</sup>
+              input#kota.form-control(type='text' name='kota' placeholder='Kota/Kabupaten')
+          .col
+            div
+              label.form-label(for="kecamatan") Kecamatan<sup class="text-danger">*</sup>
+              input#kecamatan.form-control(type='text' name='kecamatan' placeholder='Kecamatan')
+          .col
+            div
+              label.form-label(for="kelurahan") Kelurahan<sup class="text-danger">*</sup>
+              input#kelurahan.form-control(type='text' name='kelurahan' placeholder='Kelurahan')

@@ -1,0 +1,116 @@
+---
+title: "User - Transaction"
+currentUrl: "mitra/transaction"
+header: "My Plan"
+---
+extends ../layouts/layout
+block header
+  include ../partials/clean-header
+block content
+  .py-6.my-6
+    .container.py-5
+      .row.g-4
+        .col-8
+          .shadow-sm.rounded-2.py-6.px-5.d-flex.flex-column.gap-6
+            +progress_transaction(0)
+            .row.row-cols-2.g-6
+              .col
+                .d-flex.gap-4 
+                  div
+                    .form-check.body-super
+                      input.form-check-input(type='radio' value='')
+                  .py-7.px-5.border-top.border-5.border-primary.shadow-sm
+                    .d-flex.gap-3.flex-column
+                      h4.fw-bold.mb-0 IDR 500K
+                        span.body.fw-semibold
+                          small / Month
+                      .d-flex.gap-4.align-items-center
+                        small.fw-semibold.text-uppercase MONTHLY PREMIUM
+                        button(type="button").btn.btn-sm.btn-success.text-white Save 10%
+                      p Pilihan tepat bagi perusahaan dengan perizinan cukup kompleks.I.e: Hunian/Kantor >8 Lantai
+              .col 
+                .d-flex.gap-4 
+                  div
+                    .form-check.body-super
+                      input.form-check-input(type='radio' value='')
+                  .py-7.px-5.border-top.border-5.border-primary.shadow-sm
+                    .d-flex.gap-3.flex-column
+                      h4.fw-bold.mb-0 IDR 750K
+                        span.body.fw-semibold
+                          small / Month
+                      .d-flex.gap-4.align-items-center
+                        small.fw-semibold.text-uppercase MONTHLY BUSINESS
+                        button(type="button").btn.btn-sm.btn-success.text-white Save 15%
+                      p Recommended bagi developer dengan perizinan yang sangat kompleks.I.e: Hunian/Kantor luas lahan >1 hektar
+              .col 
+                .d-flex.gap-4 
+                  div
+                    .form-check.body-super
+                      input.form-check-input(type='radio' value='')
+                  .py-7.px-5.border-top.border-5.border-primary.shadow-sm
+                    .d-flex.gap-3.flex-column
+                      h4.fw-bold.mb-0 IDR 430K
+                        span.body.fw-semibold
+                          small / Month
+                      .d-flex.gap-4.align-items-center
+                        small.fw-semibold.text-uppercase YEARLY PREMIUM
+                        button(type="button").btn.btn-sm.btn-success.text-white Save 30%
+                      p Pilihan tepat bagi perusahaan dengan perizinan cukup kompleks.I.e: Hunian/Kantor >8 Lantai
+              .col 
+                .d-flex.gap-4 
+                  div
+                    .form-check.body-super
+                      input.form-check-input(type='radio' value='')
+                  .py-7.px-5.border-top.border-5.border-primary.shadow-sm
+                    .d-flex.gap-3.flex-column
+                      h4.fw-bold.mb-0 IDR 650K
+                        span.body.fw-semibold
+                          small / Month
+                      .d-flex.gap-4.align-items-center
+                        small.fw-semibold.text-uppercase YEARLY BUSINESS
+                        button(type="button").btn.btn-sm.btn-success.text-white Save 40%
+                      p Recommended bagi developer dengan perizinan yang sangat kompleks.I.e: Hunian/Kantor luas lahan >1 hektar
+            .d-flex.justify-content-end.gap-4 
+              button(type="button").btn.btn-outline-primary Back 
+              a(href="/mitra/transaction-personal-details.html").btn.btn-primary Next
+        .col-4
+          .px-5.pt-8.pb-7.border-top.border-5.border-success.shadow-sm 
+            .pt-3.pb-8
+              button(type="button").btn.btn-warning.text-uppercase.text-white
+                +bx('bx-diamond')
+                span MONTHLY PREMIUM
+            .d-flex.flex-column.gap-4.pb-8
+              .d-flex.gap-4
+                .d-inline-flex.bg-success-subtle.rounded-circle.text-success.p-1.caption-small
+                  +bx('bx-check')
+                span 1 User
+              .d-flex.gap-4
+                .d-inline-flex.bg-success-subtle.rounded-circle.text-success.p-1.caption-small
+                  +bx('bx-check')
+                span 1 Proyek
+              .d-flex.gap-4
+                .d-inline-flex.bg-success-subtle.rounded-circle.text-success.p-1.caption-small
+                  +bx('bx-check')
+                span Tutorial LIMITED
+              .d-flex.gap-4
+                .d-inline-flex.bg-success-subtle.rounded-circle.text-success.p-1.caption-small
+                  +bx('bx-check')
+                span Historical Pengurusan
+              .d-flex.gap-4
+                .d-inline-flex.bg-success-subtle.rounded-circle.text-success.p-1.caption-small
+                  +bx('bx-check')
+                span Schedule Perizinan
+            .d-flex.flex-column.gap-4
+              .d-flex.justify-content-between
+                span Individual Subscription:
+                span.text-success IDR 500.000
+              .d-flex.justify-content-between
+                span Additonal Fee (PPN 11%):
+                span.text-success IDR 55.000
+              .d-flex.justify-content-between
+                span Discount (10%):
+                span.text-danger IDR 50.000
+              hr
+              .d-flex.justify-content-between.fw-semibold
+                span Subtotal
+                span IDR 505.000

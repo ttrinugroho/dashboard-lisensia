@@ -1,0 +1,119 @@
+---
+title: "User - Transaction"
+currentUrl: "mitra/transaction-personal-details"
+header: "Personal Details"
+---
+extends ../layouts/layout
+block header
+  include ../partials/clean-header
+block content
+  .py-6.my-6
+    .container.py-5
+      .row.g-4
+        .col-8
+          .shadow-sm.rounded-2.py-6.px-5.d-flex.flex-column.gap-6
+            +progress_transaction(30)
+            .row.row-cols-2.g-4
+              .col
+                div
+                  label.form-label(for="first-name") First Name<sup class="text-danger">*</sup>
+                  input#first-name.form-control(type='text' name='first-name' placeholder='First Name')
+              .col
+                div
+                  label.form-label(for="last-name") Last Name<sup class="text-danger">*</sup>
+                  input#last-name.form-control(type='text' name='last-name' placeholder='Last Name')
+              .col
+                div
+                  label.form-label(for="alamat-email") Email<sup class="text-danger">*</sup>
+                  input#alamat-email.form-control(type='email' name='alamat-email' placeholder='Email')
+              .col
+                div
+                  label.form-label(for='contact-us') Phone Number<sup class="text-danger">*</sup>
+                  .mb-0.position-relative
+                    input.form-control.ps-7(type='tel' placeholder='+62 857-7067-1234')
+                    .position-absolute.top-0.start-0.bottom-0.d-flex.px-2.flex-column.justify-content-center
+                      .flag-id.border
+              .col-12 
+                div
+                  label.form-label(for="alamat") Alamat<sup class="text-danger">*</sup>
+                  textarea#alamat.form-control(name="alamat" rows='3')
+              .col 
+                div
+                  label.form-label(for='provinsi') Provinsi<sup class="text-danger">*</sup>
+                  select#provinsi.select.wide(name="provinsi")
+                    option(value="") DKI Jakarta
+                    option(value="2") Jawa Barat
+                    option(value="3") Jawa Tengah
+                    option(value="4") Jawa Timur
+                    option(value="5") Banten
+              .col 
+                div
+                  label.form-label(for='kota') Kota<sup class="text-danger">*</sup>
+                  select#kota.select.wide(name="kota")
+                    option(value="") DKI Jakarta
+                    option(value="2") Jawa Barat
+                    option(value="3") Jawa Tengah
+                    option(value="4") Jawa Timur
+                    option(value="5") Banten
+              .col 
+                div
+                  label.form-label(for='kecamatan') Kecamatan
+                  select#kecamatan.select.wide(name="kecamatan")
+                    option(value="") DKI Jakarta
+                    option(value="2") Jawa Barat
+                    option(value="3") Jawa Tengah
+                    option(value="4") Jawa Timur
+                    option(value="5") Banten
+              .col 
+                div
+                  label.form-label(for='kelurahan') Kelurahan
+                  select#kelurahan.select.wide(name="kelurahan")
+                    option(value="") DKI Jakarta
+                    option(value="2") Jawa Barat
+                    option(value="3") Jawa Tengah
+                    option(value="4") Jawa Timur
+                    option(value="5") Banten
+            .d-flex.justify-content-end.gap-4 
+              button(type="button").btn.btn-outline-primary Back 
+              a(href="/mitra/transaction-payment.html").btn.btn-primary Next
+        .col-4
+          .px-5.pt-8.pb-7.border-top.border-5.border-success.shadow-sm 
+            .pt-3.pb-8
+              button(type="button").btn.btn-warning.text-uppercase.text-white
+                +bx('bx-diamond')
+                span MONTHLY PREMIUM
+            .d-flex.flex-column.gap-4.pb-8
+              .d-flex.gap-4
+                .d-inline-flex.bg-success-subtle.rounded-circle.text-success.p-1.caption-small
+                  +bx('bx-check')
+                span 1 User
+              .d-flex.gap-4
+                .d-inline-flex.bg-success-subtle.rounded-circle.text-success.p-1.caption-small
+                  +bx('bx-check')
+                span 1 Proyek
+              .d-flex.gap-4
+                .d-inline-flex.bg-success-subtle.rounded-circle.text-success.p-1.caption-small
+                  +bx('bx-check')
+                span Tutorial LIMITED
+              .d-flex.gap-4
+                .d-inline-flex.bg-success-subtle.rounded-circle.text-success.p-1.caption-small
+                  +bx('bx-check')
+                span Historical Pengurusan
+              .d-flex.gap-4
+                .d-inline-flex.bg-success-subtle.rounded-circle.text-success.p-1.caption-small
+                  +bx('bx-check')
+                span Schedule Perizinan
+            .d-flex.flex-column.gap-4
+              .d-flex.justify-content-between
+                span Individual Subscription:
+                span.text-success IDR 500.000
+              .d-flex.justify-content-between
+                span Additonal Fee (PPN 11%):
+                span.text-success IDR 55.000
+              .d-flex.justify-content-between
+                span Discount (10%):
+                span.text-danger IDR 50.000
+              hr
+              .d-flex.justify-content-between.fw-semibold
+                span Subtotal
+                span IDR 505.000

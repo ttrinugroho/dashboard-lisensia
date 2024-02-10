@@ -1,0 +1,153 @@
+---
+title: "Mitra - Peraturan Perizinan"
+currentUrl: 'mitra/pemohon'
+category: single
+header: "Peraturan Perizinan"
+---
+extends ../layouts/layout
+block header
+  include ../partials/header-menu
+  include ../partials/sidebar-mitra-new
+block content
+  +main_dashboard()
+    .d-flex.flex-column.gap-5
+      .d-flex.justify-content-between.align-items-center
+        h6.mb-0 Buat Profile Pemohon
+        div
+          button.btn.btn-primary(type="button")
+            span Simpan
+      div
+        ul#myTab.nav.nav-tabs.nav-pills(role='tablist')
+          li.nav-item(role='presentation')
+            button#pemohon-1.nav-link.active(data-bs-toggle='tab' data-bs-target='#pemohon-1-pane' type='button' role='tab' aria-controls='pemohon-1-pane' aria-selected='true') Pemohon 1
+          li.nav-item(role='presentation')
+            button#pemohon-2.nav-link(data-bs-toggle='tab' data-bs-target='#pemohon-2-pane' type='button' role='tab' aria-controls='pemohon-2-pane' aria-selected='true') Pemohon 2
+          li.nav-item(role='presentation')
+            button.nav-link.btn(type='button' role='tab')
+              +bx("bx-plus")
+              span Tambah Pemohon
+        #myTabContent.tab-content
+          #pemohon-1-pane.border-start.border-end.border-bottom.tab-pane.fade.show.active(role='tabpanel' aria-labelledby='pemohon-1' tabindex='0')
+            .p-4
+              .row.row-cols-2.gx-5.gy-4
+                .col 
+                  div
+                    label.form-label(for='kategori') Kategori Pengguna
+                    select#kategori.select.wide(name="kategori")
+                      option(value="" data-display="Pilih Kategori Pengguna") Pilih Kategori Pengguna
+                      option(value="limited") Limited
+                .col 
+                  div
+                    label.form-label(for='pt') Jenis Perusahaan
+                    select#pt.select.wide(name="pt")
+                      option(value="" data-display="Pilih Jenis Perusahaan") Pilih Jenis Perusahaan
+                      option(value="pt1") Perusahaan 1
+                      option(value="pt2") Perusahaan 2
+                .col 
+                  div
+                    label.form-label(for='nama') Nama Pemohon
+                    input#nama.form-control(type='text' placeholder="Nama Pemohon")
+                .col 
+                  div
+                    label.form-label(for='ntk') Nomor Telpon Kantor
+                    input#ntk.form-control(type='text' placeholder="Nomor Telpon Kantor")
+                .col 
+                  div
+                    label.form-label(for='email') Alamat Email
+                    input#email.form-control(type='email' placeholder="Alamat Email")
+                .col 
+                  div
+                    label.form-label(for='gedung') Gedung
+                    input#gedung.form-control(type='text' placeholder="Gedung")
+                .col
+                  div
+                    label.form-label(for='gambar') Dokumen Pengumuman
+                    +file_upload('gambar') 
+                .col-12 
+                  hr
+                .col
+                  label.form-label(for='lokasi') Lokasi
+                  .w-100.h-100
+                    iframe(frameborder='0' height='auto' width='auto' style='width: 100%;height: 100%;' scrolling='no' marginheight='0' marginwidth='0' src='https://maps.google.com/maps?width=320&height=320&hl=en&q=-6.1754083,106.824584&t=&z=14&ie=UTF8&iwloc=B&output=embed')
+                .col
+                  .d-flex.flex-column.gap-3
+                    div
+                      label.form-label(for='alamat') Alamat
+                      input#alamat.form-control(type='text' placeholder="Alamat")
+                    div
+                      label.form-label(for='kel') Kelurahan
+                      input#kel.form-control(type='text' placeholder="Kelurahan")
+                    div
+                      label.form-label(for='kec') Kecamatan
+                      input#kec.form-control(type='text' placeholder="Kecamatan")
+                    div
+                      label.form-label(for='kota') Kota/Kabupaten
+                      input#kota.form-control(type='text' placeholder="Kota/Kabupaten")
+                    div
+                      label.form-label(for='prov') Provinsi
+                      input#prov.form-control(type='text' placeholder="Provinsi")
+          #pemohon-2-pane.border-start.border-end.border-bottom.tab-pane.fade(role='tabpanel' aria-labelledby='pemohon-2' tabindex='0')
+            .p-4
+              .text-end.mb-4 
+                button(type="button").btn.btn-outline-danger.bg-danger-subtle
+                  +bx("bx-trash")
+                  span Hapus Pemohon
+              .row.row-cols-2.gx-5.gy-4
+                .col 
+                  div
+                    label.form-label(for='kategori') Kategori Pengguna
+                    select#kategori.select.wide(name="kategori")
+                      option(value="" data-display="Pilih Kategori Pengguna") Pilih Kategori Pengguna
+                      option(value="limited") Limited
+                .col 
+                  div
+                    label.form-label(for='pt') Jenis Perusahaan
+                    select#pt.select.wide(name="pt")
+                      option(value="" data-display="Pilih Jenis Perusahaan") Pilih Jenis Perusahaan
+                      option(value="pt1") Perusahaan 1
+                      option(value="pt2") Perusahaan 2
+                .col 
+                  div
+                    label.form-label(for='nama') Nama Pemohon
+                    input#nama.form-control(type='text' placeholder="Nama Pemohon")
+                .col 
+                  div
+                    label.form-label(for='ntk') Nomor Telpon Kantor
+                    input#ntk.form-control(type='text' placeholder="Nomor Telpon Kantor")
+                .col 
+                  div
+                    label.form-label(for='email') Alamat Email
+                    input#email.form-control(type='email' placeholder="Alamat Email")
+                .col 
+                  div
+                    label.form-label(for='gedung') Gedung
+                    input#gedung.form-control(type='text' placeholder="Gedung")
+                .col
+                  div
+                    label.form-label(for='gambar') Dokumen Pengumuman
+                    +file_upload('gambar') 
+                .col-12 
+                  hr
+                .col
+                  label.form-label(for='lokasi') Lokasi
+                  .w-100.h-100
+                    iframe(frameborder='0' height='auto' width='auto' style='width: 100%;height: 100%;' scrolling='no' marginheight='0' marginwidth='0' src='https://maps.google.com/maps?width=320&height=320&hl=en&q=-6.1754083,106.824584&t=&z=14&ie=UTF8&iwloc=B&output=embed')
+                .col
+                  .d-flex.flex-column.gap-3
+                    div
+                      label.form-label(for='alamat') Alamat
+                      input#alamat.form-control(type='text' placeholder="Alamat")
+                    div
+                      label.form-label(for='kel') Kelurahan
+                      input#kel.form-control(type='text' placeholder="Kelurahan")
+                    div
+                      label.form-label(for='kec') Kecamatan
+                      input#kec.form-control(type='text' placeholder="Kecamatan")
+                    div
+                      label.form-label(for='kota') Kota/Kabupaten
+                      input#kota.form-control(type='text' placeholder="Kota/Kabupaten")
+                    div
+                      label.form-label(for='prov') Provinsi
+                      input#prov.form-control(type='text' placeholder="Provinsi")
+
+                  

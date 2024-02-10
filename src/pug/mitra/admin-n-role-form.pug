@@ -1,0 +1,56 @@
+---
+title: "Mitra - Admin dan Role"
+currentUrl: 'mitra/admin-n-role'
+category: single
+header: "Admin dan Role"
+---
+extends ../layouts/layout
+block header
+  include ../partials/header-menu
+  include ../partials/sidebar-mitra-new
+block content
+  +main_dashboard()
+    .d-flex.flex-column.gap-4
+      .d-flex.justify-content-between.align-items-center
+        h6.mb-0 Buat Profile Admin
+        div
+          button.btn.btn-primary(type="button")
+            span Simpan
+      .row.row-cols-2.gy-4
+        .col
+          div
+            label.form-label(for="nama") Nama Lengkap<sup class="text-danger">*</sup>
+            input#nama.form-control(type='text' name='nama' placeholder="Nama Lengkap")
+        .col
+          div
+            label.form-label(for='') Nomor Handphone<sup class="text-danger">*</sup>
+            .mb-0.position-relative
+              input.form-control.ps-7(type='tel' placeholder='+62 857-7067-1234')
+              .position-absolute.top-0.start-0.bottom-0.d-flex.px-2.flex-column.justify-content-center
+                .flag-id.border
+        .col
+          div
+            label.form-label(for="nama") Alamat Email<sup class="text-danger">*</sup>
+            input#nama.form-control(type='email' name='nama' placeholder="Alamat Email")
+        .col
+          div
+            label.form-label(for='gender') Gender
+            select.select.wide#gender(name="gender")
+              option(value="") Select Gender
+              option(value="laki") Laki-laki
+              option(value="perempuan") Perempuan
+        .col
+          div
+            label.form-label(for='gender') Role
+            select.select.wide#gender(name="gender")
+              option(value="") Select Role
+              option(value="laki") Admin
+              option(value="perempuan") Mitra
+        .col
+          div
+            label.form-label(for="pemohon") Pemohon<sup class="text-danger">*</sup>
+            input#pemohon.form-control(type='text' name='pemohon' placeholder="Pemohon")
+        .col-12 
+          div
+            label.form-label(for="nama") Catatan
+            textarea.form-control#catatan(name="catatan", cols="5", rows="3")

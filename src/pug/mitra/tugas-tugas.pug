@@ -1,0 +1,71 @@
+---
+title: "Mitra - Tugas-tugas"
+currentUrl: "mitra/tugas-tugas"
+category: "izin-saya"
+header: "Tugas-tugas"
+---
+extends ../layouts/layout
+block header
+  include ../partials/header-menu
+  include ../partials/sidebar-mitra-new
+block content
+  +main_dashboard()
+    .d-flex.flex-column.gap-4
+      .p-4.bg-light.rounded
+        .d-flex.align-items-center.gap-4
+          .flex-grow-1
+            div
+              label.form-label Pemohon
+              select.select.wide
+                option(value='') PT HK Realtindo
+                option(value='1') PT Realtindo HK
+                option(value='2') HK Realtindo PT
+                option(value='3') Realtindo HK PT
+                option(value='4') HK PT Realtindo
+            .form-check.body-super
+              input#pemohon-default.form-check-input(type='checkbox' value='')
+              label.form-check-label.body(for='pemohon-default')
+                | Jadikan pemohon sebagai default
+          .flex-grow-1
+            div
+              label.form-label Proyek
+              select.select.wide
+                option(value='') Apartment Green Lake City
+                option(value='1') PT Realtindo HK
+                option(value='2') HK Realtindo PT
+                option(value='3') Realtindo HK PT
+                option(value='4') HK PT Realtindo
+            .form-check.body-super
+              input#lokasi-default.form-check-input(type='checkbox' value='')
+              label.form-check-label.body(for='lokasi-default')
+                | Jadikan lokasi sebagai default
+          div
+            button.btn.btn-primary
+              span Tampilkan
+      .border.rounded
+        table.table.table-striped.striped-custom.table-no-bottom-border.mb-0
+          thead.subtitle.align-middle
+            tr
+              td.px-4 Kategori
+              td Jenis Izin
+              td Update Terakhir
+              td Outstanding
+              td Ditugaskan Kepada
+              td.px-4.cell-fit Status
+          tbody.body.align-middle
+            tr
+              td.px-4 IMB Rumah Tinggal
+              td IMB/PBG Rumah Tinggal
+              td Update Terakhir
+              td
+              td
+              td.px-4.cell-fit
+                span.badge.border.border-success.text-success Open
+            tr
+              td.px-4 IMB non Rumah Tinggal
+              td Izin Bongkar
+              td Update Terakhir
+              td
+              td
+              td.px-4.cell-fit
+                span.badge.border.border-success.text-success Open

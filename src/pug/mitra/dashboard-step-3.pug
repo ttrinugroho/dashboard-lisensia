@@ -1,0 +1,57 @@
+---
+title: Mitra - Dashboard
+currentUrl: 'mitra/dashboard'
+category: single
+header: Dashboard
+---
+extends ../layouts/layout
+block header
+  include ../partials/header-menu
+  include ../partials/sidebar-mitra-new
+block content
+  +main_dashboard()
+    +progress_step(39)
+    .mt-5 
+      .col-10.mx-auto
+        .row.gy-4
+          .col-12 
+            div
+              label.form-label(for="nama-proyek") Nama Proyek
+              input#nama-proyek.form-control(type='text' name='nama-proyek' placeholder="Nama Proyek")
+          .col-4 
+            div
+              label.form-label(for="lantai") Jumlah Lantai
+              input#lantai.form-control(type='text' name='lantai' placeholder="Jumlah Lantai")
+          .col-4 
+            div
+              label.form-label(for="basement") Jumlah Basement
+              input#basement.form-control(type='text' name='basement' placeholder="Jumlah Basement")
+          .col-4 
+            div
+              label.form-label(for="bangunan") Total Luar Bangunan
+              input#bangunan.form-control(type='text' name='bangunan' placeholder="Total Luar Bangunan")
+          .col-6 
+            div
+              label.form-label(for='jenis') Jenis Proyek
+              select.select.wide#jenis(name="jenis")
+                option(value="") Proyek
+                option(value="a") Proyek A
+                option(value="b") Proyek B
+          .col-6 
+            div
+              label.form-label(for='fungsi') Fungsi Kegiatan Proyek
+              select.select.wide#fungsi(name="fungsi")
+                option(value="") Mix Used
+                option(value="a") Fungsi A
+                option(value="b") Fungsi B
+          .col-12 
+            div
+              label.form-label(for='tempat') Tempat Pengurusan Izin
+              select.select.wide#tempat(name="tempat")
+                option(value="") Tempat
+                option(value="a") Tempat A
+                option(value="b") Tempat B
+block modal
+  +footer_back
+    button.btn.btn-light.px-8(type="button") Back
+    a.btn.btn-primary.ms-4.px-8(href="dashboard-step-4.html") Next

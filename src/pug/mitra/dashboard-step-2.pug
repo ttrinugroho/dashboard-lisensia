@@ -1,0 +1,27 @@
+---
+title: Mitra - Dashboard
+currentUrl: 'mitra/dashboard'
+category: single
+header: Dashboard
+---
+extends ../layouts/layout
+block header
+  include ../partials/header-menu
+  include ../partials/sidebar-mitra-new
+block content
+  +main_dashboard()
+    +progress_step(20)
+    .mt-5 
+      .col-10.mx-auto
+        .d-flex.flex-column.gap-4
+          div
+            label.form-label(for="") Pilih Lokasi
+            .maps-container
+              iframe(frameborder='0' height='250' width='auto' style='width: 100%;' scrolling='no' marginheight='0' marginwidth='0' src='https://maps.google.com/maps?width=320&height=320&hl=en&q=-6.1754083,106.824584&t=&z=14&ie=UTF8&iwloc=B&output=embed')
+          div
+            label.form-label(for="nama") Luas Tanah (dalam m2)
+            input#nama.form-control(type='text' name='nama' placeholder="Nama Pemohon")
+block modal
+  +footer_back
+    button.btn.btn-light.px-8(type="button") Back
+    a.btn.btn-primary.ms-4.px-8(href="dashboard-step-3.html") Next

@@ -1,0 +1,50 @@
+---
+title: "Mitra - Kronologis"
+currentUrl: "mitra/kronologis"
+category: laporan
+header: "Kronologis"
+---
+extends ../layouts/layout
+block header
+  include ../partials/header-menu
+  include ../partials/sidebar-mitra-new
+block content
+  +main_dashboard()
+    .d-flex.flex-column.gap-5
+      .p-4.bg-light.rounded
+        .d-flex.align-items-center.gap-4
+          .flex-grow-1
+            div
+              label.form-label Pemohon
+              select.select.wide
+                option(value='') PT HK Realtindo
+                option(value='1') PT Realtindo HK
+                option(value='2') HK Realtindo PT
+                option(value='3') Realtindo HK PT
+                option(value='4') HK PT Realtindo
+            .form-check.body-super
+              input#pemohon-default.form-check-input(type='checkbox' value='')
+              label.form-check-label.body(for='pemohon-default')
+                | Jadikan pemohon sebagai default
+          .flex-grow-1
+            div
+              label.form-label Proyek
+              select.select.wide
+                option(value='') Apartment Green Lake City
+                option(value='1') PT Realtindo HK
+                option(value='2') HK Realtindo PT
+                option(value='3') Realtindo HK PT
+                option(value='4') HK PT Realtindo
+            .form-check.body-super
+              input#lokasi-default.form-check-input(type='checkbox' value='')
+              label.form-check-label.body(for='lokasi-default')
+                | Jadikan lokasi sebagai default
+          div
+            button.btn.btn-primary
+              span Tampilkan
+          div
+            button.btn.btn-outline-primary
+              +bx('bx-download')
+              span Unduh
+      .d-flex.justify-content-center
+        img.w-auto.h-auto.d-block(src="/img/content/riwayat-kronologi.png", alt="Riwayat Kronologi")

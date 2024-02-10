@@ -1,0 +1,55 @@
+header.header.start-0.bg-white.position-fixed.top-0.end-0.border-bottom
+  .container.d-flex.align-items-center
+    .me-auto.d-flex.align-items-center.gap-6.fw-semibold
+      a(href="/").text-dark
+        +bx('bx-arrow-back')
+      img(src="/img/content/logo.png", alt="Logo")
+    .navbar.gap-4
+      .nav-item.notification-item.toggle-item
+        .d-flex.align-items-center.gap-3.toggle-head
+          .border.rounded-circle
+            .user-avatar.d-flex.border.border-white.justify-content-center.align-items-center.overflow-hidden
+              img.h-auto.w-100(src="/img/content/user-1.jpg", alt="Profile Arga Dinata")
+          div
+            .subtitle Arga Dinata
+            .caption Owner
+          .subtitle.d-inline-flex
+            +bx('bx-chevron-down')
+        .toggle-body.menu-profile.rounded.py-3.elv-2
+          .nav.flex-column
+            .nav-item
+              a.nav-link.d-flex.gap-4(href="/mitra/profile.html")
+                +bx('bx-user')
+                span User Profile
+            .nav-item
+              a.nav-link.d-flex.gap-4(href="/mitra/change-password.html")
+                +bx('bx-key')
+                span Change Password
+            .nav-item
+              .nav-link.d-flex.align-items-center.gap-4.collapsed(data-bs-target="#my-plan", data-bs-toggle="collapse" class='collapsed')
+                +bx('bx-diamond')
+                span My Plan
+                +bx("collapsed-icon")(class="ms-auto")
+              .collapse.submenu(id="my-plan")
+                .wrapper
+                  +alink("user")
+                    span Subscription
+                  +alink("admin")
+                    span Transaction History
+            .nav-item
+              hr
+            .nav-item
+              .nav-link.d-flex.align-items-center.gap-4.collapsed(data-bs-target="#menu-profile", data-bs-toggle="collapse" class='collapsed')
+                +bx('bx-transfer-alt')
+                span Switch Account
+                +bx("collapsed-icon")(class="ms-auto")
+              .collapse.submenu(id="menu-profile")
+                .wrapper
+                  +alink("mitra/dashboard")
+                    span Super Admin
+                  +alink("admin")
+                    span Admin
+            .nav-item
+              a.nav-link.text-danger.d-flex.gap-4(href="/user-profile.html")
+                +bx('bx-log-out-circle')
+                span Sign Out

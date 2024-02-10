@@ -1,0 +1,77 @@
+header.header.bg-white.d-flex.align-items-center.position-fixed.top-0.end-0.border-bottom.pe-5.ps-4
+  .me-auto.d-flex.align-items-center.gap-2.fw-semibold
+    +bx('bx-menu')
+    span= header || 'Dashboard'
+  .navbar.gap-4
+    a.btn.btn-link.nav-item.py-2.px-3.text-decoration-none(href="products-add.html" role="button")
+      +bx('bx-diamond')
+      span.fw-semibold Upgrade Plan
+    span.btn.py-1.px-3.rounded-3.text-white(style="background-color: var(--bs-orange)")
+      | Premium
+    span.flag-id.rounded-circle(style="width: 24px; height: 24px;")
+    .nav-item.notification-item.toggle-item
+      button.toggle-head.nav-link.active.btn.p-2
+        +bx('bell')
+      .toggle-body.menu-notification.rounded-4.p-3.elv-2
+        .d-flex.align-items-center.justify-content-between.mb-3
+          .body-big.fw-semibold Notification
+          .action-item
+            button.btn.action-head.rounded-circle.p-2.btn-light(type="button")
+              +bx('bx-dots-horizontal-rounded')
+            .action-body.p-3
+              .d-grid
+                button.btn.action-item(type="button")
+                  +bx('bx-check')
+                  span Mark as read
+                button.btn.action-item(type="button")
+                  +bx('bx-trash')
+                  span Delete
+        a.btn.d-flex.mx-3(href="/message-center.html") View in message center
+    .nav-item.notification-item.toggle-item
+      .d-flex.align-items-center.gap-3.toggle-head
+        .border.rounded-circle
+          .user-avatar.d-flex.border.border-white.justify-content-center.align-items-center.overflow-hidden
+            img.h-auto.w-100(src="/img/content/user-1.jpg", alt="Profile Arga Dinata")
+        div
+          .subtitle Arga Dinata
+          .caption Owner
+        .subtitle.d-inline-flex
+          +bx('bx-chevron-down')
+      .toggle-body.menu-profile.rounded.py-3.elv-2
+        .nav.flex-column
+          .nav-item
+            a.nav-link.d-flex.gap-4(href="/mitra/profile.html")
+              +bx('bx-user')
+              span User Profile
+          .nav-item
+            a.nav-link.d-flex.gap-4(href="/mitra/change-password.html")
+              +bx('bx-key')
+              span Change Password
+          .nav-item
+            .nav-link.d-flex.align-items-center.gap-4.collapsed(data-bs-target="#my-plan", data-bs-toggle="collapse" class='collapsed')
+              +bx('bx-diamond')
+              span My Plan
+              +bx("collapsed-icon")(class="ms-auto")
+            .collapse.submenu(id="my-plan")
+              .wrapper
+                +alink("user")
+                  span Subscription
+                +alink("admin")
+                  span Transaction History
+          .nav-item
+            hr
+          .nav-item
+            .nav-link.d-flex.align-items-center.gap-4.collapsed(data-bs-target="#menu-profile", data-bs-toggle="collapse" class='collapsed')
+              +bx('bx-transfer-alt')
+              span Switch Account
+              +bx("collapsed-icon")(class="ms-auto")
+            .collapse.submenu(id="menu-profile")
+              .wrapper
+                +alink("mitra/dashboard")
+                  span Super Admin
+                +alink("admin")
+                  span Admin
+          .nav-item
+            a.nav-link.text-danger.d-flex.gap-4(href="/user-profile.html")
+              +bx('bx-log-out-circle')
+              span Sign Out

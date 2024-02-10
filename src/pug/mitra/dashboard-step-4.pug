@@ -1,0 +1,48 @@
+---
+title: Mitra - Dashboard
+currentUrl: 'mitra/dashboard'
+category: single
+header: Dashboard
+---
+extends ../layouts/layout
+block header
+  include ../partials/header-menu
+  include ../partials/sidebar-mitra-new
+block content
+  +main_dashboard()
+    +progress_step(61)
+    .mt-5 
+      .col-10.mx-auto
+        .row.gy-4
+          .col-12 
+            div
+              label.form-label(for='item') Item Perizinan dibutuhkan
+              select.select.wide#item(name="item")
+                option(value="") PBG
+                option(value="a") PBG A
+                option(value="b") PBG B
+          .col-12 
+            label.form-label(for='item') Rincian Harga Penawaran
+            .border.rounded.mt-2.bg-white
+              table.table.table-no-bottom-border.mb-0
+                thead.subtitle.align-middle
+                  tr
+                    th.px-4.text-start Item Permit
+                    th.px-4.text-end Harga Permit
+                tbody.body.align-middle
+                  tr 
+                    td.px-4.text-start Cell
+                    td.px-4.text-end Rp. 50.000.000
+                  tr 
+                    td.px-4.text-start Cell
+                    td.px-4.text-end Rp. 50.000.000
+                  tr 
+                    td.px-4.text-start Cell
+                    td.px-4.text-end Rp. 50.000.000
+                  tr
+                    td.text-bg-primary.px-4.text-start Cell
+                    td.text-bg-primary.px-4.text-end Rp. 150.000.000
+block modal
+  +footer_back
+    button.btn.btn-light.px-8(type="button") Back
+    a.btn.btn-primary.ms-4.px-8(href="dashboard-step-5.html") Next

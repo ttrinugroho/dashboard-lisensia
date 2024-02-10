@@ -1,0 +1,47 @@
+---
+title: "Mitra - Keuangan"
+currentUrl: 'mitra/design-consultant'
+category: single
+header: "Keuangan"
+---
+extends ../layouts/layout
+block header
+  include ../partials/header-menu
+  include ../partials/sidebar-mitra-new
+block content
+  +main_dashboard()
+    .d-flex.flex-column.gap-4
+      .d-flex.justify-content-between.align-items-center
+        h6.mb-0 Kontrak Permit Konsultan
+        div
+          button.btn.btn-primary(type="button")
+            span Simpan
+      .row.g-2
+        .col-auto
+          .bg-light.p-4
+            h6 Kebutuhan Perizinan
+            p.subtitle IMB Rumah Tinggal
+            .d-flex.justify-content-between.align-items-center.bg-primary-subtle.px-4.py-2
+              p.mb-0.subtitle.text-primary IMB/PBG Rumah Tinggal
+            hr
+            p.subtitle IMB non Rumah Tinggal
+            .d-grid.mb-4
+              a.btn.justify-content-start.text-primary(href="/")
+                Izin Bongkar
+              a.btn.justify-content-start.text-primary(href="/")
+                | IMB non Rumah Tinggal > 8 lantai
+        .col
+          .d-flex.flex-column.gap-4
+            .row.row-cols-2.gx-5
+              .col 
+                div
+                  label.form-label(for="nama-mitra") Nama Mitra<sup class="text-danger">*</sup>
+                  input#nama-mitra.form-control(type='text' name='nama-mitra' placeholder="Nama Mitra")
+              .col 
+                div
+                  label.form-label(for="harga") Harga Jasa Permit<sup class="text-danger">*</sup>
+                  input#harga.form-control(type='text' name='harga' placeholder="Harga Jasa Permit")
+              .col 
+                div
+                  label.form-label(for="cv") Dokumen Kontrak
+                  +file_upload('cv')

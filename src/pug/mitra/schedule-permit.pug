@@ -1,0 +1,136 @@
+---
+title: "Mitra - Schedule Permit"
+currentUrl: "mitra/schedule-permit"
+category: laporan
+header: "Schedule Permit"
+---
+extends ../layouts/layout
+block header
+  include ../partials/header-menu
+  include ../partials/sidebar-mitra-new
+block content
+  +main_dashboard()
+    .d-flex.flex-column.gap-4
+      .d-flex.gap-4.align-items-end
+        .flex-grow-1
+          label.form-label(for='lokasi') Lokasi
+          select#lokasi.select.wide(name="lokasi")
+            option(value="" data-display="DKI JAKARTA") Filter
+            option(value="jabar") Jawa Barat
+        .flex-grow-1
+          label.form-label(for='proyek') Proyek
+          select#proyek.select.wide(name="proyek")
+            option(value="" data-display="Select") Proyek
+            option(value="proyek 1") Proyek 1
+        div
+          button(type="button").btn.btn-primary Tampilkan
+        div
+          button.btn.btn-outline-success(type="button")
+            +bx('bx-export')
+            span Export
+      .border.rounded
+        table.table.table-striped.striped-custom
+          thead.subtitle.align-middle
+            tr
+              td.py-3.ps-4 Jenis Izin
+              td.py-3 Langkah-langkah
+              td.py-3 Kontrol
+              td.pe-4(colspan="6") Agustus
+          tbody.body.align-middle
+            tr
+              td.py-1.px-4(colspan="3")
+              td.py-1.cell-fit.text-center.bg-white.border-start
+                div 1
+                small Sen
+              td.py-1.cell-fit.text-center.bg-white.border-start
+                div 2
+                small Sel
+              td.py-1.cell-fit.text-center.bg-white.border-start
+                div 3
+                small Rab
+              td.py-1.cell-fit.text-center.bg-white.border-start
+                div 4
+                small Kam
+              td.py-1.cell-fit.text-center.bg-white.border-start
+                div 5
+                small Jum
+              td.py-1.cell-fit.text-center.bg-white.border-start
+                div 6
+                small Sab
+            tr.table-info
+              td.py-3.ps-4.fw-bold(colspan="3") IMB Rumah Tinggal
+              td(colspan="6")
+            tr
+              td.py-3.ps-4(rowspan="2") IMB / PBG Rumah Tinggal
+              td.py-3 -
+              td.py-3 Rencana
+              td.py-3.cell-fit.text-center.bg-white.border-start
+              td.py-3.cell-fit.text-center.bg-white.border-start
+              td.py-3.cell-fit.text-center.border-start.table-danger
+              td.py-3.cell-fit.text-center.border-start.table-danger
+              td.py-3.cell-fit.text-center.bg-white.border-start
+              td.py-3.cell-fit.text-center.bg-white.border-start
+            tr
+              td.py-3 -
+              td.py-3 Pelaksanaan
+              td.py-3.cell-fit.text-center.bg-white.border-start
+              td.py-3.cell-fit.text-center.bg-white.border-start
+              td.py-3.cell-fit.text-center.border-start.table-danger
+              td.py-3.cell-fit.text-center.border-start.table-danger
+              td.py-3.cell-fit.text-center.bg-white.border-start
+              td.py-3.cell-fit.text-center.bg-white.border-start
+            tr.table-info
+              td.py-3.ps-4.fw-bold(colspan="3") IMB Non Rumah Tinggal
+              td(colspan="6")
+            tr
+              td.py-3.ps-4(rowspan="6") Izin Bongkar
+              td.py-3.elipsis-cell(rowspan="2") 1. Pemasukan Berkas ke DPM PTSP
+              td.py-3 Rencana
+              td.py-3.cell-fit.text-center.bg-primary.border-start
+              td.py-3.cell-fit.text-center.bg-primary.border-start
+              td.py-3.cell-fit.text-center.border-start.table-danger
+              td.py-3.cell-fit.text-center.border-start.table-danger
+              td.py-3.cell-fit.text-center.bg-white.border-start
+              td.py-3.cell-fit.text-center.bg-white.border-start
+            tr
+              td.py-3 Pelaksanaan
+              td.py-3.cell-fit.text-center.bg-white.border-start
+              td.py-3.cell-fit.text-center.bg-white.border-start
+              td.py-3.cell-fit.text-center.border-start.table-danger
+              td.py-3.cell-fit.text-center.border-start.table-danger
+              td.py-3.cell-fit.text-center.bg-white.border-start
+              td.py-3.cell-fit.text-center.bg-white.border-start
+            tr
+              td.py-3.elipsis-cell(rowspan="2") 2. Pengecekan administrasi & teknis oleh DPM PTSP
+              td.py-3 Rencana
+              td.py-3.cell-fit.text-center.bg-white.border-start
+              td.py-3.cell-fit.text-center.bg-white.border-start
+              td.py-3.cell-fit.text-center.border-start.table-danger
+              td.py-3.cell-fit.text-center.border-start.table-danger
+              td.py-3.cell-fit.text-center.bg-white.border-start
+              td.py-3.cell-fit.text-center.bg-white.border-start
+            tr
+              td.py-3 Pelaksanaan
+              td.py-3.cell-fit.text-center.bg-white.border-start
+              td.py-3.cell-fit.text-center.bg-white.border-start
+              td.py-3.cell-fit.text-center.border-start.table-danger
+              td.py-3.cell-fit.text-center.border-start.table-danger
+              td.py-3.cell-fit.text-center.bg-white.border-start
+              td.py-3.cell-fit.text-center.bg-white.border-start
+            tr
+              td.py-3.elipsis-cell(rowspan="2") 3. disposisi dari DPM PTSP ke Dinas Citata
+              td.py-3 Rencana
+              td.py-3.cell-fit.text-center.bg-white.border-start
+              td.py-3.cell-fit.text-center.bg-white.border-start
+              td.py-3.cell-fit.text-center.border-start.table-danger
+              td.py-3.cell-fit.text-center.border-start.table-danger
+              td.py-3.cell-fit.text-center.bg-white.border-start
+              td.py-3.cell-fit.text-center.bg-white.border-start
+            tr
+              td.py-3 Pelaksanaan
+              td.py-3.cell-fit.text-center.bg-white.border-start
+              td.py-3.cell-fit.text-center.bg-white.border-start
+              td.py-3.cell-fit.text-center.border-start.table-danger
+              td.py-3.cell-fit.text-center.border-start.table-danger
+              td.py-3.cell-fit.text-center.bg-white.border-start
+              td.py-3.cell-fit.text-center.bg-white.border-start

@@ -1,0 +1,43 @@
+---
+title: "Mitra - Admin dan Role"
+currentUrl: 'mitra/admin-n-role'
+category: single
+header: "Admin dan Role"
+---
+extends ../layouts/layout
+block header
+  include ../partials/header-menu
+  include ../partials/sidebar-mitra-new
+block content
+  +main_dashboard()
+    .d-flex.flex-column.gap-4
+      .d-flex.justify-content-between.align-items-center
+        h6.mb-0 Akses Role
+        div
+          button.btn.btn-primary(type="button")
+            span Simpan
+      .border.rounded.mt-2.py-1.bg-white
+        table.table.table-no-bottom-border.mb-0
+          thead.subtitle.align-middle
+            tr
+              th.px-4 Menu
+              th.py-3.text-center.cell-fit.px-4 Lihat
+              th.py-3.text-center.cell-fit.px-4 Buat
+              th.py-3.text-center.cell-fit.px-4 Edit
+              th.px-4.text-center.cell-fit.px-4 Hapus
+          tbody.body.align-middle
+            each i,index in [1,2,3,4,5,6,7,8,9,10,11,12,13]
+              tr 
+                td.px-4 Cell
+                td.text-center.cell-fit.px-4
+                  .body-super
+                    input.form-check-input(type='checkbox' value='')
+                td.text-center.cell-fit.px-4
+                  .body-super
+                    input.form-check-input(type='checkbox' value='')
+                td.text-center.cell-fit.px-4
+                  .body-super
+                    input.form-check-input(type='checkbox' value='')
+                td.text-center.cell-fit.px-4
+                  .body-super
+                    input.form-check-input(type='checkbox' value='')

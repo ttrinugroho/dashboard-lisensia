@@ -1,0 +1,78 @@
+---
+title: "Mitra - Mitra Kontraktor"
+currentUrl: 'mitra/design-consultant'
+category: single
+header: "Mitra Kontraktor"
+---
+extends ../layouts/layout
+block header
+  include ../partials/header-menu
+  include ../partials/sidebar-mitra-new
+block content
+  +main_dashboard()
+    .d-flex.flex-column.gap-5
+      .p-4.bg-light.rounded
+        p.subtitle Filter Pencarian
+        .row.row-cols-4.gy-3
+          .col 
+            div
+              label.form-label(for="nama") Nama Kontraktor
+              input#nama.form-control(type='text' name='nama' placeholder="Nama Kontraktor")
+          .col
+            div
+              label.form-label(for='') Nomor Handphone
+              .mb-0.position-relative
+                input.form-control.ps-7(type='tel' placeholder='+62 857-7067-1234')
+                .position-absolute.top-0.start-0.bottom-0.d-flex.px-2.flex-column.justify-content-center
+                  .flag-id.border
+          .col
+            .datepicker
+              .action-item
+                .action-head.w-100
+                  label.form-label(for='') Tanggal Pendaftaran
+                  input.form-control.js-date-range(type="text" data-single-month="true" data-container=".js-date-container" value="12 Agustus 2023")
+                .action-body.w-100
+                  .js-date-container
+          .col
+            div
+              label.form-label(for='status') Status Verifikasi
+              select.select.wide#status(name="status")
+                option(value="") Select Status
+                option(value="nonaktif") Non Aktif
+                option(value="aktif") Aktif
+          .col-12
+            .d-flex.justify-content-end
+              .d-flex.gap-4
+                button(type="button").btn.btn-primary Tampilkan 
+                button(type="button").btn.btn-outline-danger Reset
+      .p-4.rounded.border 
+        .mb-4.d-flex.gap-4.justify-content-end
+          a(href="/mitra/kontraktor-form.html").btn.btn-primary
+            +bx("bx-plus")
+            span Tambah Kontraktor
+        .border.rounded.mt-2.py-1.bg-white
+          table.table.table-no-bottom-border.mb-0
+            thead.subtitle.align-middle
+              tr
+                th.px-4 Kategori Kontraktor
+                th.py-3 Nama Kontraktor
+                th.py-3 Nama PIC
+                th.py-3 No HP PIC
+                th.px-4.cell-fit
+            tbody.body.align-middle
+              each i,index in [1,2,3,4,5]
+                tr
+                  td.px-4 Cell
+                  td Cell
+                  td Cell
+                  td Cell
+                  td.px-4.cell-fit
+                    .action-item
+                      button.btn.btn-light.btn-sm.p-2.rounded-circle.action-head(type="button")
+                        +bx('bx-dots-horizontal-rounded')
+                      .action-body
+                        .p-2.d-flex.flex-column
+                          a.btn.action-item(href='/')
+                            +bx('bx-check-square')
+                            span Test Dropdown
+        +pagination

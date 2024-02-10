@@ -9,4 +9,4 @@ git clone https://github.com/ttrinugroho/dashboard-lisensia.git
 `npm run gulp`
 
 ## Directory
-`/build` : Folder penyimpanan file yang telah di Buil
+`/build` : Folder penyimpanan file akhir

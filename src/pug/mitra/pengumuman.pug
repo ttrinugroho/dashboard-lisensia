@@ -1,0 +1,76 @@
+---
+title: Mitra - Pengumuman
+currentUrl: 'mitra/pengumuman'
+category: single
+header: Pengumuman
+---
+extends ../layouts/layout
+block header
+  include ../partials/header-menu
+  include ../partials/sidebar-mitra-new
+block content
+  +main_dashboard()
+    .d-flex.flex-column.gap-4
+      .p-4.bg-light.rounded
+        p.subtitle Filter Pencarian
+        .row.row-cols-4.gy-3
+          .col
+            div
+              label.form-label(for="judul") Judul Pengumuman
+              input#judul.form-control(type='text' name='judul' placeholder='Judul Pengumuman')
+          .col 
+            div
+              label.form-label(for="penerima") Grup Penerima
+              select.select.wide
+                option(value="") Group Penerima
+                option(value="satu") Satu
+                option(value="dua") Dua
+          .col
+            div
+              label.form-label(for="penerima") Status
+              select.select.wide
+                option(value="") Semua
+                option(value="satu") Aktif
+                option(value="dua") Tidak
+          .col
+            .datepicker
+              .action-item
+                .action-head.w-100
+                  label.form-label(for='') Dibuat Pada
+                  input.form-control.js-date-range(type="text" data-single-month="true" data-container=".js-date-container" value="12 Agustus 2023")
+                .action-body.w-100
+                  .js-date-container
+          .col-12
+            .d-flex.justify-content-end
+              div
+                button(type="button").btn.btn-primary Tampilkan 
+                button(type="button").btn.btn-outline-danger Reset
+      .p-4.border.rounded 
+        .d-flex.flex-column.gap-4 
+          .text-end
+            a(href="/mitra/pengumuman-form.html").btn.btn-primary
+              +bx("bx-plus")
+              span Tambah Pengumuman
+          .border.rounded
+            table.table.table-striped.striped-custom
+              thead.subtitle.align-middle
+                tr
+                  td.px-4 Judul Pengumuman
+                  td Grup Penerima
+                  td Dibuat Oleh
+                  td Dibuat Pada
+                  td Status
+                  td.px-4.tex-center.cell-fit
+              tbody.body.align-middle
+                each i in ["success","warning","danger"]
+                  tr 
+                    td.px-4 Cell 
+                    td Cell 
+                    td Cell 
+                    td Cell 
+                    td 
+                      span.badge(class="text-bg-"+i)=i
+                    td.px-4.tex-center.cell-fit
+                      button.btn.btn-light.btn-sm.p-2.rounded-circle.action-head(type="button")
+                        +bx('bx-dots-horizontal-rounded')
+            +pagination

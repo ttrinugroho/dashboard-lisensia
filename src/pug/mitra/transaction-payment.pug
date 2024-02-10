@@ -1,0 +1,119 @@
+---
+title: "User - Transaction"
+currentUrl: "mitra/transaction-payment"
+header: "Payment"
+---
+extends ../layouts/layout
+block header
+  include ../partials/clean-header
+block content
+  .py-6.my-6
+    .container.py-5
+      .row.g-4
+        .col-8
+          .shadow-sm.rounded-2.py-6.px-5.d-flex.flex-column.gap-6
+            +progress_transaction(70)
+            .row.row-cols-3
+              .col
+                .form-check
+                  input#cc.form-check-input(type='radio' name='payment' value='cc' checked='')
+                  label.form-check-label(for='cc')
+                    .mb-4 Credit Card
+                    .d-flex.gap-2.flex-wrap
+                      .rounded
+                        img.w-100.h-auto.object-fit-cover(src="/img/payment/visa.png", alt="Visa")
+                      .rounded
+                        img.w-100.h-auto.object-fit-cover(src="/img/payment/mastercard.png", alt="Mastercard")
+              .col
+                .form-check
+                  input#tb.form-check-input(type='radio' name='payment' value='tb')
+                  label.form-check-label(for='tb')
+                    .mb-4 Transfer Bank
+                    .d-flex.gap-2.flex-wrap
+                      .rounded
+                        img.w-100.h-auto.object-fit-cover(src="/img/payment/bca.png", alt="BCA")
+                      .rounded
+                        img.w-100.h-auto.object-fit-cover(src="/img/payment/bni.png", alt="BNI")
+                      .rounded
+                        img.w-100.h-auto.object-fit-cover(src="/img/payment/cimb.png", alt="CIMB")
+                      .rounded.bg-light(style="width: 70px; height: 50px;").d-flex.align-items-center.justify-content-center
+                        span +5
+              .col
+                .form-check
+                  input#w.form-check-input(type='radio' name='payment' value='w')
+                  label.form-check-label(for='w')
+                    .mb-4 E-Wallet
+                    .d-flex.gap-2.flex-wrap
+                      .rounded
+                        img.w-100.h-auto.object-fit-cover(src="/img/payment/gopay.png", alt="Gopay")
+                      .rounded
+                        img.w-100.h-auto.object-fit-cover(src="/img/payment/ovo.png", alt="Ovo")
+                      .rounded
+                        img.w-100.h-auto.object-fit-cover(src="/img/payment/dana.png", alt="Dana")
+                      .rounded.bg-light(style="width: 70px; height: 50px;").d-flex.align-items-center.justify-content-center
+                        span +3
+            .row.gx-4.gy-5
+              .col-6
+                div
+                  label.form-label(for="card-number") Card Number<sup class="text-danger">*</sup>
+                  input#card-number.form-control(type='text' name='card-number' placeholder='xxx-xxx-xxx')
+              .col-3
+                div
+                  label.form-label(for="exp") Expired<sup class="text-danger">*</sup>
+                  input#exp.form-control(type='text' name='exp' placeholder='MM/YY')
+              .col-3
+                div
+                  label.form-label(for="cvv") CVV<sup class="text-danger">*</sup>
+                  input#cvv.form-control(type='text' name='cvv' placeholder='xxx')
+              .col-6
+                div
+                  label.form-label(for="chn") Card Holder Name<sup class="text-danger">*</sup>
+                  input#chn.form-control(type='text' name='chn' placeholder='Card Holder Name')
+              .col-6
+                div
+                  label.form-label(for="post-code") Postal Code<sup class="text-danger">*</sup>
+                  input#post-code.form-control(type='text' name='post-code' placeholder='Postal Code')
+            .d-flex.justify-content-end.gap-4 
+              button(type="button").btn.btn-outline-primary Back 
+              a(href="/mitra/transaction-review.html").btn.btn-primary Next
+        .col-4
+          .px-5.pt-8.pb-7.border-top.border-5.border-success.shadow-sm 
+            .pt-3.pb-8
+              button(type="button").btn.btn-warning.text-uppercase.text-white
+                +bx('bx-diamond')
+                span MONTHLY PREMIUM
+            .d-flex.flex-column.gap-4.pb-8
+              .d-flex.gap-4
+                .d-inline-flex.bg-success-subtle.rounded-circle.text-success.p-1.caption-small
+                  +bx('bx-check')
+                span 1 User
+              .d-flex.gap-4
+                .d-inline-flex.bg-success-subtle.rounded-circle.text-success.p-1.caption-small
+                  +bx('bx-check')
+                span 1 Proyek
+              .d-flex.gap-4
+                .d-inline-flex.bg-success-subtle.rounded-circle.text-success.p-1.caption-small
+                  +bx('bx-check')
+                span Tutorial LIMITED
+              .d-flex.gap-4
+                .d-inline-flex.bg-success-subtle.rounded-circle.text-success.p-1.caption-small
+                  +bx('bx-check')
+                span Historical Pengurusan
+              .d-flex.gap-4
+                .d-inline-flex.bg-success-subtle.rounded-circle.text-success.p-1.caption-small
+                  +bx('bx-check')
+                span Schedule Perizinan
+            .d-flex.flex-column.gap-4
+              .d-flex.justify-content-between
+                span Individual Subscription:
+                span.text-success IDR 500.000
+              .d-flex.justify-content-between
+                span Additonal Fee (PPN 11%):
+                span.text-success IDR 55.000
+              .d-flex.justify-content-between
+                span Discount (10%):
+                span.text-danger IDR 50.000
+              hr
+              .d-flex.justify-content-between.fw-semibold
+                span Subtotal
+                span IDR 505.000

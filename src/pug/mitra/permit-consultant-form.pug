@@ -1,0 +1,73 @@
+---
+title: "Mitra - Mitra Permit Consultant"
+currentUrl: 'mitra/permit-consultant'
+category: single
+header: "Mitra Permit Consultant"
+---
+extends ../layouts/layout
+block header
+  include ../partials/header-menu
+  include ../partials/sidebar-mitra-new
+block content
+  +main_dashboard()
+    .d-flex.flex-column.gap-4
+      .d-flex.justify-content-between.align-items-center
+        h6.mb-0 Mitra Permit Consultant
+        div
+          button.btn.btn-primary(type="button")
+            span Simpan
+      .row.row-cols-2.gy-4
+        .col
+          div
+            label.form-label(for='categori') Kategori Design Konsultan<sup class="text-danger">*</sup>
+            select.select.wide#categori(name="categori")
+              option(value="") Select Categori
+              option(value="A") A
+              option(value="B") B
+        .col
+          div
+            label.form-label(for="nama-design") Nama Design Konsultan<sup class="text-danger">*</sup>
+            input#nama-design.form-control(type='text' name='nama-design' placeholder="Nama-design Lengkap")
+        .col
+          div
+            label.form-label(for="email-konsultan") Alamat Email Konsultan<sup class="text-danger">*</sup>
+            input#email-konsultan.form-control(type='email' name='email-konsultan' placeholder="Alamat Email")
+        .col
+          div
+            label.form-label(for="nama-pic") Nama PIC Design Konsultan<sup class="text-danger">*</sup>
+            input#nama-pic.form-control(type='text' name='nama-pic' placeholder="Nama Lengkap")
+        .col
+          div
+            label.form-label(for='role') Role
+            select.select.wide#role(name="role")
+              option(value="") Select Role
+              option(value="laki") Admin
+              option(value="perempuan") Mitra
+        .col
+          div
+            label.form-label(for='') Nomor HP Design Konsultan<sup class="text-danger">*</sup>
+            .mb-0.position-relative
+              input.form-control.ps-7(type='tel' placeholder='+62 857-7067-1234')
+              .position-absolute.top-0.start-0.bottom-0.d-flex.px-2.flex-column.justify-content-center
+                .flag-id.border
+        .col
+          div
+            label.form-label(for="email-pic") Alamat Email PIC Design Konsultan<sup class="text-danger">*</sup>
+            input#email-pic.form-control(type='email' name='email-pic' placeholder="Alamat Email")
+        .col
+          .datepicker
+            .action-item
+              .action-head.w-100
+                label.form-label(for='') Tanggal Pendaftaran Permit<sup class="text-danger">*</sup>
+                input.form-control.js-date-range(type="text" data-single-month="true" data-container=".js-date-container" value="12 Agustus 2023")
+              .action-body.w-100
+                .js-date-container
+        .col
+          div
+            label.form-label(for="catatan") Catatan
+            textarea.form-control#catatan(name="catatan", cols="5", rows="3")
+        .col
+            div
+              label.form-label(for="cv") Company Profile Design Consultant
+              +file_upload('cv')
+        

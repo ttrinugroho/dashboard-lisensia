@@ -1,0 +1,22 @@
+---
+title: "User - Transaction"
+currentUrl: "mitra/transaction-success"
+header: "Success"
+---
+extends ../layouts/layout
+block header
+  include ../partials/clean-header
+block content
+  .py-6.my-6
+    .container.py-5
+      .row
+        .col-5.mx-auto
+          .px-8.pt-7.pb-8.shadow.text-center 
+            h3.fw-bold Congratulation!
+            .text-center.my-7
+              .d-inline-flex.justify-content-center.align-items-center.rounded-circle.p-2.bg-primary-subtle.text-primary(style="font-size: 65px")
+                +bx("bxs-check-circle")
+            h6 We have received your subscription payment!
+            p Your subscription has been successfully upgraded. Enjoy our premium feature! Please check your email
+              a(href="mailto:email@mail.com") (email@mail.com)
+              | to login to your premium account.

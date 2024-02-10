@@ -1,0 +1,85 @@
+---
+title: Admin - Dashboard
+currentUrl: admin-izin
+category: data-master
+header: Izin
+---
+extends ../layouts/layout
+block header
+  include ../partials/header-dashboard
+  include ../partials/sidebar-admin
+block content
+  +main_dashboard()
+    .d-flex.flex-column.gap-5
+      .d-flex.justify-content-end.align-items-center.gap-4
+        div
+          select#filter.select.right(name="filter")
+            option(value="" data-display="Filter") Filter
+            option(value="filter 1") Filter 1
+        .mb-0.position-relative.me-auto
+          input.form-control.bg-light.ps-7(type='text' placeholder='Search')
+          .position-absolute.top-0.start-0.d-flex.pt-2.px-2
+            +bx('bx-search')
+        div
+          button.btn.btn-outline-success(type="button")
+            +bx('bx-import')
+            span Import
+        div
+          button.btn.btn-primary(type="button" data-bs-toggle="modal" data-bs-target="#modal-form-izin")
+            +bx('bx-plus')
+            span Tambah Data
+      .border.rounded
+        table.table.table-striped.striped-custom.mb-0
+          thead.subtitle.align-middle
+            tr
+              td.py-4.px-4.cell-fit Urutan
+              td.py-4 Tempat Perizinan
+              td.py-4 Kategori Izin
+              td.py-4 Nama Izin
+              td.py-4.px-4.text-center
+          tbody.body.align-middle
+            each i,index in ['DKI Jakarta','kota Depok','Kota tangerang','DKI Jakarta','kota Depok','Kota tangerang']
+              tr
+                td.py-4.px-4= index + 1
+                td.py-4
+                  +bx('bx-grid-vertical')(class="align-middle")
+                  span.align-middle.text-capitalize=i
+                td.py-4 Izin Ketataruangan
+                td.py-4 IPPR / Izin Peruntukan dan Penggunaan Ruang
+                td.px-4.tex-center.cell-fit
+                  .action-item
+                    button.btn.btn-light.btn-sm.p-2.rounded-circle.action-head(type="button")
+                      +bx('bx-dots-horizontal-rounded')
+                    .action-body
+                      .p-2.d-flex.flex-column
+                        a.btn.action-item(href='/')
+                          +bx('bx-check-square')
+                          span Test Dropdown
+        +pagination
+block modal
+  +modal_accept('hapus-kategori')
+  +modal_with_close('modal-form-izin','Form Izin')
+    .p-4.d-flex.flex-column.gap-4
+      div
+        label.form-label(for='kategori') Kategori
+        select#kategori.select.wide(name="kategori")
+          option(value="") Kategori
+          option(value="2") Kategori 2
+          option(value="3") Kategori 3
+          option(value="4") Kategori 4
+          option(value="5") Kategori 5
+      div
+        label.form-label(for='nama') Nama Izin
+        input#nama.form-control(type='text' placeholder="Nama Izin")
+      div
+        label.form-label(for='contoh-format') Contoh Format
+        +file_upload('contoh-format')
+
+      div
+        label.form-label(for='urutan') Urutan
+        select#urutan.select.wide(name="urutan")
+          option(value="" data-display="1") 1
+          option(value="2") 2
+          option(value="3") 3
+          option(value="4") 4
+          option(value="5") 5

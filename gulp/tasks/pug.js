@@ -7,7 +7,7 @@ const plumber = require("gulp-plumber"),
 module.exports = function () {
   $.gulp.task("pug", () => {
     return $.gulp
-      .src("./src/pug/*.pug")
+      .src(["src/pug/**/*.pug","!src/pug/layouts/*","!src/pug/partials/*"])
       .pipe(plumber({ errorHandler: notify.onError("Error: <%= error.message %>") }))
       .pipe(frontMatter({ property: "data" }))
       .pipe(

@@ -1,0 +1,81 @@
+---
+title: "Mitra - Peraturan Perizinan"
+currentUrl: 'mitra/peraturan-perizinan'
+category: single
+header: "Peraturan Perizinan"
+---
+extends ../layouts/layout
+block header
+  include ../partials/header-menu
+  include ../partials/sidebar-mitra-new
+block content
+  +main_dashboard()
+    .d-flex.flex-column.gap-4
+      .p-4.bg-light.rounded
+        p.subtitle Filter Pencarian
+        .row.row-cols-4.gy-3
+          .col 
+            div
+              label.form-label(for="nama") Nama Peraturan
+              input#nama.form-control(type='text' name='nama' placeholder="Nama Peraturan")
+          .col
+            div
+              label.form-label(for='') Kategori Peraturan
+              select.select.wide#kategori(name="kategori")
+                option(value="") Select Peraturan
+                option(value="undang") Undang-undang
+                option(value="lingkungan") Lingkungan
+          .col
+            div
+              label.form-label(for='provinsi') Provinsi
+              select.select.wide#provinsi(name="provinsi")
+                option(value="") Select Lokasi
+                option(value="dki") DKI Jakarta
+                option(value="di") Yogyakarta
+          .col
+            div
+              label.form-label(for='lokasi') Kota/Kabupaten
+              select.select.wide#lokasi(name="lokasi")
+                option(value="") Select Lokasi
+                option(value="dki") DKI Jakarta
+                option(value="di") Yogyakarta
+          .col-12
+            .d-flex.justify-content-end
+              div
+                button(type="button").btn.btn-primary Tampilkan 
+                button(type="button").btn.btn-outline-danger Reset
+      .p-4.rounded.border
+        .d-flex.flex-column.gap-4 
+          .d-flex.align-items-center.gap-4
+            .rounded.px-2.py-3.gap-2.bg-primary-subtle.text-primary.subtitle.me-auto.d-flex.align-items-center.flex-grow-1
+              .d-flex.align-items-center
+                +bx('bx-info-circle')
+              span Sebagian peraturan telah diupload oleh Admin Lisensia. Silakan tambahkan aturan bila diperlukan
+            div 
+              button(type="button").btn.btn-primary
+                +bx("bx-plus")
+                span Tambah Peraturan
+          .border.rounded
+            table.table.table-striped.striped-custom
+              thead.subtitle.align-middle
+                tr
+                  td.px-4 Kategori Peraturan
+                  td Judul Peraturan
+                  td Deskripsi 
+                  td Kota/Kab
+                  td Tahun Dibuat
+                  td.px-4.tex-center.cell-fit
+              tbody.body.align-middle
+                each i in ["success","warning","danger"]
+                  tr 
+                    td.px-4 Cell 
+                    td Cell 
+                    td.elipsis-cell
+                      span(data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="A message which appears when a cursor is positioned over an icon, image, hyperlink, or other element in a graphical user interface.")
+                        | Deskripsi Singkat Tentang Perizinan
+                    td Cell 
+                    td Cell
+                    td.px-4.tex-center.cell-fit
+                      button.btn.btn-light.btn-sm.p-2.rounded-circle.action-head(type="button")
+                        +bx('bx-dots-horizontal-rounded')
+            +pagination

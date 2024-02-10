@@ -1,0 +1,64 @@
+---
+title: "Mitra - Peraturan Perizinan"
+currentUrl: 'mitra/peraturan-perizinan'
+category: single
+header: "Peraturan Perizinan"
+---
+extends ../layouts/layout
+block header
+  include ../partials/header-menu
+  include ../partials/sidebar-mitra-new
+block content
+  +main_dashboard()
+    .d-flex.flex-column.gap-4
+      .d-flex.justify-content-between.align-items-center
+        h6.mb-0 Tambah Data Pengumuman
+        div
+          button.btn.btn-primary(type="button")
+            span Save Profile
+      .row.row-cols-2.gy-3
+        .col 
+          div
+            label.form-label(for="nama") Nama Peraturan<sup class="text-danger">*</sup>
+            input#nama.form-control(type='text' name='nama' placeholder="Nama Peraturan")
+        .col 
+          div
+            label.form-label(for="nomor") Nomor Peraturan<sup class="text-danger">*</sup>
+            input#nomor.form-control(type='text' name='nomor' placeholder="Nomor Peraturan")
+        .col
+          div
+            label.form-label(for='') Kategori Peraturan<sup class="text-danger">*</sup>
+            select.select.wide#kategori(name="kategori")
+              option(value="") Select Peraturan
+              option(value="undang") Undang-undang
+              option(value="lingkungan") Lingkungan
+        .col
+          .datepicker
+            .action-item
+              .action-head.w-100
+                label.form-label(for='') Tanggal Terbit Peraturan<sup class="text-danger">*</sup>
+                input.form-control.js-date-range(type="text" data-single-month="true" data-container=".js-date-container" value="12 Agustus 2023")
+              .action-body.w-100
+                .js-date-container
+        .col
+          div
+            label.form-label(for='provinsi') Provinsi<sup class="text-danger">*</sup>
+            select.select.wide#provinsi(name="provinsi")
+              option(value="") Select Lokasi
+              option(value="dki") DKI Jakarta
+              option(value="di") Yogyakarta
+        .col
+          div
+            label.form-label(for='lokasi') Kota/Kabupaten<sup class="text-danger">*</sup>
+            select.select.wide#lokasi(name="lokasi")
+              option(value="") Select Lokasi
+              option(value="dki") DKI Jakarta
+              option(value="di") Yogyakarta
+        .col
+          div
+            label.form-label(for="about") Deskripsi Singkat Peraturan
+            textarea#about.form-control(type='text' name='about' placeholder="Deskripsi Peraturan")
+        .col
+          div
+            label.form-label(for='gambar') Dokumen Peraturan
+            +file_upload('gambar')

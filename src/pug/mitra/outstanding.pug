@@ -1,0 +1,193 @@
+---
+title: "mitra - Outstanding"
+currentUrl: "mitra/outstanding"
+category: laporan
+header: Outstanding
+---
+extends ../layouts/layout
+block header
+  include ../partials/header-menu
+  include ../partials/sidebar-mitra-new
+block content
+  +main_dashboard()
+    .d-flex.flex-column.gap-4
+      .p-4.bg-light.rounded
+        .d-flex.align-items-center.gap-4
+          .flex-grow-1
+            div
+              label.form-label Lokasi
+              select.select.wide
+                option(value='') PT HK Realtindo
+                option(value='1') PT Realtindo HK
+                option(value='2') HK Realtindo PT
+                option(value='3') Realtindo HK PT
+                option(value='4') HK PT Realtindo
+            .form-check.body-super
+              input#pemohon-default.form-check-input(type='checkbox' value='')
+              label.form-check-label.body(for='pemohon-default')
+                | Jadikan pemohon sebagai default
+          .flex-grow-1
+            div
+              label.form-label Proyek
+              select.select.wide
+                option(value='') Apartment Green Lake City
+                option(value='1') PT Realtindo HK
+                option(value='2') HK Realtindo PT
+                option(value='3') Realtindo HK PT
+                option(value='4') HK PT Realtindo
+            .form-check.body-super
+              input#lokasi-default.form-check-input(type='checkbox' value='')
+              label.form-check-label.body(for='lokasi-default')
+                | Jadikan lokasi sebagai default
+          div
+            button.btn.btn-primary
+              span Tampilkan
+      div
+        ul.nav.tab-fill.nav-tabs(role='tablist')
+          li.nav-item(role='presentation')
+            button#first-tab.nav-link.subtitle.active(data-bs-toggle='tab' data-bs-target='#first-tab-pane' type='button' role='tab' aria-controls='first-tab-pane' aria-selected='true') Izin Ketataruangan
+          li.nav-item(role='presentation')
+            button#second-tab.nav-link.subtitle(data-bs-toggle='tab' data-bs-target='#second-tab-pane' type='button' role='tab' aria-controls='second-tab-pane' aria-selected='false') IMB non Rumah Tinggal
+          li.nav-item(role='presentation')
+            button#third-tab.nav-link.subtitle(data-bs-toggle='tab' data-bs-target='#third-tab-pane' type='button' role='tab' aria-controls='third-tab-pane' aria-selected='false') Izin Lingkungan
+          li.nav-item(role='presentation')
+            button#fourth-tab.nav-link.subtitle(data-bs-toggle='tab' data-bs-target='#fourth-tab-pane' type='button' role='tab' aria-controls='fourth-tab-pane' aria-selected='false') Izin Kelayakan Bangunan
+          li.nav-item(role='presentation')
+            button#fifth-tab.nav-link.subtitle(data-bs-toggle='tab' data-bs-target='#fifth-tab-pane' type='button' role='tab' aria-controls='fifth-tab-pane' aria-selected='false') IMB Rumah Tinggal
+
+        .tab-content.border-top-0.border.rounded-bottom
+          #first-tab-pane.tab-pane.fade.show.active(role='tabpanel' aria-labelledby='first-tab' tabindex='0')
+            .p-4.d-flex.flex-column.gap-4
+              .d-flex.justify-content-end.align-items-center
+                .mb-0.position-relative
+                  input.form-control.ps-7(type='text' placeholder='Search')
+                  .position-absolute.top-0.start-0.d-flex.pt-2.px-2
+                    +bx('bx-search')
+              .rounded.border
+                table.table.table-striped.striped-custom.mb-0
+                  thead.subtitle.align-middle
+                    tr
+                      td.px-4 Jenis Izin
+                      td Update
+                      td.px-4.text-center Outstanding
+                  tbody.align-middle.body
+                    tr
+                      td.px-4 IRK
+                      td
+                      td.px-4.text-center
+                    tr
+                      td.px-4 PBG Gedung > 8 Lantai
+                      td
+                      td.px-4.text-center 
+                    tr
+                      td.px-4 Amdal
+                      td
+                      td.px-4.text-center 
+          #second-tab-pane.tab-pane.fade(role='tabpanel' aria-labelledby='second-tab' tabindex='2')
+            .p-4.d-flex.flex-column.gap-4
+              .d-flex.justify-content-end.align-items-center
+                .mb-0.position-relative
+                  input.form-control.ps-7(type='text' placeholder='Search')
+                  .position-absolute.top-0.start-0.d-flex.pt-2.px-2
+                    +bx('bx-search')
+              .rounded.border
+                table.table.table-striped.striped-custom.mb-0
+                  thead.subtitle.align-middle
+                    tr
+                      td.px-4 Jenis Izin
+                      td Update
+                      td.px-4.text-center Outstanding
+                  tbody.align-middle.body
+                    tr
+                      td.px-4 IRK
+                      td
+                      td.px-4.text-center
+                    tr
+                      td.px-4 PBG Gedung > 8 Lantai
+                      td
+                      td.px-4.text-center
+                    tr
+                      td.px-4 Amdal
+                      td
+                      td.px-4.text-center
+          #third-tab-pane.tab-pane.fade(role='tabpanel' aria-labelledby='third-tab' tabindex='3')
+            .p-4.d-flex.flex-column.gap-4
+              .d-flex.justify-content-end.align-items-center
+                .mb-0.position-relative
+                  input.form-control.ps-7(type='text' placeholder='Search')
+                  .position-absolute.top-0.start-0.d-flex.pt-2.px-2
+                    +bx('bx-search')
+              .rounded.border
+                table.table.table-striped.striped-custom.mb-0
+                  thead.subtitle.align-middle
+                    tr
+                      td.px-4 Jenis Izin
+                      td Update
+                      td.px-4.text-center Outstanding
+                  tbody.align-middle.body
+                    tr
+                      td.px-4 IRK
+                      td
+                      td.px-4.text-center
+                    tr
+                      td.px-4 PBG Gedung > 8 Lantai
+                      td
+                      td.px-4.text-center
+                    tr
+                      td.px-4 Amdal
+                      td
+                      td.px-4.text-center
+          #fourth-tab-pane.tab-pane.fade(role='tabpanel' aria-labelledby='fourth-tab' tabindex='4')
+            .p-4.d-flex.flex-column.gap-4
+              .d-flex.justify-content-end.align-items-center
+                .mb-0.position-relative
+                  input.form-control.ps-7(type='text' placeholder='Search')
+                  .position-absolute.top-0.start-0.d-flex.pt-2.px-2
+                    +bx('bx-search')
+              .rounded.border
+                table.table.table-striped.striped-custom.mb-0
+                  thead.subtitle.align-middle
+                    tr
+                      td.px-4 Jenis Izin
+                      td Update
+                      td.px-4.text-center Outstanding
+                  tbody.align-middle.body
+                    tr
+                      td.px-4 IRK
+                      td
+                      td.px-4.text-center
+                    tr
+                      td.px-4 PBG Gedung > 8 Lantai
+                      td
+                      td.px-4.text-center
+                    tr
+                      td.px-4 Amdal
+                      td
+                      td.px-4.text-center
+          #fifth-tab-pane.tab-pane.fade(role='tabpanel' aria-labelledby='fifth-tab' tabindex='5')
+            .p-4.d-flex.flex-column.gap-4
+              .d-flex.justify-content-end.align-items-center
+                .mb-0.position-relative
+                  input.form-control.ps-7(type='text' placeholder='Search')
+                  .position-absolute.top-0.start-0.d-flex.pt-2.px-2
+                    +bx('bx-search')
+              .rounded.border
+                table.table.table-striped.striped-custom.mb-0
+                  thead.subtitle.align-middle
+                    tr
+                      td.px-4 Jenis Izin
+                      td Update
+                      td.px-4.text-center Outstanding
+                  tbody.align-middle.body
+                    tr
+                      td.px-4 IRK
+                      td
+                      td.px-4.text-center
+                    tr
+                      td.px-4 PBG Gedung > 8 Lantai
+                      td
+                      td.px-4.text-center
+                    tr
+                      td.px-4 Amdal
+                      td
+                      td.px-4.text-center

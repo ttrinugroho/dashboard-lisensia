@@ -1,0 +1,107 @@
+---
+title: "Mitra - BAST Produk Permit"
+currentUrl: 'mitra/bast-product-permit'
+category: single
+header: "BAST Produk Permit"
+---
+extends ../layouts/layout
+block header
+  include ../partials/header-menu
+  include ../partials/sidebar-mitra-new
+block content
+  +main_dashboard()
+    .d-flex.flex-column.gap-5
+      .p-4.bg-light.rounded
+        p.subtitle Filter Pencarian
+        .row.row-cols-4.gy-3
+          .col 
+            div
+              label.form-label(for="judul") Judul BAST
+              input#judul.form-control(type='text' name='judul' placeholder="Judul BAST")
+          .col 
+            div
+              label.form-label(for="nama") Nama Mitra
+              input#nama.form-control(type='text' name='nama' placeholder="Nama Mitra")
+          .col
+            .datepicker
+              .action-item
+                .action-head.w-100
+                  label.form-label(for='') Tanggal BAST
+                  input.form-control.js-date-range(type="text" data-single-month="true" data-container=".js-date-container" value="12 Agustus 2023")
+                .action-body.w-100
+                  .js-date-container
+          .col
+            div
+              label.form-label(for='status') Status Verifikasi
+              select.select.wide#status(name="status")
+                option(value="") Select Status
+                option(value="nonaktif") Non Aktif
+                option(value="aktif") Aktif
+          .col-12
+            .d-flex.justify-content-end
+              .d-flex.gap-4
+                button(type="button").btn.btn-primary Tampilkan 
+                button(type="button").btn.btn-outline-danger Reset
+      .p-4.border.rounded.d-flex.flex-column.gap-4
+        h6 Pengajuan BAST Produk Permit dari Mitra Permit Konsultan
+        .rounded.border
+          table.table.table-striped.striped-custom
+            thead.subtitle.align-middle
+              tr
+                td.px-4 Judul BAST
+                td Nama Mitra
+                td.text-center File Produk BAST
+                td Tanggal BAST
+                td.text-center.cell-fit.px-4 verifikasi
+            tbody.align-middle.body
+              each i,index in [1,2,3]
+                tr
+                  td.px-4 Cell 
+                  td HK Realtindo
+                  td.text-center
+                    button.btn.btn-light.rounded-pill
+                      +bx('bx-download')
+                      span Unduh
+                  td Cell
+                  td.text-center.cell-fit.px-4
+                    .d-flex.gap-4
+                      button(type="button").btn-sm.btn.btn-outline-success
+                        +bx("bx-check")
+                        span Terima
+                      button(type="button").btn-sm.btn.btn-outline-danger
+                        +bx("bx-check")
+                        span Tolak
+          
+        h6 Pengajuan BAST Produk Permit dari Mitra Permit Konsultan
+        .rounded.border
+          table.table.table-striped.striped-custom
+            thead.subtitle.align-middle
+              tr
+                td.px-4 Judul BAST
+                td Nama Mitra
+                td.text-center File Produk BAST
+                td Tanggal BAST
+                td.text-center.cell-fit.px-4 Status
+            tbody.align-middle.body
+              tr
+                td.px-4 Cell 
+                td HK Realtindo
+                td.text-center
+                  button.btn.btn-light.rounded-pill
+                    +bx('bx-download')
+                    span Unduh
+                td Cell
+                td.text-center.cell-fit.px-4
+                  button(type="button").btn-sm.btn.btn-outline-success.border-success
+                    span Diterima
+              tr
+                td.px-4 Cell 
+                td HK Realtindo
+                td.text-center
+                  button.btn.btn-light.rounded-pill
+                    +bx('bx-download')
+                    span Unduh
+                td Cell
+                td.text-center.cell-fit.px-4
+                  button(type="button").btn-sm.btn.btn-outline-danger.border-danger
+                    span Ditolak

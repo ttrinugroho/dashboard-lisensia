@@ -1,0 +1,25 @@
+---
+title: Mitra - Dashboard
+currentUrl: 'mitra/dashboard'
+category: single
+header: Dashboard
+---
+extends ../layouts/layout
+block header
+  include ../partials/header-menu
+  include ../partials/sidebar-mitra-new
+block content
+  +main_dashboard()
+    +progress_step(100)
+    .mt-5.pb-8.pb-8
+      .row
+        .col-5.mx-auto
+          .px-8.pt-7.pb-8.shadow.text-center 
+            h3.fw-bold Congratulation!
+            .text-center.my-7
+              .d-inline-flex.justify-content-center.align-items-center.rounded-circle.p-2.bg-primary-subtle.text-primary(style="font-size: 65px")
+                +bx("bxs-check-circle")
+            h6 Pesanan Izin Anda Siap Dikerjakan oleh Tim Lisensia!
+            p Terimakasih sudah memilih Lisensia sebagai partner perizinan anda. Tim Lisensia akan menghubungi anda untuk teknis kerjasama.
+            .mt-7.text-center
+              button(type="button").btn.btn-outline-primary Kembali ke Dashboard

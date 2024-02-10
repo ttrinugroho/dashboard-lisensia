@@ -1,0 +1,97 @@
+---
+title: Mitra - Dashboard
+currentUrl: 'mitra/dashboard'
+category: single
+header: Dashboard
+---
+extends ../layouts/layout
+block header
+  include ../partials/header-menu
+  include ../partials/sidebar-mitra-new
+block content
+  +main_dashboard()
+    +progress_step(85)
+    .mt-5.mb-8.pb-8 
+      .col-10.mx-auto
+        .row.gy-4
+          .col-3
+            div
+              label.form-label Kategori Pemohon
+              .form-control.fw-semibold.border-0 Pemohon
+          .col-3 
+            div
+              label.form-label Nomor KBLI
+              .form-control.fw-semibold.border-0 12345678909876
+          .col-3 
+            div
+              label.form-label Nama Pemohon
+              .form-control.fw-semibold.border-0 Arga Dinata
+          .col-3 
+            div
+              label.form-label Nomor Hanphone
+              .form-control.fw-semibold.border-0 0857-7654-7651
+          .col-12 
+            div
+              label.form-label(for="") Pilih Lokasi
+              .maps-container
+                iframe(frameborder='0' height='250' width='auto' style='width: 100%;' scrolling='no' marginheight='0' marginwidth='0' src='https://maps.google.com/maps?width=320&height=320&hl=en&q=-6.1754083,106.824584&t=&z=14&ie=UTF8&iwloc=B&output=embed')
+          .col-3 
+            div
+              label.form-label Luas Tanah
+              .form-control.fw-semibold.border-0 250m2
+          .col-9
+          .col-3 
+            div
+              label.form-label Nama Proyek
+              .form-control.fw-semibold.border-0 Gedung Kantor
+          .col-3 
+            div
+              label.form-label Jumlah Lantai
+              .form-control.fw-semibold.border-0 13 Lantai
+          .col-3 
+            div
+              label.form-label Jumlah Basement
+              .form-control.fw-semibold.border-0 5 Basement
+          .col-3 
+            div
+              label.form-label Luas Total Bangunan
+              .form-control.fw-semibold.border-0 232m2
+          .col-3 
+            div
+              label.form-label Jenis Proyek
+              .form-control.fw-semibold.border-0 Kantor
+          .col-3 
+            div
+              label.form-label Fungsi Kegiatan Proyek
+              .form-control.fw-semibold.border-0 Mix Used
+          .col-3 
+            div
+              label.form-label Tempat Pengurusan Izin
+              .form-control.fw-semibold.border-0 DKI Jakarta
+          .col-3
+          .col-12 
+            div 
+              label.form-label(for='item') Rincian Harga Penawaran
+              .border.rounded.mt-2.bg-white.py-1
+                table.table.table-no-bottom-border.mb-0
+                  thead.subtitle.align-middle
+                    tr
+                      th.px-4.text-start Item Permit
+                      th.px-4.text-end Harga Permit
+                  tbody.body.align-middle
+                    tr 
+                      td.px-4.text-start Cell
+                      td.px-4.text-end Rp. 50.000.000
+                    tr 
+                      td.px-4.text-start Cell
+                      td.px-4.text-end Rp. 50.000.000
+                    tr 
+                      td.px-4.text-start Cell
+                      td.px-4.text-end Rp. 50.000.000
+                    tr.table-primary
+                      td.text-bg-primary.px-4.text-start Cell
+                      td.text-bg-primary.px-4.text-end Rp. 150.000.000
+block modal
+  +footer_back
+    button.btn.btn-light.px-8(type="button") Back
+    a.btn.btn-primary.ms-4.px-8(href="dashboard-step-6.html") Next

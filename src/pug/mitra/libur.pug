@@ -1,0 +1,90 @@
+---
+title: "Mitra - Hari Libur"
+currentUrl: 'mitra/libur'
+category: single
+header: "Hari Libur"
+---
+extends ../layouts/layout
+block header
+  include ../partials/header-menu
+  include ../partials/sidebar-mitra-new
+block content
+  +main_dashboard()
+    .d-flex.flex-column.gap-5
+      .p-4.bg-light.rounded
+        p.subtitle Filter Pencarian
+        .row.row-cols-4.gy-3
+          .col 
+            div
+              label.form-label(for="nama") Nama Admin
+              input#nama.form-control(type='text' name='nama' placeholder="Nama Admin")
+          .col
+            div
+              label.form-label(for='kategori') Kategori Libur
+              select.select.wide#kategori(name="kategori")
+                option(value="") Select Kategori
+                option(value="nonaktif") Kategori A
+                option(value="aktif") Kategori B
+          .col
+            div
+              label.form-label(for='bulan') Bulan
+              select.select.wide#bulan(name="bulan")
+                option(value="") Select Bulan
+                option(value="jan") Januari
+                option(value="feb") Februari
+          .col-auto
+            label.form-label &nbsp;
+            .d-flex.justify-content-end
+              .d-flex.gap-4
+                button(type="button").btn.btn-primary Tampilkan 
+                button(type="button").btn.btn-outline-danger Reset
+      .p-4.border.rounded 
+        .d-flex.flex-column.gap-4   
+          .d-flex.align-items-end.gap-4
+            .d-flex.align-items-center.px-2.rounded.border.bg-primary-subtle.text-primary
+                .d-inline-flex.p-2
+                  +bx('bx-info-circle')
+                span.subtitle Sebagian hari libur telah diupload oleh Admin Lisensia. Silakan tambahkan libur bila diperlukan
+            div
+              button.btn.btn-outline-primary(type="button")
+                span Kalender
+            div.flex-shrink-0
+              a.btn.btn-primary(href="libur-form.html")
+                +bx('bx-plus')
+                span Tambah Hari Libur
+            .action-item
+              button.btn.btn-light.p-2.elv-1.action-head(type="button")
+                +bx('bx-dots-horizontal-rounded')
+              .action-body.p-2
+                a.btn.action-item(href="#")
+                  +bx('bx-pencil')
+                  span Edit
+                button.btn.action-item.text-danger(type="button" data-bs-toggle="modal" data-bs-target="#proyek")
+                  +bx('bx-trash')
+                  span Hapus
+          .border.rounded.mt-2.py-1.bg-white
+            table.table.table-no-bottom-border.mb-0
+              thead.subtitle.align-middle
+                tr
+                  th.px-4 Nama Hari Libur
+                  th.py-3 Kategori Libur
+                  th.py-3 Mulai Libur
+                  th.py-3 Akhir Libur
+                  th.px-4.cell-fit
+              tbody.body.align-middle
+                each i,index in [1,2,3,4,5]
+                  tr
+                    td.px-4 Cell
+                    td Cell
+                    td Cell
+                    td Cell
+                    td.px-4.cell-fit
+                      .action-item
+                        button.btn.btn-light.btn-sm.p-2.rounded-circle.action-head(type="button")
+                          +bx('bx-dots-horizontal-rounded')
+                        .action-body
+                          .p-2.d-flex.flex-column
+                            a.btn.action-item(href='/')
+                              +bx('bx-check-square')
+                              span Test Dropdown
+          +pagination
