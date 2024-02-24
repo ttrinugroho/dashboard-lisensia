@@ -1,0 +1,56 @@
+---
+title: "Admin - Dashboard"
+currentUrl: "admin-potongan-mitra"
+category: settings
+header: "Potongan Mitra"
+---
+extends layouts/layout
+block header
+  include partials/header-dashboard
+  include partials/sidebar-admin
+block content
+  +main_dashboard()
+    .d-flex.flex-column.gap-5
+      .d-flex.justify-content-end.gap-4
+        div
+          select#filter.select.right(name="filter")
+            option(value="" data-display="Filter") Filter
+            option(value="filter 1") Filter 1
+        .mb-0.position-relative
+          input.form-control.bg-light.ps-7(type='text' placeholder='Search')
+          .position-absolute.top-0.start-0.d-flex.pt-2.px-2
+            +bx('bx-search')
+      .border.rounded
+        table.table.table-striped.striped-custom.mb-0
+          thead.subtitle.align-middle
+            tr
+              td.py-4.px-4 Kota
+              td.py-4 Jenis Izin
+              td.py-4 Jumlah Lantai
+              td.py-4 Kegiatan
+              td.py-4 Total Harga
+              td.py-4 Potongan
+              td.py-4.text-center %
+              td.py-4.px-4.text-center.cell-fit
+          tbody.body.align-middle
+            each data in [['Surabaya','Rumah Tinggal'],['Jakarta Barat','Rumah Tinggal'],['Cirebon', 'Perkantoran'],['Cirebon', 'Rumah Kost'],['Bandung','Ruko'],['Pekan Baru', 'Rukan']]
+              tr 
+                td.px-4=data[0]
+                td PBG
+                td 15 Lantai
+                td=data[1]
+                td Rp10.000.000
+                td Rp2.000.000
+                td.text-center 20%
+                td.px-4.text-center.cell-fit
+                  button.btn.text-primary.p-2(type="button" data-bs-toggle="modal" data-bs-target="#modal-potongan-mitra")
+                    +bx('bx-pencil')
+block modal
+  +modal_with_close('modal-potongan-mitra','Edit Potongan Mitra')(title="Simpan")
+    .mb-8 
+      label.form-label(for='potongan') Potongan (%)
+      .position-relative 
+        input#potongan.form-control.pe-6(type='text' placeholder="Jumlah Lantai")
+        .position-absolute.end-0.px-3.py-2.top-0
+          span %
+    .py-8

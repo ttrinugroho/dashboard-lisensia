@@ -55,16 +55,16 @@ block content
                         a.btn.action-item(data-bs-toggle="modal" href="#modal-form-izin")
                           +bx('bx-file-blank')
                           span Lihat detail
-                        a.btn.action-item(href='/admin-izin-syarat-form.html')
+                        button.btn.action-item(data-bs-toggle="modal" data-bs-target="#modal-syarat-izin")
                           +bx('bx-check-square')
                           span Syarat Izin
-                        a.btn.action-item(href='/admin-izin-langkah-form.html')
+                        button.btn.action-item(data-bs-toggle="modal" data-bs-target="#modal-langkah-izin")
                           +bx('bx-list-check')
                           span Langkah Izin
-                        a.btn.action-item(href='/admin-check-list-izin-pemda.html')
+                        button.btn.action-item(data-bs-toggle="modal" data-bs-target="#modal-check-izin-pemda")
                           +bx('bx-user-check')
                           span Izin Pemda
-                        a.btn.action-item(href='/admin-check-list-flow.html')
+                        button.btn.action-item(data-bs-toggle="modal" data-bs-target="#modal-checklis-flow-izin")
                           +bx('bx-analyse')
                           span Flow Izin
                         button.btn.action-item.text-danger(type="button" data-bs-toggle="modal" data-bs-target="#hapus-kategori")
@@ -98,3 +98,138 @@ block modal
           option(value="3") 3
           option(value="4") 4
           option(value="5") 5
+  +modal_with_close('modal-syarat-izin','Form Syarat Izin')(class="modal-xl" title="Save" btn="btn-primary")
+    .row.row-cols-2
+      .col
+        div
+          label.form-label(for='place') Tempat Perizinan
+          input#place.form-control(type='text' disabled value="DKI Jakarta" placeholder="Tempat Perizinan")
+      .col
+        div
+          label.form-label(for='jenis') Jenis Izin
+          input#jenis.form-control(type='text' disabled value="KRK Non Rumah Tinggal" placeholder="Jenis Izin")
+    .border.rounded
+      table.table.table-striped.striped-custom.mb-0
+        thead.subtitle.align-middle
+          tr
+            td.py-4.px-4 Kategori
+            td.py-4 Persyaratan
+            td.py-4 Format Isian
+            td.py-4 Contoh Dokumen
+            td.py-4 Tampil Permit
+            td.py-4.px-4.text-center.fit-cell
+        tbody.body.align-middle
+          tr
+            td.px-4
+              div
+                select#kategori.select(name="kategori")
+                  option(value="") Dok. Admin
+                  option(value="1") Kategori 1
+                  option(value="2") Kategori 2
+                  option(value="3") Kategori 3
+                  option(value="4") Kategori 4
+            td
+              div
+                input#syarat.form-control(type='text' placeholder="Surat Permohonan")
+            td
+              div
+                input#format.form-control(type='file' placeholder="Surat Permohonan")
+            td
+              div
+                input#contoh.form-control(type='file' placeholder="Surat Permohonan")
+            td
+              div
+                select#termit.select(name="termit")
+                  option(value="") Tampilkan
+                  option(value="1") Sembunyikan
+            td.px-4.fit-cell
+              button.btn.text-danger
+                +bx('bx-trash')
+      .text-end.p-4
+        button.btn.btn-primary
+          +bx('bx-plus')
+          span Tambah Data
+  +modal_with_close('modal-langkah-izin','Form Langkah Izin')(class="modal-xl" title="Save" btn="btn-primary")
+    .row.row-cols-2
+      .col
+        div
+          label.form-label(for='place') Tempat Perizinan
+          input#place.form-control(type='text' disabled value="DKI Jakarta" placeholder="Tempat Perizinan")
+      .col
+        div
+          label.form-label(for='jenis') Jenis Izin
+          input#jenis.form-control(type='text' disabled value="KRK Non Rumah Tinggal" placeholder="Jenis Izin")
+    .border.rounded
+      table.table.table-striped.striped-custom.mb-0
+        thead.subtitle.align-middle
+          tr
+            td.py-4.px-4
+              | Langkah-langkah
+              span.fw-normal (Maks 100 Karakter)
+            td.py-4.cell-fit Lama Pengurusan (Hari)
+            td.py-4.px-4.text-center
+        tbody.body.align-middle
+          tr
+            td
+              div
+                textarea.form-control(name="langkah-1", cols="30", placeholder="Tulis langkah-langkah disini")
+            td
+              div
+                input#format.form-control(type='text' placeholder="3")
+            td.px-4.cell-fit
+              button.btn.text-danger
+                +bx('bx-trash')
+          tr
+            td
+              div
+                textarea.form-control(name="langkah-1", cols="30", placeholder="Tulis langkah-langkah disini")
+            td
+              div
+                input#format.form-control(type='text' placeholder="3")
+            td.px-4.cell-fit
+              button.btn.text-danger
+                +bx('bx-trash')
+      .text-end.p-4
+        button.btn.btn-primary
+          +bx('bx-plus')
+          span Tambah Data
+  +modal_with_close('modal-check-izin-pemda','Checklist Izin Pemda')(class="modal-lg" title="Save" btn="btn-primary")
+    .row.row-cols-2.gy-3
+      .col
+        div
+          label.form-label(for='kategori') Kategori
+          input#kategori.form-control(type='text' disabled value="Izin Tataruangan" placeholder="Tempat Perizinan")
+      .col
+        div
+          label.form-label(for='izin') Izin
+          input#izin.form-control(type='text' disabled value="KRK Non Rumah Tinggal" placeholder="Jenis Izin")
+      .col-12 
+        div
+          label.form-label(for="link") Link Pemda<sup class="text-danger">*</sup>
+          input#link.form-control(type='text' name='link' placeholder='Link Pemda')
+      .col
+        div
+          label.form-label(for='gambar') Checklist Syarat Izin Pemda
+          +file_upload('gambar')
+          .invalid-feedback
+            | Dokumen yang diunggah harus berformat PDF
+  +modal_with_close('modal-checklis-flow-izin','Checklist Flow Izin')(class="modal-lg" title="Save" btn="btn-primary")
+    .row.row-cols-2.g-3
+      .col
+        div
+          label.form-label(for='kategori') Kategori
+          input#kategori.form-control(type='text' disabled value="Izin Tataruangan" placeholder="Tempat Perizinan")
+      .col
+        div
+          label.form-label(for='izin') Izin
+          input#izin.form-control(type='text' disabled value="KRK Non Rumah Tinggal" placeholder="Jenis Izin")
+      .col-12
+        div
+          label.form-label(for="link") Link Flow Izin<sup class="text-danger">*</sup>
+          input#link.form-control(type='text' name='link' placeholder='Link Flow Izin')
+      .col
+        div
+          label.form-label(for='gambar') Checklist Syarat Flow Izin
+          +file_upload('gambar')
+          .invalid-feedback.d-block
+            | Dokumen yang diunggah harus berformat PDF

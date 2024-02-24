@@ -19,10 +19,7 @@ block content
           input.form-control.bg-light.ps-7(type='text' placeholder='Search')
           .position-absolute.top-0.start-0.d-flex.pt-2.px-2
             +bx('bx-search')
-        div
-          a.btn.btn-primary(type="button" href="/admin-pengguna-form.html")
-            +bx('bx-plus')
-            span Tambah Data
+        
       div
         ul.nav.tab-fill.nav-tabs(role='tablist')
           li.nav-item(role='presentation')
@@ -37,6 +34,10 @@ block content
         .tab-content.border-top-0.border.rounded-bottom
           #first-pane.tab-pane.fade.show.active(role='tabpanel' aria-labelledby='home-tab' tabindex='0')
             .p-4.d-flex.flex-column.gap-4
+              .text-end 
+                button.btn.btn-primary(type="button" data-bs-toggle="modal" data-bs-target="#form-admin")
+                  +bx('bx-plus')
+                  span Tambah Data
               .border.rounded
                 table.table.table-striped.striped-custom.mb-0
                   thead.subtitle.align-middle
@@ -78,6 +79,10 @@ block content
                 +pagination
           #second-pane.tab-pane.fade(role='tabpanel' aria-labelledby='home-tab' tabindex='1')
             .p-4.d-flex.flex-column.gap-4
+              .text-end 
+                button.btn.btn-primary(type="button" data-bs-toggle="modal" data-bs-target="#form-admin")
+                  +bx('bx-plus')
+                  span Tambah Data
               .d-flex.align-items-center.px-2.rounded.border.bg-primary-subtle.text-primary
                 .d-inline-flex.p-2
                   +bx('bx-info-circle')
@@ -128,6 +133,10 @@ block content
                 +pagination
           #third-pane.tab-pane.fade(role='tabpanel' aria-labelledby='home-tab' tabindex='1')
             .p-4.d-flex.flex-column.gap-4
+              .text-end 
+                button.btn.btn-primary(type="button" data-bs-toggle="modal" data-bs-target="#form-mitra")
+                  +bx('bx-plus')
+                  span Tambah Data
               .d-flex.align-items-center.px-2.rounded.border.bg-primary-subtle.text-primary
                 .d-inline-flex.p-2
                   +bx('bx-info-circle')
@@ -176,3 +185,127 @@ block content
 
 block modal
   +modal_accept('hapus-pengguna')(title="pengguna")
+  +modal_with_close('form-admin','Form Super Admin')(class="modal-lg" title="Save" btn="btn-primary")
+    .row.gy-3
+      .col-12 
+        div
+          label.form-label(for='jenis') Jenis Pengguna
+          select#jenis.select.wide(name="jenis")
+            option(value="" data-display="Pilih Jenis Pengguna") Pilih Jenis Pengguna
+            option(value="limited") Limited
+      .col-6 
+        div
+          label.form-label(for='nama') Nama
+          input#nama.form-control(type='text' placeholder="Nama")
+      .col-6 
+        div
+          label.form-label(for='perusahaan') Perusahaan
+          input#perusahaan.form-control(type='text' placeholder="Perusahaan")
+      .col-6 
+        div
+          label.form-label(for='mobile') Nomor HP
+          .mb-0.position-relative
+            input.form-control.ps-7(type='tel' placeholder='+62 857-7067-1234')
+            .position-absolute.top-0.start-0.bottom-0.d-flex.px-2.flex-column.justify-content-center
+              .flag-id.border
+      .col-6 
+        div
+          label.form-label(for='email') Email
+          input#email.form-control(type='email' placeholder="Email")
+      .col-6 
+        div
+          label.form-label(for='tutorial') Akses
+          select#tutorial.select.wide(name="tutorial")
+            option(value="" data-display="Pilih Akses")
+            option(value="tidak") Nonactive
+      .col-6 
+        div
+          label.form-label(for='tutorial') Status
+          select#tutorial.select.wide(name="tutorial")
+            option(value="" data-display="Aktif") Active
+            option(value="tidak") Nonactive
+      .col-12 
+        div 
+          label.form-label(for='tutorial') Lokasi
+        div 
+          iframe(frameborder='0' height='250' width='auto' style='width: 100%;' scrolling='no' marginheight='0' marginwidth='0' src='https://maps.google.com/maps?width=320&height=320&hl=en&q=-6.1754083,106.824584&t=&z=14&ie=UTF8&iwloc=B&output=embed')
+      .col-12 
+        div
+          label.form-label(for="password") Kata sandi<sup class="text-danger">*</sup>
+          .position-relative
+            button.text-light-emphasis.btn.p-2.position-absolute.top-0.end-0(type="button" data-password="password")
+              +bx('bx-show')
+            input#password.form-control(type='password' name='password' placeholder='Kata sandi')
+      .col-12 
+        div
+          label.form-label(for="confirm-password") Konfirmasi Kata sandi<sup class="text-danger">*</sup>
+          .position-relative
+            button.text-light-emphasis.btn.p-2.position-absolute.top-0.end-0(type="button" data-password="confirm-password")
+              +bx('bx-show')
+            input#confirm-password.form-control(type='password' name='confirm-password' placeholder='Kata sandi baru')
+  +modal_with_close('form-mitra','Form Mitra')(class="modal-lg" title="Save" btn="btn-primary")
+    .row.gy-3
+      .col-12 
+        div
+          label.form-label(for='jenis') Jenis Pengguna
+          select#jenis.select.wide(name="jenis")
+            option(value="" data-display="Pilih Jenis Pengguna") Pilih Jenis Pengguna
+            option(value="limited") Limited
+      .col-6 
+        div
+          label.form-label(for='nama') Nama
+          input#nama.form-control(type='text' placeholder="Nama")
+      .col-6 
+        div
+          label.form-label(for='perusahaan') Perusahaan
+          input#perusahaan.form-control(type='text' placeholder="Perusahaan")
+      .col-6 
+        div
+          label.form-label(for='mobile') Nomor HP
+          .mb-0.position-relative
+            input.form-control.ps-7(type='tel' placeholder='+62 857-7067-1234')
+            .position-absolute.top-0.start-0.bottom-0.d-flex.px-2.flex-column.justify-content-center
+              .flag-id.border
+      .col-6 
+        div
+          label.form-label(for='email') Email
+          input#email.form-control(type='email' placeholder="Email")
+      .col-6 
+        div
+          label.form-label(for='tutorial') Akses
+          select#tutorial.select.wide(name="tutorial")
+            option(value="" data-display="Pilih Akses")
+            option(value="tidak") Nonactive
+      .col-6 
+        div
+          label.form-label(for='tutorial') Status
+          select#tutorial.select.wide(name="tutorial")
+            option(value="" data-display="Aktif") Active
+            option(value="tidak") Nonactive
+      .col-6 
+        div
+          label.form-label(for='mitra') Upload Mitra
+          +file_upload('mitra')
+      .col-6 
+        div
+          label.form-label(for='company') Company Profile
+          +file_upload('company')
+      .col-12 
+        div 
+          iframe(frameborder='0' height='250' width='auto' style='width: 100%;' scrolling='no' marginheight='0' marginwidth='0' src='https://maps.google.com/maps?width=320&height=320&hl=en&q=-6.1754083,106.824584&t=&z=14&ie=UTF8&iwloc=B&output=embed')
+      .col-12
+        div 
+          label.form-label(for='tutorial') Lokasi
+        div
+          label.form-label(for="password") Kata sandi<sup class="text-danger">*</sup>
+          .position-relative
+            button.text-light-emphasis.btn.p-2.position-absolute.top-0.end-0(type="button" data-password="password")
+              +bx('bx-show')
+            input#password.form-control(type='password' name='password' placeholder='Kata sandi')
+      .col-12 
+        div
+          label.form-label(for="confirm-password") Konfirmasi Kata sandi<sup class="text-danger">*</sup>
+          .position-relative
+            button.text-light-emphasis.btn.p-2.position-absolute.top-0.end-0(type="button" data-password="confirm-password")
+              +bx('bx-show')
+            input#confirm-password.form-control(type='password' name='confirm-password' placeholder='Kata sandi baru')

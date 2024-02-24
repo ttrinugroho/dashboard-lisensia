@@ -1,0 +1,120 @@
+---
+title: "Admin - Dashboard"
+currentUrl: "admin-standar-harga"
+category: single
+header: "Standar Harga"
+---
+extends layouts/layout
+block header
+  include partials/header-dashboard
+  include partials/sidebar-admin
+block content
+  +main_dashboard()
+    .d-flex.flex-column.gap-5 
+      .d-flex.align-items-center.gap-4
+        div
+          select#filter.select(name="filter")
+            option(value="") Filter
+            option(value="filter-1") Filter1
+            option(value="filter-2") Filter2
+        .mb-0.position-relative
+          input.form-control.ps-7(type='text' placeholder='Search')
+          .position-absolute.top-0.start-0.d-flex.pt-2.px-2
+            +bx('bx-search')
+        .ms-auto 
+          button(type="button" data-bs-toggle="modal" data-bs-target="#modal-form-standar-harga").btn.btn-primary
+            +bx('bx-plus')
+            span Tambah Data
+      .border.rounded
+        table.table.table-striped.striped-custom.table-no-bottom-border
+          thead.subtitle.align-middle
+            tr
+              td.px-4 Kota
+              td Jenis Izin
+              td Jumlah Lantai
+              td Kegiatan 
+              td Total Harga
+              td.text-center Status
+              td.text-center.cell-fit
+          tbody.body.align-middle
+            each data in [['Surabaya','Rumah Tinggal'],['Jakarta Barat','Rumah Tinggal'],['Cirebon', 'Perkantoran'],['Cirebon', 'Rumah Kost'],['Bandung','Ruko'],['Pekan Baru', 'Rukan']]
+              tr 
+                td.px-4=data[0]
+                td PBG 
+                td 15 Lantai 
+                td=data[1]
+                td Rp10.000.000
+                td.text-center 
+                  span.badge.border.border-success.text-success Active 
+                td.text-center.cell-fit
+                  .action-item
+                    button.btn.btn-light.btn-sm.p-2.rounded-circle.action-head(type="button")
+                      +bx('bx-dots-horizontal-rounded')
+                    .action-body
+                      .p-2.d-flex.flex-column
+                        buttton.btn.action-item(type="button"  data-bs-toggle="modal" data-bs-target="#order-list")
+                          +bx('bx-file-blank')
+                          span Lihat Detail Harga
+                        button.btn.action-item.text-danger(type="button" data-bs-toggle="modal" data-bs-target="#cancel-order")
+                          +bx('bx-trash')
+                          span Hapus
+block modal
+  +modal_with_close('modal-form-standar-harga','Form Standar Harga')(title="Save" btn="btn-primary")
+    .row.g-4 
+      .col-12 
+        div
+          label.form-label(for='kota') Kota/Kabupaten
+          select#kota.select.wide(name="kota")
+            option(value="") Jakarta Selatan
+            option(value="2") Jakarta Pusat
+            option(value="3") Jakarta Utara
+            option(value="4") Jakarta Barat
+            option(value="5") Jakarta Timur
+      .col-6 
+        div
+          label.form-label(for='kategori') Kategori Standar Harga
+          select#kategori.select.wide(name="kategori")
+            option(value="") Rumah Tinggal
+            option(value="2") Perkantoran
+            option(value="3") Ruko
+            option(value="4") Rukan
+            option(value="5") Rumah Kost
+      .col-6 
+        div
+          label.form-label(for='jenis') Jenis Perizinan
+          select#jenis.select.wide(name="jenis")
+            option(value="") PBG
+            option(value="2") PBG A
+            option(value="3") PBG B
+            option(value="4") PBG C
+            option(value="5") PBG D
+      .col-6 
+        div
+          label.form-label(for='jumlah-lantai') Jumlah Lantai
+          input#jumlah-lantai.form-control(type='text' placeholder="Jumlah Lantai")
+      .col-6 
+        div
+          label.form-label(for='kegiatan') Kegiatan
+          select#kegiatan.select.wide(name="kegiatan")
+            option(value="") Rumah Tinggal
+            option(value="2") Perkantoran
+            option(value="3") Ruko
+            option(value="4") Rukan
+            option(value="5") Rumah Kost
+      .col-12 
+        div
+          label.form-label(for='kegiatan') Rincian Harga Penawaran
+          .border.rounded
+            table.table.table-striped.striped-custom.mb-0
+              thead.subtitle.align-middle
+                tr
+                  td.px-4 Item Permit
+                  td.px-4.text-end Harga Permit
+              tbody.body.align-middle
+                each data in [1,2,3]
+                  tr 
+                    td.px-4 Cell 
+                    td.px-4.text-end Rp. 50.000.000
+                tr 
+                  td.px-4.text-bg-primary.text-end Total:
+                  td.px-4.text-bg-primary.text-end Rp. 150.000.000

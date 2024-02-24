@@ -21,7 +21,7 @@ block content
           .position-absolute.top-0.start-0.d-flex.pt-2.px-2
             +bx('bx-search')
         div
-          button.btn.btn-primary(type="button")
+          button.btn.btn-primary(type="button" data-bs-toggle="modal" data-bs-target="#modal-form-kategori-peraturan")
             +bx('bx-plus')
             span Tambah Data
       .border.rounded
@@ -55,7 +55,7 @@ block content
         +pagination
 block modal
   +modal_accept('hapus-kategori')
-  +modal_with_close('modal-form-kategori-peraturan','Form Kategori Peraturan')
+  +modal_with_close('modal-form-kategori-peraturan','Form Dokumen')(title="Tambah")
     .p-4.d-flex.flex-column.gap-4
       div
         label.form-label(for='kategori') Pilih Kategori

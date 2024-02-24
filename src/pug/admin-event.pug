@@ -21,7 +21,7 @@ block content
           .position-absolute.top-0.start-0.d-flex.pt-2.px-2
             +bx('bx-search')
         div
-          button.btn.btn-primary(type="button")
+          button.btn.btn-primary(type="button" data-bs-toggle="modal" data-bs-target="#modal-form-berita")
             +bx('bx-plus')
             span Tambah Data
       .border.rounded
@@ -53,3 +53,13 @@ block content
                         span Hapus
 block modal
   +modal_accept('hapus-event')
+  +modal_with_close('modal-form-berita','Form Event')(class="modal-lg" title="Save" btn="btn-primary")
+    div
+      label.form-label(for='judule') Judul Event
+      input#judule.form-control(type='text' placeholder="Judul Event")
+    div
+      label.form-label(for='isi') Deskripsi Event
+      #editor
+    div
+      label.form-label(for='gambar') Upload Gambar
+      +file_upload('gambar')

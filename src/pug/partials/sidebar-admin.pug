@@ -6,7 +6,10 @@
 
   .nav-item
     hr.border-top
-
+  .nav-item
+    +alink('admin-standar-harga')
+      +bx("bx-money")
+      span Standar Harga
   .nav-item
     +alink('admin-order-perizinan')
       +bx("bx-basket")
@@ -43,6 +46,8 @@
         span Paket
       +alink('admin-point-mitra')
         span Point Mitra
+      +alink('admin-potongan-mitra')
+        span Potongan Mitra
       +alink('admin-hubungkan-whatsapp')
         span Hubungkan Whatsapp
       +alink('admin-contact-us')

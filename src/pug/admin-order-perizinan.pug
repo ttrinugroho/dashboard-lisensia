@@ -101,7 +101,7 @@ block content
                       +bx('bx-dots-horizontal-rounded')
                     .action-body
                       .p-2.d-flex.flex-column
-                        a.btn.action-item(href='/admin-order-list.html')
+                        buttton.btn.action-item(type="button"  data-bs-toggle="modal" data-bs-target="#order-list")
                           +bx('bx-file-blank')
                           span List Order
                         button.btn.action-item.text-danger(type="button" data-bs-toggle="modal" data-bs-target="#cancel-order")
@@ -109,4 +109,45 @@ block content
                           span Cancel Order
         +pagination()
 block modal
-  +modal_accept('cancel-order')(type="membatalkan" title="order")
+  +modal_accept('cancel-order')(type="Batalkan" title="order")
+  +modal_with_close('order-list','Order ORD23040001')(class="modal-lg" title="Save" btn="btn-primary")
+    .p-4.bg-light
+      .row.row-cols-3
+        .col
+          div
+            label.form-label(for='pemohon') Pemohon
+            input#pemohon.form-control(type='text' disabled value="PT HK Realtindo")
+        .col
+          div
+            label.form-label(for='tanah') Tanah/Lokasi
+            input#tanah.form-control(type='text' disabled value="Rasuna Said")
+        .col
+          div
+            label.form-label(for='proyek') Proyek
+            input#proyek.form-control(type='text' disabled value="Apartment Green Lake City")
+    div
+      p.subtitle.mb-2 Checklist Pengurusan Izin
+      .border.rounded
+        table.table.table-striped.striped-custom.mb-0
+          thead.subtitle.align-middle
+            tr
+              td.py-3.px-4 Kategori Perizinan
+              td.py-3 Jenis Perizinan
+              td.py-3.px-4.cell-fit Pilih Mitra
+          tbody.body.align-middle
+            tr
+              td.px-4 IMB Rumah Tinggal
+              td IMB/PBG Rumah Tinggal
+              td.px-4
+                select.select
+                  option(value="") Pilih Mitra
+                  option(value="1") Mitra 1
+                  option(value="2") Mitra 2
+            tr
+              td.px-4 IMB non Rumah Tinggal
+              td Izin Bongkar
+              td.px-4.cell-fit
+                select.select.right
+                  option(value="") Pilih Mitra
+                  option(value="1") Mitra 1
+                  option(value="2") Mitra 2

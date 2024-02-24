@@ -56,7 +56,7 @@ block content
         +pagination
 block modal
   +modal_accept('hapus-event')
-  +modal_with_close('modal-form-peraturan','Form Peraturan')
+  +modal_with_close('modal-form-peraturan','Form Peraturan')(title="Tambah")
     .p-4.d-flex.flex-column.gap-4
       div
         label.form-label(for='provinsi') Provinsi
@@ -75,19 +75,22 @@ block modal
           option(value="4") Jakarta Barat
           option(value="5") Jakarta Timur
       div
-        label.form-label(for='kategori') Kategori
-        select#kategori.select.wide(name="kategori")
-          option(value="") Jakarta Selatan
-          option(value="2") Jakarta Pusat
-          option(value="3") Jakarta Utara
-          option(value="4") Jakarta Barat
-          option(value="5") Jakarta Timur
+        label.form-label(for='nama-kategori') Nama Kategori
+        input#nama-kategori.form-control(type='text' placeholder="Nama Kategori")
       div
         label.form-label(for='nama-peraturan') Nama Peraturan
         input#nama-peraturan.form-control(type='text' placeholder="Nama Peraturan")
       div
         label.form-label(for='description') Deskripsi
         textarea#description.form-control(rows='3')
+      div 
+        .datepicker
+          .action-item
+            .action-head.w-100
+              label.form-label(for='mulai') Tanggal
+              input.form-control.js-date-range(type="text" data-single-month="true" data-container=".js-date-container" value="12 Agustus 2023")
+            .action-body.w-100
+              .js-date-container
       div
         label.form-label(for='contoh-format') Contoh Format
         +file_upload('contoh-format')
